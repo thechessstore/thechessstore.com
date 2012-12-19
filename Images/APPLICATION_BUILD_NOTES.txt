@@ -1,0 +1,96 @@
+THE CHESS STORE
+
+Google Web Fonts used:
+Text for main and subtitles – Neuton
+Body text – Arial
+
+Please note this app is being designed more for web presence than mobile devices. Only 7% of his traffic is mobile based. I'm new to the interactivity aspect of this so please feel free to invent or change my ideas as to how things would move below. :)
+
+PreView: Please use Hide/Fold effect when loading is complete if needed. http://jqueryui.com/hide/
+
+
+Three promotional slide show screens are all clickable/touchable - also link slideshow frame boxes on lower right of slides...client needs to send content for those.
+
+Products will scroll horizontally left and right when browsing
+
+Wishlist and Track My Order: When clicked these can open as popup windows with order info or wishlist info (see Shopping Cart template for style)
+
+Browse function for categories on homepage: See arrow indicator buttons for left to right scrolling navigation. Those will appear as the user touches over that section or mouses over. 
+
+Open Submenus in Navigation function: 
+Recommend Accordian style effect to open a close menus. Keep submenu open until user makes a selection or clicks/taps elsewhere in the screen. it'd be cool to do a fun open/close anim for that. 
+
+
+categoriesTemplate & Layered Search/Filters:
+
+Note from client re: category/subcategory pages:
+____________________________________________________
+
+There are two types of category pages that we need. One is a category page that shows products and the other is a category page that shows more categories (subcategories). For example, for Chess Pieces (wood), we would have a subcategory page like the current site that would display the models side by side and then the layered search as you have it for the different attributes. If they click a specific model thumb link in the main body of the page that would take them to a category page that would have a list (2 column like you show) of all the different chess set variations (size and wood combo) in that model. If they choose a set of variables under layered search, they would get all of the choices based on the criteria they chose.
+____________________________________________________
+
+
+If user doesn’t interact w/ layered search, allow infinite scroll of all items on categories page.
+
+“Your Selections” -- Reflects the user’s choices made in the layered search. If the selection boxes are unchecked, those items should be removed from the products shown.
+
+The layered search should stay with the customer as they scroll within a window.
+ 
+POPUP MODULES:
+See Add to Cart
+Wishlist
+
+
+productTemplate:
+
+Write a review – see format of Review form on Nordstrom.com. Client has a current form in place for reference: http://www.thechessstore.com/popup.pl?verb=INIT_REVIEWS&pg=*taf&fl=pop_reviews_ajax&product=SGB275VM
+
+Link the ##Reviews (next to stars) to the Reviews. Reviews will be listed at bottom of each product page.
+
+“You might also like” and “Accessories” only appear if they’re available or that item.
+
+____________________________________________________
+
+Note from client about You Might Also Like and Accessories sections:
+
+ 
+Don’t use any default listed (products that make no sense at all), if we don’t have suggestions for these two areas, we don’t show anything. These Sections shouldn’t appear on the page.
+
+____________________________________________________
+
+
+Tabs lower left of Product Page:
+
+Please use the accordion effect to open and close.See ProductTemplate_OpenTab for what this looks like). 
+
+Close position is page default.
+
+If specific product doesn’t have Specifications, Video, Warrenty ect. don’t show tabs for those items.
+
+If the specific product doesn’t have any need for tabs at all (like a book for example) don’t show the tab system at all.
+
+Use magnification on image like current site does when user rolls over image.
+
+User links from Product Page back to Search Results/Category page with the link up top, far left, above the product title.
+
+Use Sale or Discount tags/labels where necessary. Jeff has original graphics if you need those or I can make them.
+
+
+
+Technical Questions from Jeff, The Chess Store, that I couldn’t answer:
+
+1. Can Jeff edit the main category names on the homepage? (In the content area)
+2. Can Jeff edit the HTML text in the top header area? Especially the highlighted text showing special offers ect.
+
+3. Can text built into a slideshow be searchable? (on Nordstrom.com it looked like it was in HTML)
+4. Should we remove Chess Set Builder from menu to build in Phase 2?
+
+5. Regarding Layered Search, Jeff wasn’t sure to what depth it should go. Will probably need testing.
+
+6. Jeff asked if we needed to have descriptive paragraphs of text on his home page (currently there are none). He’s concerned the SEO/Google won’t find him. Right now he’s ranking second in searches. If he needs to add text for the images, or a main paragraph of descriptive text for this reason, he’d prefer it’s buried (under footer maybe). If it needs to go into the design we’ll need to redo the homepage to accommodate.
+
+
+
+
+
+ 
