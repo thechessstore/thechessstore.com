@@ -89,6 +89,14 @@ Technical Questions from Jeff, The Chess Store, that I couldn’t answer:
 
 6. Jeff asked if we needed to have descriptive paragraphs of text on his home page (currently there are none). He’s concerned the SEO/Google won’t find him. Right now he’s ranking second in searches. If he needs to add text for the images, or a main paragraph of descriptive text for this reason, he’d prefer it’s buried (under footer maybe). If it needs to go into the design we’ll need to redo the homepage to accommodate.
 
+--------------
+
+Colors:
+                bg                text
+Top nav       
+
+
+
 
 
 

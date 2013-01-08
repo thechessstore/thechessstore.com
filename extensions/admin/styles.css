@@ -19,13 +19,21 @@ class can also be applied to a 1 item per row list.
 .alignLeft	{text-align:left;}
 .alignCenter	{text-align:center;}
 
+
+.valignMiddle	{vertical-align:middle;}
+
+/* hideForApp or Vstore gets toggle on based on account/domain setting. toggle on instead of off to avoid popping. */
+/* .showForVstoreOnly, .showForAppOnly	{display:none;} - not used yet. soon. */
+
 .displayNone	{display:none;}
 
 /* for use on lists where no bullets, indents, etc are needed. add on ul */
 /* .plainList	{margin:0; padding:0; list-style:none;} - deprecated. use list classes below */
 
-button.ui-button	{padding:2px 4px;} /* some default padding to add breathing room when text-only isn't used. keeps button small. */
-button.ui-button-text	{padding:2px 4px;} /*jqueryui uses a lot of spans for buttons. i like buttons. this is to handle padding on text only buttons */
+
+/* for small buttons */
+.smallButton .ui-button-text	{padding:2px 4px !important; line-height:normal !important; font-size:.85em;}
+
 .ui-selectee	{cursor:pointer;}
 
 .appMessage P	{padding:0; margin:0;} /* used in app messaging for warnings, alerts, successes, etc */
@@ -36,6 +44,33 @@ button.ui-button-text	{padding:2px 4px;} /*jqueryui uses a lot of spans for butt
 
 .lookLikeLink, .ui-widget-content a	{cursor:pointer; color:#0066CC;} /* apply to text that has an onClick but needs to look like an href. override ui style which isn't as noticeable. */
 .pointer	{cursor:pointer;} /* apply to anything that is clickable via an onClick. */
+
+
+
+/* some positioning classes */
+
+.positionRelative	{position:relative;}
+.positionAbsolute	{position:absolute;}
+.positionTop	{top:0;}
+.positionRight	{right:0;}
+.positionLeft	{left:0;}
+.positionBottom	{bottom:0;}
+
+
+/*
+Generic text styles
+*/
+.lineThrough	{text-decoration:line-through}
+.uppercase	{text-transform:uppercase;}
+.spacedLetters	{letter-spacing:.6em;}
+
+/* use these to indicate severity, where red is the highest alert state and green is the 'everything is dandy' state. */
+.red		{color:#660000;}
+.orange	{color:#F60;}
+.yellow	{color:#CC0;}
+.blue	{color:#000066;}
+.green	{color:#006600;}
+
 
 
 /*
@@ -62,6 +97,7 @@ using these shared margins will help make the UI more consistent.
 .marginBottom	{margin-bottom:12px;}
 .stdMargin	{margin:12px;}
 .stdPadding	{padding:12px;}
+.smallPadding	{padding:4px;}
 section.marginBottom	{margin-bottom:36px;} /* use on a section tag to divide portions of the page. */
 
 
@@ -99,8 +135,6 @@ Use this in a table where you want clear separation between rows and cells. This
 
 
 
-
-
 /* a global 'handle' class for now. for consistency. 
 later if more variety is needed, we can either create exceptions or more rules to handle all cases.
 */
@@ -113,6 +147,8 @@ later if more variety is needed, we can either create exceptions or more rules t
 /* loading classes. do NOT change class name. change styling as needed */
 .loadingBG	{background:url(images/loading.gif) no-repeat center center  !important; min-height:100px; min-width:100px;}
 li.loadingBG, tr.loadingBG	{background:url(images/wait.gif) no-repeat center center  !important; min-height:25px; min-width:25px;}
+
+.wait	{display:inline-block; background:url(images/small_wait.gif) no-repeat center center  !important; min-height:16px; min-width:16px;}
 
 
 /* This gets applied to the parent containers around each tabs content area.  */
@@ -276,7 +312,7 @@ styles for lists that are selectable
 a background on the target element may require an implicit override here.
 */
 .ui-selecting, .finderProdlist li.ui-selecting { background: #eee; }
-.ui-selected , .finderProdlist li.ui-selected{ background: #def; !important }
+.ui-selected , .finderProdlist li.ui-selected{ background: #def !important ;}
 .targetList .ui-selected { background: #none; } /* add a class of targetList around any drop point so that the 'selected' background goes away */
 
 /* if a list is selectable and sortable, add an element with a handle class */
@@ -379,7 +415,7 @@ inline block and width are added so that elements that are empty will be more ob
 be sure to put a title on any element that is editable, for usability (hints to use on an empty field)
 the :before and :after handle the crop (for lack of a better word) lines on the top left and bottom right corners.
 */
-.editEnabled	{display:inline-block; min-width:50px; position:relative; padding:0px; margin:2px;} 
+.editEnabled	{display:inline-block; min-width:50px; position:relative; padding:0px; margin:2px; min-height:12px;} 
 .editEnabled input	{border:0; padding:0; margin:0;}
 .editEnabled:before	{content:''; width:8px; height:8px; position:absolute; border-left:1px solid #cccccc; border-top:1px solid #cccccc; top:-2px; left:-2px;}
 .editEnabled:after	{content:''; width:8px; height:8px; position:absolute; border-right:1px solid #cccccc; border-bottom:1px solid #cccccc; bottom:-2px; right:-2px;}
@@ -406,4 +442,76 @@ PAGE STYLES
 /* styles for csv import pages */
 .page section	{display:block; padding:0; margin:0 0 24px 0}
 .page fieldset	{border:none; padding:0; margin-bottom:12px;}
+
+
+/*
+
+########################################################
+
+
+DEBUGGER
+
+########################################################
+
+*/
+
+#debugPanel	{position:fixed; bottom:0; right:0; left:0; height:125px; border:1px solid #cccccc;}
+#debugPanel .debugContent	{position:relative; z-index:10; padding:12px;}
+#debugPanel .debugBG	{
+	height:125px;
+	z-index:1;
+	position:absolute; top:0; bottom:0; left:0; right:0;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.35)), color-stop(100%,rgba(0,0,0,0.1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59000000', endColorstr='#1a000000',GradientType=0 ); /* IE6-9 */
+	}
+
+
+
+
+
+
+
+/*
+
+########################################################
+
+
+SHARED FORM STYLES
+
+########################################################
+
+*/
+
+
+/*
+for use in forms where the label is the row container.
+put the prompt into a span
+<label><span>prompt</span>input</label>
+*/
+.labelsAsBreaks label, .labelsAsBreaks div.label	{display:block; margin:6px 0; vertical-align:top;}
+.labelsAsBreaks label span	{padding-right:12px; display:inline-block; vertical-align:top;}
+
+/* 
+within a labelAsBreaks, if a row of inputs is needed, add a div with class label and clearfix around it and an h4 as the header. 
+add floatleft to each label inside the div
+see shipping panel in product editor for example
+*/
+
+.labelsAsBreaks div.label h4	{margin:0; padding-right:24px; float:left; width:160px;}
+.labelsAsBreaks div.label label	{ margin:0 12px 0 0;}
+
+/* optional classes to put on same container that has labelsAsBreaks. Will make labels into a column and input into another, horizontally lined up. */
+.alignedLabels label span	{width:30%;}
+.alignedInputs textarea,
+.alignedInputs input[type=email],
+.alignedInputs input[type=text]	{width:65%;}
+
+.alignedInputs input[type=number], 
+.alignedInputs select	{max-width:65%;} /* shrink to fit widest option, but stay under threshold */
+
 
