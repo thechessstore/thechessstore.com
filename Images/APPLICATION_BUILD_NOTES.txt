@@ -92,8 +92,17 @@ Technical Questions from Jeff, The Chess Store, that I couldn’t answer:
 --------------
 
 Colors:
-                bg                text
-Top nav       
+                     bg                        text           border                     accent text       secondary text        Heading/divider          search text
+container         chessboard            
+page                white                       6f290f
+Top nav             5b3c28                      f4d57a
+banner                                                                                      d35120             837a75                 bb9f56                   a4a391
+button           gradient                     white            white
+menu nav           gradient                   773f26                 e9e1ce
+promotion          gradient                   white
+Filter box          402514                    white             c0b393                    d3511d                                      f6da87
+content                                       591c09                                      d45020                                      9d7c4f
+
 
 
 

@@ -22,7 +22,7 @@ var convertSessionToOrder = function() {
 	var theseTemplates = new Array("productListTemplateCheckout","checkoutSuccess","checkoutTemplateBillAddress","checkoutTemplateShipAddress","checkoutTemplateOrderNotesPanel","checkoutTemplateCartSummaryPanel","checkoutTemplateShipMethods","checkoutTemplatePayOptionsPanel","checkoutTemplate","checkoutTemplateAccountInfo","invoiceTemplate","productListTemplateInvoice");
 	var r = {
 	vars : {
-		willFetchMyOwnTemplates : app.vars._clientid == '1pc' ? false : true, //1pc loads it's templates locally to avoid XSS issue.
+		willFetchMyOwnTemplates : true,
 		containerID : '',
 		legends : {
 			"chkoutPreflight" : "Contact Information",
@@ -120,7 +120,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Checkout Initiated']);
 				},
 			dispatch : function(stid,qty,tagObj)	{
 //				app.u.dump(' -> adding to PDQ. callback = '+callback)
-				app.model.addDispatchToQ({"_cmd":"cartItemUpdate","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
+				app.model.addDispatchToQ({"_cmd":"updateCart","stid":stid,"quantity":qty,"_tag": tagObj},'immutable');
 				app.ext.store_checkout.u.nukePayPalEC(); //nuke paypal token anytime the cart is updated.
 				}
 			 },
@@ -142,7 +142,7 @@ _gaq.push(['_trackEvent','Checkout','App Event','Checkout Initiated']);
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.calls.showCheckoutForm.init');
 				app.ext.convertSessionToOrder.u.handlePanel('chkoutPreflight');
 				$('#chkoutSummaryErrors').empty(); //clear any existing global errors.
-				return this.dispatch(); //at least 5 calls will be made here. maybe 6.
+				return this.dispatch();; //at least 5 calls will be made here. maybe 6.
 				},
 			dispatch : function()	{
 //r is set to 5 because five of these calls are fixed.
@@ -197,11 +197,6 @@ if server validation passes, the callback handles what to do next (callback is m
 //cc and cv should never go. They're added as part of cartPaymentQ
 				delete serializedCheckout['payment/cc'];
 				delete serializedCheckout['payment/cv'];
-/* these fields are in checkout/order create but not 'supported' fields. don't send them */				
-				delete serializedCheckout['giftcard'];
-				delete serializedCheckout['want/bill_to_ship_cb'];
-				delete serializedCheckout['coupon'];				
-				
 				app.calls.cartSet.init(serializedCheckout);
 
 //if paypalEC is selected, skip validation and go straight to paypal. Upon return, bill and ship will get populated automatically.
@@ -259,13 +254,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed']);
 		init : {
 			onSuccess : function()	{
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
-//1PC can't load the templates remotely. causes XSS issue.
-				if(app.vars._clientid == '1pc')	{
-					//Do Nothing.  BAD 1pc, go home.
-				}
-				else {
-					app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_nice/templates.html',theseTemplates);
-				}
+				app.model.fetchNLoadTemplates('extensions/checkout_nice/templates.html',theseTemplates);
 				var r; //returns false if checkout can't load due to account config conflict.
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');
 				if(!zGlobals || $.isEmptyObject(zGlobals.checkoutSettings))	{
@@ -296,7 +285,6 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed']);
 				else if(app.u.getParameterByName('_testharness'))	{
 					$('#globalMessaging').toggle(true).append(app.u.formatMessage({'message':'<strong>Excellent!<\/strong> Your store meets the requirements to use this one page checkout extension.','uiIcon':'circle-check','uiClass':'success'}));
 					$('#'+app.ext.convertSessionToOrder.vars.containerID).removeClass('loadingBG').append("");
-					r = true;
 					}
 				else	{
 					r = true;
@@ -556,11 +544,9 @@ _gaq.push(['_trackEvent','Checkout','App Event','Server side validation failed']
 //					app.u.dump(" -> into itemsCount IF");
 					app.ext.convertSessionToOrder.panelContent.preflight();
 //					app.u.dump(" -> GOT HERE!");
-					var auth = app.u.determineAuthentication();
-					app.u.dump(" -> auth: "+auth);
+//					app.u.dump(" -> softAuth: "+app.u.determineAuthentication());
 //until it's determined whether shopper is a registered user or a guest, only show the preflight panel.
-//currently, admin during checkout isn't 'supported'. meaning nothing special happens but if we don't discount it, only passive checkout is avail
-					if(auth != 'none' && auth != 'admin')	{
+					if(app.u.determineAuthentication() != 'none')	{
 //						app.u.dump(' -> authentication passed. Showing panels.');
 //						app.u.dump(' -> want/bill_to_ship = '+app.data.cartDetail['want/bill_to_ship']);
 //create panels. notes and ship address are hidden by default.
@@ -874,7 +860,7 @@ _gaq.push(['_trackEvent','Checkout','Milestone','Shipping method validated']);
 				var safeid,$holder;
 				if($payMethod.val())	{
 					switch($payMethod.val())	{
-//for payment supplemental, can't use required='required' because they're not removed from the DOM if the user switches from echeck to cc (and at that point, they're no longer required
+						
 						case 'CREDIT':
 							var $paymentCC = $('#payment-cc').removeClass('mandatory');
 							var $paymentMM = $('#payment-mm').removeClass('mandatory');
@@ -886,21 +872,8 @@ _gaq.push(['_trackEvent','Checkout','Milestone','Shipping method validated']);
 							if($paymentCV.val().length < 3){$paymentCV.parent().addClass('mandatory'); valid = 0; errMsg += '<li>please enter a cvv/cid #<\/li>'}
 							break;
 						
-						case 'ECHECK':
-							$('#paymentea').parent().removeClass('mandatory');
-							$('#paymenter').parent().removeClass('mandatory');
-							$('#paymenten').parent().removeClass('mandatory');
-							$('#paymenteb').parent().removeClass('mandatory');
-							$('#paymentes').parent().removeClass('mandatory');
-							$('#paymentei').parent().removeClass('mandatory');
-							if(!$('#paymentEA').val())	{valid = 0; errMsg += '<li>please enter account #<\/li>'; $('#paymentEA').parent().addClass('mandatory')}
-							if(!$('#paymentER').val())	{valid = 0; errMsg += '<li>please enter routing #<\/li>'; $('#paymentER').parent().addClass('mandatory')}
-							if(!$('#paymentEN').val())	{valid = 0; errMsg += '<li>please enter account name<\/li>'; $('#paymentEN').parent().addClass('mandatory')}
-							if(!$('#paymentEB').val())	{valid = 0; errMsg += '<li>please enter bank name<\/li>'; $('#paymentEB').parent().addClass('mandatory')}
-							if(!$('#paymentES').val())	{valid = 0; errMsg += '<li>please enter bank state<\/li>'; $('#paymentES').parent().addClass('mandatory')}
-							if(!$('#paymentEI').val())	{valid = 0; errMsg += '<li>please enter check #<\/li>'; $('#paymentEI').parent().addClass('mandatory')}
-							break;
-
+//eCheck has required=required on it, so the browser will validate. if this causes no issues, we'll start moving all forms over to this instead of 
+//js validation. browser based validation is new at this point. (2012-06-22)
 						
 						case 'PO':
 							var $paymentPO = $('#payment-po').removeClass('mandatory');

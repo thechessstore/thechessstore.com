@@ -4,8 +4,8 @@ app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
 
 
-//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_passive/extension.js']);
-app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_nice/extension.js']);
+app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_passive/extension.js']);
+//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_nice/extension.js']);
 app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -21,26 +21,10 @@ app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','
 //app.rq.push(['extension',0,'magicToolBox','extensions/imaging_magictoolbox.js','startExtension']); // (not working yet - ticket in to MTB)
 
 
-//spec_LLTRSHIRT017_0
+
 //add tabs to product data.
-//tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2012 update ###
-	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
-		if($tabContainer.length)	{
-			if($tabContainer.data("tabs")){} //tabs have already been instantiated. no need to be redundant.
-			else	{
-				$("div.tabContent",$tabContainer).each(function (index) {
-					$(this).attr("id", "spec_"+safePID+"_" + index.toString());
-					})
-				$(".tabs li a",$tabContainer).each(function (index) {
-					$(this).attr('id','href_'+safePID+"_" + index.toString());
-					$(this).attr("href", "app://#spec_"+safePID+"_" + index.toString());
-					});
-				$tabContainer.localtabs();
-				}
-			}
-		else	{} //couldn't find the tab to tabificate.
+	$( ".tabbedProductContent",$('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).tabs();
 	}]);
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.httpURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
@@ -88,28 +72,21 @@ app.u.initMVC = function(attempts){
 	var includesAreDone = true;
 
 //what percentage of completion a single include represents (if 10 includes, each is 10%).
-	var percentPerInclude = (100 / app.vars.rq.length);  
+	var percentPerInclude = Math.round((100 / app.vars.rq.length));  
 	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
-	var percentComplete = Math.round(resourcesLoaded * percentPerInclude); //used to sum how many includes have successfully loaded.
-	//make sure precentage is never over 100
-	if(percentComplete > 100 )	{
-		percentComplete = 100;
-		}
-	
+	var percentComplete = resourcesLoaded * percentPerInclude; //used to sum how many includes have successfully loaded.
+
 	$('#appPreViewProgressBar').val(percentComplete);
 	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
 
 	if(resourcesLoaded == app.vars.rq.length)	{
-
-		var clickToLoad = false;
-		if(clickToLoad){
-			$('#loader').fadeOut(1000);
-			$('#clickToLoad').delay(1000).fadeIn(1000).click(function() {
-				app.u.loadApp();
-			});
-		} else {
-			app.u.loadApp();
-			}
+//instantiate controller. handles all logic and communication between model and view.
+//passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
+//tmp is a throw away variable. app is what should be used as is referenced within the mvc.
+		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
+		var tmp = new zController(app);
+//instantiate wiki parser.
+		myCreole = new Parse.Simple.Creole();
 		}
 	else if(attempts > 50)	{
 		app.u.dump("WARNING! something went wrong in init.js");
@@ -123,15 +100,6 @@ app.u.initMVC = function(attempts){
 
 	}
 
-app.u.loadApp = function() {
-//instantiate controller. handles all logic and communication between model and view.
-//passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
-//tmp is a throw away variable. app is what should be used as is referenced within the mvc.
-		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
-		var tmp = new zController(app);
-//instantiate wiki parser.
-		myCreole = new Parse.Simple.Creole();
-}
 
 
 //Any code that needs to be executed after the app init has occured can go here.
