@@ -112,20 +112,25 @@ small {
   /*color: ;*/ }
 
 a:link {
-  color: orange; }
+  color: #d35120; }
 a:visited {
-  color: purple; }
+  color: #a42c00; }
 a:hover {
   color: black; }
 a:active {
   color: black; }
 
+fieldset {
+  border-width: 0;
+  margin: 0;
+  padding: 0; }
+
 /* General */
-.clearfixScss, .headerTop {
+.clearfixScss, .headerTop, .headerBottom {
   clear: both;
   overflow: hidden; }
 
-.clearfixScss:after, .headerTop:after {
+.clearfixScss:after, .headerTop:after, .headerBottom:after {
   content: ".";
   display: block;
   height: 0;
@@ -135,74 +140,169 @@ a:active {
 .container {
   width: 100%;
   position: relative;
-  background: black; }
+  background-color: white; }
+
+.containerAppView {
+  background-image: url("images/background.png"); }
 
 .page {
   width: 1000px;
   margin: 0 auto;
   background: white; }
 
+.pageShrink {
+  width: 100%;
+  max-width: 1000px; }
+
+.accent {
+  color: #d35120; }
+
+.secondary {
+  color: #837978; }
+
+#appPreView {
+  width: auto; }
+
+.appPreViewContainer {
+  position: relative;
+  font-size: 1.4em;
+  text-align: center; }
+  .appPreViewContainer .loadingText {
+    position: absolute;
+    right: 301px;
+    top: 46px; }
+    .appPreViewContainer .loadingText .progressText {
+      margin-top: 5px; }
+
 .headerTop {
   background: #5b3c28;
   color: #f4d57a;
-  width: 100%; }
+  font-size: 1.2em;
+  -webkit-box-shadow: 0 2px 2px 0 #999999;
+  -moz-box-shadow: 0 2px 2px 0 #999999;
+  box-shadow: 0 2px 2px 0 #999999; }
+  .headerTop li {
+    line-height: 3em; }
+  .headerTop a {
+    padding: 0 0.5em;
+    float: left; }
+    .headerTop a:link {
+      color: #f4d57a;
+      text-decoration: none; }
+    .headerTop a:visited {
+      color: #f4d57a; }
+    .headerTop a:hover {
+      color: #674f08;
+      background: white; }
+    .headerTop a:active {
+      color: black; }
 
-.navTopLeft ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.navTopLeft {
+  float: left; }
+  .navTopLeft ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    margin-left: 20px; }
+    .navTopLeft ul li {
+      list-style: none;
+      margin: 0;
+      margin-right: 2em;
+      padding: 0;
+      float: left; }
+      .navTopLeft ul li:after {
+        margin: 0;
+        padding: 0;
+        margin-left: 2em;
+        content: ""; }
+      .navTopLeft ul li:last-child {
+        margin-right: 0; }
+        .navTopLeft ul li:last-child:after {
+          content: "";
+          margin-left: 0; }
+      .navTopLeft ul li.lastChild {
+        margin-right: 0; }
+        .navTopLeft ul li.lastChild:after {
+          content: "";
+          margin-left: 0; }
+
+.navTopRight {
+  float: right; }
+  .navTopRight ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+    margin-right: 20px; }
+    .navTopRight ul li {
+      list-style: none;
+      margin: 0;
+      margin-right: 1.1em;
+      padding: 0;
+      float: left; }
+      .navTopRight ul li:after {
+        margin: 0;
+        padding: 0;
+        margin-left: 1.1em;
+        content: "/"; }
+      .navTopRight ul li:last-child {
+        margin-right: 0; }
+        .navTopRight ul li:last-child:after {
+          content: "";
+          margin-left: 0; }
+      .navTopRight ul li.lastChild {
+        margin-right: 0; }
+        .navTopRight ul li.lastChild:after {
+          content: "";
+          margin-left: 0; }
+
+.headerBottom {
+  padding: 15px;
+  position: relative; }
+  .headerBottom p, .headerBottom h6 {
+    line-height: 1.1em;
+    margin-bottom: 0.2em; }
+  .headerBottom h6 {
+    font-weight: bold; }
+  .headerBottom .marginTop {
+    margin-top: 20px; }
+  .headerBottom a:link {
+    text-decoration: none; }
+
+.headerMotto {
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+  font-style: italic; }
+
+.headerBoxLeft {
   float: left;
-  margin-left: 20px; }
-  .navTopLeft ul li {
-    list-style: none;
-    margin: 0;
-    margin-right: 2em;
-    padding: 0;
-    float: left; }
-    .navTopLeft ul li:after {
-      margin: 0;
-      padding: 0;
-      margin-left: 2em;
-      content: ""; }
-    .navTopLeft ul li:last-child {
-      margin-right: 0; }
-      .navTopLeft ul li:last-child:after {
-        content: "";
-        margin-left: 0; }
-    .navTopLeft ul li.lastChild {
-      margin-right: 0; }
-      .navTopLeft ul li.lastChild:after {
-        content: "";
-        margin-left: 0; }
-.navTopLeft a {
-  line-height: 3em; }
+  margin-right: 50px; }
 
-.navTopRight ul {
+.headerBoxCenter {
+  float: left;
+  width: 250px;
+  margin-right: 30px;
+  margin-top: 24px; }
+
+.headerBoxRight {
+  width: 180px;
+  float: right;
+  text-align: right;
+  margin-top: 24px; }
+  .headerBoxRight p {
+    margin-bottom: 0.6em; }
+
+.navMenu {
   margin: 0;
   padding: 0;
-  list-style: none;
-  float: right;
-  margin-right: 20px; }
-  .navTopRight ul li {
+  list-style: none; }
+  .navMenu li {
     list-style: none;
     margin: 0;
-    margin-right: 1.1em;
+    margin-right: 3em;
     padding: 0;
     float: left; }
-    .navTopRight ul li:after {
-      margin: 0;
-      padding: 0;
-      margin-left: 1.1em;
-      content: "/"; }
-    .navTopRight ul li:last-child {
+    .navMenu li:last-child {
       margin-right: 0; }
-      .navTopRight ul li:last-child:after {
-        content: "";
-        margin-left: 0; }
-    .navTopRight ul li.lastChild {
-      margin-right: 0; }
-      .navTopRight ul li.lastChild:after {
-        content: "";
-        margin-left: 0; }
-.navTopRight a {
-  line-height: 3em; }

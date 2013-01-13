@@ -72,7 +72,7 @@ app.u.initMVC = function(attempts){
 	var includesAreDone = true;
 
 //what percentage of completion a single include represents (if 10 includes, each is 10%).
-	var percentPerInclude = Math.round((100 / app.vars.rq.length));  
+	var percentPerInclude = Math.round((100 / app.vars.rq.length));
 	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
 	var percentComplete = resourcesLoaded * percentPerInclude; //used to sum how many includes have successfully loaded.
 
@@ -80,25 +80,24 @@ app.u.initMVC = function(attempts){
 	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
 
 	if(resourcesLoaded == app.vars.rq.length)	{
-//instantiate controller. handles all logic and communication between model and view.
-//passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
-//tmp is a throw away variable. app is what should be used as is referenced within the mvc.
+		//instantiate controller. handles all logic and communication between model and view.
+		//passing in app will extend app so all previously declared functions will exist in addition to all the built in functions.
+		//tmp is a throw away variable. app is what should be used as is referenced within the mvc.
 		app.vars.rq = null; //to get here, all these resources have been loaded. nuke record to keep DOM clean and avoid any duplication.
 		var tmp = new zController(app);
-//instantiate wiki parser.
+		//instantiate wiki parser.
 		myCreole = new Parse.Simple.Creole();
-		}
+	}
 	else if(attempts > 50)	{
 		app.u.dump("WARNING! something went wrong in init.js");
 		//this is 10 seconds of trying. something isn't going well.
 		$('#appPreView').empty().append("<h2>Uh Oh. Something seems to have gone wrong. </h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console.</p>");
 		app.u.howManyPassZeroResourcesAreLoaded(true);
-		}
+	}
 	else	{
 		setTimeout("app.u.initMVC("+(attempts+1)+")",250);
-		}
-
 	}
+};
 
 
 
@@ -106,18 +105,12 @@ app.u.initMVC = function(attempts){
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 app.u.appInitComplete = function(P)	{
 	app.u.dump("Executing myAppIsLoaded code...");
-	}
+};
 
 
 
 
 //don't execute script till both jquery AND the dom are ready.
 $(document).ready(function(){
-	app.u.handleRQ(0)
-	});
-
-
-
-
-
-
+	app.u.handleRQ(0);
+});

@@ -1,5 +1,7 @@
 // Project styles
 
+// TODO: use right fonts
+
 // variables
 $width_page: 1000px;
 
@@ -10,19 +12,25 @@ $brown_light: #5b3c28;
 $tan_light:   #f4d57a;
 $tan_dark:    #bb9f56;
 $orange:      #d35120;
+$orange_dark: #A42C00;
 $gray:        #a4a391;
+$gray_light:  #837978;
+// $asdf:        #bc9e56;
+
+$color_bg: white;
 
 $color_text:      $brown_dark;
 $color_h2:        $tan_dark;
 $color_accent:    $orange;
-$color_secondary: $gray;
+$color_secondary: $gray_light;
 
-$color_a:         orange;
+$color_a:         $orange;
 $color_a_hover:   black;
-$color_a_visited: purple;
+$color_a_visited: $orange_dark;
 
 $color_navTop_bg:   $brown_light;
 $color_navTop_text: $tan_light;
+$color_navTop_hover: darken($color_navTop_text, 50%);
 
 
 // mixins
@@ -43,6 +51,25 @@ $color_navTop_text: $tan_light;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@mixin flat_list($spacing: 1em) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    list-style: none;
+    margin: 0;
+    margin-right: $spacing;
+    // margin-right: $spacing;
+    padding: 0;
+    float: left;
+    // border-right: $border;
+    &:last-child {
+      // border-width: 0;
+      margin-right: 0;
+    }
+  }
 }
 
 @mixin flat_list_with_divider($spacing: 0.5em, $divider: "|") {
@@ -103,6 +130,14 @@ $color_navTop_text: $tan_light;
   zoom: 1;
   filter: alpha(opacity = $percent);
   opacity: $percent / 100;
+}
+
+// TODO: make compatible with ie; http://css-tricks.com/snippets/css/css-box-shadow/
+
+@mixin shadowBottomOuter($hor:0, $vert:3px, $blur:3px, $spread:2px, $color:#999 ) {
+  -webkit-box-shadow: $hor $vert $blur $spread $color;
+     -moz-box-shadow: $hor $vert $blur $spread $color;
+          box-shadow: $hor $vert $blur $spread $color;
 }
 
 /* universal */
@@ -215,6 +250,7 @@ h5,
 h6 {
   font-size: 1.8em;
   line-height: 1.5em;
+  // font-weight: bold;
 }
 
 // p, li, span {
@@ -264,6 +300,16 @@ a {
   }
 }
 
+fieldset {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input[type='search'] {
+  // TODO: add search icon
+}
+
 /* General */
 
 .clearfixScss {
@@ -282,7 +328,12 @@ a {
   width: 100%;
   // margin: 0 auto;
   position: relative;
-  background: black;
+  background-color: $color_bg;
+}
+
+.containerAppView {
+  background-image: url('images/background.png');
+  // background-repeat: ;
 }
 
 .page {
@@ -291,33 +342,159 @@ a {
   background: white;
 }
 
+.pageShrink {
+  width: 100%;
+  max-width: $width_page;
+}
+
+.accent {
+  color: $color_accent;
+}
+
+.secondary {
+  color: $color_secondary;
+}
+
+// appPreView
+
+#appPreView {
+  width: auto; // reset qs_styles
+}
+
+.appPreViewContainer {
+  position: relative;
+  font-size: 1.4em;
+  text-align: center;
+  .loadingText {
+    position: absolute;
+    right: 301px;
+    top: 46px;
+    .progressText {
+      margin-top: 5px;
+    }
+  }
+}
+
 // header
 
 .headerTop {
   @extend .clearfixScss;
   background: $color_navTop_bg;
   color: $color_navTop_text;
-  width: 100%;
+  // width: 100%;
+  // @extend .pageShrink;
+  font-size: 1.2em;
+  @include shadowBottomOuter(0, 2px, 2px, 0);
+  li {
+    line-height: 3em;
+  }
+  a {
+    padding: 0 0.5em;
+    float: left;
+    // line-height: 3em;
+    &:link {
+      color: $color_navTop_text;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $color_navTop_text;
+    }
+    &:hover {
+      color: $color_navTop_hover;
+      background: white;
+    }
+    &:active {
+      color: black;
+    }
+  }
 }
 
 .navTopLeft {
+  float: left;
   ul {
     @include flat_list_with_divider(2em, "");
     float: left;
     margin-left: 20px;
   }
-  a {
-    line-height: 3em;
-  }
+  // a {
+  //   line-height: 3em;
+  // }
 }
 
 .navTopRight {
+  float: right;
   ul {
     @include flat_list_with_divider(1.1em, "/");
     float: right;
     margin-right: 20px;
   }
-  a {
-    line-height: 3em;
+}
+
+.headerBottom {
+  @extend .clearfixScss;
+  padding: 15px;
+  position: relative;
+  p, h6 {
+    line-height: 1.1em;
+    margin-bottom: 0.2em;
   }
+  h6 { // title
+    font-weight: bold;
+  }
+  .marginTop {
+    margin-top: 20px;
+  }
+  a {
+    &:link {
+      text-decoration: none;
+    }
+    &:visited {
+      
+    }
+    &:hover {
+      
+    }
+    &:active {
+      
+    }
+  }
+}
+
+.headerMotto {
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+  // width: 600px;
+  font-style: italic;
+}
+
+// .headerBox {
+// }
+
+.headerBoxLeft {
+  float: left;
+  margin-right: 50px;
+}
+
+.headerBoxCenter {
+  float: left;
+  width: 250px;
+  margin-right: 30px;
+  margin-top: 24px;
+}
+
+.headerBoxRight {
+  width: 180px;
+  float: right;
+  text-align: right;
+  margin-top: 24px;
+  p {
+    margin-bottom: 0.6em;
+  }
+}
+
+// Navigation
+
+.navMenu {
+  @include flat_list(3em);
 }
