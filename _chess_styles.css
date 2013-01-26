@@ -306,3 +306,30 @@ fieldset {
     float: left; }
     .navMenu li:last-child {
       margin-right: 0; }
+	
+/**Header**/
+/**Header - Middle Section**/	  
+#searchBarInput{
+	background:url(images/Searchbar_inputImg.gif) no-repeat right;
+	width:190px;
+	border-radius:4px;
+	border-style:ridge;
+	border-color:#a3a3a2;
+}
+
+#searchBarButton{
+background-color:#9d806e;
+border-style:none;
+width:30px;
+color:#f1efee;
+border-radius:4px;
+}
+
+/**Header - Bottom Section**/
+#headerNavBar{
+	border:solid 1px #e9e1cd;
+}
+
+.HeaderNavBarLink{
+	color:#763f27;
+}
