@@ -54,13 +54,13 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 </script>
+<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
+
 
 
 </head>
 
-<body>
-
-
+<body>`
 
 
 <!-- what is displayed onLoad until the view is loaded -->
@@ -130,17 +130,19 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<h2 class="headerMotto">Specializing in the game of chess since 1999</h2>
 				</div>
 				<!-- <ul id="tier1categories"></ul> -->
-				<nav class="navMenu" id="headerNavBar">
-					<ul>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><h6 class="HeaderNavBarLink">Chess Set Builder</h4></a></li><!-- TODO: chess set builder - get link -->
-						<li><a href="#category?navcat=.u_chess_sets" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><h6>Complete Chess Sets</h4></a></li>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Pieces'><h6>Chess Pieces</h4></a></li>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Boards'><h6>Chess Boards</h4></a></li>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><h6>Gift Ideas</h4></a></li>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Accesories'><h6>Accesories</h4></a></li>
-						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Shop by Brand'><h6>Shop by Brand</h4></a></li>
+				<div class="navMenu headerNavBar">
+					<ul class="headerNavUlBar">
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder<p></a></li><!-- TODO: chess set builder - get link -->
+						<li><a href="#category?navcat=.u_chess_sets" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><p class="HeaderNavBarLink">Complete Chess Sets</p></a></li>
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Pieces'><p class="HeaderNavBarLink">Chess Pieces</p></a></li>
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Boards'><p class="HeaderNavBarLink">Chess Boards</p></a></li>
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a></li>
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Accesories'><p class="HeaderNavBarLink">Accesories</p></a></li>
+						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Shop by Brand'><p class="HeaderNavBarLink">Shop by Brand</p></a></li>
 					</ul>
-				</nav>
+				</div>
+                <div class="announceBar">
+                </div>
 			</header>
 			<div class="content">
 				<div id='globalMessaging' class='appMessaging'></div>
@@ -191,6 +193,14 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 
+	<div id="featureImg">
+    <img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
+    <img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
+    <img src="images/homepage_SliderImg_Create_Test3.gif" class="pointer" onClick="">
+    	
+    </div>
+    
+    
 
 	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 	
