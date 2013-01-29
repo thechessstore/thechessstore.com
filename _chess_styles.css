@@ -426,6 +426,29 @@ announceBar h2{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#856841', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 
+/**Homepage Product Categories**/
+.homepageProductCatHeader{
+	margin-left:10px;
+}
+.homepageChessSetSec{
+}
+
+/**Homepage Clubs Section**/
+.homepage10OffClub{
+	background-color:#402514;
+	height:160px;
+	width:450px;
+	padding-top:5px;
+	padding-left:5px;
+	color:#ffffff;
+}
+.homepageCollectClub{
+	background-color:#402514;
+	width:450px;
+	height:160px;
+	color:#ffffff;
+}
+
 /**Footer**/
 #footer{
 	width:100%;

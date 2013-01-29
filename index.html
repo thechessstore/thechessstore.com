@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130113022803",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130129132200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.thechessstore.com/",
 	// "httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -84,6 +84,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 <div id='appView' class='displayNone'>
 	<div class="container containerAppView">
 		<div class="page">
+        	<!--Begin Header Section-->
 			<header>
 				<div class="headerTop">
 					<nav class="navTopLeft">
@@ -145,10 +146,14 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 <h2>Input your advertisement here</h2>
                 </div>
 			</header>
+            <!--End Header Section-->
+            
 			<div class="content">
 				<div id='globalMessaging' class='appMessaging'></div>
 				<div id='mainContentArea'></div>
 			</div>
+            
+            <!--Beegin Footer Section-->
             <div id="footer">
             	<div id="footerUpperSec">
                 	<div class="footerUpperSubSec">
@@ -215,6 +220,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                     </div>
                 </div>
             </div>
+            <!--End Footer Section-->
 		</div>
 	</div>
 </div>
@@ -269,12 +275,23 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     
     
 
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Sets</h3>; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
 	
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+    -->
+    <div class="homepage10OffClub">
+    	<img class="floatLeft" src="images/Homepage_10OffClub.gif">
+        <h3 class="floatLeft">10% Off Club</h3>
+        <p class="floatRight"><a class="underline">Join now</a> for special discounts and offers to members only.</p>
+    </div>
+    <div class="homepageCollectClub">
+    	<img class="floatLeft" src="images/Homepage_CollectClub.gif">
+        <h3 class="floatLeft">Are you a Collector?</h3>
+        <p class="floatLeft"><a class="underline">Join the Collectors Club </a>for special offers!</p>
+    </div>
 
 </div>
 
