@@ -563,6 +563,10 @@ announceBar h2{
 	float:left;
 	margin-left:1px;
 }
+.footerLinkSec a{
+	color:white;
+	text-decoration:none;
+}
 .footerLinkSec h5{
 	font-size:16px;	
 }
