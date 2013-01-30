@@ -387,12 +387,15 @@ announceBar h2{
 /**Feature Image**/
 
 #featureImg{
-	float:left;	
+	height:250px;
+	float:left;
+	clear:both;	
 }
 
 #nav{
 	float:right;
 	width:100%;
+	clear:both;
 }
 #nav a{
 	color:#ffffff;
@@ -434,19 +437,57 @@ announceBar h2{
 }
 
 /**Homepage Clubs Section**/
+/** 10% off club**/
 .homepage10OffClub{
 	background-color:#402514;
-	height:160px;
+	height:133px;
 	width:450px;
 	padding-top:5px;
 	padding-left:5px;
+	padding-bottom:20px;
 	color:#ffffff;
+	float:left;
+	margin-left:25px;
+	margin-bottom:35px;
 }
+.homepage10OffClub img{
+	float:left;
+}
+.homepage10OffClub h3{
+	font-size:24px;
+	margin-left:35px;
+	float:left;
+}
+.homepage10OffClub p{
+	float:left;
+}
+/**Collectors Club**/
 .homepageCollectClub{
 	background-color:#402514;
+	height:133px;
 	width:450px;
-	height:160px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-bottom:20px;
 	color:#ffffff;
+	float:left;
+	margin-left:25px;
+	margin-bottom:35px;
+}
+.homepageCollectClub img{
+	float:left;
+}
+.homepageCollectClub h3{
+	font-size:24px;
+	float:left;
+	margin-left:60px;
+}
+.homepageCollectClub h4{
+	float:left;
+	margin-left:73px;
+}
+.homepageCollectClub p{
+	float:right;
 }
 
 /**Footer**/
@@ -454,6 +495,7 @@ announceBar h2{
 	width:100%;
 	height:400px;
 	background-color:black;
+	clear:both;
 }
 
 .footerLinkStyle{
@@ -515,7 +557,7 @@ announceBar h2{
 	font-weight:400;
 }
 .footerLinkSec{
-	width:185px;
+	width:180px;
 	height:200px;
 	float:left;
 	margin-left:1px;
@@ -552,4 +594,24 @@ announceBar h2{
 	width:1000px;
 	height:50px;
 	text-align:center;
+}
+
+/**CategoryListTemplate**/
+.categoryListTemplateTitle{
+	background: rgb(147,116,73); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	height:35px;
+	width:150px;
+	text-align:center;
+	color:#ffffff;
+	font-size:12px;
+	line-height:17px;
+	padding-top:1px;
+
 }

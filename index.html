@@ -283,14 +283,15 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
     -->
     <div class="homepage10OffClub">
-    	<img class="floatLeft" src="images/Homepage_10OffClub.gif">
-        <h3 class="floatLeft">10% Off Club</h3>
-        <p class="floatRight"><a class="underline">Join now</a> for special discounts and offers to members only.</p>
+    	<img src="images/Homepage_10OffClub.gif">
+        <h3>10% Off Club</h3>
+        <p><a class="underline">Join now</a> for special discounts and offers to members only.</p>
     </div>
     <div class="homepageCollectClub">
-    	<img class="floatLeft" src="images/Homepage_CollectClub.gif">
-        <h3 class="floatLeft">Are you a Collector?</h3>
-        <p class="floatLeft"><a class="underline">Join the Collectors Club </a>for special offers!</p>
+    	<img class="" src="images/Homepage_CollectClub.gif">
+        <h4>Are you a</h4><br /> 
+        <h3>Collector?</h3>
+        <p><a class="underline">Join the Collectors Club </a>for special offers!</p>
     </div>
 
 </div>
@@ -339,7 +340,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <li id='categoryListTemplate'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
 		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
-		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
+        <div class="categoryListTemplateTitle">
+        	<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
+        </div>
 	</div>
 </li>
 
