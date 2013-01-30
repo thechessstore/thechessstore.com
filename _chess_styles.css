@@ -403,9 +403,8 @@ announceBar h2{
 	width:100%;
 	clear:both;
 	position:relative;
-	bottom:23px;
-	right:10px;
-	
+	bottom:21px;
+	left: 922px;
 	z-index:1;
 }
 #nav a{
@@ -425,7 +424,6 @@ announceBar h2{
 	padding-right:4px;
 	padding-top:1px;
 	padding-bottom:1px;
-	float:right;
 	margin:2px;
 }
 
