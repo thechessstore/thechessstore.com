@@ -356,9 +356,11 @@ border-radius:4px;
 
 .HeaderNavBarLink{
 	color:#763f27;
-	font-size:14px;
+	font-size:16px;
 	text-decoration:none;
 	font-weight:600;
+	font-family: 'Neuton', serif;
+	line-height:15px;
 }
 
 .announceBar{
@@ -386,16 +388,25 @@ announceBar h2{
 
 /**Feature Image**/
 
+.homepageBannerImg{
+	height:250px;
+}
 #featureImg{
 	height:250px;
 	float:left;
-	clear:both;	
+	clear:both;
+	position:relative;
+	z-index:0;
 }
-
 #nav{
 	float:right;
 	width:100%;
 	clear:both;
+	position:relative;
+	bottom:23px;
+	right:10px;
+	
+	z-index:1;
 }
 #nav a{
 	color:#ffffff;
@@ -433,6 +444,7 @@ announceBar h2{
 .homepageProductCatHeader{
 	margin-left:10px;
 	clear:both;
+	font-family: 'Neuton', serif;
 }
 .homepageChessSetSec{
 }
@@ -441,11 +453,11 @@ announceBar h2{
 /** 10% off club**/
 .homepage10OffClub{
 	background-color:#402514;
-	height:133px;
+	height:125px;
 	width:450px;
 	padding-top:5px;
 	padding-left:5px;
-	padding-bottom:20px;
+	padding-bottom:9px;
 	color:#ffffff;
 	float:left;
 	margin-left:25px;
@@ -455,40 +467,55 @@ announceBar h2{
 	float:left;
 }
 .homepage10OffClub h3{
-	font-size:24px;
-	margin-left:35px;
+	font-size:36px;
+	margin-left:20px;
 	float:left;
+	font-family: 'Neuton', serif;
 }
 .homepage10OffClub p{
 	float:left;
+	font-size:14px;
+	margin-left:14px;
+	margin-bottom:5px;
 }
 /**Collectors Club**/
 .homepageCollectClub{
 	background-color:#402514;
-	height:133px;
+	height:125px;
 	width:450px;
 	padding-top:5px;
 	padding-left:5px;
-	padding-bottom:20px;
+	padding-bottom:9px;
 	color:#ffffff;
 	float:left;
 	margin-left:25px;
-	margin-bottom:35px;
 }
 .homepageCollectClub img{
 	float:left;
 }
 .homepageCollectClub h3{
-	font-size:24px;
+	font-family: 'Neuton', serif;
+	font-size:34px;
 	float:left;
-	margin-left:60px;
+	margin-left:50px;
+	line-height:15px;
+	
 }
 .homepageCollectClub h4{
+	font-family: 'Neuton', serif;
 	float:left;
 	margin-left:73px;
+	margin-top:5px;
+	font-size:22px;
+	
 }
 .homepageCollectClub p{
-	float:right;
+	float:left;
+	margin-left:35px;
+	font-size:14px;
+	text-align:center;
+	line-height:20px;
+	margin-top:10px;
 }
 
 /**Footer**/
@@ -520,13 +547,17 @@ announceBar h2{
 	border-radius: 5px;
 	margin-top:27px;
 	margin-left:15px;
-	padding-top:10px;
+	padding-top:5px;
 	margin-top:27px;
+}
+.footerUpperSubSec h5{
+	font-family: 'Neuton', serif;
+	font-size:18px;
 }
 .footerUpperSubSec input{
 	margin-bottom:15px;
 	margin-left:5px;
-	border-radius:5px;
+	border-radius:3px;
 }
 .footerUpperSubSecInput{
 		border:solid 0px;

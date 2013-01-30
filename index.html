@@ -44,6 +44,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
 
+<link href='http://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
 
@@ -161,8 +162,8 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         <form name='footerSubForm' action='#' class=' marginTop' method="get">
 							<fieldset>
 								<!-- <legend>Search</legend> -->
-								<input type="text" name='NAME' value='' placeholder="NAME...." class="footerUpperSubSecInput" id="" />
-                                <input type="email" name='EMAIL' value='' placeholder="EMAIL...." class="footerUpperSubSecInput" id="" />
+								<input type="text" name='NAME' value='' placeholder="   NAME...." class="footerUpperSubSecInput" id="" />
+                                <input type="email" name='EMAIL' value='' placeholder="   EMAIL...." class="footerUpperSubSecInput" id="" />
 								<input class="subButton" type="submit" value="Subscribe" id="" />
 							</fieldset>
 						</form>
@@ -265,12 +266,12 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate' class='homeTemplate'>
-
-	<div id="featureImg">
-    <img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
-    <img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
-    <img src="images/homepage_SliderImg_Create_Test3.gif" class="pointer" onClick="">
-    	
+	<div class="homepageBannerImg">
+		<div id="featureImg">
+    		<img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
+    		<img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
+    		<img src="images/homepage_SliderImg_Create_Test3.gif" class="pointer" onClick="">	
+    	</div>
     </div>
     
     
@@ -285,13 +286,13 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="homepage10OffClub">
     	<img src="images/Homepage_10OffClub.gif">
         <h3>10% Off Club</h3>
-        <p><a class="underline">Join now</a> for special discounts and offers to members only.</p>
+        <p><a class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>
     </div>
     <div class="homepageCollectClub">
     	<img class="" src="images/Homepage_CollectClub.gif">
         <h4>Are you a</h4><br /> 
         <h3>Collector?</h3>
-        <p><a class="underline">Join the Collectors Club </a>for special offers!</p>
+        <p><a class="underline">Join the Collectors Club </a><br />for special offers!</p>
     </div>
 
 </div>
