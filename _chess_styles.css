@@ -432,6 +432,7 @@ announceBar h2{
 /**Homepage Product Categories**/
 .homepageProductCatHeader{
 	margin-left:10px;
+	clear:both;
 }
 .homepageChessSetSec{
 }
