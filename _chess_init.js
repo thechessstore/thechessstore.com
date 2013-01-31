@@ -38,7 +38,7 @@ app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
-//Homepage Slideshow image code. 
+//Homepage Slideshow image code and carousel code
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	$("#nav").html("");
 	$('#featureImg') 
@@ -48,13 +48,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     timeout: 5000, 
     pager:  '#nav' 
 	});
-}]);
-	
-/*app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
-	$("#homepageCat").carouFredSel();
+	$("#homepageCat").carouFredSel({
+		width   : 870,
+    	items   : 4,
+    	scroll  : 4
 
+	});
+	
 }]);
-*/	
 	
 
 

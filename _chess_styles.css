@@ -439,10 +439,40 @@ announceBar h2{
 }
 
 /**Homepage Product Categories**/
+#homepageCat{
+	
+}
+/**Carousel Class files**/
+.carouselCont{
+	height:300px;
+	width:600px;
+	padding: 15px 0 15px 40px;
+}
+.carouselCont ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.carouselCont li{
+	font-size: 30px;
+    color: #666;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 5px solid #ccc;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 6px;
+    display: block;
+    float: left;
 
+}
 .caroufredsel_wrapper{
 	float:left;
 	clear:both;
+	width:600px;
+	height:200px;
 }
 .clearfix {
     float:none;
