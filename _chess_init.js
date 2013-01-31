@@ -39,7 +39,7 @@ app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
 //Homepage Slideshow image code. 
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) { //uncomment lines to add pager tabs
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	$("#nav").html("");
 	$('#featureImg') 
 	.after('<div id="nav">') 
@@ -47,7 +47,15 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) { /
     fx:     'fade',  
     timeout: 5000, 
     pager:  '#nav' 
-	});}]);
+	});
+}]);
+	
+/*app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	$("#homepageCat").carouFredSel();
+
+}]);
+*/	
+	
 
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.

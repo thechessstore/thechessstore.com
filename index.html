@@ -47,6 +47,10 @@ css files should be included before any .js file to ensure they are downloaded i
 <link href='http://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
+<!--<script type="text/javascript" src="carouFredSel-6.1.0/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="carouFredSel-6.1.0/jquery.carouFredSel-6.1.0.js"></script>
+-->
+
 
 <!-- IE Shim for HTML5 -->
 <!--[if lt IE 9]><script type="text/javascript" src="html5shiv/html5shiv.js"></script><![endif]-->
@@ -135,7 +139,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 				<div class="navMenu headerNavBar">
 					<ul class="headerNavUlBar">
 						<li><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)<p></a></li><!-- TODO: chess set builder - get link -->
-						<li><a href="#category?navcat=.u_chess_sets" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><p class="HeaderNavBarLink">Complete Chess Sets</p></a></li>
+						<li><a onClick="return showContent('category',{'navcat':'[.category.safe.name]'});" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><p class="HeaderNavBarLink">Complete Chess Sets</p></a></li>
 						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Pieces'><p class="HeaderNavBarLink">Chess Pieces</p></a></li>
 						<li><a href="#category?navcat=.00012-wood-chess-sets-with-chess-boards" class='bindByAnchor HeaderNavBarLink' title='Chess Boards'><p class="HeaderNavBarLink">Chess Boards</p></a></li>
 						<li><a href="#category?navcat=..00058-gift-cards" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a></li>
@@ -275,9 +279,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     </div>
     
     
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Sets</h3>; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
-	
+		<ul id="homepageCat" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Sets</h3>; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
+        <div class="clearfix"></div>
 	<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 

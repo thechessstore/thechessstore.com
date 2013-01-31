@@ -439,10 +439,21 @@ announceBar h2{
 }
 
 /**Homepage Product Categories**/
+
+.caroufredsel_wrapper{
+	float:left;
+	clear:both;
+}
+.clearfix {
+    float:none;
+    clear:both;
+}
+
 .homepageProductCatHeader{
 	margin-left:10px;
 	clear:both;
 	font-family: 'Neuton', serif;
+	font-weight:500;
 }
 .homepageChessSetSec{
 }
