@@ -385,7 +385,6 @@ announceBar h2{
 }
 
 /**Homepage**/
-
 /**Feature Image**/
 
 .homepageBannerImg{
@@ -439,13 +438,20 @@ announceBar h2{
 }
 
 /**Homepage Product Categories**/
-#homepageCat{
-	
+#homepageCat{	
+}
+.homepageProductCatHeader{
+	margin-left:10px;
+	clear:both;
+	font-family: 'Neuton', serif;
+	font-weight:500;
+}
+.homepageChessSetSec{
 }
 /**Carousel Class files**/
 .carouselCont{
 	height:300px;
-	width:600px;
+	width:100%;
 	padding: 15px 0 15px 40px;
 }
 .carouselCont ul{
@@ -458,10 +464,8 @@ announceBar h2{
 	font-size: 30px;
     color: #666;
     text-align: center;
-    background-color: #f0f0f0;
-    border: 5px solid #ccc;
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 200px;
     padding: 0;
     margin: 6px;
     display: block;
@@ -477,15 +481,6 @@ announceBar h2{
 .clearfix {
     float:none;
     clear:both;
-}
-
-.homepageProductCatHeader{
-	margin-left:10px;
-	clear:both;
-	font-family: 'Neuton', serif;
-	font-weight:500;
-}
-.homepageChessSetSec{
 }
 
 /**Homepage Clubs Section**/

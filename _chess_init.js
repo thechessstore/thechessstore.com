@@ -51,7 +51,12 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	$("#homepageCat").carouFredSel({
 		width   : 870,
     	items   : 4,
-    	scroll  : 4
+		scroll: 4//,
+		//remove comments when ready to use manual scrolling
+		//auto : false,
+    //prev : "#caroPrev",
+    //next : "#caroNext"
+
 
 	});
 	
