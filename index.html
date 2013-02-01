@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 
+<!--Jeff, I left instruction on how to make changes to the areas you requested as you approach them. To date, these notes can be
+found on lines 153 for the sales banner header and 281 for the home page banner image slider. Refer to them for instructions on
+how to make changes to your site for these Sections.-->
+
 <!-- do not populate or add meta data or title, the SEO layer will add it -->
 
 <!-- used for optional social media extensions -->
@@ -146,6 +150,11 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 						<li><a href="#" class='bindByAnchor HeaderNavBarLink' title='Shop by Brand'><p class="HeaderNavBarLink">Shop by Brand</p></a></li>
 					</ul>
 				</div>
+                
+                <!--*************Jeff, Here is your sales announcement bar. Currently all you would have to do to change this text
+                would be to replace the any text between the <h2> and </h2> tags with whatever you want your sales to say. Then,
+                you would need to update the link by replacing 
+                -->
                 <div class="announceBar">
                 <h2>Input your advertisement here</h2>
                 </div>
@@ -269,6 +278,12 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate' class='homeTemplate'>
+
+	<!-- Jeff, To update your homepage banner images, you must first make sure the images you want in your banner are properly 
+    loaded into the images folder. You then simply need to replace all text after the <img src="images/ part up until you see the
+    " class="pointer" onClick=""> with the name of the image file. An example of this would be homepage_SliderImg_Create.gif. 
+    make sure there is a " at the end of the file name to close it out or the picture will not render in the banner slider.
+    To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
     		<img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
