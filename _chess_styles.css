@@ -123,6 +123,9 @@ fieldset {
   padding: 0; }
 
 /* General */
+.noTextDec{
+	text-decoration:none;
+}
 .clearfixScss, .headerTop, .headerBottom {
   clear: both;
   overflow: hidden; }

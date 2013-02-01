@@ -171,12 +171,12 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
             	<div id="footerUpperSec">
                 	<div class="footerUpperSubSec">
                     	<h5>Subscribe and save 5% on your first order.</h5>
-                        <form name='footerSubForm' action='#' class=' marginTop' method="get">
-							<fieldset>
-								<!-- <legend>Search</legend> -->
-								<input type="text" name='NAME' value='' placeholder="   NAME...." class="footerUpperSubSecInput" id="" />
-                                <input type="email" name='EMAIL' value='' placeholder="   EMAIL...." class="footerUpperSubSecInput" id="" />
-								<input class="subButton" type="submit" value="Subscribe" id="" />
+                        <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+							<fieldset class='userInfo'>
+								<input type="text" name='fullname' value='' placeholder="   NAME...." class="footerUpperSubSecInput" id='subscribeFullname' />
+                                <input type="email" name='login' value='' placeholder="   EMAIL...." class="footerUpperSubSecInput" id='subscribeLogin' />
+                                <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
+								<input class="subButton ui-button-text ui-button ui-state-default ui-corner-all" type="submit" value="Subscribe" id="" />
 							</fieldset>
 						</form>
                     </div>
@@ -586,7 +586,10 @@ this will likely become more flexible in the future. ###
 	
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu prodTempReview'>
 
-	<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
+	<a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Read the Reviews</a>
+	<a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
+    <a href='#' class="noTextDec" onClick=''>Print</a>
+    
 
 	</menu>
     
@@ -644,7 +647,7 @@ this will likely become more flexible in the future. ###
 		<!--**removed to match design**<li class='prodDescTab displayNone'><a href="#prodDesc" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDesc_;">Description</a></li>-->
 		<li class='prodDetailTab displayNone prodTempTab' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href="#prodDetail" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDetail_;">Specs</a></li>
 		<li class='prodFeaturesTab displayNone prodTempTab' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodFeatures_;">Features</a></li>
-		<li class='prodReviewsTab displayNone prodTempTab'><a href="#prodReviews" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>
+		<!--**Removed to match design**<li class='prodReviewsTab displayNone prodTempTab'><a href="#prodReviews" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>-->
 		<li class='prodVideoTab displayNone prodTempTab' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodVideo_;">Video</a></li>
 		<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li>
         <li class='displayNone prodTempTab'><a href="" class="prodTempTab">Warranty</a></li>
@@ -668,28 +671,6 @@ this will likely become more flexible in the future. ###
 	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodVideo_;">
 		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
 	</div>
-
-	
-	
-	<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
-		
-		<div class='clearfix alignRight'>
-			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
-		</div>
-		
-		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
-	</div>
-	
-	
-	<div  data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;">
-	<!--
-		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
-	-->
-	</div>
-
-
-
-	
 	
 	
 </div>
@@ -700,6 +681,22 @@ this will likely become more flexible in the future. ###
 <div class='prodlistRelatedContainer'>
 	<h2 style="color:#421908;">You Might Also Like</h2>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
+</div>
+
+<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;">
+		<h2 style="color:#421908;">Accessories</h2>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
+	
+</div>
+
+<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
+		
+        <h2 style="color:#421908;">Reviews</h2>
+		<div class='clearfix alignRight'>
+			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
+		</div>
+		
+		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
 </div>
 
 
