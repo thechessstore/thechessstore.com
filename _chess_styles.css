@@ -449,18 +449,19 @@ announceBar h2{
 .homepageChessSetSec{
 }
 /**Carousel Class files**/
-.carouselCont{
+/**carousel Cat1 Files**/
+.carouselCont1{
 	height:300px;
 	width:100%;
 	padding: 15px 0 15px 40px;
 }
-.carouselCont ul{
+.carouselCont1 ul{
 	margin: 0;
     padding: 0;
     list-style: none;
     display: block;
 }
-.carouselCont li{
+.carouselCont1 li{
 	font-size: 30px;
     color: #666;
     text-align: center;
@@ -470,7 +471,6 @@ announceBar h2{
     margin: 6px;
     display: block;
     float: left;
-
 }
 .caroufredsel_wrapper{
 	float:left;
@@ -481,6 +481,123 @@ announceBar h2{
 .clearfix {
     float:none;
     clear:both;
+}
+#caroPrev1{
+	position:absolute;
+	bottom:1665px;
+	left:200px;
+	z-index:1;
+}
+#caroNext1{
+	position:absolute;
+	bottom:1665px;
+	right:200px;
+	z-index:1;
+}
+/**Carousel Cat 2 Files**/
+.carouselCont2{
+	height:300px;
+	width:100%;
+	padding: 15px 0 15px 40px;
+}
+.carouselCont2 ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.carouselCont2 li{
+	font-size: 30px;
+    color: #666;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 6px;
+    display: block;
+    float: left;
+}
+#caroPrev2{
+	position:absolute;
+	bottom:1365px;
+	left:200px;
+	z-index:1;
+}
+#caroNext2{
+	position:absolute;
+	bottom:1365px;
+	right:200px;
+	z-index:1;
+}
+/**Carousel Cat 3 Files**/
+.carouselCont3{
+	height:300px;
+	width:100%;
+	padding: 15px 0 15px 40px;
+}
+.carouselCont3 ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.carouselCont3 li{
+	font-size: 30px;
+    color: #666;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 6px;
+    display: block;
+    float: left;
+}
+#caroPrev3{
+	position:absolute;
+	bottom:1065px;
+	left:200px;
+	z-index:1;
+}
+#caroNext3{
+	position:absolute;
+	bottom:1065px;
+	right:200px;
+	z-index:1;
+}
+/**Carousel Cat 4 Files**/
+.carouselCont4{
+	height:300px;
+	width:100%;
+	padding: 15px 0 15px 40px;
+}
+.carouselCont4 ul{
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+.carouselCont4 li{
+	font-size: 30px;
+    color: #666;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 6px;
+    display: block;
+    float: left;
+}
+#caroPrev4{
+	position:absolute;
+	bottom:665px;
+	left:200px;
+	z-index:1;
+}
+#caroNext4{
+	position:absolute;
+	bottom:665px;
+	right:200px;
+	z-index:1;
 }
 
 /**Homepage Clubs Section**/
@@ -550,6 +667,107 @@ announceBar h2{
 	text-align:center;
 	line-height:20px;
 	margin-top:10px;
+}
+
+/**Product Page**/
+/**Product Description Section**/
+.prodTempName{
+	font-family: 'Neuton', serif;
+	font-weight:700;	
+}
+.prodTempReview{
+}
+.prodTempReview a{
+	margin:15px;
+	color:#da7151;
+	font-size:12px;
+}
+.prodTempDesc{
+	color:#421908;
+	margin-right:15px;
+	font-size:10px;
+}
+
+/**Product Price Section**/
+.priceContainer{
+}
+.priceContainer h5{
+	font-size:18px;
+	color:#421908;
+}
+.priceContainer h4{
+	color:#d4511f;
+	margin-top:5px;
+	font-size:20px;
+}
+.prodTempDescH5Color{
+	color:#421908;
+}
+
+/**Add to Cart Form**/
+.addToCartButt{
+	background-color:#561d09;
+	color:#e5dfd0;
+	width:180px;
+	height:50px;
+	background-image:none;
+	font-size:16px;
+}
+/**Add to cart side links**/
+.addToCartSideLinkCont{
+	width:400px;
+	height:70px;
+	float:left;
+	padding-top:50px;
+	padding-left:10px;
+}
+.wishListLink{
+	font-size:16px;
+	color:#d4511f;
+	text-decoration:none;
+}
+.referFriendLink{
+	color:#d4511f;
+	font-size:10px;
+}
+
+/**Product Template Tabs Container**/
+/** Tabs border spacer**/
+.prodTempTabBordSpace{
+	height:20px;
+	width:100%;
+	border:solid 1px;
+	border-color:#d6d4ce;
+}
+/**Tabs Container**/
+.prodTempTabCont{
+	background-image:none;  
+	background-color:white;
+	border:none;
+	border-radius:0px;
+}
+#prodTempTabCont li.prodTempTab{
+	background-image:none;
+	background: rgb(239,235,226); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(239,235,226,1) 56%, rgba(196,189,169,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(56%,rgba(239,235,226,1)), color-stop(100%,rgba(196,189,169,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', endColorstr='#c4bda9',GradientType=0 ); /* IE6-9 */
+
+}
+#prodTempTabCont a.prodTempTab{
+	color:#561d09;
+}
+
+/**You might also like section**/
+/**Product Name section**/
+.prodtempYouMightLikeProdName{
+	font-size:10px;
+	color:#d4511f;
+	text-decoration:underline;
 }
 
 /**Footer**/

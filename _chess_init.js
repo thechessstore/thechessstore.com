@@ -48,16 +48,37 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     timeout: 5000, 
     pager:  '#nav' 
 	});
-	$("#homepageCat").carouFredSel({
-		width   : 870,
+	$("#homepageCat1").carouFredSel({
+		width   : 950,
     	items   : 4,
-		scroll: 4//,
-		//remove comments when ready to use manual scrolling
-		//auto : false,
-    //prev : "#caroPrev",
-    //next : "#caroNext"
-
-
+		scroll: 4,
+		auto : false,
+    prev : "#caroPrev1",
+    next : "#caroNext1"
+	});
+	$("#homepageCat2").carouFredSel({
+		width   : 950,
+    	items   : 4,
+		scroll: 4,
+		auto : false,
+    prev : "#caroPrev2",
+    next : "#caroNext2"
+	});
+	$("#homepageCat3").carouFredSel({
+		width   : 950,
+    	items   : 4,
+		scroll: 4,
+		auto : false,
+    prev : "#caroPrev3",
+    next : "#caroNext3"
+	});
+	$("#homepageCat4").carouFredSel({
+		width   : 950,
+    	items   : 4,
+		scroll: 4,
+		auto : false,
+    prev : "#caroPrev4",
+    next : "#caroNext4"
 	});
 	
 }]);
