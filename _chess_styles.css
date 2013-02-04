@@ -812,10 +812,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	padding-right:20px;
 }
 /**Category list section**/
-.catPageProdList.productList li {
+.catPageProdList li {
 	width:350px;
 	font-family: 'Neuton', serif;
 	font-size:20px;	
+	height:325px;
+}
+.catListTempCatPage a{
+	font-size:14px;
+	color:#d4511f;
 }
 
 /**categoryListTemplate**/
@@ -823,8 +828,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	width:300px;
 	height:300px;
 	float:left;
+	margin-left:30px;
 }
-.catSec{	
+.catSec{
 }
 div .thumbContainer2{
 	float:left;
@@ -834,8 +840,15 @@ div .thumbContainer2{
 	float:left;
 	clear:both;
 }
-div catName2{
-
+.catName2{
+float:left;
+font-size:20px;
+font-family: 'Neuton', serif;
+font-weight:500;
+color:#561d09;
+}
+.catListTempCatPage{
+	height:100px;
 }
 
 /********************************************************************************************************************************/

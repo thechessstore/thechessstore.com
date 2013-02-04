@@ -52,7 +52,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
 <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js"></script>
 
 
 <!-- IE Shim for HTML5 -->
@@ -63,6 +62,7 @@ css files should be included before any .js file to ensure they are downloaded i
 app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 </script>
 <script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
+<script type="text/javascript" src="carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js"></script>
 
 
 
@@ -377,7 +377,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	
 		<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	</div>
-    <div style="clear:both"> </div>
+    
     
 		
 </div>
@@ -402,17 +402,14 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate' class="categoryListTemplateClass">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainer2'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='250' height='200' /></div>
-
-        	<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
-        
-	
-</div>
+		<div class='thumbContainer thumbContainer2'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='300' height='200' /></div>
+		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
+	</div>
 </li>
 
 
 <li id='categoryListTemplateRootCats'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
 		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
 		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
@@ -434,15 +431,19 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='200' height='200' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='300' height='200' />
 		</div>
 		
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        
+        <span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 	
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
+        
+        <a>View Details</a>
 		
 		
-		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+		
 <!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
 </li>
