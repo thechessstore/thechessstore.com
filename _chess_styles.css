@@ -394,6 +394,7 @@ announceBar h2{
 
 .homepageBannerImg{
 	height:250px;
+	clear:both;
 }
 #featureImg{
 	height:250px;
@@ -459,13 +460,23 @@ announceBar h2{
 }
 .homepageChessSetSec{
 }
+
+.categoryListTemplateClassHP{
+	height:219px;
+	width:330px;
+	margin-left:2px;
+	margin-right:2px;
+}
+.categoryListTemplateHP{
+	margin:2px;
+}
 /**Carousel Class files**/
 /**carousel Cat1 Files**/
 .carouselCont1{
 	position:relative;
-	height:300px;
-	width:950px;
-	padding: 15px 0 15px 40px;
+	height:312px;
+	width:1000px;
+	margin-left:20px;
 }
 .carouselCont1 ul{
 	margin: 0;
@@ -489,6 +500,7 @@ announceBar h2{
 	clear:both;
 	width:600px;
 	height:200px;
+	margin-right:10px;
 }
 .clearfix {
     float:none;
@@ -496,14 +508,14 @@ announceBar h2{
 }
 #caroPrev1{
 	position:absolute;
-	bottom:60px;
-	left:0px;
+	bottom:100px;
+	left:-60px;
 	z-index:1;
 }
 #caroNext1{
 	position:absolute;
-	bottom:60px;
-	right:0px;
+	bottom:100px;
+	right:-20px;
 	z-index:1;
 }
 /**Carousel Cat 2 Files**/
@@ -793,6 +805,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 .catTempHeader{
 	width:800px;
 	height:50px;
+	font-family: 'Neuton', serif;
+}
+.catTempHeader h3{
+	font-weight:600;
+	font-size:20px;
+}
+.catTempHeader h4{
+	line-height:30px;
+	color:#9d7c4e;
+	font-size:18px;
+	margin-left:3px;
+}
+.catTempHeader span{
+	color:#d4511f;
+}
+.catTempHeader h5{
+	margin-left:15px;
+	line-height:30px;
 }
 
 /**Browse bar section**/
@@ -828,11 +858,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	width:300px;
 	height:300px;
 	float:left;
-	margin-left:30px;
 }
 .catSec{
 }
-div .thumbContainer2{
+div .thumbContainerCat{
 	float:left;
 	clear:both;
 }
@@ -863,13 +892,12 @@ color:#561d09;
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
-	width:150px;
+	width:305px;
 	text-align:center;
 	color:#ffffff;
 	font-size:12px;
 	line-height:17px;
 	padding-top:1px;
-
 }
 	
 /********************************************************************************************************************************/

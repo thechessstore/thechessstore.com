@@ -145,7 +145,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 						<li><a onClick="return showContent('category',{'navcat':'[.category.safe.name]'});" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><p class="HeaderNavBarLink">Complete Chess Sets</p></a></li>
 						<li><a href="#category?navcat=.00010-wood-chess-sets" class='bindByAnchor HeaderNavBarLink' title='Chess Pieces'><p class="HeaderNavBarLink">Chess Pieces</p></a></li>
 						<li><a href="#category?navcat=.00012-wood-chess-sets-with-chess-boards" class='bindByAnchor HeaderNavBarLink' title='Chess Boards'><p class="HeaderNavBarLink">Chess Boards</p></a></li>
-						<li><a href="#category?navcat=..00058-gift-cards" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a></li>
+						<li><a href="#category?navcat=.00058-gift-cards" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a></li>
 						<li><a href="#" class='bindByAnchor HeaderNavBarLink' title='Accesories'><p class="HeaderNavBarLink">Accesories</p></a></li>
 						<li><a href="#" class='bindByAnchor HeaderNavBarLink' title='Shop by Brand'><p class="HeaderNavBarLink">Shop by Brand</p></a></li>
 					</ul>
@@ -295,8 +295,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont1">
 		<ul id="homepageCat1" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Sets</h3>; loadsTemplate: categoryListTemplateHP; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
        	<div class="clearfix"></div>
-        <h6 id="caroPrev1" class="pointer">Prev</h6>
-	   	<h6 id="caroNext1" class="pointer">Next</h6>
+        <img id="caroPrev1" src="images/scroll_left.gif" class="pointer" />
+	   	<img id="caroNext1" src="images/scroll_right.gif" class="pointer" />
 	</div>
     <div class="carouselCont2">
 		<ul id="homepageCat2" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Pieces</h3>; loadsTemplate: categoryListTemplateHP; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
@@ -364,9 +364,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
     	<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess sets - </h3>
-        	<h4 class="floatLeft">we found <span></span> items</h4> &nbsp&nbsp&nbsp&nbsp 
-        	<h5 class="floatLeft">Your Selections:</h5>
+    		<h3 class="floatLeft">Chess Sets - </h3>
+        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
+        	<h5 class="floatLeft"> Your Selections:</h5>
     	</div>
 	
 		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
@@ -390,11 +390,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
-<li id='categoryListTemplateHP'>
+<li id='categoryListTemplateHP' class="categoryListTemplateClassHP">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='330' height='219' /></div>
         <div class="categoryListTemplateTitle">
-        	<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
+        	<div class='white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
         </div>
 	</div>
 </li>
@@ -402,7 +402,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate' class="categoryListTemplateClass">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainer2'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='300' height='200' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='300' height='200' /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>

@@ -50,8 +50,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	});
 	$("#homepageCat1").carouFredSel({
 		width   : 950,
-    	items   : 4,
-		scroll: 4,
+    	items   : 3,
+		scroll: 1,
 		auto : false,
     prev : "#caroPrev1",
     next : "#caroNext1"
