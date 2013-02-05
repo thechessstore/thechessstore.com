@@ -33,13 +33,29 @@ app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':functi
 app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
+app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js'])
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 
+//Header dropdown menus
+var showDropdown = function ($tag) {
+		var $dropdown = $(".dropdown", $tag);
+		var height = 0;
+		$dropdown.children().each(function(){
+			height += $(this).outerHeight(true);
+		});
+		$dropdown.stop().animate({"height":height+"px"}, 1000);
+	}
+	
+	var hideDropdown = function ($tag) {
+		$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+	}
+
 //Homepage Slideshow image code and carousel code
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+	//Home page slideshow
 	$("#nav").html("");
 	$('#featureImg') 
 	.after('<div id="nav">') 
@@ -48,6 +64,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     timeout: 5000, 
     pager:  '#nav' 
 	});
+	
+	//Carousel horizontal sliders
 	$("#homepageCat1").carouFredSel({
 		width   : 950,
     	items   : 3,
