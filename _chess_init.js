@@ -35,6 +35,7 @@ app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js'])
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
@@ -74,6 +75,10 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     prev : "#caroPrev1",
     next : "#caroNext1"
 	});
+	
+	//$("#caroNext1").delay(1500).click();
+	//$("#caroPrev1").click();
+	
 	$("#homepageCat2").carouFredSel({
 		width   : 950,
     	items   : 4,

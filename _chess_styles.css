@@ -366,7 +366,7 @@ border-radius:4px;
 	font-weight:600;
 	font-family: 'Neuton', serif;
 	line-height:6px;
-	margin-left:15px;
+	margin-left:8px;
 	margin-right:15px;
 }
 
@@ -409,9 +409,10 @@ announceBar h2{
 	top: 20px;
 	z-index:1;
 }
-.dropdown li{
+.dropdownLink{
 	font-size:16px;
 	margin-top:10px;
+	height:10px;
 }
 
 .navBarPos{
@@ -1043,6 +1044,8 @@ color:#561d09;
 .footerLower_TopSec a{
 	margin-left:6px;
 	margin-right:5px;
+	text-decoration:none;
+	color:#a87d50;
 }
 .footerLower_TopSec a:hover{
 	color:#9a7249;
