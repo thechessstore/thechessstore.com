@@ -1,0 +1,44 @@
+Build Log:
+ 
+
+To DO:
+- Built category sidebar link navigation bar. 
+- Updated homepage horizontal slider categories for all categories to match design spec.
+- Updated footer links to link to appropriate pages.
+
+
+Fix-it List:
+- Advertisement bar
+- Homepage feature image tabs and images themselves (ask client for exact images)
+- All links in footer bar
+- subscribe feature
+- Center footer upper links section. (adding a margin or padding moves it down to div underneath.
+- Calibrate and adjust homepage clubs sections to match design.....having an issue with floating.
+- Homepage categories need to scroll horizontally, rather than populate on the next line.
+- COnfigure carousels items to display immediately.
+- Configure carousels to scroll on mouse over rather than on click.
+- Dropdown menu for header nav bar.
+- Product Template, Review Icon needs to be changed to a chess piece instead of stars.
+- Product template, Update review links to function correctly.
+- Product template, Refer a friend link needs to be linked properly.
+- Product Template, Build functionality for Warranty tab (normally hidden unless content is available).
+- Homepage template, Update category sliders so that they slide on click, 1 category at a time rather than 4.
+- Product Template, Review Icon needs to be changed to a chess piece instead of stars.Standby for images from Andrea to implement.
+
+Client Changes:
+- homepage image slider should be updated to allow for 6 images to be displayed.
+- Change homepage category carousel to display 3 images at resolution of 330W x 219H.
+
+
+Question for michael:
+- Is there anything in the framework already for a user wishlist?
+- Assist with making sense of Jeff's podio post on the category page filtered search feature.
+
+Questions for JT:
+- Homepage horizontal sliders not displaying until scroll left or right is clicked....the event is triggered within a oncomplete, is that affecting its visibility?
+
+
+
+Client Questions:
+- On the category page, under each category, there is a link called view details. What exactly did you want that to do? Did  you want that to pop up a quickview with a description of the product details or did you want that link to forward you to the product page for that product?
+
