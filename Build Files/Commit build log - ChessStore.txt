@@ -1,14 +1,19 @@
 Build Log:
-- Updated header and footer links with the exception of reseller, affiliate, wishlist, all links under AND MORE category, and share, read blog, and download app. Links not listed are ready for testing. 
-- Updated all links for the bottom footer area with the exception of newsletter, and site map. Links not listed are ready for testing. 
-- Updated all homepage category sliders to match design. Functioning well excluding the known loading visual bug.
-
+**- Updated header and footer links with the exception of reseller, affiliate, wishlist, all links under AND MORE category, and share, read blog, and download app. Links not listed are ready for testing. 
+**- Updated all links for the bottom footer area with the exception of newsletter, and site map. Links not listed are ready for testing. 
+**- Updated all homepage category sliders to match design. Functioning well excluding the known loading visual bug.
+- Removed chess builder from dropdown nav menu and reorganized categories into the following arangement: complete chess sets, chess pieces, chess boards, accessories, gift ideas, accessories.
+- Updated Item indicator widget to match design color scheme.
+- Disabled customer selection section in category page until filtered search function can be implemented.
 
 To DO:
-- Built category sidebar link navigation bar. **ON HOLD**
-- Updated homepage horizontal slider categories for all categories to match design spec.
-- Updated footer links to link to appropriate pages.
-- Removed chess builder from dropdown nav menu and reorganized categories into the following arangement: complete chess sets, chess pieces, chess boards, accessories, gift ideas, accessories.
+- Built category sidebar link navigation bar. **ON HOLD PENDING FEEDBACK**
+- Updated remaining footer links to link to appropriate pages. **ON HOLD PENDING PAGE DEVELOPMENT**
+- Create comment instructions for jeff to modify links for drop downs and bottom clubs advertisement sections on the homepage.
+- Modified product page zoomed image popup section to match design scheme.
+- Correct new theme...scheme is not accurate.
+- Update category nav links and category hoprizontal slider categories on the header and homepage with list provided by jeff.
+
 
 
 Fix-it List:

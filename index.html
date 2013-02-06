@@ -47,6 +47,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
 <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css">
 
 <link href='http://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -140,7 +141,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 				<!-- <ul id="tier1categories"></ul> -->
 				<div class="headerNavBar">
 					<div class="headerNavUlBar">
-						<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div><!-- TODO: chess set builder - get link -->
+						<!--<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div><!-- TODO: chess set builder - get link -->
                         
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a onClick="return showContent('category',{'navcat':'[.category.safe.name]'});" class='bindByAnchor HeaderNavBarLink' title='Complete Chess Sets'><p class="HeaderNavBarLink">Complete Chess Sets</p></a>
                         	<div class="dropdown leftAlign">
@@ -172,9 +173,9 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#category?navcat=.00058-gift-cards" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a>
+                        <div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Accesories'><p class="HeaderNavBarLink">Accesories</p></a>
                         	<div class="dropdown leftAlign">
-								<div class="dropdownLink"><a class="pointer">Insert Link</a></div>
+ 								<div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
@@ -182,9 +183,9 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Accesories'><p class="HeaderNavBarLink">Accesories</p></a>
+						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#category?navcat=.00058-gift-cards" class='bindByAnchor HeaderNavBarLink' title='Gift Ideas'><p class="HeaderNavBarLink">Gift Ideas</p></a>
                         	<div class="dropdown leftAlign">
- 								<div class="dropdownLink"><a class="pointer">Insert Link</a></div>
+								<div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
                                 <div class="dropdownLink"><a class="pointer">Insert Link</a></div>
@@ -418,11 +419,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
     
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<div class="catTempHeader">
+    	<!--<div class="catTempHeader">
     		<h3 class="floatLeft">Chess Sets - </h3>
         	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
         	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div>
+    	</div> ********removed temporarily until filtered search can be implemented-->
 	
 		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	
@@ -1150,7 +1151,7 @@ onclicks are recursive, so only add it to the parent element.
 -->
 
 <div id='mpControlSpec' class='mpControlContainer'>
-	<div class='mpControls ui-widget ui-state-default ui-corner-top'>
+	<div class='mpControls mpControls2 ui-widget ui-state-default ui-corner-top'>
 
 <span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='next' title="next page">
 	<span class="ui-icon ui-icon-circle-triangle-e"></span>

@@ -307,6 +307,16 @@ fieldset {
 	float:left;}
     .navMenu li:last-child {
       margin-right: 0; }
+/**************************************************************************************************************************
+/**Widget Controls**/ 
+/**mp Controls**/
+/**.mpControls2{
+	background-image:none;
+	background-color:#5b3c29;
+	color:#f7d47a;
+	font-family: 'Neuton', serif;
+	font-size:16px;
+}**/
 
 /********************************************************************************************************************************/	
 /**Header**/
@@ -417,6 +427,8 @@ announceBar h2{
 
 .navBarPos{
 	position:relative;
+	margin-left:20px;
+	margin-right:20px;
 }
 	
 .dropdown.leftAlign {
