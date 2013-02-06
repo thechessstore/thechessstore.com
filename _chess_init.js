@@ -81,24 +81,24 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	
 	$("#homepageCat2").carouFredSel({
 		width   : 950,
-    	items   : 4,
-		scroll: 4,
+    	items   : 3,
+		scroll: 1,
 		auto : false,
     prev : "#caroPrev2",
     next : "#caroNext2"
 	});
 	$("#homepageCat3").carouFredSel({
 		width   : 950,
-    	items   : 4,
-		scroll: 4,
+    	items   : 3,
+		scroll: 1,
 		auto : false,
     prev : "#caroPrev3",
     next : "#caroNext3"
 	});
 	$("#homepageCat4").carouFredSel({
 		width   : 950,
-    	items   : 4,
-		scroll: 4,
+    	items   : 3,
+		scroll: 1,
 		auto : false,
     prev : "#caroPrev4",
     next : "#caroNext4"

@@ -1,10 +1,14 @@
 Build Log:
- 
+- Updated header and footer links with the exception of reseller, affiliate, wishlist, all links under AND MORE category, and share, read blog, and download app. Links not listed are ready for testing. 
+- Updated all links for the bottom footer area with the exception of newsletter, and site map. Links not listed are ready for testing. 
+- Updated all homepage category sliders to match design. Functioning well excluding the known loading visual bug.
+
 
 To DO:
-- Built category sidebar link navigation bar. 
+- Built category sidebar link navigation bar. **ON HOLD**
 - Updated homepage horizontal slider categories for all categories to match design spec.
 - Updated footer links to link to appropriate pages.
+- Removed chess builder from dropdown nav menu and reorganized categories into the following arangement: complete chess sets, chess pieces, chess boards, accessories, gift ideas, accessories.
 
 
 Fix-it List:

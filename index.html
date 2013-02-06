@@ -128,7 +128,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<div class="headerBoxCenter">
 						<h6 class='accent'>Get up to $30% Off</h6><!-- TODO: 30% off - maybe popup -->
 						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="">* See details</a></p>
-						<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'appCategoryDetail|.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>
+						<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>
 					</div>
 					<div class="headerBoxRight">
 						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart"> | <span class="cartItemCount">Your Cart is Empty</span></a></p>
@@ -247,7 +247,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         <div class="footerLinkSec" style="padding-left:35px;">
                         	<h5>SHOPPING</h5>
                             <a href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="footerLinkStyle pointer">Wishlist</a><br /><br />
-                            <a href="#" onClick="return showContent('category',{'navcat':'appCategoryDetail|.00058-gift-cards'});"  class="footerLinkStyle pointer">Gift Certificates</a><br /><br />
+                            <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});"  class="footerLinkStyle pointer">Gift Certificates</a><br /><br />
                             <a href="#" onClick="return showContent('company',{'show':'shipping'});" class="footerLinkStyle pointer">Shipping</a><br /><br />
                             <a href="#" onClick="return showContent('company',{'show':'return'});" class="footerLinkStyle pointer">Returns</a><br /><br />
                         </div>
@@ -263,7 +263,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         <div class="footerLinkSec">
                         	<h5>GET SOCIAL</h5>
                             <a  href="http://www.facebook.com/yourchessstore" target="_blank" class="footerLinkStyle pointer">Facebook</a><br /><br />
-                            <a  href="#" class="footerLinkStyle pointer">Twitter</a><br /><br />
+                            <a  href="https://twitter.com/YourChessStore" target="_blank" class="footerLinkStyle pointer">Twitter</a><br /><br />
                             <a  href="#" class="footerLinkStyle pointer">Share</a><br /><br />
                             <a  href="#" class="footerLinkStyle pointer">Read Our Blog</a><br /><br />
                             <a  href="#" class="footerLinkStyle pointer">download App</a><br /><br />
@@ -272,12 +272,12 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 </div>
                 <div id="footerLowerSec">
                 	<div class="footerLower_TopSec">
-                        	<a  href="#" class="pointer">Home &nbsp | </a>
-                            <a  href="#" class="pointer">Track My Order &nbsp | </a>
-                            <a  href="#" class="pointer">Help &nbsp | </a>
+                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">Home &nbsp | </a>
+                            <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp | </a>
                             <a  href="#" class="pointer">Newsletter &nbsp | </a>
-                            <a  href="#" class="pointer">Contact Us &nbsp | </a>
-                            <a  href="#" class="pointer">Privact Policy &nbsp | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privact Policy &nbsp | </a>
                             <a  href="#" class="pointer">Site Map</a>
                             <p>&#169 2013 The Chess Store<p>
                         </ul>
@@ -355,20 +355,20 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont2">
 		<ul id="homepageCat2" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Pieces</h3>; loadsTemplate: categoryListTemplateHP; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
        	<div class="clearfix"></div>
-        <h6 id="caroPrev2" class="pointer">Prev</h6>
-	   	<h6 id="caroNext2" class="pointer">Next</h6>
+        <img id="caroPrev2" src="images/scroll_left.gif" class="pointer" />
+	   	<img id="caroNext2" src="images/scroll_right.gif" class="pointer" />
 	</div>
     <div class="carouselCont3">
 		<ul id="homepageCat3" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Boards</h3>; loadsTemplate: categoryListTemplateHP; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
        	<div class="clearfix"></div>
-        <h6 id="caroPrev3" class="pointer">Prev</h6>
-	   	<h6 id="caroNext3" class="pointer">Next</h6>
+        <img id="caroPrev3" src="images/scroll_left.gif" class="pointer" />
+	   	<img id="caroNext3" src="images/scroll_right.gif" class="pointer" />
 	</div>
     <div class="carouselCont4">
 		<ul id="homepageCat4" data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; before:<h3 class='homepageProductCatHeader'>Chess Accessories</h3>; loadsTemplate: categoryListTemplateHP; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'></ul>
        	<div class="clearfix"></div>
-        <h6 id="caroPrev4" class="pointer">Prev</h6>
-	   	<h6 id="caroNext4" class="pointer">Next</h6>
+        <img id="caroPrev4" src="images/scroll_left.gif" class="pointer" />
+	   	<img id="caroNext4" src="images/scroll_right.gif" class="pointer" />
 	</div>
     <!--Uncomment these buttons whenever testing on manual scrolling is ready to go-->    	    
     
