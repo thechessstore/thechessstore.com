@@ -846,13 +846,58 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 }
 
 /**You might also like section**/
-/**Product Name section**/
 .prodtempYouMightLikeProdName{
 	font-size:10px;
 	color:#d4511f;
 	text-decoration:underline;
 }
-
+.prodlistRelatedContainer{
+	clear:both;
+}
+.youMIghtLikeUL{
+	background-color:#e5dfd0;
+	clear:both;
+	padding-left:50px;
+}
+.productList li.catListTempCatPage2{
+	width:200px;
+	height:140px;
+	background-color:#e5dfd0;
+	margin-left:10px;
+	margin-top:15px;
+}
+.productList li.catListTempCatPage2 img{
+	margin-left:10px;
+}
+.productList li.catListTempCatPage2 h5{
+	font-size:12px;
+	text-align:center;
+	color:#d4511f;
+	text-decoration:underline;
+}
+.productList li.catListTempCatPage2 h6{
+	font-size:12px;
+	text-align:center;
+	color:#561d09;
+}
+/**Accessories section**/
+.lineItemProdlist li{
+	width:200px !important;
+}
+.lineItemProdlist li.catListTempCatPage2 img{
+	margin-left:10px;
+}
+.lineItemProdlist li.catListTempCatPage2 h5{
+	font-size:12px;
+	text-align:center;
+	color:#d4511f;
+	text-decoration:underline;
+}
+.lineItemProdlist li.catListTempCatPage2 h6{
+	font-size:12px;
+	text-align:center;
+	color:#561d09;
+}
 /********************************************************************************************************************************/
 /**Category Template**/
 /**Category template header**/
@@ -903,6 +948,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	font-size:20px;	
 	height:325px;
 }
+.catListTempCatPage{
+	width:400px;
+	float:left;
+}
+.catListTempCatPage h5{
+	font-size:16px;
+}
+.catListTempCatPage h6{
+	font-size:16px;
+}
 .catListTempCatPage a{
 	font-size:14px;
 	color:#d4511f;
@@ -933,6 +988,7 @@ color:#561d09;
 }
 .catListTempCatPage{
 	height:100px;
+	width:400px;
 }
 
 /********************************************************************************************************************************/
@@ -953,6 +1009,12 @@ color:#561d09;
 	font-size:12px;
 	line-height:17px;
 	padding-top:1px;
+}
+
+.productList li{
+	width:350px;
+	height:350px;
+	
 }
 	
 /********************************************************************************************************************************/
