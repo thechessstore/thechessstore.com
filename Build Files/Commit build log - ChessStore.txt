@@ -1,6 +1,9 @@
 Build Log:
-- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
-- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
+**- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
+**- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
+- Updated Hompage category links to link properly to all categories. Stopped updating links to work on framework update to newest update. Left off with chess club supplies in the accesories category.
+- 
+
 
 
 To DO:
@@ -11,7 +14,8 @@ To DO:
 - Correct new theme...scheme is not accurate.
 - Update category nav links and category hoprizontal slider categories on the header and homepage with list provided by jeff.
 - Fixed clipping bug for the view details section on the category page displaying individual items when an image below it has a rating.
-- scale down left and right scroll button on homepage......too large.
+- Finished updating homepage category links. All links work properly. No backend reorganization required. 
+- Updated Dropdown header links to display proper links
 
 
 
@@ -48,6 +52,10 @@ Questions for JT:
 
 
 Client Questions:
-- Categories on homepage that do not have a category to link to in the backend, need to be moved out as subcategories to root categories : Pieces:metal chess pieces, marble and onyx chess pieces, plastic chess pieces, theme chess pieces, Unfinished Wood Chess Pieces, Jaques of London Chess Pieces, Artisan Bone Chess Pieces, Boards:Stained Wood Chess Boards, Vinyl Chess Boards, Metal Chess Boards, Accessories, Chess boxes, Chess Cases, Chess Bags, Chess Awards, 
+Homepage link issues/Questions:
+- Categories on homepage that do not have a category: Marble & Onyx Chess Pieces
+- Categories on homepage that do not have a category but are assigned to the closest general category:Stained Wood Chess Boards, Metal Chess Boards
+- Categories on homepage that do not have data: .00045-garden-chess-sets
+
 - On the category page, under each category, there is a link called view details. What exactly did you want that to do? Did  you want that to pop up a quickview with a description of the product details or did you want that link to forward you to the product page for that product?
 
