@@ -68,7 +68,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	
 	//Carousel horizontal sliders
 	$("#homepageCat1").carouFredSel({
-		width   : 950,
+		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
