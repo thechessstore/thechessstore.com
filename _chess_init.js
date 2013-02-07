@@ -80,7 +80,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	//$("#caroPrev1").click();
 	
 	$("#homepageCat2").carouFredSel({
-		width   : 950,
+		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -88,7 +88,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     next : "#caroNext2"
 	});
 	$("#homepageCat3").carouFredSel({
-		width   : 950,
+		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -96,7 +96,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
     next : "#caroNext3"
 	});
 	$("#homepageCat4").carouFredSel({
-		width   : 950,
+		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -105,6 +105,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	});
 	
 }]);
+
+function linkToSpecialtyStore(url,type) {
+ if(type == 'vstore') {window.open(url+'c='+app.sessionId+'/');}
+ else if(type == 'app') {window.open(url+'?sessionId='+app.sessionId+'/');}
+ else {
+  console.warn("unknown 'type' for linkToSpecialtStore");
+  }
+ }
 	
 
 

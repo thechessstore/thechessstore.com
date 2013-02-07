@@ -1,14 +1,5 @@
 Build Log:
-**- Updated header and footer links with the exception of reseller, affiliate, wishlist, all links under AND MORE category, and share, read blog, and download app. Links not listed are ready for testing. 
-**- Updated all links for the bottom footer area with the exception of newsletter, and site map. Links not listed are ready for testing. 
-**- Updated all homepage category sliders to match design. Functioning well excluding the known loading visual bug.
-**- Removed chess builder from dropdown nav menu and reorganized categories into the following arangement: complete chess sets, chess pieces, chess boards, accessories, gift ideas, accessories.
-***- Updated Item indicator widget to match design color scheme.
-**- Disabled customer selection section in category page until filtered search function can be implemented.
-**- Updated reviews icon from stars to chess pieces. Ready for testing.
-**- Correct new theme to reflect design theme. Ready for testing/approval.
-- Adjusted you might like section to reflect design.
-- Adjusted Accessories section to reflect design.
+
 
 
 To DO:
