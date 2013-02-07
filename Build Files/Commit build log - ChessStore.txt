@@ -1,5 +1,6 @@
 Build Log:
-
+- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
+- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
 
 
 To DO:
@@ -43,10 +44,10 @@ Question for michael:
 - Assist with making sense of Jeff's podio post on the category page filtered search feature.
 
 Questions for JT:
-- Homepage horizontal sliders not displaying until scroll left or right is clicked....the event is triggered within a oncomplete, is that affecting its visibility?
 
 
 
 Client Questions:
+- Categories on homepage that do not have a category to link to in the backend, need to be moved out as subcategories to root categories : Pieces:metal chess pieces, marble and onyx chess pieces, plastic chess pieces, theme chess pieces, Unfinished Wood Chess Pieces, Jaques of London Chess Pieces, Artisan Bone Chess Pieces, Boards:Stained Wood Chess Boards, Vinyl Chess Boards, Metal Chess Boards, Accessories, Chess boxes, Chess Cases, Chess Bags, Chess Awards, 
 - On the category page, under each category, there is a link called view details. What exactly did you want that to do? Did  you want that to pop up a quickview with a description of the product details or did you want that link to forward you to the product page for that product?
 

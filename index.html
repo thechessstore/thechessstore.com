@@ -99,8 +99,8 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 				<div class="headerTop">
 					<nav class="navTopLeft">
 						<ul>
-							<li><a href="http://www.themahjongshop.com/" title="The Mah Jong Shop" target="_blank">Visit the Mah Jong Shop</a></li>
-							<li><a href="http://www.thebackgammonstore.com/" title="The Backgammon Store" target="_blank">Visit the Backgammon Store</a></li>
+							<li><a href="#" onClick="linkToSpecialtyStore('http://www.themahjongshop.com/','vstore'); return false;" title="The Mah Jong Shop" target="_blank">Visit the Mah Jong Shop</a></li>
+							<li><a href="#" onClick="linkToSpecialtyStore('http://www.thebackgammonstore.com/','vstore'); return false;" title="The Backgammon Shop" target="_blank">Visit the Backgammon Store</a></li>
 						</ul>
 					</nav>
 					<nav class="navTopRight">
@@ -355,31 +355,31 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Wood Chess Sets with Boards</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Wood Chess Sets with Cases</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Metal Chess Sets</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Marble & Onyx Chess Sets</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Plastic Chess Sets</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Theme Chess Sets</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Travel Chess Sets</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});">
             	<img class=""  src="images/Homepage_CollectClub.gif" />
             	<div>Garden Chess Sets</div>
             </li>
@@ -388,38 +388,38 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <img id="caroPrev1" src="images/scroll_left.gif" class="pointer" />
 	   	<img id="caroNext1" src="images/scroll_right.gif" class="pointer" />
 	</div>
-    <h3 class="homepageProductCatHeader">Chess Boards</h3>
+    <h3 class="homepageProductCatHeader">Chess Pieces</h3>
     <div class="carouselCont2">
 		<ul id="homepageCat2" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
-        	<li class="pointer" onClick="">
+        	<li class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Wood Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Metal Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Marble & Onyx Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Plastic Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Theme Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Unfinished Wood Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Jaques of London Chess Pieces</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Artisan Bone Chess Pieces</div>
             </li>
@@ -432,23 +432,23 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <h3 class="homepageProductCatHeader">Chess Boards</h3>
     <div class="carouselCont3">
 		<ul id="homepageCat3" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
-        	<li>
+        	<li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Natural Wood Chess Boards</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Stained Wood Chess Boards</div>
             </li>
-            <li>
+            <li class="pointer" onClick="">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Vinyl Chess Boards</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Cases</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Metal Chess Boards</div>
             </li>
@@ -461,43 +461,43 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <h3 class="homepageProductCatHeader">Chess Accessories</h3>
     <div class="carouselCont4">
 		<ul id="homepageCat4" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
-        	<li>
+        	<li class="pointer" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Clocks</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Boxes</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00028-club-tournament-supplies'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Club Supplies</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Bags</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00044-chess-dvds'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess DVDs</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00034-chess-books'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Books</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00048-chess-software'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Software</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00046-chess-scorebooks'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Scorebooks</div>
             </li>
-            <li>
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00042-chess-demonstration-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Demo Boards</div>
             </li>
-            <li>
+            <li class="pointer" onClick="">
             	<img class="" src="images/Homepage_CollectClub.gif" />
             	<div>Chess Awards</div>
             </li>
