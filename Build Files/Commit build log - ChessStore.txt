@@ -1,11 +1,5 @@
 Build Log:
-**- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
-**- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
-**- Updated Hompage category links to link properly to all categories. The following links cannot be bound due to not having a category: Marble & Onyx Chess Pieces. The follow links were assigned to their general category due to not having a category of their own: Stained Wood Chess Boards, Metal Chess Boards. The following categories had no data in them and did not display any items: .00045-garden-chess-sets, .00048-chess-software.
-**- Updated header dropdown links to reflect client specifications. Gift ideas and shop by brand categories still work in progress.
-- Framework updated to most recent version : 201304. Corrected several known bugs withe the framework. Functionality of the search feature currently broken. Working to bring it online in accordance with the nesest framework.
-- Updated homepage image slider to allow for 6 images to be displayed.
-- Update review links to function correctly.
+
 
 
 To DO:
