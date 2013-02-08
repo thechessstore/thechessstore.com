@@ -1,6 +1,7 @@
 Build Log:
-
-
+- product page: Updated print link to effectively print the page. Awaiting testing.
+- product page: Removed redundant aaccesories tab to clean the page up.
+- Fixed bug causing ratings to sometimes display stars on some pages and chess pieces on others. All ratings now display as chess pieces.
 
 To DO:
 - Built category sidebar link navigation bar. **ON HOLD PENDING FEEDBACK**
@@ -28,8 +29,10 @@ Questions for JT:
 Client Questions:
 Homepage link issues/Questions:
 - Categories on homepage that do not have a category: Marble & Onyx Chess Pieces
-- Categories on homepage that do not have a category but are assigned to the closest general category:Stained Wood Chess Boards, Metal Chess Boards
+- Categories on homepage that do not have a category but are assigned to the closest general category:Stained Wood Chess Boards = wood chess sets, Metal Chess Boards - metal chess sets.
 - Categories on homepage that do not have data: .00045-garden-chess-sets, .00048-chess-software
+- Gift Ideas downdown has no data and no links. Need some ideas for those to be built.
+- Shop by brand: need to: A. Consult with senior devs on how this data can be assigned dynamically. OR B. find the categories that contain each brand specific chess sets and assign those to each link.
 
 - Page questions: On the homepage we have links for reseller program, affiliate program, Visit our showroom, collector's club, 10% club, rules of chess, fide laws of chess, read our blog, and download our app. I'm assuming these are pages you wanted me to build for these links. The question I have is what do you want in them exactly? If they are simple in design, you can just explain them to me in text via podio. If you want something a little more stylized, you might want to get with andrea to build designs for them so that I can make you these pages.
 - I need link information for the gift ideas link dropdown on the header.

@@ -844,7 +844,7 @@ this will likely become more flexible in the future. ###
 
 	<a href='#readReview' class="noTextDec">Read the Reviews</a>
 	<a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
-    <a href='#' class="noTextDec" onClick=''>Print</a>
+    <a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
     
 
 	</menu>
@@ -905,7 +905,7 @@ this will likely become more flexible in the future. ###
 		<li class='prodFeaturesTab displayNone prodTempTab' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodFeatures_;">Features</a></li>
 		<!--**Removed to match design**<li class='prodReviewsTab displayNone prodTempTab'><a href="#prodReviews" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>-->
 		<li class='prodVideoTab displayNone prodTempTab' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodVideo_;">Video</a></li>
-		<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li>
+		<!--**Removed. Redundant page design as accessories section are already listed in below section<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li> -->
         <li class='displayNone prodTempTab'><a href="" class="prodTempTab">Warranty</a></li>
 	</ul>
     <div class="prodTempTabBordSpace"></div>

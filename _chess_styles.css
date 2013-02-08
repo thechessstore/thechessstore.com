@@ -308,6 +308,10 @@ fieldset {
     .navMenu li:last-child {
       margin-right: 0; }
 /**************************************************************************************************************************
+/**Ratings Icon Images**/
+.reviewSprite{
+	background-image:url(images/chess_rating_imgs.png);
+}
 /**Widget Controls**/ 
 /**mp Controls**/
 /**.mpControls2{
