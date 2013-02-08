@@ -155,9 +155,21 @@ app.u.initMVC = function(attempts){
 	var percentPerInclude = Math.round((100 / app.vars.rq.length));
 	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
 	var percentComplete = resourcesLoaded * percentPerInclude; //used to sum how many includes have successfully loaded.
-
+	//make sure precentage is never over 100
+	if(percentComplete > 100 )	{
+		percentComplete = 100;
+		}
+	
 	$('#appPreViewProgressBar').val(percentComplete);
 	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
+	
+	//**Experimental Loading fix code**
+	/*if (percentComplete <= 100){
+		$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
+	}
+	else{
+		$('#appPreViewProgressText').empty().append(100+"% Complete");
+	} */
 
 	if(resourcesLoaded == app.vars.rq.length)	{
 		//instantiate controller. handles all logic and communication between model and view.

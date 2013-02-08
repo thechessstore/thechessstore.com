@@ -98,8 +98,13 @@ app.u.initMVC = function(attempts){
 		}
 	
 	$('#appPreViewProgressBar').val(percentComplete);
-	$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
-
+	if (percentComplete <= 100){
+		$('#appPreViewProgressText').empty().append(percentComplete+"% Complete");
+	}
+	else{
+		$('#appPreViewProgressText').empty().append(100+"% Complete");;
+	}
+	
 	if(resourcesLoaded == app.vars.rq.length)	{
 
 		var clickToLoad = false;
