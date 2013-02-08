@@ -2,50 +2,33 @@ Build Log:
 **- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
 **- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
 **- Updated Hompage category links to link properly to all categories. The following links cannot be bound due to not having a category: Marble & Onyx Chess Pieces. The follow links were assigned to their general category due to not having a category of their own: Stained Wood Chess Boards, Metal Chess Boards. The following categories had no data in them and did not display any items: .00045-garden-chess-sets, .00048-chess-software.
-- Updated header dropdown links to reflect client specifications. Gift ideas and shop by brand categories still work in progress.
-
+**- Updated header dropdown links to reflect client specifications. Gift ideas and shop by brand categories still work in progress.
+- Framework updated to most recent version : 201304. Corrected several known bugs withe the framework. Functionality of the search feature currently broken. Working to bring it online in accordance with the nesest framework.
+- Updated homepage image slider to allow for 6 images to be displayed.
+- Update review links to function correctly.
 
 
 To DO:
 - Built category sidebar link navigation bar. **ON HOLD PENDING FEEDBACK**
+- Homepage banner image slideshow needs images and links **ON HOLD PENDING CLIENT IMAGE FILES AND LINK SPECIFICATION**
+- Advertisement bar **ON HOLD PENDING CLIENT FEEDBACK**
 - Updated remaining footer links to link to appropriate pages. **ON HOLD PENDING PAGE DEVELOPMENT**
+- Update remaining homepage category links when approapriate changes are made  **ON HOLD PENDING FEEDBACK**
 - Create comment instructions for jeff to modify links for drop downs and bottom clubs advertisement sections on the homepage.
 - Fixed clipping bug for the view details section on the category page displaying individual items when an image below it has a rating.
-- Update remaining homepage category links when approapriate changes are made  **ON HOLD PENDING FEEDBACK**
 - Updated Dropdown header links to display proper links
-
-
-
-
-Fix-it List:
-- Advertisement bar
-- Homepage feature image tabs and images themselves (ask client for exact images)
-- All links in footer bar
-- subscribe feature
-- Center footer upper links section. (adding a margin or padding moves it down to div underneath.
-- Calibrate and adjust homepage clubs sections to match design.....having an issue with floating.
-- Homepage categories need to scroll horizontally, rather than populate on the next line.
-- COnfigure carousels items to display immediately.
-- Configure carousels to scroll on mouse over rather than on click.
-- Dropdown menu for header nav bar.
-- Product Template, Review Icon needs to be changed to a chess piece instead of stars.
-- Product template, Update review links to function correctly.
-- Product template, Refer a friend link needs to be linked properly.
+- Corrected rating image issue on the category page (changed image from stars to chess icon).
+- re-designed search page to match design scheme.
+- Product template, Refer a friend link needs to be linked properly. 
 - Product Template, Build functionality for Warranty tab (normally hidden unless content is available).
-- Homepage template, Update category sliders so that they slide on click, 1 category at a time rather than 4.
-- Product Template, Review Icon needs to be changed to a chess piece instead of stars.Standby for images from Andrea to implement.
-
-Client Changes:
-- homepage image slider should be updated to allow for 6 images to be displayed.
-- Change homepage category carousel to display 3 images at resolution of 330W x 219H.
 
 
 Question for michael:
 - Is there anything in the framework already for a user wishlist?
 - Assist with making sense of Jeff's podio post on the category page filtered search feature.
 
-Questions for JT:
 
+Questions for JT:
 
 
 Client Questions:
@@ -54,5 +37,7 @@ Homepage link issues/Questions:
 - Categories on homepage that do not have a category but are assigned to the closest general category:Stained Wood Chess Boards, Metal Chess Boards
 - Categories on homepage that do not have data: .00045-garden-chess-sets, .00048-chess-software
 
+- Page questions: On the homepage we have links for reseller program, affiliate program, Visit our showroom, collector's club, 10% club, rules of chess, fide laws of chess, read our blog, and download our app. I'm assuming these are pages you wanted me to build for these links. The question I have is what do you want in them exactly? If they are simple in design, you can just explain them to me in text via podio. If you want something a little more stylized, you might want to get with andrea to build designs for them so that I can make you these pages.
+- I need link information for the gift ideas link dropdown on the header.
 - On the category page, under each category, there is a link called view details. What exactly did you want that to do? Did  you want that to pop up a quickview with a description of the product details or did you want that link to forward you to the product page for that product?
 

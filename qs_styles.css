@@ -145,6 +145,14 @@ and offMenu is toggle off, hiding the change button.
 
 
 
+/* app nav */
+
+#appNav {position:relative; height:1px; overflow:visible;}
+#appNav .prodDetailPrevItemButton	{position:absolute; top:20px; left:-10px;}
+#appNav .prodDetailNextItemButton	{position:absolute; top:20px; right:-10px;}
+
+
+
 /***************************************************
 
 LISTS (product list and/or subcategory list)
@@ -233,7 +241,7 @@ so the displayNone class is used, then a .grpType_PARENT class is added if the i
 .reviewSummaryContainer	.numReviews	{line-height:21px; display:inline-block; height:21px; float:left; margin-left:4px; padding-right:6px;}
 .reviewSummaryContainer	.numReviews:after	{content:": "}
 
-.reviewSprite	{background: url(images/chess_rating_imgs.png) no-repeat; width:124px; height:22px; display:none;} /* display none hides the reviews for the 'zero' reviews graphic */
+.reviewSprite	{background: url(qs_reviews_stars-124x324.png) no-repeat; width:124px; height:22px; display:none;} /* display none hides the reviews for the 'zero' reviews graphic */
 .review_1, .review_2, .review_3, .review_4, .review_5, .review_6, .review_7, .review_8, .review_9, .review_10	{display:inline-block;} /* show 1/2 - 10 stars */
 .review_1 	{background-position:0 -29px;}
 .review_2	{background-position:0 -61px;}
@@ -343,8 +351,7 @@ SEARCH RESULTS PAGE
 
 ***************************************************/
 
-#searchNav a	{padding:2px 6px;}
-#recentSearchesList	{border-top:0;}
+#mainContentArea_search	{position:relative;}
 
 
 
@@ -353,8 +360,6 @@ SEARCH RESULTS PAGE
 HELP PAGES
 
 ***************************************************/
-
-
 
 /***** CONTACT US ******/
 #contactForm {float:right; margin: 0 0 12px 12px;}
@@ -504,7 +509,7 @@ CHECKOUT
 #zCheckoutFrm fieldset input[type=text], #zCheckoutFrm fieldset input[type=tel], #zCheckoutFrm fieldset input[type=password], #zCheckoutFrm fieldset input[type=email]	{width:220px;}
 #zCheckoutFrm .checkbox	label	{text-align:left; width:240px;}
 #zCheckoutFrm .checkbox	{ padding-left:120px; clear:both;}
-
+#zCheckoutFrm .creditCardCVV	{width:50px !important;}
 
 #zCheckoutFrm fieldset li.paycon, #zCheckoutFrm fieldset li.shipcon	{margin-top:10px; }
 #zCheckoutFrm fieldset li.paycon label, #zCheckoutFrm fieldset li.shipcon label	{text-align:left; line-height:1.4em;}
