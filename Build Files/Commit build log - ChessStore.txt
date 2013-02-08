@@ -1,8 +1,8 @@
 Build Log:
 **- Continued re-build of homepage category sliders to hardcoding. Awaiting Images. Links active but most categories need reorganization on the backend to display only the correct selections (i.e. The metal chess sets category brings you to a submenu that allows you to select pieces or full sets)
 **- Updated mah jong and backgammon store link to "carry over" the cart between stores. Anything added to the cart in the chess store will be carried over to either vstore upon click of the link.
-- Updated Hompage category links to link properly to all categories. Stopped updating links to work on framework update to newest update. Left off with chess club supplies in the accesories category.
-- 
+**- Updated Hompage category links to link properly to all categories. The following links cannot be bound due to not having a category: Marble & Onyx Chess Pieces. The follow links were assigned to their general category due to not having a category of their own: Stained Wood Chess Boards, Metal Chess Boards. The following categories had no data in them and did not display any items: .00045-garden-chess-sets, .00048-chess-software.
+- Updated header dropdown links to reflect client specifications. Gift ideas and shop by brand categories still work in progress.
 
 
 
@@ -10,11 +10,8 @@ To DO:
 - Built category sidebar link navigation bar. **ON HOLD PENDING FEEDBACK**
 - Updated remaining footer links to link to appropriate pages. **ON HOLD PENDING PAGE DEVELOPMENT**
 - Create comment instructions for jeff to modify links for drop downs and bottom clubs advertisement sections on the homepage.
-- Modified product page zoomed image popup section to match design scheme.
-- Correct new theme...scheme is not accurate.
-- Update category nav links and category hoprizontal slider categories on the header and homepage with list provided by jeff.
 - Fixed clipping bug for the view details section on the category page displaying individual items when an image below it has a rating.
-- Finished updating homepage category links. All links work properly. No backend reorganization required. 
+- Update remaining homepage category links when approapriate changes are made  **ON HOLD PENDING FEEDBACK**
 - Updated Dropdown header links to display proper links
 
 
@@ -55,7 +52,7 @@ Client Questions:
 Homepage link issues/Questions:
 - Categories on homepage that do not have a category: Marble & Onyx Chess Pieces
 - Categories on homepage that do not have a category but are assigned to the closest general category:Stained Wood Chess Boards, Metal Chess Boards
-- Categories on homepage that do not have data: .00045-garden-chess-sets
+- Categories on homepage that do not have data: .00045-garden-chess-sets, .00048-chess-software
 
 - On the category page, under each category, there is a link called view details. What exactly did you want that to do? Did  you want that to pop up a quickview with a description of the product details or did you want that link to forward you to the product page for that product?
 

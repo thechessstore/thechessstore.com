@@ -364,8 +364,8 @@ border-radius:4px;
 .headerNavUlBar{
 	width:100%;
 	margin-left:45px;
-	margin-right:30px;
-	margin-top:8px;
+	margin-right:25px;
+	margin-top:15px;
 	line-height:0px;
 }
 
@@ -376,7 +376,7 @@ border-radius:4px;
 	font-weight:600;
 	font-family: 'Neuton', serif;
 	line-height:6px;
-	margin-left:8px;
+	margin-left:px;
 	margin-right:15px;
 }
 
@@ -405,7 +405,7 @@ announceBar h2{
 
 .dropdown {
 	height: 0px;
-	width: 145px;
+	width: 175px;
 	position:absolute;
 	background: rgb(252,251,248); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(252,251,248,1) 46%, rgba(233,224,201,1) 95%, rgba(221,209,178,1) 100%); /* FF3.6+ */
@@ -416,18 +416,24 @@ announceBar h2{
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */		top: 20px;
 	overflow: hidden;
-	top: 20px;
+	top: 15px;
 	z-index:1;
 }
 .dropdownLink{
-	font-size:16px;
+	font-size:14px;
 	margin-top:10px;
-	height:10px;
+	margin-left:4px;
+	height:10px
+}
+.dropdownLink a{
+	font-family: 'Neuton', serif;
+	text-decoration:underline;
+	color:#763f27;
 }
 
 .navBarPos{
 	position:relative;
-	margin-left:20px;
+	margin-left:30px;
 	margin-right:20px;
 }
 	
