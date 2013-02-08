@@ -810,6 +810,9 @@ announceBar h2{
 	margin-left:14px;
 	margin-bottom:5px;
 }
+.homepage10OffClub a{
+	color:#ffffff;
+}
 /**Collectors Club**/
 .homepageCollectClub{
 	background-color:#402514;
@@ -848,6 +851,9 @@ announceBar h2{
 	text-align:center;
 	line-height:20px;
 	margin-top:10px;
+}
+.homepageCollectClub a{
+	color:#ffffff;
 }
 
 /********************************************************************************************************************************/
