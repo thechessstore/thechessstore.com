@@ -1238,3 +1238,25 @@ color:#561d09;
 	height:50px;
 	text-align:center;
 }
+
+/*************************************************************************************************************************/
+/**Search results page**/
+.searchResultsPG{
+}
+.searchResultsPG img{
+	margin-left:15px;
+}
+.searchResultsPG h5{
+	font-family: 'Neuton', serif;
+	font-size:18px;
+}
+
+.searchResultsPG h6{
+	font-family: 'Neuton', serif;
+	font-size:18px;
+}
+.searchResultsDetails{
+	font-family: 'Neuton', serif;
+	font-size:16px;
+	color:#d4511f;
+}
