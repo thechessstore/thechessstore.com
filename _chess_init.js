@@ -67,26 +67,36 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	});
 	
 	//Carousel horizontal sliders
-	$("#homepageCat1").carouFredSel({
+	var carousel1;
+	function foo1(){ $("#homepageCat1").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
     prev : "#caroPrev1",
     next : "#caroNext1"
-	});
+	});}
+	carousel1 = foo1;
+	setTimeout(carousel1, 1000);
+	
 	
 	//$("#caroNext1").delay(1500).click();
 	//$("#caroPrev1").click();
 	
-	$("#homepageCat2").carouFredSel({
+	var carousel2;
+	function foo2(){ $("#homepageCat2").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,
 		auto : false,
     prev : "#caroPrev2",
     next : "#caroNext2"
-	});
+	});}
+	carousel2 = foo2;
+	setTimeout(carousel2, 1000);
+	
+	var carousel3;
+	function foo3(){
 	$("#homepageCat3").carouFredSel({
 		width   : 980,
     	items   : 3,
@@ -94,7 +104,12 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 		auto : false,
     prev : "#caroPrev3",
     next : "#caroNext3"
-	});
+	});}
+	carousel3 = foo3;
+	setTimeout(carousel3, 1000);
+	
+	var carousel4;
+	function foo4(){
 	$("#homepageCat4").carouFredSel({
 		width   : 980,
     	items   : 3,
@@ -102,7 +117,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 		auto : false,
     prev : "#caroPrev4",
     next : "#caroNext4"
-	});
+	});}
+	carousel4 = foo4;
+	setTimeout(carousel4, 1000);
+	
+}]);
+
+
+app.rq.push(['templateFunction','homepageTemplate','onCompletes', function(P) {
 	
 }]);
 
