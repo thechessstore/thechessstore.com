@@ -307,6 +307,10 @@ fieldset {
 	float:left;}
     .navMenu li:last-child {
       margin-right: 0; }
+	  
+.lineItemProdlist li{
+	border:none;
+}
 /**************************************************************************************************************************
 /**Ratings Icon Images**/
 .reviewSprite{
