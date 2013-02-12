@@ -355,12 +355,12 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
-    		<img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
-    		<img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
-    		<img src="images/homepage_SliderImg_Create_Test3.gif" class="pointer" onClick="">
+    		<img src="images/Homepage Category Images/Banner Slider/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="">
+    		<img src="images/Homepage Category Images/Banner Slider/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">
+    		<img src="images/Homepage Category Images/Banner Slider/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="">
             <img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
     		<img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
-    		<img src="images/homepage_SliderImg_Create_Test3.gif" class="pointer" onClick="">		
+    		<img src="images/Homepage Category Images/Banner Slider/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">		
     	</div>
     </div>
     <h3 class="homepageProductCatHeader">Chess Sets</h3>
@@ -433,7 +433,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<div>Unfinished Wood Chess Pieces</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
-            	<img class="" src="images/Homepage_CollectClub.gif" />
+            	<img class="" src="images/Homepage Category Images/Chess Pieces/jaques-london-chess-pieces-banner-310.jpg" />
             	<div>Jaques of London Chess Pieces</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});">
@@ -568,8 +568,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="catBrowseSidebar">
-    	<div class="floatLeft browseContPos"><a href="#" id="sidebarShopByCatButton" class='bindByAnchor'>Shop by Category <span id="sidebarShopByCatIcon">&#9658 </span></a>
-        	<div id="sidebarShopByCat" class="browseDropdown">
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByCat">
             	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -579,8 +579,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos"><a href="#" id="sidebarSpecDeptButton" class='bindByAnchor'>Special Departments <span id="sidebarSpecDeptIcon">&#9658 </span></a>
-        	<div id="sidebarSpecDept" class="browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarSpecDept">
             	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -590,8 +590,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos"><a href="#" id="sidebarShopByBrandButton" class='bindByAnchor'>Shop by Brand <span id="sidebarShopByBrandIcon">&#9658 </span></a>
-        	<div id="sidebarShopByBrand" class="browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByBrand">
             	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -601,8 +601,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos"><a href="#" id="sidebarTeachAndLearnButton" class='bindByAnchor'>Teaching and Learning <span id="sidebarTeachAndLearnIcon">&#9658 </span></a>
-        	<div id="sidebarTeachAndLearn" class="browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarTeachAndLearn">
             	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -958,6 +958,7 @@ this will likely become more flexible in the future. ###
 		<li class='prodVideoTab displayNone prodTempTab' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodVideo_;">Video</a></li>
 		<!--**Removed. Redundant page design as accessories section are already listed in below section<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li> -->
         <li class='displayNone prodTempTab'><a href="" class="prodTempTab">Warranty</a></li>
+        <li class='displayNone prodTempTab'><a href="" class="prodTempTab">Volume Discount</a></li>
 	</ul>
     <div class="prodTempTabBordSpace"></div>
 	

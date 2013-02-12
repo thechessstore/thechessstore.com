@@ -138,69 +138,69 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	if(!$(this).hasClass('noScriptReExecute'))
 	{
 	var altDDUpDown = false;
-	$("#sidebarShopByCat").hide();
- 	$("#sidebarShopByCatButton").click(function(){
+	$(".sidebarShopByCat").hide();
+ 	$(".sidebarShopByCatButton").click(function(){
 	  if(altDDUpDown == true)
 	  {
-      	$("#sidebarShopByCat").hide();
-		$("#sidebarShopByCatIcon").html("&#9658;").text();
+      	$(".sidebarShopByCat").hide();
+		$(".sidebarShopByCatIcon").html("&#9658;").text();
 		altDDUpDown = false;
 	  }
 	  else if(altDDUpDown == false)
 	  {
-		  $("#sidebarShopByCat").show();
-		  $("#sidebarShopByCatIcon").html("&#9660;").text();
+		  $(".sidebarShopByCat").show();
+		  $(".sidebarShopByCatIcon").html("&#9660;").text();
 		  altDDUpDown = true;
 	  }	
   });
   
   	var altDDUpDown2 = false;
-	$("#sidebarSpecDept").hide();
- 	$("#sidebarSpecDeptButton").click(function(){
+	$(".sidebarSpecDept").hide();
+ 	$(".sidebarSpecDeptButton").click(function(){
 	  if(altDDUpDown2 == true)
 	  {
-      	$("#sidebarSpecDept").hide();
-		$("#sidebarSpecDeptIcon").html("&#9658;").text();
+      	$(".sidebarSpecDept").hide();
+		$(".sidebarSpecDeptIcon").html("&#9658;").text();
 		altDDUpDown2 = false;
 	  }
 	  else if(altDDUpDown2 == false)
 	  {
-		  $("#sidebarSpecDept").show();
-		  $("#sidebarSpecDeptIcon").html("&#9660;").text();
+		  $(".sidebarSpecDept").show();
+		  $(".sidebarSpecDeptIcon").html("&#9660;").text();
 		  altDDUpDown2 = true;
 	  }	
   });
   
   	var altDDUpDown3 = false;
-	$("#sidebarShopByBrand").hide();
- 	$("#sidebarShopByBrandButton").click(function(){
+	$(".sidebarShopByBrand").hide();
+ 	$(".sidebarShopByBrandButton").click(function(){
 	  if(altDDUpDown3 == true)
 	  {
-      	$("#sidebarShopByBrand").hide();
-		$("#sidebarShopByBrandIcon").html("&#9658;").text();
+      	$(".sidebarShopByBrand").hide();
+		$(".sidebarShopByBrandIcon").html("&#9658;").text();
 		altDDUpDown3 = false;
 	  }
 	  else if(altDDUpDown3 == false)
 	  {
-		  $("#sidebarShopByBrand").show();
-		  $("#sidebarShopByBrandIcon").html("&#9660;").text();
+		  $(".sidebarShopByBrand").show();
+		  $(".sidebarShopByBrandIcon").html("&#9660;").text();
 		  altDDUpDown3 = true;
 	  }	
   });
   
   	var altDDUpDown4 = false;
-	$("#sidebarTeachAndLearn").hide();
-  	$("#sidebarTeachAndLearnButton").click(function(){
+	$(".sidebarTeachAndLearn").hide();
+  	$(".sidebarTeachAndLearnButton").click(function(){
 	  if(altDDUpDown4 == true)
 	  {
-      	$("#sidebarTeachAndLearn").hide();
-		$("#sidebarTeachAndLearnIcon").html("&#9658;").text();
+      	$(".sidebarTeachAndLearn").hide();
+		$(".sidebarTeachAndLearnIcon").html("&#9658;").text();
 		altDDUpDown4 = false;
 	  }
 	  else if(altDDUpDown4 == false)
 	  {
-		  $("#sidebarTeachAndLearn").show();
-		  $("#sidebarTeachAndLearnIcon").html("&#9660;").text();
+		  $(".sidebarTeachAndLearn").show();
+		  $(".sidebarTeachAndLearnIcon").html("&#9660;").text();
 		  altDDUpDown4 = true;
 	  }	
   });
