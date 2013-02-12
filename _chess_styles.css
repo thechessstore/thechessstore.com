@@ -1051,6 +1051,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	background-color:#402514;
 	float:left;
 	border-radius:5px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 .catBrowseSidebar a{
 	color:#ffffff;

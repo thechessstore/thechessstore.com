@@ -24,7 +24,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130212094000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130212145000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -568,7 +568,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="catBrowseSidebar">
-    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor'>Shop by Category <span id="sidebarShopByCatIcon">&raquo </span></a>
+    	<div class="floatLeft browseContPos"><a href="#" id="sidebarShopByCatButton" class='bindByAnchor'>Shop by Category <span id="sidebarShopByCatIcon">&#9658 </span></a>
         	<div id="sidebarShopByCat" class="browseDropdown">
             	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -579,8 +579,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor'>Special Departments</a>
-        	<div class="dropdown browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" id="sidebarSpecDeptButton" class='bindByAnchor'>Special Departments <span id="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div id="sidebarSpecDept" class="browseDropdown">
             	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
@@ -590,19 +590,19 @@ don't modify the 'data-templateid' unless you are changing template names and up
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor'>Shop by Brand</a>
-        	<div class="dropdown browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" id="sidebarShopByBrandButton" class='bindByAnchor'>Shop by Brand <span id="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div id="sidebarShopByBrand" class="browseDropdown">
             	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink">< class="pointer"a>Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
             </div>
         </div>
         <div class="clear"></div>
         
-        <div class="floatLeft browseContPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor'>Teaching & Learning</a>
-        	<div class="dropdown browseDropdown">
+        <div class="floatLeft browseContPos"><a href="#" id="sidebarTeachAndLearnButton" class='bindByAnchor'>Teaching and Learning <span id="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div id="sidebarTeachAndLearn" class="browseDropdown">
             	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>

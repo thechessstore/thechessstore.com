@@ -55,7 +55,11 @@ var hideDropdown = function ($tag) {
 }
 
 //Homepage Slideshow image code and carousel code
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+var homepageLoad = false;
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
+	{
+	if (homepageLoad == false)
+	{
 	//Home page slideshow
 	$("#nav").html("");
 	$('#featureImg') 
@@ -121,26 +125,89 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	carousel4 = foo4;
 	setTimeout(carousel4, 1000);
 	
+	//$myselection.addClass('noScriptReExecute');
+	homepageLoad = true;
+	app.u.dump("Homepage functions loaded");
+	}
+	
 }]);
 
+var categoryPageLoad = false;
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	
+	if(!$(this).hasClass('noScriptReExecute'))
+	{
 	var altDDUpDown = false;
-  $("#").click(function(){
+	$("#sidebarShopByCat").hide();
+ 	$("#sidebarShopByCatButton").click(function(){
 	  if(altDDUpDown == true)
 	  {
-		 /** var mydiv = document.getElementById('sidebarShopByCatIcon');
-		  mydiv.style.
-		  mydiv.style.border='2px solid #225500'; **/
       	$("#sidebarShopByCat").hide();
+		$("#sidebarShopByCatIcon").html("&#9658;").text();
 		altDDUpDown = false;
 	  }
 	  else if(altDDUpDown == false)
 	  {
 		  $("#sidebarShopByCat").show();
+		  $("#sidebarShopByCatIcon").html("&#9660;").text();
 		  altDDUpDown = true;
 	  }	
   });
-	
+  
+  	var altDDUpDown2 = false;
+	$("#sidebarSpecDept").hide();
+ 	$("#sidebarSpecDeptButton").click(function(){
+	  if(altDDUpDown2 == true)
+	  {
+      	$("#sidebarSpecDept").hide();
+		$("#sidebarSpecDeptIcon").html("&#9658;").text();
+		altDDUpDown2 = false;
+	  }
+	  else if(altDDUpDown2 == false)
+	  {
+		  $("#sidebarSpecDept").show();
+		  $("#sidebarSpecDeptIcon").html("&#9660;").text();
+		  altDDUpDown2 = true;
+	  }	
+  });
+  
+  	var altDDUpDown3 = false;
+	$("#sidebarShopByBrand").hide();
+ 	$("#sidebarShopByBrandButton").click(function(){
+	  if(altDDUpDown3 == true)
+	  {
+      	$("#sidebarShopByBrand").hide();
+		$("#sidebarShopByBrandIcon").html("&#9658;").text();
+		altDDUpDown3 = false;
+	  }
+	  else if(altDDUpDown3 == false)
+	  {
+		  $("#sidebarShopByBrand").show();
+		  $("#sidebarShopByBrandIcon").html("&#9660;").text();
+		  altDDUpDown3 = true;
+	  }	
+  });
+  
+  	var altDDUpDown4 = false;
+	$("#sidebarTeachAndLearn").hide();
+  	$("#sidebarTeachAndLearnButton").click(function(){
+	  if(altDDUpDown4 == true)
+	  {
+      	$("#sidebarTeachAndLearn").hide();
+		$("#sidebarTeachAndLearnIcon").html("&#9658;").text();
+		altDDUpDown4 = false;
+	  }
+	  else if(altDDUpDown4 == false)
+	  {
+		  $("#sidebarTeachAndLearn").show();
+		  $("#sidebarTeachAndLearnIcon").html("&#9660;").text();
+		  altDDUpDown4 = true;
+	  }	
+  });
+  $(this).addClass('noScriptReExecute');
+  app.u.dump("Sidebar functionality has ran");
+  
+	}
 }]);
 
 //**Testing function for solving our horizontal slider not showing on refresh bug**
