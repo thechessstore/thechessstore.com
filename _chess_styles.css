@@ -548,6 +548,8 @@ announceBar h2{
     margin: 6px;
     display: block;
     float: left;
+	border:solid 1px;
+	border-color:#d6d4ce;
 }
 #homepageCat1 div{
 	background: rgb(147,116,73); /* Old browsers */
@@ -614,6 +616,8 @@ announceBar h2{
     margin: 6px;
     display: block;
     float: left;
+	border:solid 1px;
+	border-color:#d6d4ce;
 }
 #homepageCat2 div{
 	background: rgb(147,116,73); /* Old browsers */
@@ -676,6 +680,8 @@ announceBar h2{
     margin: 6px;
     display: block;
     float: left;
+	border:solid 1px;
+	border-color:#d6d4ce;
 }
 #homepageCat3 div{
 	background: rgb(147,116,73); /* Old browsers */
@@ -738,6 +744,8 @@ announceBar h2{
     margin: 6px;
     display: block;
     float: left;
+	border:solid 1px;
+	border-color:#d6d4ce;
 }
 #homepageCat4 div{
 	background: rgb(147,116,73); /* Old browsers */
