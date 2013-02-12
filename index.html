@@ -26,7 +26,7 @@ var myCreole;
 var app = {vars:{
 	"release":"20130212094000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.thechessstore.com/",
+	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
 	//"httpURL": "http://www.thechessstore.com/"
 	},u:{},rq:[]};
@@ -227,8 +227,8 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 would be to replace the any text between the <h2> and </h2> tags with whatever you want your sales to say. Then,
                 you would need to update the link by replacing 
                 -->
-                <div class="announceBar">
-                <h2>Input your advertisement here</h2>
+                <div class="announceBar pointer" onClick="return showContent('category',{'navcat':'.sales.st_patrick_s_day_sale'});" />
+                <img src="images/st-patricks-day-sale-banner-1000.jpg">
                 </div>
 			</header>
             <!--End Header Section-->
@@ -568,8 +568,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
 	<div class="catBrowseSidebar">
-    	<div class="floatLeft browseContPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor'>Shop by Category</a>
-        	<div class="dropdown browseDropdown">
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor'>Shop by Category <span id="sidebarShopByCatIcon">&raquo </span></a>
+        	<div id="sidebarShopByCat" class="browseDropdown">
             	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>

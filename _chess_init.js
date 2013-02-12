@@ -123,6 +123,25 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 	
 }]);
 
+app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	var altDDUpDown = false;
+  $("#").click(function(){
+	  if(altDDUpDown == true)
+	  {
+		 /** var mydiv = document.getElementById('sidebarShopByCatIcon');
+		  mydiv.style.
+		  mydiv.style.border='2px solid #225500'; **/
+      	$("#sidebarShopByCat").hide();
+		altDDUpDown = false;
+	  }
+	  else if(altDDUpDown == false)
+	  {
+		  $("#sidebarShopByCat").show();
+		  altDDUpDown = true;
+	  }	
+  });
+	
+}]);
 
 //**Testing function for solving our horizontal slider not showing on refresh bug**
 /**function linkToSpecialtyStore(url,type) {

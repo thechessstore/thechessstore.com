@@ -1059,17 +1059,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	text-decoration:none;
 }
 .browseContPos{
-	position:relative;
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-left:5px;
 }
 .browseDropdown{
-	height: 0px;
 	width: 175px;
 	top: -1px;
 	background:#402514;
-	position:absolute;
 	left:100px;
 	border-radius:3px;
 }
