@@ -406,11 +406,15 @@ announceBar h2{
 }
 
 /**Dropdown navigation bar**/
-
 .dropdown {
+	overflow: hidden;
+	z-index:1;
+	position:absolute;
+}
+.headerDropdown{
 	height: 0px;
 	width: 175px;
-	position:absolute;
+	top: 15px;
 	background: rgb(252,251,248); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(252,251,248,1) 46%, rgba(233,224,201,1) 95%, rgba(221,209,178,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(46%,rgba(252,251,248,1)), color-stop(95%,rgba(233,224,201,1)), color-stop(100%,rgba(221,209,178,1))); /* Chrome,Safari4+ */
@@ -419,17 +423,14 @@ announceBar h2{
 	background: -ms-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */		top: 20px;
-	overflow: hidden;
-	top: 15px;
-	z-index:1;
 }
-.dropdownLink{
+.headerDropdownLink{
 	font-size:14px;
 	margin-top:10px;
 	margin-left:4px;
 	height:10px
 }
-.dropdownLink a{
+.headerDropdownLink a{
 	font-family: 'Neuton', serif;
 	text-decoration:underline;
 	color:#763f27;
@@ -460,6 +461,7 @@ announceBar h2{
 .homepageBannerImg{
 	height:250px;
 	clear:both;
+	width:1000px;
 }
 #featureImg{
 	height:250px;
@@ -467,6 +469,7 @@ announceBar h2{
 	clear:both;
 	position:relative;
 	z-index:0;
+	width:1000px;
 }
 #nav{
 	float:right;
@@ -1031,12 +1034,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 }
 
 /**Browse bar section**/
-#catTempBrowseCont{
-	height:600px;
+.catBrowseSidebar{
 	width:200px;
 	background-color:#402514;
 	float:left;
 	border-radius:5px;
+}
+.catBrowseSidebar a{
+	color:#ffffff;
+	font-size:16px;
+	font-family: 'Neuton', serif;
+	text-decoration:none;
+}
+.browseContPos{
+	position:relative;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:5px;
+}
+.browseDropdown{
+	height: 0px;
+	width: 175px;
+	top: -1px;
+	background:#402514;
+	position:absolute;
+	left:100px;
+	border-radius:3px;
+}
+.browseDropdownLink{
+	font-size:14px;
+	margin-top:10px;
+	margin-left:4px;
+	height:10px;
+	line-height:0px;
+}
+.browseDropdownLink a{
+	font-family: 'Neuton', serif;
+	text-decoration:underline;
+	color:#763f27;
 }
 /**Category template body**/
 #catTempCont{
