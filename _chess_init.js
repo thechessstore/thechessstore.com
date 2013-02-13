@@ -15,6 +15,7 @@ app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews','extensions/reviews_powerreviews.js','startExtension']);
@@ -224,7 +225,6 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'https://checkout.google.com/seller/accept/j.js']);
 
 
 /*
