@@ -48,8 +48,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.0.custom/css/custom-theme-chess-store/jquery-ui-1.10.0.custom.css">
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
-
-
 <link href='https://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -933,7 +931,17 @@ this will likely become more flexible in the future. ###
     
     <div class="addToCartSideLinkCont">
   	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({pid:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43 Add to Wishlist </a><br />
-    	<a class="referFriendLink">Tell a friend</a>
+        <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<!-- AddThis Button END -->
+        <a class="referFriendLink pointer">Tell a friend</a>
     </div>
     <p>Questions? Click here for online help or call 1-888-810-2437</p>
 	
