@@ -296,8 +296,26 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         </ul>
                     </div>
                     <div class="footerLower_BottomSec">
-                    	<img src="images/FooterPaymentImg.gif">
-                    </div>
+                    	<table align="center">
+                        	<tbody>
+                            	<tr>
+                                	<td>
+                                    	<img width="45" height="50" border="0" src="images/Footer/ups.gif" alt="we ship ups" />
+                                    </td>
+                                    <td>
+                                    	<img width="120" height="30" src="images/Footer/usps.gif" alt="we ship USPS">
+                                    </td>
+                                    <td>
+                                    	<img width="90" height="50" alt="" src="images/Footer/rapidssl_ssl_certificate.gif">
+                                    </td>
+                                    <td>
+                                    	
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                 </div>
             </div>
             <!--End Footer Section-->
@@ -353,12 +371,12 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
-    		<img src="images/Homepage Category Images/Banner Slider/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="">
-    		<img src="images/Homepage Category Images/Banner Slider/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">
-    		<img src="images/Homepage Category Images/Banner Slider/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="">
-            <img src="images/homepage_SliderImg_Create.gif" class="pointer" onClick="">
-    		<img src="images/homepage_SliderImg_Create_Test2.gif" class="pointer" onClick="">
-    		<img src="images/Homepage Category Images/Banner Slider/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">		
+    		<img src="images/Homepage banner images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="">
+    		<img src="images/Homepage banner images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="">
+    		<img src="images/Homepage banner images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">
+            <img src="images/Homepage banner images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="">
+    		<img src="" class="pointer" onClick="">
+    		<img src="" class="pointer" onClick="">		
     	</div>
     </div>
     <h3 class="homepageProductCatHeader">Chess Sets</h3>
@@ -929,18 +947,8 @@ this will likely become more flexible in the future. ###
 		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone addToCartButt' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>
     
-    <div class="addToCartSideLinkCont">
-  	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({pid:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43 Add to Wishlist </a><br />
-        <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-<!-- AddThis Button END -->
+    <div class="addToCartSideLinkCont" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+  	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43 Add to Wishlist </a><br />
         <a class="referFriendLink pointer">Tell a friend</a>
     </div>
     <p>Questions? Click here for online help or call 1-888-810-2437</p>

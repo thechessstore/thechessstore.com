@@ -224,7 +224,7 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
 app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-511be29f5bf737e5']);
+app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'https://checkout.google.com/seller/accept/j.js']);
 
 
 /*
