@@ -24,7 +24,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130212145000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130212163000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -365,7 +365,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     </div>
     <h3 class="homepageProductCatHeader">Chess Sets</h3>
     <div class="carouselCont1">
-		<ul id="homepageCat1" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat1'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
@@ -406,7 +406,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	</div>
     <h3 class="homepageProductCatHeader">Chess Pieces</h3>
     <div class="carouselCont2">
-		<ul id="homepageCat2" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat2'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/wood-chess-pieces-banner-310.jpg" />
@@ -448,7 +448,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	</div>
     <h3 class="homepageProductCatHeader">Chess Boards</h3>
     <div class="carouselCont3">
-		<ul id="homepageCat3" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat3'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00016-chess-boards.00010-natural-wood-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
@@ -478,7 +478,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	</div>
     <h3 class="homepageProductCatHeader">Chess Accessories</h3>
     <div class="carouselCont4">
-		<ul id="homepageCat4" class='listStyleNone fluidList clearfix noPadOrMargin categoryList homepageChessSetSec'>
+		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat4'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
@@ -903,7 +903,7 @@ this will likely become more flexible in the future. ###
     	<div class="floatLeft clearfix prodTempDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	
     <div class='priceContainer'>
-    	<h5 class="floatLeft">Our Price: </h5> <h5 style="padding-left:86px; line-height:34px;" class='prodMSRP lineThrough' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+    	<h5 class="floatLeft">Our Price: </h5> <h5 style="padding-left:86px; line-height:34px;" class='prodMSRP lineThrough clear' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
 		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Sales Price: ;'></h4>
 		<!--**Removed due to not being in design**<span class='savings'>
 			<span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>

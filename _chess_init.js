@@ -72,7 +72,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	
 	//Carousel horizontal sliders
 	var carousel1;
-	function foo1(){ $("#homepageCat1").carouFredSel({
+	function foo1(){ $(".homepageCat1").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,
@@ -88,7 +88,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	//$("#caroPrev1").click();
 	
 	var carousel2;
-	function foo2(){ $("#homepageCat2").carouFredSel({
+	function foo2(){ $(".homepageCat2").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,
@@ -101,7 +101,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	
 	var carousel3;
 	function foo3(){
-	$("#homepageCat3").carouFredSel({
+	$(".homepageCat3").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,
@@ -114,7 +114,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	
 	var carousel4;
 	function foo4(){
-	$("#homepageCat4").carouFredSel({
+	$(".homepageCat4").carouFredSel({
 		width   : 980,
     	items   : 3,
 		scroll: 1,

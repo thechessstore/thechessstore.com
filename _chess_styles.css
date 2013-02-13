@@ -536,9 +536,9 @@ announceBar h2{
 }
 /**Carousel Class files**/
 /**carousel Cat1 Files**/
-#homepageCat1{	
+.homepageCat1{	
 }
-#homepageCat1 li{
+.homepageCat1 li{
 	font-size: 30px;
     color: #666;
     text-align: center;
@@ -551,7 +551,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-#homepageCat1 div{
+.homepageCat1 div{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -569,7 +569,7 @@ announceBar h2{
 	padding-top:1px;
 	margin-top:2px;
 }
-#homepageCat1 img{
+.homepageCat1 img{
 	width:310px; 
 	height:219px;
 }
@@ -604,9 +604,9 @@ announceBar h2{
     clear:both;
 }
 /**Carousel Cat 2 Files**/
-#homepageCat2{	
+.homepageCat2{	
 }
-#homepageCat2 li{
+.homepageCat2 li{
 	font-size: 30px;
     color: #666;
     text-align: center;
@@ -619,7 +619,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-#homepageCat2 div{
+.homepageCat2 div{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -637,7 +637,7 @@ announceBar h2{
 	padding-top:1px;
 	margin-top:2px;
 }
-#homepageCat2 img{
+.homepageCat2 img{
 	width:310px; 
 	height:219px;
 }
@@ -668,9 +668,9 @@ announceBar h2{
 	z-index:1;
 }
 /**Carousel Cat 3 Files**/
-#homepageCat3{	
+.homepageCat3{	
 }
-#homepageCat3 li{
+.homepageCat3 li{
 	font-size: 30px;
     color: #666;
     text-align: center;
@@ -683,7 +683,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-#homepageCat3 div{
+.homepageCat3 div{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -701,7 +701,7 @@ announceBar h2{
 	padding-top:1px;
 	margin-top:2px;
 }
-#homepageCat3 img{
+.homepageCat3 img{
 	width:310px; 
 	height:219px;
 }
@@ -732,9 +732,9 @@ announceBar h2{
 	z-index:1;
 }
 /**Carousel Cat 4 Files**/
-#homepageCat4{	
+.homepageCat4{	
 }
-#homepageCat4 li{
+.homepageCat4 li{
 	font-size: 30px;
     color: #666;
     text-align: center;
@@ -747,7 +747,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-#homepageCat4 div{
+.homepageCat4 div{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -765,7 +765,7 @@ announceBar h2{
 	padding-top:1px;
 	margin-top:2px;
 }
-#homepageCat4 img{
+.homepageCat4 img{
 	width:310px; 
 	height:219px;
 }
@@ -981,7 +981,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 }
 .productList li.catListTempCatPage2{
 	width:200px;
-	height:140px;
+	height:165px;
 	background-color:#e5dfd0;
 	margin-left:10px;
 	margin-top:15px;
@@ -1003,6 +1003,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 /**Accessories section**/
 .lineItemProdlist li{
 	width:200px !important;
+	height:165px;
 }
 .lineItemProdlist li.catListTempCatPage2 img{
 	margin-left:10px;
