@@ -27,18 +27,18 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 			var self = this,
 			o = self.options, //shortcut
 			$t = self.element; //this is the targeted element (ex: $('#bob').anymessage() then $t is bob)
-			
+
 			if($t.attr('widget') == 'anytabs')	{} //id has already been set as tabs.
 			else	{
 				console.log('got into init else');
 				$t.attr('widget','anytabs')
 				$t.addClass('ui-tabs ui-widget ui-widget-anytabs')
 				self.tabs = $("ul",$t).first();
-	
+
 	//style and move tabs into container.
 				self._handleContent();
 				self._addClasses2Content();
-				
+
 	//style and add click events to tabs.
 				self._addClasses2Tabs();
 				self._addEvent2Tabs();
@@ -79,8 +79,14 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 				$(this).off('click.anytab').on('click.anytab',function(){
 					self.reveal($(this));
 					});
-				});
+				});			
+			this.tabs.find('li a').each(function(){
+				$(this).on('click',function(event){
+					event.preventDefault();
+				})
+			});
 			},
+
 
 		_addClasses2Tabs : function()	{
 			this.tabs.addClass('ui-tabs-nav ui-helper-reset ui-helper-clearfix').css({'padding-left':'0px'});
@@ -91,7 +97,7 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 		_handleContent : function()	{
 			var $t = this.element,
 			self = this;
-			
+
 			self.tabContent = $("<div \/>").addClass('ui-widget ui-widget-content ui-corner-bottom ui-corner-tr');
 			$t.append(self.tabContent);
 			$("[data-anytab-content]",$t).each(function(){
@@ -101,10 +107,10 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 
 		_addClasses2Content : function()	{
 			$("[data-anytab-content]",this.element).addClass("ui-tabs-panel ui-widget-content ui-corner-bottom").css('display','none');
-			
+
 			},
 
-		
+
 
 		reveal : function($tab)	{
 			if(typeof $tab == 'string')	{
@@ -116,7 +122,7 @@ or this: $('#bob').find('.ui-tabs-nav li:nth-child(2)').trigger('click');
 						return false; //breaks out of each loop.
 						}
 					});
-				
+
 				}
 			else if(typeof $tab == 'object')	{
 				var dac = $tab.find('a').attr('href').substring(1); //data-anytab-content
