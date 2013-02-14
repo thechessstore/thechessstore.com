@@ -91,6 +91,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carousel1;
 	function foo1(){ $(".homepageCat1").carouFredSel({
 		width   : 980,
+		height	: 300,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -107,6 +108,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	var carousel2;
 	function foo2(){ $(".homepageCat2").carouFredSel({
 		width   : 980,
+		height	: 300,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -120,6 +122,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	function foo3(){
 	$(".homepageCat3").carouFredSel({
 		width   : 980,
+		height	: 300,
     	items   : 3,
 		scroll: 1,
 		auto : false,
@@ -133,6 +136,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
 	function foo4(){
 	$(".homepageCat4").carouFredSel({
 		width   : 980,
+		height	: 300,
     	items   : 3,
 		scroll: 1,
 		auto : false,

@@ -480,7 +480,7 @@ announceBar h2{
 	width:100%;
 	clear:both;
 	position:relative;
-	bottom:23px;
+	bottom:-4px;
 	left: 865px;
 	z-index:1;
 }
@@ -551,7 +551,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-.homepageCat1 div{
+.homepageCat1 div.homepageCatTitle{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -564,10 +564,19 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:14px;
+	font-size:16px;
 	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
+}
+.homepageCat1 div.homepageCatDesc{
+	width:310px;
+	height:32px;
+	font-size:12px;
+	background-color:white;
+	border:none;
+	color: black;
+	text-align:left;
 }
 .homepageCat1 img{
 	width:310px; 
@@ -575,7 +584,7 @@ announceBar h2{
 }
 .carouselCont1{
 	position:relative;
-	height:275px;
+	height:300px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -619,7 +628,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-.homepageCat2 div{
+.homepageCat2 div.homepageCatTitle{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -632,10 +641,19 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:14px;
+	font-size:16px;
 	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
+}
+.homepageCat2 div.homepageCatDesc{
+	width:310px;
+	height:32px;
+	font-size:12px;
+	background-color:white;
+	border:none;
+	color: black;
+	text-align:left;
 }
 .homepageCat2 img{
 	width:310px; 
@@ -643,7 +661,7 @@ announceBar h2{
 }
 .carouselCont2{
 	position:relative;
-	height:275px;
+	height:300px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -683,7 +701,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-.homepageCat3 div{
+.homepageCat3 div.homepageCatTitle{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -696,10 +714,19 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:14px;
+	font-size:16px;
 	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
+}
+.homepageCat3 div.homepageCatDesc{
+	width:310px;
+	height:32px;
+	font-size:12px;
+	background-color:white;
+	border:none;
+	color: black;
+	text-align:left;
 }
 .homepageCat3 img{
 	width:310px; 
@@ -707,7 +734,7 @@ announceBar h2{
 }
 .carouselCont3{
 	position:relative;
-	height:275px;
+	height:300px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -747,7 +774,7 @@ announceBar h2{
 	border:solid 1px;
 	border-color:#d6d4ce;
 }
-.homepageCat4 div{
+.homepageCat4 div.homepageCatTitle{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
@@ -760,10 +787,19 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:14px;
+	font-size:16px;
 	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
+}
+.homepageCat4 div.homepageCatDesc{
+	width:310px;
+	height:32px;
+	font-size:12px;
+	background-color:white;
+	border:none;
+	color: black;
+	text-align:left;
 }
 .homepageCat4 img{
 	width:310px; 
@@ -771,7 +807,7 @@ announceBar h2{
 }
 .carouselCont4{
 	position:relative;
-	height:275px;
+	height:300px;
 	width:1000px;
 	margin-left:10px;
 }

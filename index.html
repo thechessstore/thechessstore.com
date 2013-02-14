@@ -24,7 +24,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130214085500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130214114500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -385,35 +385,43 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/wood-chess-sets-with-boards-banner-310.jpg" />
-            	<div>Wood Chess Sets with Boards</div>
+            	<div class="homepageCatTitle">Wood Chess Sets with Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/wood-chess-sets-with-cases-banner-310.jpg" />
-            	<div>Wood Chess Sets with Cases</div>
+            	<div class="homepageCatTitle">Wood Chess Sets with Cases</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/metal-chess-sets-banner-310.jpg"	 />
-            	<div>Metal Chess Sets</div>
+            	<div class="homepageCatTitle">Metal Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/marble-onyx-stone-chess-sets-banner-310.jpg" />
-            	<div>Marble & Onyx Chess Sets</div>
+            	<div class="homepageCatTitle">Marble & Onyx Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Plastic Chess Sets</div>
+            	<div class="homepageCatTitle">Plastic Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets.00012-theme-chess-set-packages'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/theme-chess-sets-banner-310.jpg" />
-            	<div>Theme Chess Sets</div>
+            	<div class="homepageCatTitle">Theme Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/travel-chess-sets-banner-310.jpg" />
-            	<div>Travel Chess Sets</div>
+            	<div class="homepageCatTitle">Travel Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});">
             	<img class=""  src="images/Homepage Category Images/Chess Sets/garden-chess-sets-banner-310.jpg" />
-            	<div>Garden Chess Sets</div>
+            	<div class="homepageCatTitle">Garden Chess Sets</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
         </ul>
        	<div class="clear"></div>
@@ -426,35 +434,43 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/wood-chess-pieces-banner-310.jpg" />
-            	<div>Wood Chess Pieces</div>
+            	<div class="homepageCatTitle">Wood Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00010-metal-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/metal-chess-pieces-banner-310.jpg" />
-            	<div>Metal Chess Pieces</div>
+            	<div class="homepageCatTitle">Metal Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets.marble-onyx-chess-pieces'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/marble-onyx-stone-chess-pieces-banner-310.jpg" />
-            	<div>Marble & Onyx Chess Pieces</div>
+            	<div class="homepageCatTitle">Marble & Onyx Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/plastic-chess-pieces-banner-310.jpg" />
-            	<div>Plastic Chess Pieces</div>
+            	<div class="homepageCatTitle">Plastic Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets.00010-theme-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/theme-chess-pieces-banner-310.jpg" />
-            	<div>Theme Chess Pieces</div>
+            	<div class="homepageCatTitle">Theme Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/unfinished-wood-chess-pieces-banner-310.jpg" />
-            	<div>Unfinished Wood Chess Pieces</div>
+            	<div class="homepageCatTitle">Unfinished Wood Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/jaques-london-chess-pieces-banner-310.jpg" />
-            	<div>Jaques of London Chess Pieces</div>
+            	<div class="homepageCatTitle">Jaques of London Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Pieces/artisan-chess-pieces-banner-310.jpg" />
-            	<div>Artisan Bone Chess Pieces</div>
+            	<div class="homepageCatTitle">Artisan Bone Chess Pieces</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             
         </ul>
@@ -468,23 +484,28 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00016-chess-boards.00010-natural-wood-chess-boards'});">
             	<img class="" src="images/Homepage Category Images/Chess Boards/natural-wood-chess-boards-banner-310.jpg" />
-            	<div>Natural Wood Chess Boards</div>
+            	<div class="homepageCatTitle">Natural Wood Chess Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00016-chess-boards.00012-stained-wood-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Stained Wood Chess Boards</div>
+            	<div class="homepageCatTitle">Stained Wood Chess Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick=("return showContent('category',{'navcat':'.00016-chess-boards.00016-vinyl-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Vinyl Chess Boards</div>
+            	<div class="homepageCatTitle">Vinyl Chess Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage.00012-chess-cases'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Cases</div>
+            	<div class="homepageCatTitle">Chess Cases</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00016-chess-boards.00014-metal-chess-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Metal Chess Boards</div>
+            	<div class="homepageCatTitle">Metal Chess Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             
         </ul>
@@ -498,47 +519,58 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});">
             	<img class="" src="images/Homepage Category Images/Chess Accessories/chess-clocks-banner-310.jpg" />
-            	<div>Chess Clocks</div>
+            	<div class="homepageCatTitle">Chess Clocks</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage.00010-chess-boxes'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Boxes</div>
+            	<div class="homepageCatTitle">Chess Boxes</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00038-chess-club-tournament-equipment'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Club Supplies</div>
+            	<div class="homepageCatTitle">Chess Club Supplies</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00032-chess-set-storage.00016-chess-bags'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Bags</div>
+            	<div class="homepageCatTitle">Chess Bags</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00044-chess-dvds'});">
             	<img class="" src="images/Homepage Category Images/Chess Accessories/chess-dvds-banner-310.jpg" />
-            	<div>Chess DVDs</div>
+            	<div class="homepageCatTitle">Chess DVDs</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00034-chess-books'});">
             	<img class="" src="images/Homepage Category Images/Chess Accessories/chess-books-banner-310.jpg" />
-            	<div>Chess Books</div>
+            	<div class="homepageCatTitle">Chess Books</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00048-chess-software'});">
             	<img class="" src="images/Homepage Category Images/Chess Accessories/chess-software-banner-310.jpg" />
-            	<div>Chess Software</div>
+            	<div class="homepageCatTitle">Chess Software</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00046-chess-scorebooks'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Scorebooks</div>
+            	<div class="homepageCatTitle">Chess Scorebooks</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00050-chess-tables'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Tables</div>
+            	<div class="homepageCatTitle">Chess Tables</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00042-chess-demonstration-boards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Demo Boards</div>
+            	<div class="homepageCatTitle">Chess Demo Boards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00028-club-tournament-supplies.18-chess-awards'});">
             	<img class="" src="images/Homepage_CollectClub.gif" />
-            	<div>Chess Awards</div>
+            	<div class="homepageCatTitle">Chess Awards</div>
+                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
             </li>
             
         </ul>
