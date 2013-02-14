@@ -564,8 +564,8 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:12px;
-	line-height:17px;
+	font-size:14px;
+	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
 }
@@ -575,7 +575,7 @@ announceBar h2{
 }
 .carouselCont1{
 	position:relative;
-	height:312px;
+	height:275px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -589,13 +589,13 @@ announceBar h2{
 }
 #caroPrev1{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	left:-35px;
 	z-index:1;
 }
 #caroNext1{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	right:-15px;
 	z-index:1;
 }
@@ -632,8 +632,8 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:12px;
-	line-height:17px;
+	font-size:14px;
+	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
 }
@@ -643,7 +643,7 @@ announceBar h2{
 }
 .carouselCont2{
 	position:relative;
-	height:312px;
+	height:275px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -657,13 +657,13 @@ announceBar h2{
 }
 #caroPrev2{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	left:-35px;
 	z-index:1;
 }
 #caroNext2{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	right:-15px;
 	z-index:1;
 }
@@ -696,8 +696,8 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:12px;
-	line-height:17px;
+	font-size:14px;
+	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
 }
@@ -707,7 +707,7 @@ announceBar h2{
 }
 .carouselCont3{
 	position:relative;
-	height:312px;
+	height:275px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -721,13 +721,13 @@ announceBar h2{
 }
 #caroPrev3{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	left:-35px;
 	z-index:1;
 }
 #caroNext3{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	right:-15px;
 	z-index:1;
 }
@@ -760,8 +760,8 @@ announceBar h2{
 	width:310px;
 	text-align:center;
 	color:#ffffff;
-	font-size:12px;
-	line-height:17px;
+	font-size:14px;
+	line-height:32px;
 	padding-top:1px;
 	margin-top:2px;
 }
@@ -771,7 +771,7 @@ announceBar h2{
 }
 .carouselCont4{
 	position:relative;
-	height:312px;
+	height:275px;
 	width:1000px;
 	margin-left:10px;
 }
@@ -785,13 +785,13 @@ announceBar h2{
 }
 #caroPrev4{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	left:-35px;
 	z-index:1;
 }
 #caroNext4{
 	position:absolute;
-	bottom:160px;
+	bottom:115px;
 	right:-15px;
 	z-index:1;
 }
