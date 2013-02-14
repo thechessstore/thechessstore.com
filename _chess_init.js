@@ -23,10 +23,7 @@ app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','
 
 
 
-//add tabs to product data.
-app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-	$( ".tabbedProductContent",$('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).tabs();
-	}]);
+
 
 app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.httpURL+'jquery/config.js' : app.vars.baseURL+'jquery/config.js']); //The config.js is dynamically generated.
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
@@ -34,11 +31,28 @@ app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':functi
 app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
-app.rq.push(['script',0,app.vars.baseURL+'anytabs.js']); //in zero pass in case product page is first page.
 
 app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js'])
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
+
+
+//add tabs to product data.
+//tabs are handled this way because jquery UI tabs REALLY wants an id and this ensures unique id's between product
+//updated from 201304 per JT
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+	var safePID = app.u.makeSafeHTMLId(P.pid); //can't use jqSelector because productTEmplate_pid still used makesafe. planned Q1-2013 update ###
+	var $tabContainer = $( ".tabbedProductContent",$('#productTemplate_'+safePID));
+		if($tabContainer.length)	{
+			if($tabContainer.data("widget") == 'anytabs'){} //tabs have already been instantiated. no need to be redundant.
+			else	{
+				$tabContainer.anytabs();
+				}
+			}
+		else	{} //couldn't find the tab to tabificate.
+	}]);
+	
+app.rq.push(['script',1,app.vars.baseURL+'anytabs.js']);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
@@ -212,16 +226,6 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
   
 	}
 }]);
-
-
-//**Testing function for solving our horizontal slider not showing on refresh bug**
-/**function linkToSpecialtyStore(url,type) {
- if(type == 'vstore') {window.open(url+'c='+app.sessionId+'/');}
- else if(type == 'app') {window.open(url+'?sessionId='+app.sessionId+'/');}
- else {
-  console.warn("unknown 'type' for linkToSpecialtStore");
-  }
- }**/
 	
 
 
