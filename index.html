@@ -1015,20 +1015,20 @@ this will likely become more flexible in the future. ###
 
 	<ul class='tabs prodTempTabCont'>
 		<!--<li class='prodDescTab displayNone'><a href="#prodDesc" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDesc_;">Description</a></li>-->
-		<li class='prodDetailTab displayNone prodTempTab' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href="#prodDetail" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodDetail_;">Specs</a></li>
-		<li class='prodFeaturesTab displayNone prodTempTab' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodFeatures_;">Features</a></li>
+		<li class='prodDetailTab displayNone prodTempTab pointer' data-bind='var: product(zoovy:prod_detail); format:showIfSet;'><a href="#prodDetail" class="prodTempTab">Specs</a></li>
+		<li class='prodFeaturesTab displayNone prodTempTab pointer' data-bind='var: product(zoovy:prod_features); format:showIfSet;'><a href="#prodFeatures" class="prodTempTab">Features</a></li>
 		<!--**Removed to match design**<li class='prodReviewsTab displayNone prodTempTab'><a href="#prodReviews" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>-->
-		<li class='prodVideoTab displayNone prodTempTab' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodVideo_;">Video</a></li>
+		<li class='prodVideoTab displayNone prodTempTab pointer' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab">Video</a></li>
 		<!--**Removed. Redundant page design as accessories section are already listed in below section<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li> -->
-        <li class='prodTempTab'><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
-        <li class='prodTempTab'><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
+        <li class='prodTempTab pointer displayNone' data-bind='var: product(zoovy:prod_warranty); format:showIfSet;'><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
+        <li class='prodTempTab pointer displayNone' data-bind='var: product(zoovy:prod_discount); format:showIfSet;'><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
 	</ul>
     <div class="prodTempTabBordSpace"></div>
 	
 <!-- tab content. only 1 databind per element, so there's a container with a dynamically generated id (for tabs or other scripts) and child with the data. -->
-	<div class='tabContent' data-anytab-content='prodDesc'>
+	<!--<div class='tabContent' data-anytab-content='prodDesc'>
 		<div data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-	</div>
+	</div>-->
 
 	<div class='tabContent' data-anytab-content='prodDetail'>
 		<div data-bind='var: product(zoovy:prod_detail); format:wiki; wikiFormats:myRIA;'></div>
@@ -1043,11 +1043,11 @@ this will likely become more flexible in the future. ###
 	</div>
     
     <div class='tabContent' data-anytab-content='prodWarranty'>
-		<div data-bind='var: product(zoovy:prodWarranty_); format:wiki; wikiFormats:myRIA'></div>
+		<div data-bind='var: product(zoovy:prod_warranty); format:wiki; wikiFormats:myRIA'></div>
 	</div>
     
     <div class='tabContent' data-anytab-content='prodVolDisc'>
-		<div data-bind='var: product(zoovy:prodVolDisc_); format:wiki; wikiFormats:myRIA'></div>
+		<div data-bind='var: product(zoovy:prod_discount); format:wiki; wikiFormats:myRIA'></div>
 	</div>
 	
 	
