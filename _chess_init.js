@@ -32,7 +32,8 @@ app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making tex
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 
-app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js'])
+app.rq.push(['script',0,app.vars.baseURL+'jquery.ui.widget.min.js']);
+app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
 
