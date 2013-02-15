@@ -24,7 +24,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130214114500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130214163000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -272,14 +272,14 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                             <a  href="#" onClick="return showContent('company',{'show':'about'});" class="footerLinkStyle pointer">About Us</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.visit_our_showroom'});" class="footerLinkStyle pointer">Visit Our Showroom</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="footerLinkStyle pointer">Collector's Club</a><br /><br />
-                            <a  href="#" class="footerLinkStyle pointer">The 10% Off Club</a><br /><br />
+                            <a  href="#" onClick="return showContent('category',{'navcat':'.informationalpages.the_10_club'});" class="footerLinkStyle pointer">The 10% Off Club</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.rulesofchess'});" class="footerLinkStyle pointer">Rules of Chess</a><br /><br />
                             <a  href="#" class="footerLinkStyle pointer">FIDE Laws of Chess</a><br /><br />
                         </div>
                         <div class="footerLinkSec">
                         	<h5>GET SOCIAL</h5>
-                            <a  href="http://www.facebook.com/yourchessstore" target="_blank" class="footerLinkStyle pointer">Facebook</a><br /><br />
-                            <a  href="https://twitter.com/YourChessStore" target="_blank" class="footerLinkStyle pointer">Twitter</a><br /><br />
+                            <img style="margin-right:5px;" href="http://www.facebook.com/yourchessstore" target="_blank" class="pointer" src="images/facebook.gif" /><a  href="http://www.facebook.com/yourchessstore" target="_blank" class="footerLinkStyle pointer">Facebook</a><br /><br />
+                            <img style="margin-right:5px;" href="https://twitter.com/YourChessStore" target="_blank" class="pointer" src="images/Twitter.gif" /><a  href="https://twitter.com/YourChessStore" target="_blank" class="footerLinkStyle pointer">Twitter</a><br /><br />
                             <a  href="http://www.thechessstore.blogspot.com/" target="_blank" class="footerLinkStyle pointer">Read Our Blog</a><br /><br />
                         </div>
                     </div>
@@ -309,9 +309,19 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                     	<img width="90" height="50" alt="" src="images/Footer/rapidssl_ssl_certificate.gif">
                                     </td>
                                     <td>
-                                    	
+                                    	<img class="footerCCards" width="33" height="20" alt="" src="images/Footer/VISA.gif">
                                     </td>
                                     <td>
+                                    	<img class="footerCCards" width="33" height="20" alt="" src="images/Footer/MasterC.gif">
+                                    </td>
+                                    <td>
+                                    	<img class="footerCCards" width="33" height="20" alt="" src="images/Footer/AMEX.gif">
+                                    </td>
+                                    <td>
+                                    	<img class="footerCCards" width="33" height="20" alt="" src="images/Footer/Discover.gif">
+                                    </td>
+                                    <td>
+                                    	<img style="border-radius:5px; margin-left:5px;" width="53" height="35" alt="" src="images/Footer/PayPal.gif">
                                     </td>
                                 </tr>
                             </tbody>
@@ -386,7 +396,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/wood-chess-sets-with-boards-banner-310.jpg" />
             	<div class="homepageCatTitle">Wood Chess Sets with Boards</div>
-                <div class="homepageCatDesc">Here is the descriptive text for this category. Please click to view more of this category.</div>
+                <div class="homepageCatDesc">Our high quality pieces matched with the perfect chess board. Vast selection of designs, woods, and sizes<!-- plus prices to fit any budget!--></div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases.4-model'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/wood-chess-sets-with-cases-banner-310.jpg" />
@@ -586,16 +596,17 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
     -->
     <div class="homepage10OffClub">
-    	<img src="images/Homepage_10OffClub.gif">
-        <h3>10% Off Club</h3>
-        <p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>
+    	<img onClick="return showContent('category',{'navcat':'.informationalpages.the_10_club'});" src="images/Homepage Bottom Ad Bars images/10-percent-club-banner-472.jpg" class="pointer">
+        <!--<h3>10% Off Club</h3>
+        <p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>-->
     </div>
     <div class="homepageCollectClub">
-    	<img class="" src="images/Homepage_CollectClub.gif">
-        <h4>Are you a</h4><br /> 
+    	<img onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" src="images/Homepage Bottom Ad Bars images/collectors-club-banner-472.jpg" class="pointer">
+        <!--<h4>Are you a</h4><br /> 
         <h3>Collector?</h3>
-        <p><a href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="underline">Join the Collectors Club </a><br />for special offers!</p>
+        <p><a href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="underline">Join the Collectors Club </a><br />for special offers!</p>-->
     </div>
+    <div class="clear"></div>
 
 </div>
 
