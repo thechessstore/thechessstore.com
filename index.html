@@ -117,7 +117,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					</div>
 					<div class="headerBoxCenter">
 						<h6>Need help?</h6>
-						<p>1-888-810-2437 or click for <a href="#company?show=contact" class='bindByAnchor' title='Online Help'>online</a> help.</p>
+						<p>1-888-810-2437 or click for <a href="" onclick="return showContent('company',{'show':'contact'});" class='bindByAnchor' title='Online Help'>online</a> help.</p>
 						<p>8am to 5pm M-F &amp; 8am to 4pm Saturday</p>
 						<form name='headerSearchFrm' action='#' class='productSearchForm marginTop' method="get">
 							<fieldset>
@@ -129,7 +129,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					</div>
 					<div class="headerBoxCenter">
 						<h6 class='accent'>Get up to $30% Off</h6><!-- TODO: 30% off - maybe popup -->
-						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="">* See details</a></p>
+						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="return showContent('company',{'show':'shipping'});">* See details</a></p>
 						<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>
 					</div>
 					<div class="headerBoxRight">
@@ -834,7 +834,7 @@ container ul should have lineItemProdlist class on it instead of productList
 <span class="ui-icon ui-icon-cart"></span>
 </button>
 		
-<button class='ui-state-default ui-corner-all' title='more information'>
+<button class='ui-state-default ui-corner-all' title='more information' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
 <span class="ui-icon ui-icon-info"></span>
 </button>
 
@@ -998,7 +998,7 @@ this will likely become more flexible in the future. ###
         </div>
         <a class="referFriendLink pointer">Tell a friend</a>
     </div>
-    <p>Questions? Click here for online help or call 1-888-810-2437</p>
+    <p>Questions? Click here for <a class="pointer" style="color: #D35120;" onclick="return showContent('company',{'show':'contact'});">online</a> help or call 1-888-810-2437</p>
 	
 
 	<div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
@@ -1056,12 +1056,12 @@ this will likely become more flexible in the future. ###
 	</td>
 </tr>
 </table>
-<div class='prodlistRelatedContainer'>
+<div class='prodlistRelatedContainer displayNone' data-bind='var: product(zoovy:related_products); format:showIfSet;'>
 	<h2 style="color:#421908;">You Might Also Like</h2>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
 </div>
 
-<div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodAccessories_;">
+<div class="displayNone" data-bind='var: product(zoovy:accesory_products); format:showIfSet;'>
 		<h2 style="color:#421908;">Accessories</h2>
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist youMIghtLikeUL' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
 	
@@ -1325,7 +1325,7 @@ adding classes is not likely to have any bad effects.
 		<li><a href='#customer?show=myaccount' id='navLink_myaccount'>My Account</a></li>
 		<li><a href='#customer?show=changepassword' id='navLink_changepassword'>Change Password</a></li>
 		<li><a href='#customer?show=orders' id='navLink_orders'>Order History</a></li>
-		<li><a href='#customer?show=lists' id='navLink_orders'>Manage Lists</a></li>
+		<li><a href='#customer?show=lists' id='navLink_orders'>Wish List</a></li>
 	</ul>
 	</nav>
 	</div>
