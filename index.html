@@ -63,7 +63,8 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 </script>
-<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>	
+<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
+<script type="text/javascript" src="jquery.ui.widget.min.js"></script>	
 
 
 
@@ -1070,9 +1071,9 @@ this will likely become more flexible in the future. ###
 		
         <h2 id="readReview" style="color:#421908;">Reviews</h2>
 		<div class='clearfix alignRight'>
+        <p data-bind="var: reviews(@reviews); format:showIfSet;" style="text-align:center;">Be the first to review this product!</p>
 			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
 		</div>
-		
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
 </div>
 

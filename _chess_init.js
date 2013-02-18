@@ -16,6 +16,7 @@ app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+app.rq.push(['extension',0,'store_category_subcatlist','extensions/store_category_subcatlist.js','startExtension']);
 app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews','extensions/reviews_powerreviews.js','startExtension']);
@@ -32,7 +33,6 @@ app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making tex
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 
-app.rq.push(['script',0,app.vars.baseURL+'jquery.ui.widget.min.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
@@ -54,7 +54,7 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 	}]);
 	
 	
-app.rq.push(['script',1,app.vars.baseURL+'anytabs.js']);
+app.rq.push(['script',0,app.vars.baseURL+'anytabs.js']);
 	
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
