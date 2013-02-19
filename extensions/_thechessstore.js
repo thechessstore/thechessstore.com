@@ -123,7 +123,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 		app.ext.store_search.calls.appPublicProductSearch.init(query,{'callback':function(rd){
 
 			if(app.model.responseHasErrors(rd)){
-				$page.anymessage(rd);
+				$page.anymessage({'message':rd});
 				}
 			else	{
 				var L = app.data[rd.datapointer]['_count'];
