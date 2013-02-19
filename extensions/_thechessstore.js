@@ -193,18 +193,16 @@ var filters = {
 	"and" : [] //push on to this the values from each fieldset.
 	}//query
 
-var filter; //recycled.
-var $fieldset; //recycled.
 
 $('fieldset',$form).each(function(){
-	$fieldset = $(this);
+	var $fieldset = $(this),
 	filter = app.ext.store_filter.getElasticFilter[$fieldset.attr('data-filtertype')]($fieldset);
-//	app.u.dump(" -> filter: "); app.u.dump(filter);
 	if(filter)	{
 		filters.and.push(filter);
 		}
 	});
-//and requires at least 2 inputs, so add a match_all 
+//and requires at least 2 inputs, so add a match_all.
+//if there are no filters, don't add it. the return is also used to determine if any filters are present
 	if(filters.and.length == 1)	{
 		filters.and.push({match_all:{}})
 		}
