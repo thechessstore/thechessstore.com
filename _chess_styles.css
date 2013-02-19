@@ -293,6 +293,14 @@ fieldset {
   margin-top: 24px; }
   .headerBoxRight p {
     margin-bottom: 0.6em; }
+.headerBoxRight a{
+	color:#6F290F;
+	font-size:16px;
+	font-weight:500;
+}
+.headerBoxRight a:hover{
+	color:black;
+}
 
 .navMenu {
   margin: 0;
@@ -328,7 +336,16 @@ fieldset {
 
 /********************************************************************************************************************************/	
 /**Header**/
-/**Header - Middle Section**/	  
+/**Header - Middle Section**/
+
+.headerShowroom{
+	font-size:18px;
+	line-height:40px;
+}
+.headerImage{
+	height:90px;
+	width:200px;
+}
 #searchBarInput{
 	background:url(images/Searchbar_inputImg.gif) no-repeat right;
 	width:190px;
@@ -1352,20 +1369,19 @@ color:#561d09;
 	color:#d4511f;
 }
 
-
-
-
-
-
-
-
-/*
-
-filter styles 
-
-*/
-.filterContainer	{color:#ffffff; padding:10px;}
-.filterContainer fieldset	{margin-bottom:20px;}
-.filterContainer label.break	{display:block; padding:2px 0;}
-.sliderValue	{background:none; border:none; color:#ffffff; margin-left:9px; float:left;}
-.slider-range	{clear:both;}
+/*****************************************************************************************************************************/
+/**Cart Page**/
+.cartSummaryTotalsContainer h2{
+	font-size:16px;
+	letter-spacing:1px;
+}
+#chkoutPreflightFieldset{
+	clear:both;
+}
+.checkoutMethods{
+	width:300px;
+	float:right;
+}
+#couponContainer{
+	float:right;
+}
