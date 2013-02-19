@@ -1351,3 +1351,21 @@ color:#561d09;
 	font-size:16px;
 	color:#d4511f;
 }
+
+
+
+
+
+
+
+
+/*
+
+filter styles 
+
+*/
+.filterContainer	{color:#ffffff; padding:10px;}
+.filterContainer fieldset	{margin-bottom:20px;}
+.filterContainer label.break	{display:block; padding:2px 0;}
+.sliderValue	{background:none; border:none; color:#ffffff; margin-left:9px; float:left;}
+.slider-range	{clear:both;}

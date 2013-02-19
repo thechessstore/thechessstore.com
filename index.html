@@ -626,9 +626,16 @@ used to organize content when a category is clicked.
 each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
-<div id='categoryTemplate' class='loadingBG categoryTemplate'>
+<div id='categoryTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
+	
+	
+		<div class='filterContainer clearfix'>
+		
+		</div>
+	
+	
     	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
         	<div class="browseDropdown sidebarShopByCat">
             	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
@@ -687,13 +694,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<h5 class="floatLeft"> Your Selections:</h5>
     	</div> ********removed temporarily until filtered search can be implemented-->
 	
-		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	
 		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
 	
-		<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	</div>
     
     
@@ -1951,6 +1958,73 @@ The 'data-action' attribute is used to assign an onclick.
 		<button class='ui-button-text ui-button ui-state-default ui-corner-all ' id='modalLoginContinueButton' onClick="$('#loginFormForModal').dialog('close');">Continue</button>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+<!--
+#################################
+
+LAYERED SEARCH FILTERS
+
+put all filters into the appFilters container.
+
+#################################
+-->
+
+<div id='appFilters' class='displayNone'>
+
+
+
+
+
+<form action='#' name='completeChessSetsForm' id='completeChessSetsForm'>
+
+
+<fieldset data-elastic-key="keywords" data-filtertype="hidden">
+	<input type='hidden' name="name" value="chess" />
+</fieldset>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_mfg" data-filtertype="checkboxes">
+	<legend>Brand</legend>
+	<label class='break'><input type='checkbox' value='BHB' />BHB</label>
+	<label class='break'><input type='checkbox' value='Dal Negro' />Dal Negro</label>
+	<label class='break'><input type='checkbox' value='Everyman' />Everyman</label>
+	<label class='break'><input type='checkbox' value='FAME USA' />FAME USA</label>
+	<label class='break'><input type='checkbox' value='Gambit' />Gambit</label>
+	<label class='break'><input type='checkbox' value='Italfama' />Italfama</label>
+</fieldset>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
 
 
 

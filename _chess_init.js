@@ -13,6 +13,7 @@ app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
 app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
+app.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
 app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
@@ -36,6 +37,9 @@ app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
+
+
 
 
 //add tabs to product data.
@@ -53,8 +57,39 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 		else	{} //couldn't find the tab to tabificate.
 	}]);
 	
+
+
+
+//sample of an onDeparts. executed any time a user leaves this page/template type.
+app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext.store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $("#categoryTemplate_"+app.u.makeSafeHTMLId(P.navcat));
+		app.u.dump(" -> $page.length: "+$page.length);
+		
+		var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+		$form.on('submit.filterSearch',function(event){
+			event.preventDefault()
+			app.u.dump(" -> Filter form submitted.");
+			app.ext.store_filter.a.execFilter($form,$page);
+			});
+
+		if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+			app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+			}
+
+//make all the checkboxes auto-submit the form.
+		$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+			$form.submit();      
+			});
+		}
 	
-app.rq.push(['script',0,app.vars.baseURL+'anytabs.js']);
+	}]);
+
+
+	
 	
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
