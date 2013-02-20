@@ -24,7 +24,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130219164500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130219175000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -630,6 +630,330 @@ each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+
+	<div class="catBrowseSidebar">
+	
+	
+		<div class='filterContainer clearfix'>
+		
+		</div>
+	
+	
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByCat">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarSpecDept">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByBrand">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarTeachAndLearn">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+	
+    <div id="catTempCont">
+		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+    
+
+		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
+    	<!--<div class="catTempHeader">
+    		<h3 class="floatLeft">Chess Sets - </h3>
+        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
+        	<h5 class="floatLeft"> Your Selections:</h5>
+    	</div> ********removed temporarily until filtered search can be implemented-->
+	
+		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+	
+		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	</div>
+    
+    
+		
+</div>
+
+<div id='categoryTemplate2' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+
+	<div class="catBrowseSidebar">
+	
+	
+		<div class='filterContainer clearfix'>
+		
+		</div>
+	
+	
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByCat">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarSpecDept">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByBrand">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarTeachAndLearn">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+	
+    <div id="catTempCont">
+		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+    
+
+		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
+    	<!--<div class="catTempHeader">
+    		<h3 class="floatLeft">Chess Sets - </h3>
+        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
+        	<h5 class="floatLeft"> Your Selections:</h5>
+    	</div> ********removed temporarily until filtered search can be implemented-->
+	
+		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+	
+		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	</div>
+    
+    
+		
+</div>
+
+<div id='categoryTemplate3' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+
+	<div class="catBrowseSidebar">
+	
+	
+		<div class='filterContainer clearfix'>
+		
+		</div>
+	
+	
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByCat">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarSpecDept">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByBrand">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarTeachAndLearn">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+	
+    <div id="catTempCont">
+		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+    
+
+		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
+    	<!--<div class="catTempHeader">
+    		<h3 class="floatLeft">Chess Sets - </h3>
+        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
+        	<h5 class="floatLeft"> Your Selections:</h5>
+    	</div> ********removed temporarily until filtered search can be implemented-->
+	
+		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+	
+		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	</div>
+    
+    
+		
+</div>
+
+<div id='categoryTemplate4' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+
+	<div class="catBrowseSidebar">
+	
+	
+		<div class='filterContainer clearfix'>
+		
+		</div>
+	
+	
+    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByCat">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarSpecDept">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarShopByBrand">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
+        	<div class="browseDropdown sidebarTeachAndLearn">
+            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+	
+    <div id="catTempCont">
+		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+    
+
+		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
+    	<!--<div class="catTempHeader">
+    		<h3 class="floatLeft">Chess Sets - </h3>
+        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
+        	<h5 class="floatLeft"> Your Selections:</h5>
+    	</div> ********removed temporarily until filtered search can be implemented-->
+	
+		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+	
+		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+	</div>
+    
+    
+		
+</div>
+
+<div id='categoryTemplate5' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
 	
