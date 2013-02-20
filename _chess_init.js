@@ -268,6 +268,25 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
   
 	}
 }]);
+
+app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
+{
+	app.u.dump("Begin reviews messaging function");
+	
+	if($(".reviewsCont").children().length == 0){
+		app.u.dump("reviews messaging function is running");
+		var noReviews = document.createElement("p");
+		var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
+		noReviews.appendChild(noreviewsMessage);
+		var findReviewSec = document.getElementsByClassName("reviewsBind");
+		document.body.insertBefore(noReviews, findReviewSec);
+	}
+	else
+	{
+		app.u.dump($(".reviewsCont").children().length + "reviews messaging function did not run");
+	}
+
+}]);
 	
 
 

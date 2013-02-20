@@ -297,7 +297,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                             <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp | </a>
                             <a  href="#" class="pointer">Newsletter &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privact Policy &nbsp | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privacy Policy &nbsp | </a>
                             <p>&#169 2013 The Chess Store<p>
                         </ul>
                     </div>
@@ -632,14 +632,14 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
-	<!--<div class="catBrowseSidebar">
+	<<div class="catBrowseSidebar">
 	
 	
 		<div class='filterContainer clearfix'>
 		
 		</div>
 	
-	
+	<!--
     	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
         	<div class="browseDropdown sidebarShopByCat">
             	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
@@ -682,8 +682,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
             </div>
         </div>
-        <div class="clear"></div>
-    </div>-->
+        <div class="clear"></div>-->
+    </div>
 	
     <div id="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
@@ -1267,7 +1267,7 @@ this will likely become more flexible in the future. ###
 
 </div>
 
-	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
+<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
 	
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
 	
@@ -1406,7 +1406,9 @@ this will likely become more flexible in the future. ###
 		
         <h2 id="readReview" style="color:#421908;">Reviews</h2>
 		<div class='clearfix alignRight'>
-        <p data-bind="var: reviews(@reviews); format:showIfSet;" style="text-align:center;">Be the first to review this product!</p>
+        <div class="reviewsCont">
+        <ul class="reviewsBind" data-bind="var: reviews(@reviews); format:showIfSet;"></ul>
+        </div>
 			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
 		</div>
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
