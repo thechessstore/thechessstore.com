@@ -16,10 +16,12 @@
 
 ************************************************************** */
 
-var store_category_subcatlist = function() {
+var extension_thechessstore = function() {
 	var r= {
 		vars : {
-			selector : ".subcatOptions"
+			catTemplates : {
+    		".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
+			}
 		},
 		
 		callbacks : {

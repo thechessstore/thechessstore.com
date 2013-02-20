@@ -29,7 +29,10 @@ var myRIA = function() {
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',
-			'categoryTemplate',
+			'categoryTemplate2',
+			'categoryTemplate3',
+			'categoryTemplate4',
+			'categoryTemplate5',
 			'categoryListTemplate',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
@@ -64,6 +67,7 @@ var myRIA = function() {
 			"recentlyViewedItems" : [],
 			"recentCategories" : []
 			} //a list of other extensions (just the namespace) that are required for this one to load
+			
 		},
 
 
@@ -2349,12 +2353,18 @@ buyer to 'take with them' as they move between  pages.
 					if(infoObj.templateID){
 						//templateID 'forced'. use it.
 						}
-						
+					//app.u.dump("Begin homepagecategory page loading");
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
+						app.u.dump("homepage selected");
 						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
+						else if(app.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+							app.u.dump("category catsafeid option selected");
+							infoObj.templateID = app.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+						}
+					else{
+							app.u.dump("category default option selected");
+							infoObj.templateID = 'categoryTemplate'
 						}
 					infoObj.state = 'onInits';
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);

@@ -17,7 +17,7 @@ app.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
 app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
-app.rq.push(['extension',0,'store_category_subcatlist','extensions/store_category_subcatlist.js','startExtension']);
+app.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
 app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews','extensions/reviews_powerreviews.js','startExtension']);
