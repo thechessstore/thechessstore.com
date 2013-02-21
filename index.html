@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -399,7 +400,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont1">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat1'>
         	
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});">
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/wood-chess-sets-with-boards-banner-310.jpg" />
             	<div class="homepageCatTitle">Wood Chess Sets with Boards</div>
                 <div class="homepageCatDesc">High quality wood chess pieces matched with the perfect chess board. From basic to heirloom treasures.</div>
@@ -632,7 +633,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
 
-	<<div class="catBrowseSidebar">
+	<div class="catBrowseSidebar">
 	
 	
 		<div class='filterContainer clearfix'>
@@ -778,6 +779,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
         	<h5 class="floatLeft"> Your Selections:</h5>
     	</div> ********removed temporarily until filtered search can be implemented-->
+        
+        <h4 data-bind='var: category(pretty); format:text;'></h4>
 	
 		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	
