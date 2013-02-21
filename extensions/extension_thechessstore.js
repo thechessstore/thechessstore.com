@@ -20,8 +20,10 @@ var extension_thechessstore = function() {
 	var r= {
 		vars : {
 			catTemplates : {
-    		".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
-			}
+    			".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
+			},
+			
+			reviewSelector : ".reviewsCont"
 		},
 		
 		callbacks : {

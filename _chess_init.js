@@ -273,13 +273,19 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 {
 	app.u.dump("Begin reviews messaging function");
 	
-	if($(".reviewsCont").children().length == 0){
+	if($(".reviewsBind").children().length == 0){
 		app.u.dump("reviews messaging function is running");
-		var noReviews = document.createElement("p");
+		$(app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
+		'<p style="text-align:center;" id="reviewsCont">'
+		+ 'Be the First to Review This Product!'
+		+ '</p>');
+
+
+		/*var noReviews = document.createElement("p");
 		var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
 		noReviews.appendChild(noreviewsMessage);
 		var findReviewSec = document.getElementsByClassName("reviewsBind");
-		document.body.insertBefore(noReviews, findReviewSec);
+		document.body.insertBefore(noReviews, findReviewSec);*/
 	}
 	else
 	{

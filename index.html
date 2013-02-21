@@ -1407,7 +1407,7 @@ this will likely become more flexible in the future. ###
         <h2 id="readReview" style="color:#421908;">Reviews</h2>
 		<div class='clearfix alignRight'>
         <div class="reviewsCont">
-        <ul class="reviewsBind" data-bind="var: reviews(@reviews); format:showIfSet;"></ul>
+        	<ul class="reviewsBind" data-bind="var: reviews(@reviews); format:showIfSet;"></ul>
         </div>
 			<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>Write Review</button>
 		</div>
