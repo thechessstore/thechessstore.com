@@ -20,6 +20,12 @@ var extension_thechessstore = function() {
 	var r= {
 		vars : {
 			catTemplates : {
+				//Jeff, Here is where you input the categories and which templates they will load with. The syntax looks like this:
+				//".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
+				//						^										^
+				//					 category 								 Template
+				
+				//**Begin Category/Template combiniations**	
     			".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
 			},
 			
