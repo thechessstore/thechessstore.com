@@ -1074,6 +1074,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	text-align:center;
 	color:#561d09;
 }
+/**Reviews Section**/
+#prodViewerReviews{
+	text-align:left;
+	padding-right:15px;
+	padding-left:10px;
+}
 /********************************************************************************************************************************/
 /**Category Template1**/
 /**Category template header**/

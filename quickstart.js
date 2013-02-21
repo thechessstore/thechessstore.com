@@ -29,10 +29,8 @@ var myRIA = function() {
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',
-			'categoryTemplate2',
-			'categoryTemplate3',
-			'categoryTemplate4',
-			'categoryTemplate5',
+			'categoryTemplate3PanelCat',
+			'categoryTemplate4PanelCat',
 			'categoryListTemplate',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
