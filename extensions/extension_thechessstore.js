@@ -25,8 +25,9 @@ var extension_thechessstore = function() {
 				//						^										^
 				//					 category 								 Template
 				
-				//**Begin Category/Template combiniations**	
-    			".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate3PanelCat"
+				//**Begin Category:Template combinations**
+				".00016-chess-boards.00010-natural-wood-chess-boards" : "categoryTemplate3PanelCat",
+				".00034-chess-books.00010-everyman-chess-books" : "categoryTemplate4PanelCat"
 			},
 			
 			reviewSelector : ".reviewsCont"
