@@ -278,7 +278,9 @@ fieldset {
 
 .headerBoxLeft {
   float: left;
-  margin-right: 50px; }
+  margin-right: 50px; 
+  padding-top: 15px;
+  }
 
 .headerBoxCenter {
   float: left;
