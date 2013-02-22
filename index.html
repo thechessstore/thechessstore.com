@@ -1800,6 +1800,7 @@ So the cart template should contain these two elements and the extension should 
 
 <section id='cartTemplateShippingContainer'>
 	<h3>Shipping:</h3>
+    <p>**Shipping price above reflects lowest cost shipping. Shipping on orders over 50 dollars qualify for 7 dollar flat rate shipping. See the shipping information for more details.**</p>
 	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@shipmethods); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
 		
@@ -1811,6 +1812,8 @@ So the cart template should contain these two elements and the extension should 
 	app.ext.store_cart.u.updateCartSummary();
 	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
 	app.model.dispatchThis('immutable');"  />
+    <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
+	</menu>
 	</div>
 
 	
@@ -1861,17 +1864,20 @@ So the cart template should contain these two elements and the extension should 
 		</span>
 		
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(full_product.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
+        <div class="clear"></div>
+        
 	
 		<h4 data-bind='var: product(prod_name); format:text; '></h4>
 		
 		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
 		
 		<div>
-		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />
-		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
-		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
-
+			qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />
+        	<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
+			<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
+			<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
+            <div class="clear"></div>
+        	<button class='ui-button ui-button-text ui-state-default ui-corner-all'>Update</button>
 		</div>
 		
 		<div class='ztable_row_small prodOptions' data-bind='var: variations(*options); format:selectedOptionsDisplay;'></div>
