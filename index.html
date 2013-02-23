@@ -904,7 +904,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='300' height='200' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
@@ -950,17 +950,18 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='300' height='200' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='355' height='210' />
 		</div>
 		
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        <div class="">
+			<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
         
-        <span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+        	<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 	
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
+			<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
         
-        <a>View Details</a>
-		
+        	<a>View Details</a>
+		</div>		
 		
 		
 <!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
@@ -973,16 +974,16 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='225' height='150' />
+			<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='220' height='150' />
 		</div>
 		
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        	<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
         
-        <span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+        	<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 	
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
+			<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
         
-        <a>View Details</a>
+        	<a>View Details</a>
 		
 		
 		

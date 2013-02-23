@@ -1180,8 +1180,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 
 /**categoryListTemplate**/
 .categoryList  li.categoryListTemplate{
-	width:300px;
-	height:225px;
+	width:355px;
+	height:255px;
 	float:left;
 	
 }
@@ -1202,6 +1202,16 @@ font-family: 'Neuton', serif;
 font-weight:500;
 color:#561d09;
 text-align:center;
+width:100%;
+
+/**background: rgb(147,116,73); /* Old browsers */
+/**background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
+/**background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
+/**background: -webkit-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Chrome10+,Safari5.1+ */
+/**background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
+/**background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
+/**background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
+/**filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 .catListTempCatPage{
 	height:100px;
@@ -1260,13 +1270,26 @@ width:100%;
 	padding-top:1px;
 }
 
+/*************************************************************************************************************************/
 /**ProductListTemplate**/
 .productList li.productListTemplate{
-	width:350px;
-	height:350px;
+	width:355px;
+	height:330px;
 		
 }
-
+.productList li.productListTemplate h6{
+	color:#D4511F;
+}
+.catPageProdInfoBox{
+background: rgb(147,116,73); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(147,116,73,1)), color-stop(50%,rgba(158,124,78,1)), color-stop(100%,rgba(135,106,66,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+}
 /**'productListTemplate3Panel**/
 .productList li.productListTemplate3Panel{
 	width:225px;
@@ -1274,11 +1297,17 @@ width:100%;
 	
 }
 
+.productList li.productListTemplate3Panel h6{
+	color:#D4511F;
+}
+
 /**'productListTemplate4Panel**/
 .productList li.productListTemplate4Panel{
 	width:160px;
 	height:220px;
-		
+}
+.productList li.productListTemplate4Panel h6{
+	color:#D4511F;
 }
 	
 /********************************************************************************************************************************/
