@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130222162500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130226145500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -911,7 +911,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate3Panel' class="categoryListTemplateClass categoryListTemplate3Panel">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='200' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='150' /></div>
 		<div class='catName white2LGray catName3'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
