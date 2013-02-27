@@ -1773,6 +1773,7 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
+    <p>**Certain items may not display prices, allow changing of quantity, or may appear to not be what you ordered. These items are the parts that make up the assembly selected. Example: German Knight Staunton Chess Set in Eboninzed-Boxwood with Mahogany Chess Board - 2.75" King assembly selected = the actual assembly + German Knight Staunton Chess Set in Ebonized-Boxwood - 2.75" King + Mahogany & Maple Standard Chess Board - 1.5" Squares.</p>
 	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
 	</td>
 
@@ -1860,9 +1861,7 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
-		<span class='ui-state-default ui-corner-all floatRight removeButton' data-bind='var: product(stid); format:removeItemBtn; extension:store_cart;' >
-		<span class='ui-icon ui-icon-closethick'></span>
-		</span>
+		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 		
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(full_product.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
         <div class="clear"></div>
@@ -1873,7 +1872,7 @@ So the cart template should contain these two elements and the extension should 
 		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
 		
 		<div>
-			qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />
+			qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
         	<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
 			<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
 			<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>

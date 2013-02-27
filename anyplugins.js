@@ -205,6 +205,7 @@ For the list of available params, see the 'options' object below.
 
 
 
+
 /*
 
 
@@ -397,11 +398,11 @@ either templateID or (data or datapointer) are required.
 //			app.u.dump("anycontent params: "); app.u.dump(o);
 
 			if(o.templateID && (app.templates[o.templateID] || self._addNewTemplate(o.templateID)))	{
-//				app.u.dump(" -> passed template check.");
+				app.u.dump(" -> passed template check.");
 				self._anyContent();
 				}
 			else if(o.data || (o.datapointer && !$.isEmptyObject(app.data[o.datapointer])))	{
-//				app.u.dump(" -> passed data check.");
+				app.u.dump(" -> passed data check.");
 				self._anyContent();
 				}
 			else	{
@@ -423,14 +424,14 @@ either templateID or (data or datapointer) are required.
 			r = true; // what is returned. false if not able to create template.
 			
 			
-			if(o.templateID && o.datapointer && app.data[datapointer])	{
+			if(o.templateID && o.datapointer && app.data[o.datapointer])	{
 				app.u.dump(" -> template and datapointer present. transmogrify.");
 				this.element.hideLoading().removeClass('loadingBG');
-				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[datapointer]));
+				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[o.datapointer]));
 				}
 			else if(o.templateID && o.data)	{
 				app.u.dump(" -> template and data present. transmogrify.");
-				this.element.hideLoading().removeClass('loadingBG');
+				if(typeof jQuery().hideLoading == 'function'){this.element.hideLoading().removeClass('loadingBG')}
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,o.data));
 				}
 //a templateID was specified, just add the instance. This likely means some process outside this plugin itself is handling translation.
@@ -447,8 +448,14 @@ either templateID or (data or datapointer) are required.
 				app.renderFunctions.translateSelector(this.element,o.data);
 				this.element.hideLoading().removeClass('loadingBG');
 				}
+//if just translating because the template has already been rendered
+			else if(o.datapointer  && app.data[o.datapointer])	{
+//				app.u.dump(" -> data specified, translate selector");
+				app.renderFunctions.translateSelector(this.element,app.data[o.datapointer]);
+				this.element.hideLoading().removeClass('loadingBG');
+				}
 			else	{
-				//should never get here. function won't be run if no templateID specified.
+				//should never get here. error handling handled in _init before this is called.
 				r = false;
 				}
 			return r;
@@ -594,7 +601,17 @@ th.click(function(){
 	$table.find('td').filter(function(){
 		return $(this).index() === thIndex;
 		}).sortElements(function(a, b){
-			return $.text([a]).toLowerCase() > $.text([b]).toLowerCase() ? inverse ? -1 : 1 : inverse ? 1 : -1; //toLowerCase make the sort case-insensitive.
+			var r;
+			var numA = Number($.text([a]).replace(/[^\w\s]/gi, ''));
+			var numB = Number($.text([b]).replace(/[^\w\s]/gi, ''));
+			if(numA && numB)	{
+//				console.log('is a number');
+				r = numA > numB ? inverse ? -1 : 1 : inverse ? 1 : -1; //toLowerCase make the sort case-insensitive.
+				}
+			else	{
+				r = $.text([a]).toLowerCase() > $.text([b]).toLowerCase() ? inverse ? -1 : 1 : inverse ? 1 : -1; //toLowerCase make the sort case-insensitive.
+				}
+			return r
 			},function(){
 		// parentNode is the element we want to move
 		return this.parentNode; 
@@ -942,7 +959,7 @@ Additional a settings button can be added which will contain a dropdown of selec
 			},
 
 		_handlePersistentStateUpdate : function(value)	{
-//			app.u.dump("BEGIN anypanel._handlePersistentStateUpdate")
+//			app.u.dump("BEGIN anypanel._handlePersistentStateUpdate");
 			var r = false; //will return true if a persistent update occurs.
 //			app.u.dump(" -> this.options.persistent: "+this.options.persistent);
 //			app.u.dump(" -> value: "+value);
@@ -952,11 +969,13 @@ Additional a settings button can be added which will contain a dropdown of selec
 					var settings = {};
 					settings[this.options.name] = {'state':value};
 					var newSettings = $.extend(true,app.ext.admin.u.dpsGet(this.options.extension,'anypanel'),settings); //make sure panel object exits.
+//					app.u.dump(' -> '+this.options.extension);
+//					app.u.dump(' -> newSettings:');	app.u.dump(newSettings);
 					app.ext.admin.u.dpsSet(this.options.extension,'anypanel',newSettings); //update the localStorage session var.
 					r = true;
 					}
 				else	{
-					console.warn("anypanel has persist enabled, but either name ["+this.name+"] or extension ["+this.extension+"] not declared. This is a non-critical error, but it means panel will not be persistant.");
+					app.u.dump("anypanel has persist enabled, but either name ["+this.name+"] or extension ["+this.extension+"] not declared. This is a non-critical error, but it means panel will not be persistant.",'warn');
 					}
 				}
 			return r;
@@ -973,7 +992,7 @@ Additional a settings button can be added which will contain a dropdown of selec
 			$ul.attr('data-app-role','settingsMenu').hide().css({'position':'absolute','right':0,'zIndex':10000});
 			for(index in sm)	{
 				$("<li \/>").addClass('ui-state-default').on('click',sm[index]).on('click.closeMenu',function(){
-					$ul.menu( "blur" ); //close the menu.
+					$ul.menu( "collapse" ); //close the menu.
 					}).hover(function(){$(this).addClass('ui-state-hover')},function(){$(this).removeClass('ui-state-hover')}).text(index).appendTo($ul);
 				}
 			if($ul.children().length)	{

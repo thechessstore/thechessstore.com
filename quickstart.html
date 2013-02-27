@@ -20,11 +20,11 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130206080100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220095400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
-	"httpURL":"http://www.sporks.zoovy.com/"
+	"httpURL":"http://www.toynk.com/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -41,7 +41,7 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="jquery.ui.widget.min.js"></script>
@@ -254,11 +254,15 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
 
 		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-
-
+		
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
+	
+	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#'>
+		<button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+	</form>
+	
 </li>
 
 
@@ -342,18 +346,20 @@ container ul should have lineItemProdlist class on it instead of productList
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+
+SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
-<li id='productListTemplateResults' class='loadingBG  ' >
+<li id='productListTemplateResults' class='loadingBG searchResultsProduct ' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='120' height='120' />
 		</div>
 
-		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+		<h5 class='hideInMinimalMode' data-bind='var: product(prod_name); format:text;'></h5>
 
-		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 	</div>
-	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	<div class='hideInMinimalMode pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>
 </ul>
 
@@ -430,7 +436,7 @@ this will likely become more flexible in the future. ###
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
 		</span>
 	</div>
-
+	<div class="socialLinks"></div>
 
 	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
 
@@ -791,7 +797,7 @@ adding classes is not likely to have any bad effects.
 		<div id='myaccountArticle' class='displayNone textContentArea'>
 			<h1>My Account</h1>
 			<div id='logMessaging'></div>
-			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('homepage',{}); return false;">Log Out</a></div>
+			<div><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></div>
 
 			<section id='buyerAddresses' class='clearfix'>
 
@@ -1043,9 +1049,7 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
-		<span class='ui-state-default ui-corner-all floatRight removeButton' data-bind='var: product(stid); format:removeItemBtn; extension:store_cart;' >
-		<span class='ui-icon ui-icon-closethick'></span>
-		</span>
+		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
 
@@ -1054,7 +1058,7 @@ So the cart template should contain these two elements and the extension should 
 		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
 
 		<div>
-		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />
+		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
 		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
 		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
 		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
@@ -1406,11 +1410,9 @@ The 'data-action' attribute is used to assign an onclick.
 
 </menu>
 	<button  onClick="localStorage.clear(); return false;">Clear Local Storage</button>
-	<button  onClick="app.u.dump(app); return false;">Control to Console</button>
-	<button  onClick="app.ext.myRIA.a.showInlineProdDetails({'pid':'E1C14568','selector':'#mainContentArea','templateID':'productTemplate'});">showInlineProdDetails</button>
-	<button  onClick="document.write('stuff');">document.write</button>
 	<button  onClick="alert(app.ext.store_checkout.u.thisSessionIsPayPal());">Alert isPaypal</button>
 	<button  onClick="alert(app.ext.store_checkout.u.aValidPaypalTenderIsPresent());">Alert aValidPaypalTenderIsPresent</button>
+	<button  onClick="app.ext.convertSessionToOrder.a.startCheckout($('#mainContentArea'));">mobile checkout</button>
 
 <form name='headerSearchFrm' action='#' class='productSearchForm' method="get">
 	<fieldset>

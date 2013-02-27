@@ -250,7 +250,7 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 					},
 				dispatch : function(obj,tagObj)	{
 					obj["_cmd"] = "buyerLogout";
-					obj["_tag"] = tagObj;
+					obj["_tag"] = tagObj || {};
 					obj["_tag"]["datapointer"] = "buyerLogout";
 					app.model.addDispatchToQ(obj,'immutable');
 					}
@@ -310,10 +310,6 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 				}
 			},//getValidSessionID
 
-
-
-
-
 		appCategoryDetail : {
 			init : function(obj,_tag,Q)	{
 				if(obj && obj.safe)	{
@@ -354,6 +350,26 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 			},//appCategoryDetail
 
 
+//get a list of newsletter subscription lists.
+		appNewsletterList : {
+			init : function(_tag,Q)	{
+				var r = 0;
+				_tag = _tag || {}; 
+				_tag.datapointer = "appNewsletterList"
+				if(app.model.fetchData('appNewsletterList') == false)	{
+					r = 1;
+					this.dispatch(_tag,Q);
+					}
+				else	{
+//					app.u.dump(' -> data is local');
+					app.u.handleCallback(_tag);
+					}
+				return r;
+				},
+			dispatch : function(_tag,Q)	{
+				app.model.addDispatchToQ({"_cmd":"appNewsletterList","_tag" : _tag},Q || 'immutable');	
+				}
+			},//getNewsletters	
 
 //get a product record.
 //required params: obj.pid.
@@ -397,10 +413,6 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 				app.model.addDispatchToQ(obj,Q);
 				}
 			}, //appProductGet
-
-
-
-
 
 //always uses immutable Q
 // ### need to migrate anything using this to use appCartCreate.
@@ -469,6 +481,50 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 				}
 			}, //cartSet
 
+
+//used to get a clean copy of the cart. ignores local/memory. used for logout.
+		cartDetail : {
+			init : function(_tag,Q)	{
+				var r = 0;
+				_tag = _tag || {};
+				_tag.datapointer = "cartDetail";
+				if(app.model.fetchData(_tag.datapointer))	{
+					app.u.handleCallback(_tag);
+					}
+				else	{
+					r = 1;
+					this.dispatch(_tag,Q);
+					}
+				return r;
+				},
+			dispatch : function(_tag,Q)	{
+//				app.u.dump('BEGIN app.ext.store_cart.calls.cartDetail.dispatch');
+				app.model.addDispatchToQ({"_cmd":"cartDetail","_tag": _tag},Q || 'mutable');
+				} 
+			}, // refreshCart removed comma from here line 383
+
+// formerly updateCartQty
+		cartItemUpdate : {
+			init : function(stid,qty,_tag)	{
+//				app.u.dump('BEGIN app.calls.cartItemUpdate.');
+				var r = 0;
+				if(stid && Number(qty) >= 0)	{
+					r = 1;
+					this.dispatch(stid,qty,_tag);
+					}
+				else	{
+					app.u.throwGMessage("In calls.cartItemUpdate, either stid ["+stid+"] or qty ["+qty+"] not passed.");
+					}
+				return r;
+				},
+			dispatch : function(stid,qty,_tag)	{
+//				app.u.dump(' -> adding to PDQ. callback = '+callback)
+				app.model.addDispatchToQ({"_cmd":"cartItemUpdate","stid":stid,"quantity":qty,"_tag": _tag},'immutable');
+				app.ext.store_checkout.u.nukePayPalEC(); //nuke paypal token anytime the cart is updated.
+				}
+			 },
+
+
 		ping : {
 			init : function(tagObj,Q)	{
 				this.dispatch(tagObj,Q);
@@ -509,20 +565,12 @@ _gaq.push(['_trackEvent','Authentication','User Event','Logged in through Facebo
 			}, //appProfileInfo
 
 //used to get a clean copy of the cart. ignores local/memory. used for logout.
+//this is old and, arguably, should be a utility. however it's used a lot so for now, left as is. !!! fix during cleanup or big release.
 		refreshCart : {
-			init : function(tagObj,Q)	{
-//				app.u.dump("BEGIN app.calls.refreshCart");
-				var r = 1;
-//if datapointer is fixed (set within call) it needs to be added prior to executing handleCallback (which will likely need datapointer to be set).
-				tagObj = jQuery.isEmptyObject(tagObj) ? {} : tagObj;
-				tagObj.datapointer = "cartDetail";
-				this.dispatch(tagObj,Q);
-				return r;
-				},
-			dispatch : function(tagObj,Q)	{
-//				app.u.dump('BEGIN app.ext.store_cart.calls.cartDetail.dispatch');
-				app.model.addDispatchToQ({"_cmd":"cartDetail","_tag": tagObj},Q);
-				} 
+			init : function(_tag,Q)	{
+				app.model.destroy('cartDetail');
+				app.calls.cartDetail.init(_tag,Q);
+				}
 			} // refreshCart removed comma from here line 383
 		}, // calls
 
@@ -587,7 +635,45 @@ app.u.throwMessage(responseData); is the default error handler.
 //				app.vars['_admin'] is set in the model.
 				}
 			},
-			
+
+
+
+//very similar to the original translate selector in the control and intented to replace it. 
+//This executes the handleAppEvents in addition to the normal translation.
+//the selector also gets run through jqSelector and hideLoading (if declared) is run.
+		anycontent : {
+			onSuccess : function(tagObj)	{
+//				app.u.dump("BEGIN callbacks.anycontent");
+				if(tagObj && tagObj.jqObj && typeof tagObj.jqObj == 'object')	{
+					
+					var $target = tagObj.jqObj, //shortcut.
+					data = app.data[tagObj.datapointer];
+					
+//					app.u.dump(" -> tagObj: "); app.u.dump(tagObj);
+					
+//anycontent will disable hideLoading and loadingBG classes.
+					$target.anycontent({data: app.data[tagObj.datapointer],'templateID':tagObj.templateID});
+					if(app.ext.admin)	{app.ext.admin.u.handleAppEvents($target);}
+
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In admin.callbacks.anycontent, jqOjb not set or not an object ['+typeof tagObj.jqObj+'].','gMessage':true});
+					}
+				if(typeof jQuery().hideLoading == 'function'){}
+				
+				},
+			onError : function(rd)	{
+				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
+					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
+					}
+				else	{
+					$('#globalMessage').anymessage({'message':rd});
+					}
+				}
+			}, //translateSelector
+
+
+
 		translateSelector : {
 			onSuccess : function(tagObj)	{
 //				app.u.dump("BEGIN callbacks.translateSelector");
@@ -682,21 +768,22 @@ allow for global manipulation if needed later.
 app.u.handleCallback(tagObj);
 */
 
-		handleCallback : function(tagObj)	{
+		handleCallback : function(_rtag)	{
 //			app.u.dump("BEGIN u.handleCallback");
-//			if(tagObj && tagObj.datapointer && ){app.data[tagObj.datapointer]['_rtag'] = tagObj} //updates obj in memory to have latest callback. -> commented out 2012-12-21. this shouldn't be needed in data.
-			if(tagObj && tagObj.callback){
+//			if(_rtag && _rtag.datapointer && ){app.data[_rtag.datapointer]['_rtag'] = _rtag} //updates obj in memory to have latest callback. -> commented out 2012-12-21. this shouldn't be needed in data.
+			if(_rtag && _rtag.callback){
 //				app.u.dump(" -> callback exists");
-//				app.u.dump(tagObj.callback);
-				if(typeof tagObj.callback == 'function')	{app.u.dump(" -> executing anonymous function."); tagObj.callback(tagObj);}
+//				app.u.dump(_rtag.callback);
+				if(typeof _rtag.callback == 'function')	{app.u.dump(" -> executing anonymous function."); _rtag.callback(_rtag);}
 				else	{
 //				app.u.dump(" -> callback is not an anonymous function.");
 					var callback;
 //most callbacks are likely in an extension, but support for 'root' callbacks is necessary.
 //save path to callback so that we can verify the onSuccess is a function before executing (reduce JS errors with this check)
-					callback = tagObj.extension ? app.ext[tagObj.extension].callbacks[tagObj.callback] : app.callbacks[tagObj.callback];
+					callback = _rtag.extension ? app.ext[_rtag.extension].callbacks[_rtag.callback] : app.callbacks[_rtag.callback];
+//					app.u.dump(" -> typeof app.callbacks[_rtag.callback]: "+typeof callback);
 					if(typeof callback.onSuccess == 'function')	{
-						callback.onSuccess(tagObj);
+						callback.onSuccess(_rtag);
 						}
 					else	{}//callback defined as string, but callback.onsuccess is not a function.
 					}
@@ -754,7 +841,7 @@ it'll then set app.rq.push to mirror this function.
 // <link rel="stylesheet" type="text/css" href="filename" />
 				fileref.setAttribute('rel', 'stylesheet');
 				fileref.setAttribute('type', 'text/css');
-				fileref.setAttribute('href', filename);
+				fileref.setAttribute('href', filename + "?_v="+app.vars.release);
 				if(domID)	{fileref.setAttribute('id', domID);}
 // Append link object inside html's head
 				document.getElementsByTagName("head")[0].appendChild(fileref);
@@ -1072,7 +1159,9 @@ URI PARAM
 		kvp2Array : function(s)	{
 			var r = false;
 			if(s && s.indexOf('=') > -1)	{
+//				app.u.dump(s.replace(/"/g, "\",\x22"));
 				s = s.replace(/&amp;/g, '&'); //needs to happen before the decodeURIComponent (specifically for how banner elements are encoded )
+				// .replace(/"/g, "\",\x22")
 				r = JSON.parse(decodeURIComponent('{"' + s.replace(/&/g, "\",\"").replace(/=/g,"\":\"") + '"}'));
 				}
 			else	{}
@@ -1112,10 +1201,13 @@ AUTHENTICATION/USER
 
 //## allow for targetID to be passed in.
 		logBuyerOut : function()	{
-// ,'targetID':'logMessaging' was removed from the line below in 201239 to give more flexibility to apps. add a class of appMessaging to your app and the log will appear there.
+//kill all the memory and localStorage vars used in determineAuthentication
+			app.model.destroy('appBuyerLogin'); //nuke this so app doesn't fetch it to re-authenticate session.
+			app.model.destroy('cartDetail'); //need the cart object to update again w/out customer details.
+			app.vars.cid = null; //used in soft-auth.
+			
 			app.calls.authentication.buyerLogout.init({'callback':'showMessaging','message':'Thank you, you are now logged out'});
 			app.calls.refreshCart.init({},'immutable');
-			app.vars.cid = null; //nuke cid as it's used in the soft auth.
 			app.model.dispatchThis('immutable');
 			},
 		
@@ -1135,10 +1227,11 @@ AUTHENTICATION/USER
 				var r = 'none';
 				if(this.thisIsAnAdminSession())	{r = 'admin'}
 //was running in to an issue where cid was in local, but user hadn't logged in to this session yet, so now both cid and username are used.
-				else if(app.data.appBuyerLogin && app.data.appBuyerLogin.cid)	{r = 'authenticated'}
-				else if(app.vars.cid && app.u.getUsernameFromCart())	{r = 'authenticated'}
+				else if(app.model.fetchData('app.data.appBuyerLogin') && app.data.appBuyerLogin.cid)  {r = 'authenticated'; app.u.dump(" -> buyerLogin");}
+				else if(app.vars.cid && app.u.getUsernameFromCart())	{r = 'authenticated'; app.u.dump(" -> cid/username");}
 				else if(app.model.fetchData('cartDetail') && app.data.cartDetail && app.data.cartDetail.customer && app.u.isSet(app.data.cartDetail.customer.cid))	{
 					r = 'authenticated';
+					app.u.dump(" -> from cart");
 					app.vars.cid = app.data.cartDetail.customer.cid;
 					}
 //need to run third party checks prior to default 'guest' check because bill/email will get set for third parties
@@ -1153,7 +1246,7 @@ AUTHENTICATION/USER
 				else	{
 					//catch.
 					}
-//				app.u.dump('store_checkout.u.determineAuthentication run. authstate = '+r); 
+				app.u.dump('store_checkout.u.determineAuthentication run. authstate = '+r); 
 
 				return r;
 				},
@@ -1182,11 +1275,11 @@ AUTHENTICATION/USER
 		getUsernameFromCart : function()	{
 //			app.u.dump('BEGIN u.getUsernameFromCart');
 			var r = false;
-			if(app.data.cartDetail.customer && app.u.isSet(app.data.cartDetail.customer.login))	{
+			if(app.data.cartDetail && app.data.cartDetail.customer && app.u.isSet(app.data.cartDetail.customer.login))	{
 				r = app.data.cartDetail.customer.login;
 //				app.u.dump(' -> login was set. email = '+r);
 				}
-			else if(app.data.cartDetail.bill && app.u.isSet(app.data.cartDetail.bill.email)){
+			else if(app.data.cartDetail && app.data.cartDetail.bill && app.u.isSet(app.data.cartDetail.bill.email)){
 				r = app.data.cartDetail.bill.email;
 //				app.u.dump(' -> bill/email was set. email = '+r);
 				}
@@ -1360,7 +1453,8 @@ VALIDATION
 
 //used frequently to throw errors or debugging info at the console.
 //called within the throwError function too
-		dump : function(msg)	{
+		dump : function(msg,type)	{
+			type = type || 'log'; //supported types are 'warn' and 'error'
 //if the console isn't open, an error occurs, so check to make sure it's defined. If not, do nothing.
 			if(typeof console != 'undefined')	{
 				if(typeof console.dir == 'function' && typeof msg == 'object')	{
@@ -1372,7 +1466,7 @@ VALIDATION
 					console.log('object output not supported');
 					}
 				else
-					console.log(msg);
+					console[type](msg);
 				}
 			}, //dump
 
@@ -2251,7 +2345,7 @@ return $r;
 
 		imageURL : function($tag,data){
 //			app.u.dump('got into displayFunctions.image: "'+data.value+'"');
-			data.bindData.b = data.bindData.b || 'ffffff'; //default to white.
+			data.bindData.b = data.bindData.bgcolor || 'ffffff'; //default to white.
 			
 			if(data.bindData.isElastic) {
 				data.bindData.elasticImgIndex = data.bindData.elasticImgIndex || 0; //if a specific image isn't referenced, default to zero.
@@ -2266,10 +2360,9 @@ return $r;
 				$tag.attr('src',app.u.makeImage(data.bindData)); //passing in bindData allows for using
 				}
 			else	{
-				$tag.css('display','none'); //if there is no image, hide the src. 
+//				$tag.css('display','none'); //if there is no image, hide the src. 
 				}
 			}, //imageURL
-
 
 
 		stuffList : function($tag,data)	{
@@ -2444,8 +2537,10 @@ $tmp.empty().remove();
 			},
 
 		epoch2pretty : function($tag,data)	{
-			var myDate = new Date( data.value*1000);
-			$tag.append(myDate.getFullYear()+"/"+(myDate.getMonth()+1)+"/"+myDate.getDate()+" "+myDate.getHours()+":"+myDate.getMinutes()+":"+myDate.getSeconds());
+			var myDate = new Date( data.value*1000),
+			minutes = (myDate.getMinutes().length == 1 || myDate.getMinutes() == 0)  ? "0" + myDate.getMinutes() : myDate.getMinutes(); //JS stripping the 0 for 06
+//			app.u.dump(" -> myDate.getMinutes(): "+myDate.getMinutes()+" and minutes: "+minutes);
+			$tag.append(myDate.getFullYear()+"/"+(myDate.getMonth()+1)+"/"+myDate.getDate()+" "+myDate.getHours()+":"+minutes); //+":"+myDate.getSeconds() pulled seconds in 201307. really necessary?
 			},
 
 		unix2mdy : function($tag,data)	{
@@ -2502,12 +2597,22 @@ $tmp.empty().remove();
 //			app.u.dump('BEGIN view.formats.money');
 			var amount = data.bindData.isElastic ? (data.value / 100) : data.value;
 			if(amount)	{
-				var r;
+				var r,o,sr;
 				r = app.u.formatMoney(amount,data.bindData.currencySign,'',data.bindData.hideZero);
 //					app.u.dump(' -> attempting to use var. value: '+data.value);
 //					app.u.dump(' -> currencySign = "'+data.bindData.currencySign+'"');
+
+//if the value is greater than .99 AND has a decimal, put the 'change' into a span to allow for styling.
+				if(r.indexOf('.') > 0)	{
 //					app.u.dump(' -> r = '+r);
-				$tag.text(r)
+					sr = r.split('.');
+					o = sr[0];
+					if(sr[1])	{o += '<span class="cents">.'+sr[1]+'<\/span>'}
+					$tag.html(o);
+					}
+				else	{
+					$tag.html(r);
+					}
 				}
 			}, //money
 
@@ -2519,19 +2624,30 @@ $tmp.empty().remove();
 //doing a for(i in instead of a +=1 style loop makes it work on both arrays and objects.
 		processList : function($tag,data){
 //			app.u.dump("BEGIN renderFormats.processList");
-			var $o, //recycled. what gets added to $tag for each iteration.
-			int = 0;
-			for(i in data.value)	{
-				if(data.bindData.limit && int >= Number(data.bindData.limit)) {break;}
-				else	{
-					$o = app.renderFunctions.transmogrify(data.value[i],data.bindData.loadsTemplate,data.value[i]);
-					if(data.value[i].id){} //if an id was set, do nothing.
-					else	{$o.removeAttr('id').attr('data-obj_index',i)} //nuke the id. it's the template id and will be duplicated several times. set index for easy lookup later.
-					$tag.append($o);
-					}
-				int += 1;				
-				}
 			$tag.removeClass('loadingBG');
+			if(data.bindData.loadsTemplate)	{
+				var $o, //recycled. what gets added to $tag for each iteration.
+				int = 0;
+				for(i in data.value)	{
+					if(data.bindData.limit && int >= Number(data.bindData.limit)) {break;}
+					else	{
+						$o = app.renderFunctions.transmogrify(data.value[i],data.bindData.loadsTemplate,data.value[i]);
+						if(typeof $o == 'object')	{
+							if(data.value[i].id){} //if an id was set, do nothing.
+							else	{$o.attr('data-obj_index',i)} //set index for easy lookup later.
+							$tag.append($o);
+							}
+						else	{
+							$tag.anymessage({'message':'Issue creating template using '+data.bindData.loadsTemplate,'persistant':true});
+							}
+						}
+					int += 1;				
+					}
+				
+				}
+			else	{
+				$tag.anymessage({'message':'Unable to render list item - no loadsTemplate specified.','persistant':true});
+				}
 			}
 			
 		},
