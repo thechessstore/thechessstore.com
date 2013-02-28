@@ -1223,12 +1223,12 @@ this will likely become more flexible in the future. ###
     	<div class="floatLeft clearfix prodTempDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 	
     <div class='priceContainer'>
-    	<!--<h5 class="floatLeft prodMSRP">Our Price: </h5>--> <h5 style="line-height:34px;" class='prodMSRP lineThrough clear' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;  pretext: Our Price: ;'></h5>
+    	<!--<h5 class="floatLeft prodMSRP">Our Price: </h5>--> <h5 style="line-height:34px;" class='prodMSRP lineThrough clear' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;  pretext: Regular Price: ;'></h5>
 		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Sales Price: ;'></h4>
-		<!--**Removed due to not being in design**<span class='savings'>
+		<span class='savings'>
 			<span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
-		</span>-->
+		</span>
 	</div>
     
 	<h5 class='stid clearfix prodTempDescH5Color' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
@@ -1248,7 +1248,7 @@ this will likely become more flexible in the future. ###
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
 		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone prodTempDescH5Color'></fieldset>
 	
-		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone addToCartButt' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+		<input type='submit' value='' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone addToCartButt' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>
     
     <div class="addToCartSideLinkCont" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
