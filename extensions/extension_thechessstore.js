@@ -38,18 +38,18 @@ var extension_thechessstore = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					app.u.dump('BEGIN app.ext.store_category_subcatlist.callbacks.init.onSuccess');
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onSuccess');
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.store_category_subcatlist.callbacks.init.onError');
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onError');
 				}
 			},
 			startExtension : {
 				onSuccess : function (){
-					app.u.dump('BEGIN app.ext.store_category_subcatlist.callbacks.startExtension.onSuccess')
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess')
 				},
 				onError : function (){
-					app.u.dump('BEGIN app.ext.store_category_subcatlist.callbacks.startExtension.onError');
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
 				}
 			}
 		},

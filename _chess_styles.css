@@ -1474,7 +1474,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 }
 .assembly{
 	padding-left: 100px;
-	background: url(images/returnarrow.png) 40px center no-repeat;
+	background: url(images/returnarrow2.png) 40px center no-repeat;
 }
 .assembly .assemblyHide {display:none;}
 .assembly .assemblyShow {display:inherit;}

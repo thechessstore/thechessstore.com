@@ -68,6 +68,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 </script>
 <script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="magiczoomplus-commercial/magiczoomplus/magiczoomplus.js"></script>
 	
 
 
@@ -1815,7 +1816,7 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
-    <p>**Certain items may not display prices, allow changing of quantity, or may appear to not be what you ordered. These items are the parts that make up the assembly selected. Example: German Knight Staunton Chess Set in Eboninzed-Boxwood with Mahogany Chess Board - 2.75" King assembly selected = the actual assembly + German Knight Staunton Chess Set in Ebonized-Boxwood - 2.75" King + Mahogany & Maple Standard Chess Board - 1.5" Squares.</p>
+    <p>**Items with arrows next to them are components of an assembly product. They are not additional products and you will not be billed additionally for them.</p>
 	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
 	</td>
 
@@ -1903,7 +1904,7 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
     
-    <div data-bind='format:addAssemblyClass; extension:zephyr; useParentData:true;'>
+    <div data-bind='format:addAssemblyClass; extension:extension_thechessstore; useParentData:true;'>
 
 		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 		
@@ -1926,7 +1927,7 @@ So the cart template should contain these two elements and the extension should 
 			<span class="assemblyHide" data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
 			<span class="assemblyHide" data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
             <div class="clear"></div>
-        	<button class='ui-button ui-button-text ui-state-default ui-corner-all'>Update</button>
+        	<button class='assemblyHide'>Update</button>
 		</div>
 		
 		<div class='ztable_row_small prodOptions' data-bind='var: variations(*options); format:selectedOptionsDisplay;'></div>
