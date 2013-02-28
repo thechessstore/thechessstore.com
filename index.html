@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130228133000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130228140000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -1454,7 +1454,7 @@ adding classes is not likely to have any bad effects.
 <!--  used in breadcrumb -->
 <ul>
 	<li id='breadcrumbTemplate'>
-	<a href='#' class="pointer" onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:text;'></a>
+	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:text;'></a>
 	</li>
 </ul>
 
