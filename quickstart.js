@@ -29,7 +29,11 @@ var myRIA = function() {
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
+			'categoryTemplate3PanelCat',
+			'categoryTemplate4PanelCat',
 			'categoryListTemplate',
+			'categoryListTemplate3Panel',
+			'categoryListTemplate4Panel',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
 			'productListTemplateATC',
@@ -2498,13 +2502,31 @@ buyer to 'take with them' as they move between  pages.
 					if(infoObj.templateID){
 						//templateID 'forced'. use it.
 						}
-						
-					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
-						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
+						  //**Begin category template search function**//
+						 //app.u.dump("Begin homepagecategory page loading");
+					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')  {
+							
+             			infoObj.templateID = 'homepageTemplate'
+  	
+		     			app.u.dump("homepage selected");
+	
+             		}
+	  	
+            		else if(app.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+	  	
+             			app.u.dump("category catsafeid option selected");
+	  	
+              			infoObj.templateID = app.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+	  	
+            		}
+	  	
+          			else{
+	  	
+              			app.u.dump("category default option selected");
+	  	
+              			infoObj.templateID = 'categoryTemplate'
+					}
+					//**End category template search function**//
 					infoObj.state = 'onInits';
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
