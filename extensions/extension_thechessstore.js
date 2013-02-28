@@ -52,6 +52,14 @@ var extension_thechessstore = function() {
 					app.u.dump('BEGIN app.ext.store_category_subcatlist.callbacks.startExtension.onError');
 				}
 			}
+		},
+		renderFormats : {
+			//The render format for determining if a product is a component. Adds a class of assembly to these products that can be used to stylize them.
+			addAssemblyClass : function($tag, data){
+				if(data.value.stid[0] == '%' || data.value.asm_master) {
+					$tag.addClass('assembly');
+				}
+			}
 		}
 	}
 	return r;

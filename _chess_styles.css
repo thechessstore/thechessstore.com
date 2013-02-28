@@ -1472,3 +1472,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 #couponContainer{
 	float:right;
 }
+.assembly{
+	padding-left: 100px;
+	background: url(images/returnarrow.png) 40px center no-repeat;
+}
+.assembly .assemblyHide {display:none;}
+.assembly .assemblyShow {display:inherit;}
+
+
+/*****************************************************************************************************************************/
+/**Checkout Page**/
