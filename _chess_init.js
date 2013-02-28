@@ -37,6 +37,7 @@ app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js']);
 app.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
+app.rq.push(['script',0,app.vars.baseURL+'magiczoomplus-commercial/magiczoomplus/magiczoomplus.js']);
 app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
 
 

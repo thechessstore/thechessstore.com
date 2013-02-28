@@ -932,8 +932,9 @@ announceBar h2{
 /**Product Page**/
 /**Product Description Section**/
 .prodTempName{
-	font-family: 'Neuton', serif;
-	font-weight:700;	
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:600;
+	line-height:120%;	
 }
 .prodTempReview{
 }

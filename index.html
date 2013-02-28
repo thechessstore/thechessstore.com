@@ -51,9 +51,11 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.0.custom/css/custom-theme-chess-store/jquery-ui-1.10.0.custom.css">
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
 <link href='https://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href="magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
+<!--<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>-->
 <!--<script type="text/javascript" src="jquery-1.8.2.min.js"></script>-->
 
 
@@ -134,7 +136,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<div class="headerBoxCenter">
 						<!--<h6 class='accent'>Get up to $30% Off</h6><!-- TODO: 30% off - maybe popup -->
                         <img src="ups-truck-image-homepage-172.jpg" class="headerImage" />
-						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="return showContent('company',{'show':'shipping'});">* See details</a></p>
+						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="return showContent('category',{'navcat':'.informational_pages.5-dollar-ups-ground-shipping'});">* See details</a></p>
 						<!--<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>-->
 					</div>
 					<div class="headerBoxRight">
@@ -280,7 +282,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                             <a  href="#" onClick="return showContent('company',{'show':'about'});" class="footerLinkStyle pointer">About Us</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.visit_our_showroom'});" class="footerLinkStyle pointer">Visit Our Showroom</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="footerLinkStyle pointer">Collector's Club</a><br /><br />
-                            <a  href="#" onClick="return showContent('category',{'navcat':'.informationalpages.the_10_club'});" class="footerLinkStyle pointer">The 10% Off Club</a><br /><br />
+                            <a  href="#" onClick="return showContent('category',{'navcat':'.informational_pages.the_10__club'});" class="footerLinkStyle pointer">The 10% Off Club</a><br /><br />
                             <a  href="#" onClick="return showContent('category',{'navcat':'.rulesofchess'});" class="footerLinkStyle pointer">Rules of Chess</a><br /><br />
                         </div>
                         <div class="footerLinkSec">
@@ -413,7 +415,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/metal-chess-sets-banner-310.jpg"	 />
             	<div class="homepageCatTitle">Metal Chess Sets</div>
-                <div class="homepageCatDesc">Beautiful metal chessmen matched with the perfect chess board. So many choices but we make shopping easy.</div>
+                <div class="homepageCatDesc">Beautiful metal chessmen with the perfect chess board. Traditional, theme, and contemporary designs.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
             	<img class="" src="images/Homepage Category Images/Chess Sets/marble-onyx-stone-chess-sets-banner-310.jpg" />
@@ -608,7 +610,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
     -->
     <div class="homepage10OffClub">
-    	<img onClick="return showContent('category',{'navcat':'.informationalpages.the_10_club'});" src="images/Homepage Bottom Ad Bars images/10-percent-club-banner-472.jpg" class="pointer">
+    	<img onClick="return showContent('category',{'navcat':'.informational_pages.the_10__club'});" src="images/Homepage Bottom Ad Bars images/10-percent-club-banner-472.jpg" class="pointer">
         <!--<h3>10% Off Club</h3>
         <p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>-->
     </div>
@@ -1180,7 +1182,7 @@ this will likely become more flexible in the future. ###
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
+	<a data-bind='var: product(zoovy:prod_image1); format:imageURL;' class="MagicZoomPlus"><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' /></a>
 
 </div>
 
@@ -1224,8 +1226,8 @@ this will likely become more flexible in the future. ###
 		</span>-->
 	</div>
     
-	<h5 class='stid clearfix prodTempDescH5Color' data-bind='var: product(pid); format:text; pretext: Item# ;'></h5>
-	<h5 class="prodTempDescH5Color" data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
+	<h5 class='stid clearfix prodTempDescH5Color' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
+	<h5 class="prodTempDescH5Color" data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfr: ;'></h5>
 	<!--**Removed due to not being in design**<h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>-->
 	
 	
@@ -1233,7 +1235,7 @@ this will likely become more flexible in the future. ###
 
 	
 <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
-	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
+	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: business day(s);' class='latency'></div>
 	
 	
 	<form style="width:200px; float:left" data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
@@ -1463,7 +1465,7 @@ adding classes is not likely to have any bad effects.
 	<li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
 	<li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
 	<li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
-	<li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>
+	<!--<li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>-->
 	<li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
 	<li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
 	<li><a href='#company?show=shipping' id='navLink_shipping'>Shipping Information</a></li>
@@ -1474,13 +1476,32 @@ adding classes is not likely to have any bad effects.
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
-			<h1>About Us</h1>
+			<h1>About The Chess Store</h1>
+            <h3>The Chess Store</h3>
+            <p>Established in 1999, The Chess Store, Inc. is the world's leading chess retailer specializing in fine Staunton wood chess sets along with thousands of other chess products. Our exclusive chess set designs, large selection of high quality products, unmatched value, and excellent customer service are our trademark. We are continuously developing new and exciting products to promote the game of chess and meet the needs of chess players around the world. Our office and warehouse facilities are located in Hillsboro, Oregon, just a few miles outside of Portland.</p>
 			<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
 		</div>
 	
 	
 		<div id='contactArticle' class='displayNone textContentArea'>
-			<h1>Contact Information</h1>
+			<h1>Contact Us</h1>
+            <h3>Phone &#58;</h3>
+            <p>For sales, service, and general questions regarding our products, call toll free 888.810.2437. Our business hours are 8am to 5pm PST Monday through Friday.</p>
+            <br />
+            <h3>Fax &#58;</h3>
+            <p>503.629.5914</p>
+            <br />
+            <h3>Email &#58;</h3>
+            <p>Customer Service &#58; <a href="customerservice@thechessstore.com" target="_blank">customerservice@thechessstore.com</a></p>
+            <br />
+            <h3>Mailing Address &#58;</h3>
+            <p>The Chess Store, Inc.</p>
+            <p>20811 NW Cornell Road, Suite 200</p>
+            <p>Hillsboro, OR 97124</p>
+            <br />
+            <h3>Order Status and Tracking Numbers &#58;</h3>
+            <p>If you'd like to check the status of an order, (or cancel one that hasn't been processed), please go to your <a href="#customer?show=myaccount" class='bindByAnchor'>Customer Account</a>page.</p>
+            <p>You can also <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">subscribe to our mailing list.</a></p>
 			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
 			<fieldset>
 				<legend>Contact Us</legend>
@@ -1557,6 +1578,21 @@ adding classes is not likely to have any bad effects.
 		
 		<div class='displayNone textContentArea' id='returnArticle'>
 			<h1>Return Policy</h1>
+            <h2>The Chess Store</h2>
+            <h3>30 Days</h3>
+            <p>If you are not completely satisfied with your purchase, you may return it within 30 days of the ship date with no restocking fee! Merchandise must be received in new or otherwise original condition with all original packaging. Please call The Chess Store at 1.888.810.2437 to request a return authorization (RA) number.</p>
+            <br />
+            <h3>Return shipping</h3>
+            <p>The Chess Store DOES NOT reimburse shipping on returns except when the wrong item is shipped. The Chess Store will ONLY reimburse the original shipping amount based on UPS Ground shipping rates. The Chess Store will not reimburse actual shipping paid for by the customer using some other shipping company or third party shipper such as the UPS Store. The Chess Store will use its discretion when reimbursing for quality or defect reasons.</p>
+            <br />
+            <h3>Exchanges</h3>
+            <p>You may return any item for an exchange within 30 days. Exchanges shipped in advance of receiving returned items will be charged to your credit card. Upon receiving your returned item we will refund to your account the full price of the returned item. The Chess Store does not provide free shipping on exchanges.</p>
+            <br />
+            <h3>International returns</h3>
+            <p>The Chess Store does accept international orders. Please keep in mind that international shipping can be very expensive and customers are responsible for return shipping of a product for exchange or refund and including return of items deemed defective by the customer such as electronic chess games. Return shipping costs will be reimbursed if determined an error was made by The Chess Store.</p>
+            <br />
+            <h3>Jaques of London Chess Sets</h3>
+            <p>A 25% restocking fee shall be applied for returns that are not related to a defective chess piece, box, or damage caused by shipping. Customer is responsible for return shipping back to England. A return authorization is required that must be clearly marked on the package returned to England. Contact The Chess Store Customer Service at 1.888.810.2437 for a return authorization number.</p> 
 			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
 		</div>
 	
