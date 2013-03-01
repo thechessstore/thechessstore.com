@@ -1487,9 +1487,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 /************************************************************************************************************************/
 /**Search Page**/
 #mainContentArea_search{
-	width:1330px;
+	width:1000px;
+}
+.mainColumn{
+	width:100%;
 }
 #resultsProductListContainer li{
-	width:230px;
-	margin-right:3px;
+	width:310px;
+	height:310px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+.searchResultsPG img{
+	margin-left:0px;
 }
