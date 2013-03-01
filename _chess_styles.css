@@ -1483,3 +1483,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 
 /*****************************************************************************************************************************/
 /**Checkout Page**/
+
+/************************************************************************************************************************/
+/**Search Page**/
+#mainContentArea_search{
+	width:1330px;
+}
+#resultsProductListContainer li{
+	width:230px;
+	margin-right:3px;
+}

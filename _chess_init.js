@@ -20,7 +20,7 @@ app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','st
 app.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
 app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
-app.rq.push(['extension',1,'powerReviews','extensions/reviews_powerreviews.js','startExtension']);
+//app.rq.push(['extension',1,'powerReviews','extensions/reviews_powerreviews.js','startExtension']);
 app.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']);
 //app.rq.push(['extension',0,'magicToolBox','extensions/imaging_magictoolbox.js','startExtension']); // (not working yet - ticket in to MTB)
 
