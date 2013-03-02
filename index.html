@@ -919,7 +919,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='175' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
@@ -965,6 +965,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
+        <span data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans">Product tag goes here</span>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='355' height='210' />
 		</div>
 		
