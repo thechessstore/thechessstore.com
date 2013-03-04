@@ -42,7 +42,7 @@ For the list of available params, see the 'options' object below.
 	$.widget("ui.anymessage",{
 		options : {
 			message : null, //a string for output. if set, will ignore any _msgs or _err orr @issues in the 'options' object (passed by a request response)
-			gMessage : false, //set to true to throw a generic message. Will include extra error details
+			gMessage : false, //set to true to throw a generic message. Will include extra error details and a default message before the value of message.
 			containerClass : 'ui-state-highlight', //will be added to container, if set. will add no ui-state class if this is set.
 			iconClass : null, //for icon display. ex: ui-state-info. if set, no attempt to auto-generate icon will be made.
 			persistant : false //if true, message will not close automatically. WILL still generate a close button. iseerr's are persistant by default
@@ -174,7 +174,12 @@ For the list of available params, see the 'options' object below.
 			return $r;
 
 			},
-
+//intended for use inside the user interface
+/*
+		'type' : {
+			'success' : {'iconClass':'ui-icon-z-success','containerClass':''}
+			},
+*/
 //an animated 'close'
 		close : function($message){
 			var $target;  //what is being closed. could be an individual message OR all messages.
@@ -398,11 +403,11 @@ either templateID or (data or datapointer) are required.
 //			app.u.dump("anycontent params: "); app.u.dump(o);
 
 			if(o.templateID && (app.templates[o.templateID] || self._addNewTemplate(o.templateID)))	{
-				app.u.dump(" -> passed template check.");
+//				app.u.dump(" -> passed template check.");
 				self._anyContent();
 				}
 			else if(o.data || (o.datapointer && !$.isEmptyObject(app.data[o.datapointer])))	{
-				app.u.dump(" -> passed data check.");
+//				app.u.dump(" -> passed data check.");
 				self._anyContent();
 				}
 			else	{
@@ -419,24 +424,24 @@ either templateID or (data or datapointer) are required.
 
 
 		_anyContent : function()	{
-			app.u.dump(" -> _anyContent executed.");
+//			app.u.dump(" -> _anyContent executed.");
 			var o = this.options,
 			r = true; // what is returned. false if not able to create template.
 			
 			
 			if(o.templateID && o.datapointer && app.data[o.datapointer])	{
-				app.u.dump(" -> template and datapointer present. transmogrify.");
+//				app.u.dump(" -> template and datapointer present. transmogrify.");
 				this.element.hideLoading().removeClass('loadingBG');
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[o.datapointer]));
 				}
 			else if(o.templateID && o.data)	{
-				app.u.dump(" -> template and data present. transmogrify.");
+//				app.u.dump(" -> template and data present. transmogrify.");
 				if(typeof jQuery().hideLoading == 'function'){this.element.hideLoading().removeClass('loadingBG')}
 				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,o.data));
 				}
 //a templateID was specified, just add the instance. This likely means some process outside this plugin itself is handling translation.
 			else if(o.templateID)	{
-				app.u.dump(" -> templateID specified. create Instance.");
+//				app.u.dump(" -> templateID specified. create Instance.");
 				this.element.append(app.renderFunctions.createTemplateInstance(o.templateID,o.dataAttribs));
 				if(o.showLoading)	{
 					this.element.showLoading(o.showLoadingMessage);
@@ -444,7 +449,7 @@ either templateID or (data or datapointer) are required.
 				}
 //if just translating because the template has already been rendered
 			else if(o.data)	{
-				app.u.dump(" -> data specified, translate selector");
+//				app.u.dump(" -> data specified, translate selector");
 				app.renderFunctions.translateSelector(this.element,o.data);
 				this.element.hideLoading().removeClass('loadingBG');
 				}

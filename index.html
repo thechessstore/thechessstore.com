@@ -1937,16 +1937,15 @@ So the cart template should contain these two elements and the extension should 
             <span>
             	<input type='number' class='assemblyHide qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
 				<span class="displayNone assemblyShow" data-bind='var: product(qty); format:text;'/>
-        		<span class="displayNone assemblyShow" data-bind='var: product(qty); format:text;'/>
             </span>
             <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
 			<span class="assemblyHide" data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
 			<span class="assemblyHide" data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
             <div class="clear"></div>
-        	<button class='assemblyHide'>Update</button>
+        	<button class='assemblyHide ui-button ui-button-text ui-state-default ui-corner-all'>Update</button>
 		</div>
 		
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(*options); format:selectedOptionsDisplay;'></div>
+		<!--<div class='ztable_row_small prodOptions' data-bind='var: variations(*options); format:selectedOptionsDisplay;'></div>-->
         </div>
 	</li>
 </ul>
