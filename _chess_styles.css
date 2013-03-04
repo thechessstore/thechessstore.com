@@ -955,14 +955,36 @@ announceBar h2{
 .priceContainer h5{
 	font-size:18px;
 	color:#421908;
+	margin-top:0px;
+	margin-bottom:4px;
+	line-height:inherit;
 }
 .priceContainer h4{
 	color:#d4511f;
-	margin-top:5px;
 	font-size:20px;
+	font-size:18px;
+	margin-top:0px;
+	margin-bottom:4px;
+	line-height:inherit;
+}
+.priceContainer span{
+	font-size:18px;
+	margin-top:0px;
+	margin-bottom:0px;
+	line-height:inherit;
+}
+.shipLatency{
+	font-size:18px;
+	line-height:inherit;
+	margin-bottom:4px;
+	
 }
 .prodTempDescH5Color{
 	color:#421908;
+	margin-top:4px;
+	margin-bottom:4px;
+	font-size:18px;
+	line-height:inherit;
 }
 
 /**Add to Cart Form**/
@@ -1446,11 +1468,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .searchResultsPG h5{
 	font-family: 'Neuton', serif;
 	font-size:18px;
+	width:100%;
+	text-align:center;
 }
-
 .searchResultsPG h6{
 	font-family: 'Neuton', serif;
 	font-size:18px;
+	width:100%;
+	text-align:center;
+	color:#d4511f;
 }
 .searchResultsDetails{
 	font-family: 'Neuton', serif;
@@ -1494,8 +1520,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	width:100%;
 }
 #resultsProductListContainer li{
-	width:310px;
-	height:310px;
+	width:225px;
+	height:360px;
 	margin-right:10px;
 	margin-bottom:10px;
 }
