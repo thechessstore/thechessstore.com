@@ -85,7 +85,9 @@ var extension_thechessstore = function() {
 				".000312-vinyl-chess-boards.20-floppy-chess-boards-2375" : "categoryTemplate3PanelCat",
 				".000312-vinyl-chess-boards.22-silicon-rollup-chess-boards-225" : "categoryTemplate3PanelCat",
 				".000312-vinyl-chess-boards.24-vinyl-folding-chess-boards-225" : "categoryTemplate3PanelCat",
-				
+				".000313-chess-cases" : "categoryTemplate3PanelCat",
+				".000314-metal-chess-boards" : "categoryTemplate3PanelCat",
+				".00037-chess-boxes" : "categoryTemplate3PanelCat",
 				".00022-jaques-london-chess-sets" : "categoryTemplate3PanelCat",
 				".00028-club-tournament-supplies" : "categoryTemplate3PanelCat",
 				".00028-club-tournament-supplies.04-vinyl-chess-boards" : "categoryTemplate3PanelCat",

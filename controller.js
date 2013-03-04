@@ -1866,21 +1866,21 @@ later, it will handle other third party plugins as well.
 //will tell you which third party checkouts are available. does NOT look to see if merchant has them enabled,
 // just checks to see if the cart contents would even allow it.
 //currently, there is only a google field for disabling their checkout, but this is likely to change.
-			which3PCAreAvailable :	function(){
-//				app.u.dump("BEGIN control.u.which3PCAreAvailable");
-				var obj = {};
-				obj.paypalec = true;
-				obj.amazonpayment = true;
-				obj.googlecheckout = true;
-				
-				var L = app.data.cartDetail['@ITEMS'].length;
-				for(var i = 0; i < L; i += 1)	{
-					if(app.data.cartDetail['@ITEMS'][i]['%attribs']['gc:blocked'])	{obj.googlecheckout = false}
-					if(app.data.cartDetail['@ITEMS'][i]['%attribs']['paypalec:blocked'])	{obj.paypalec = false}
-					}
+			 which3PCAreAvailable : function(){
+//    app.u.dump("BEGIN control.u.which3PCAreAvailable");
+    var obj = {};
+    obj.paypalec = true;
+    obj.amazonpayment = true;
+    obj.googlecheckout = true;
+    
+    var L = app.data.cartDetail['@ITEMS'].length;
+    for(var i = 0; i < L; i += 1) {
+     if(app.data.cartDetail['@ITEMS'][i]['%attribs'] && app.data.cartDetail['@ITEMS'][i]['%attribs']['gc:blocked']) {obj.googlecheckout = false}
+     if(app.data.cartDetail['@ITEMS'][i]['%attribs'] && app.data.cartDetail['@ITEMS'][i]['%attribs']['paypalec:blocked']) {obj.paypalec = false}
+     }
 
-				return obj;
-				},
+    return obj;
+    },
 
 // This function is in the controller so that it can be kept fairly global. It's used in checkout, store_crm (buyer admin) and will likely be used in admin (orders) at some point.
 // ### NOTE! SANITY ! WHATEVER - app.ext.convertSessionToOrder.vars is referenced below. When this is removed, make sure to update checkouts to add an onChange event to update the app.ext.convertSessionToOrder.vars object because otherwise the CC number won't be in memory and possibly won't get sent as part of calls.cartOrderCreate.
