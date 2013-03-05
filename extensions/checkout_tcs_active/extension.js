@@ -76,6 +76,7 @@ a callback was also added which just executes this call, so that checkout COULD 
 				var payerid = app.u.getParameterByName('PayerID');
 				if(token && payerid)	{
 					app.u.dump("It appears we've just returned from PayPal.");
+					$('#beforeThirdParty').hide(); //some hinting text for customer on how to proceed directly to paypal.
 					app.ext.convertSessionToOrder.vars['payment-pt'] = token;
 					app.ext.convertSessionToOrder.vars['payment-pi'] = payerid;
 					app.ext.store_checkout.calls.cartPaymentQ.init({"cmd":"insert","PT":token,"PI":payerid,"TN":"PAYPALEC"},{"extension":"convertSessionToOrder","callback":"handlePayPalIntoPaymentQ"});
@@ -254,7 +255,7 @@ _gaq.push(['_trackEvent','Checkout','User Event','Create order button pushed']);
 					app.model.loadTemplates(theseTemplates); //loaded from local file (main.xml)
 					}
 				else {
-					app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_active/templates.html',theseTemplates);
+					app.model.fetchNLoadTemplates(app.vars.baseURL+'extensions/checkout_tcs_active/templates.html',theseTemplates);
 					}
 				var r; //returns false if checkout can't load due to account config conflict.
 //				app.u.dump('BEGIN app.ext.convertSessionToOrder.init.onSuccess');

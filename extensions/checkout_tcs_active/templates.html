@@ -8,6 +8,9 @@ fieldsets 'can' be defined here if a specific order is desired. If fieldsets are
 -->
 <div id='checkoutTemplate' class='checkoutFormContainer'>
 
+<div id='beforeThirdParty'>
+Paying with PayPal? Scroll down to payment and select paypal, then click place order and we'll see you when you get back from PayPal!
+</div>
 
 <div id='returnFromThirdPartyPayment' class="ui-state-highlight ui-corner-all displayNone"> 
 	<p class='clearfix'>
@@ -326,8 +329,8 @@ do NOT change the input name or id or checkout will likely break.
 	<div class='floatRight ocmThirdParty'>
 		<h2 id='ocmPrompt'>What would you like to do next?</h2>
 <!-- the twitter and facebook actions are added post checkout. The order contents are included as part of the message -->
-		<div class='ocm ocmFacebookComment pointer zlink'><img src='fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
-		<div class='ocm ocmTwitterComment pointer zlink' ><img src='tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
+		<div class='ocm ocmFacebookComment pointer zlink'><img src='../checkout_active/fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
+		<div class='ocm ocmTwitterComment pointer zlink' ><img src='../checkout_active/tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
 <!--
 		<div class='ocm ocmContinue'><a href='/' class='zlink'><img src='continue_shopping-133x32.png' width='132' height='32' alt='continue shopping' /></a></div>
 -->
@@ -362,8 +365,8 @@ do NOT change the input name or id or checkout will likely break.
 
 
 <div id='cvvcidHelp' class='displayNone' title='Where to find your CVV/CID and why we ask for it'>
-	<img src='sec_code-159x100.gif' alt='Visa/MC/Discover card security code' width='238' height='150'  />
-	<img src='sec_code_amex-159x100.gif' alt='AMEX card security code' width='238' height='150' />
+	<img src='../checkout_active/sec_code-159x100.gif' alt='Visa/MC/Discover card security code' width='238' height='150'  />
+	<img src='../checkout_active/sec_code_amex-159x100.gif' alt='AMEX card security code' width='238' height='150' />
 	<p>For higher security and more efficient processing of your payment, you must provide a card security code to make this purchase. For Visa, MasterCard and Discover the security code is the last section of numbers in the signature area on the back of the card. For American Express the security code is the 4-digit number found in small print next to your account number on the front, usually above it on the right.</p>
 </div>
 
@@ -453,7 +456,7 @@ If this gets recycled, test in order history after making changes.
 <ul>
 	<li id='productListTemplateInvoice' class='padMargBorderBottom'>
 	<div class='prodThumbContainer'>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
+	<img src='../checkout_active/blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
 	</div>
 	
 <div class='infoContainer'>
