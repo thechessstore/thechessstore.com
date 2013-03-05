@@ -1528,3 +1528,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .searchResultsPG img{
 	margin-left:0px;
 }
+
+/******************************************************************************************************************************/
+/**Promotional tags classes**/
+.prodThumbContainer{
+	
+}
+.promoTagCont{
+	position:relative;
+}
+.promoTag{
+	z-index:5;
+	width:40%;
+	height:40%;
+	top:0px;
+	right:0px;
+	overflow:visible;
+	position:absolute;
+}
+.is_preorder{
+}
+.is_discontinued{
+}
+.is_specialorder{
+}
+.is_sale{
+	background-image:url(images/Sale_placeholder.png);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
+}
+.is_clearance{
+}
+.is_newarrival{
+}
+.is_bestseller{
+}
+.is_fresh{
+}
+.is_shipfree{
+}

@@ -2495,13 +2495,16 @@ else	{
 //used for displaying a  series of tags, such as on the product detail page. Will show any tag enabled.
 //on bind-data, set maxTagsShown to 1 to show only 1 tag
 		addTagSpans : function($tag,data)	{
+			//app.u.dump("Begin tag span function");
 			var whitelist = new Array('IS_PREORDER','IS_DISCONTINUED','IS_SPECIALORDER','IS_SALE','IS_CLEARANCE','IS_NEWARRIVAL','IS_BESTSELLER','IS_USER1','IS_USER2','IS_USER3','IS_USER4','IS_USER5','IS_USER6','IS_USER7','IS_USER8','IS_USER9','IS_FRESH','IS_SHIPFREE');
 //			var csv = data.value.split(',');
 			var L = whitelist.length;
 			var tagsDisplayed = 0;
-			var maxTagsShown = app.u.isSet(data.bindData.maxTagsShown) ? data.bindData.maxTagsShown : 100; //default to a high # to show all tags.
+			var maxTagsShown = app.u.isSet(data.bindData.maxTagsShown) ? data.bindData.maxTagsShown : 0; //default to a high # to show all tags.
+			//var maxTagsShown = 0;
 			var spans = ""; //1 or more span tags w/ appropriate tag class applied
 			for(var i = 0; i < L; i += 1)	{
+				
 //				app.u.dump("whitelist[i]: "+whitelist[i]+" and tagsDisplayed: "+tagsDisplayed+" and maxTagsShown: "+maxTagsShown);
 //				app.u.dump("data.value.indexOf(whitelist[i]): "+data.value.indexOf(whitelist[i]));
 				if(data.value.indexOf(whitelist[i]) >= 0 && (tagsDisplayed <= maxTagsShown))	{
@@ -2509,8 +2512,15 @@ else	{
 					spans += "<span class='"+whitelist[i].toLowerCase()+"'><\/span>";
 					tagsDisplayed += 1;
 					}
+					
 				}
+			//app.u.dump("spans data = " + spans);
+			app.u.dump("tag displayed = " + tagsDisplayed);
+			
 			$tag.append(spans);
+			
+			//app.u.dump("spans data = " + spans);
+			//app.u.dump("tags appended successfully");
 			},
 
 //if classname is set in the bindData, it'll be concatonated with the value so that specific classes can be defined.
