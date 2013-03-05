@@ -306,7 +306,6 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">Home &nbsp | </a>
                             <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp | </a>
-                            <a  href="#customer?show=newsletter" class="pointer">Newsletter &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privacy Policy &nbsp | </a>
                             <p>&#169 2013 The Chess Store<p>
@@ -978,11 +977,11 @@ remember to NOT put the button inside the 'onclick' container or two events will
         </div>
 		
         <div class="">
-			<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+			<h5 class="alignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
         
-        	<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+        	<span class="alignCenter" data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 	
-			<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
+			<h6 class="alignCenter" data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
         
         	<a>View Details</a>
 		</div>		
@@ -1004,11 +1003,11 @@ remember to NOT put the button inside the 'onclick' container or two events will
           </div>
         </div>
 		
-        	<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        	<h5 class="alignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
         
-        	<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+        	<span class="alignCenter" data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 	
-			<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
+			<h6 class="alignCenter" data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
         
         	<a>View Details</a>
 		
