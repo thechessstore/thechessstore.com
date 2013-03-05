@@ -398,10 +398,10 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
-    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});">
-    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00010-metal-chess-sets'});">
-    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
-            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets.4-model'});">
+    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
+    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
+    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
+            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
     		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-Most-Unique-Chess-Pieces'});">
     		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="">		
     	</div>
@@ -1252,7 +1252,10 @@ this will likely become more flexible in the future. ###
 	
     <div class='priceContainer'>
     	<!--<h5 class="floatLeft prodMSRP">Our Price: </h5>--> <h5 class='prodMSRP lineThrough clear' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;  pretext: Regular Price: ;'></h5>
-		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Sale Price: ;'></h4>
+		<div data-bind="var: product(is:sale); format:addClass; className:onSale;">
+        	<h4 class='PriceTag' data-bind='var: product(is:sale); format: showIfSetInline;'>Sale </h4>
+            <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Price: ;'></h4>
+        </div>
 		<span class='savings'>
 			<span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>

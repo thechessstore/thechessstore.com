@@ -986,6 +986,14 @@ announceBar h2{
 	font-size:18px;
 	line-height:inherit;
 }
+.onSale{
+}
+.basePrice{
+	display:inline;
+}
+.PriceTag{
+	display:none;
+}
 
 /**Add to Cart Form**/
 .addToCartButt{

@@ -2407,6 +2407,13 @@ return $r;
 				$tag.show().css('display','block'); //IE isn't responding to the 'show', so the display:block is added as well.
 				}
 			},
+			
+//Identical to showIfSet but sets to inline instead.
+			showIfSetInline : function($tag,data)	{
+			if(data.value)	{
+				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:block is added as well.
+				}
+			},
 
 
 
@@ -2515,7 +2522,7 @@ else	{
 					
 				}
 			//app.u.dump("spans data = " + spans);
-			app.u.dump("tag displayed = " + tagsDisplayed);
+			//app.u.dump("tag displayed = " + tagsDisplayed);
 			
 			$tag.append(spans);
 			
@@ -2526,12 +2533,16 @@ else	{
 //if classname is set in the bindData, it'll be concatonated with the value so that specific classes can be defined.
 //ex: for a reviews item, instead of a class of 7, which isn't valid, it would be output as review_7
 		addClass : function($tag,data){
+			app.u.dump("Begin addClass function");
 			var className;
 			if(data.bindData.className)	{
+				app.u.dump("Begin class appending process of addClass function");
 				className = data.bindData.className+data.value;
 				}
-			else	{ className = data.value}
+			else	{ className = data.value; app.u.dump("Class appending did not happen");}
+			
 			$tag.addClass(className);
+			app.u.dump("class append process completed");
 			},
 		
 		wiki : function($tag,data)	{
