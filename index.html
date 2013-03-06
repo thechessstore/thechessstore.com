@@ -161,8 +161,8 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a  href="#" onClick="" class='bindByAnchor HeaderNavBarLink'><p class="HeaderNavBarLink">Complete Chess Sets</p></a>
                         	<div class="dropdown headerDropdown leftAlign">
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards.4-model'});" class="pointer">Wood Chess Sets with Boards</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases.4-model'});" class="pointer">Wood Chess Sets with Cases</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" class="pointer">Wood Chess Sets with Boards</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});" class="pointer">Wood Chess Sets with Cases</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" class="pointer">Metal Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" class="pointer">Plastic Chess Sets</a></div>
@@ -303,7 +303,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 </div>
                 <div id="footerLowerSec">
                 	<div class="footerLower_TopSec">
-                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">Home &nbsp | </a>
+                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">| &nbsp Home &nbsp | </a>
                             <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp | </a>
                             <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp | </a>
@@ -1310,8 +1310,9 @@ this will likely become more flexible in the future. ###
 		<!--**Removed to match design**<li class='prodReviewsTab displayNone prodTempTab'><a href="#prodReviews" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodReviews_;">Reviews</a></li>-->
 		<li class='prodVideoTab displayNone prodTempTab pointer' data-bind='var: product(youtube:videoid); format:showIfSet;'><a href="#prodVideo" class="prodTempTab">Video</a></li>
 		<!--**Removed. Redundant page design as accessories section are already listed in below section<li class='prodAccessoriesTab displayNone prodTempTab' data-bind='var: product(zoovy:accessory_products); format:showIfSet;'><a href="#prodlistAccessoriesContainer" class="prodTempTab" data-bind="var:product(pid);format:assignAttribute; attribute:href; valuePretext:#prodAccessories_;">Accessories</a></li> -->
-        <li class='prodTempTab pointer displayNone' data-bind='var: product(zoovy:prod_warranty); format:showIfSet;'><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
-        <li class='prodTempTab pointer displayNone' data-bind='var: product(zoovy:prod_discount); format:showIfSet;'><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
+        <li class='prodTempTab pointer displayNone' data-bind='var: product(user:prod_warranty); format:showIfSet;'><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
+        <li class='prodTempTab pointer displayNone' data-bind='var: product(user:prod_volumedisc); format:showIfSet;'><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
+        <li class='prodTempTab pointer displayNone' data-bind='var: product(user:prod_specialmedia); format:showIfSet;'><a href="#prodDet" class="prodTempTab">Product Details</a></li>
 	</ul>
     <div class="prodTempTabBordSpace"></div>
 	
@@ -1333,11 +1334,15 @@ this will likely become more flexible in the future. ###
 	</div>
     
     <div class='tabContent' data-anytab-content='prodWarranty'>
-		<div data-bind='var: product(zoovy:prod_warranty); format:wiki; wikiFormats:myRIA'></div>
+		<div data-bind='var: product(user:prod_warranty); format:wiki; wikiFormats:myRIA'></div>
 	</div>
     
     <div class='tabContent' data-anytab-content='prodVolDisc'>
-		<div data-bind='var: product(zoovy:prod_discount); format:wiki; wikiFormats:myRIA'></div>
+		<div data-bind='var: product(user:prod_volumedisc); format:wiki; wikiFormats:myRIA'></div>
+	</div>
+    
+    <div class='tabContent' data-anytab-content='prodDet'>
+		<div data-bind='var: product(user:prod_specialmedia); format:wiki; wikiFormats:myRIA'></div>
 	</div>
 	
 	
