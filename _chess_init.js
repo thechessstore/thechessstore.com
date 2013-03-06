@@ -138,7 +138,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
     next : "#caroNext1"
 	});}
 	carousel1 = foo1;
-	setTimeout(carousel1, 1000);
+	setTimeout(carousel1, 2000);
 	
 	
 	//$("#caroNext1").delay(1500).click();
@@ -155,7 +155,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
     next : "#caroNext2"
 	});}
 	carousel2 = foo2;
-	setTimeout(carousel2, 1000);
+	setTimeout(carousel2, 2000);
 	
 	var carousel3;
 	function foo3(){
@@ -169,7 +169,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
     next : "#caroNext3"
 	});}
 	carousel3 = foo3;
-	setTimeout(carousel3, 1000);
+	setTimeout(carousel3, 2000);
 	
 	var carousel4;
 	function foo4(){
@@ -183,7 +183,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
     next : "#caroNext4"
 	});}
 	carousel4 = foo4;
-	setTimeout(carousel4, 1000);
+	setTimeout(carousel4, 2000);
 	
 	//$myselection.addClass('noScriptReExecute');
 	homepageLoad = true;

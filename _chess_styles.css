@@ -1577,3 +1577,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 }
 .is_shipfree{
 }
+/*******************************************************************************************************************************/
+/**Miscellaneous**/
+.spaceAndAlignCenter{
+	width:100%;
+	text-align:center;
+}
