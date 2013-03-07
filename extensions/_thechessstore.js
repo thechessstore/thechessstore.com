@@ -25,7 +25,9 @@ The functions here are designed to work with 'reasonable' size lists of categori
 var store_filter = function() {
 	var r = {
 		
-	vars : {},
+	vars : {
+		'templates' : []
+		},
 
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
 

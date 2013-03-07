@@ -61,6 +61,48 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 
 
 
+//Will do an appPageGet for the description of each category.0
+//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
+// AND the list spec must contain a catDesc class where the description is to appear.
+app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	var $catPage = $(app.u.jqSelector('#','categoryTemplate_'+app.u.makeSafeHTMLId(P.navcat))),
+	$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+	
+	if($catList.children().length)	{
+		$catList.children().each(function(){
+			var $li = $(this);
+			
+			if($li.data('app-havesubcatdata'))	{} //already have data.
+			else if($('.catDesc',$li).length)	{
+				app.ext.store_navcats.calls.appPageGet.init({
+					'PATH':$li.data('catsafeid'),
+					'@get':['description']
+					},
+					{'callback': function(rd){					//if there are errors, leave them alone... for now.
+					$li.data('app-havesubcatdata',true);
+					if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
+						$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+						}
+					}
+					},'mutable')
+				}
+			else	{
+				app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+				//category description already obtained or template has no catDesc class (no description needed)
+				}
+			});
+		app.model.dispatchThis('mutable');
+		}
+	else	{
+		//most likely, no subcats.
+		}
+	}]);
+
+
+
+
+
+
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
