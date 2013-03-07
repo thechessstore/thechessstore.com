@@ -244,7 +244,7 @@ var extension_thechessstore = function() {
 
 			},
 			
-			reviewSelector : ".reviewsCont"
+			reviewSelector : ".reviewsContainer"
 		},
 		
 		callbacks : {

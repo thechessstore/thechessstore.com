@@ -270,16 +270,33 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	}
 }]);
 
+//Reviews function built to display a message if no reviews are present for this product. 
 app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
 {
 	app.u.dump("Begin reviews messaging function");
 	
-	if($(".reviewsBind").children().length == 0){
-		app.u.dump("reviews messaging function is running");
-		$(app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
-		'<p style="text-align:center;" id="reviewsCont">'
-		+ 'Be the First to Review This Product!'
-		+ '</p>');
+	if($(".reviewsBind").length >= 0){
+		$(".reviewsBind")
+    .attr("class", "reviewsBind"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+	}
+	
+	if($(".reviewsBind"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).children.length == 0){
+		app.u.dump("No reviews. Running existing message check");
+		if($(".reviewsCont"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).length == 0 || $(".reviewsCont"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).length == null){
+		  app.u.dump("No message exists. Display message");
+		  $(app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
+		  '<p style="text-align:center;" class="reviewsCont">'
+		  + 'Be the First to Review This Product!'
+		  + '</p>');
+		  
+		  $(".reviewsCont").attr("class", "reviewsCont"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+		  //var p = document.getElementsByClassName("reviewsCont");
+		  //p.reviewsCont += '#productTemplate_'+app.u.makeSafeHTMLId(P.pid);
+		  app.u.dump("Displaying new message class name: " + ".reviewsCont"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+		}
+		else{
+			app.u.dump("Message exists. Doing nothing");
+		}
 
 
 		/*var noReviews = document.createElement("p");
@@ -290,7 +307,8 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 	}
 	else
 	{
-		app.u.dump($(".reviewsCont").children().length + "reviews messaging function did not run");
+		app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).children.length + " " + $(".reviewsBind"+'#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).children);
+		
 	}
 
 }]);
