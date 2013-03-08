@@ -1053,6 +1053,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 .prodTempTabCont a.prodTempTab{
 	color:#561d09;
 }
+.tabContent p{
+	color:#561d09;
+	font-size:20px;
+	font-family: 'Neuton', serif;
+}
 
 /**You might also like section**/
 .prodtempYouMightLikeProdName{

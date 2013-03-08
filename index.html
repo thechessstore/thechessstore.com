@@ -1336,7 +1336,10 @@ this will likely become more flexible in the future. ###
 	</div>
 
 	<div class='tabContent' data-anytab-content='prodVideo'>
-		<div id="prodVideo" data-bind='var: product(youtube:videoid); format:youtubeVideo;'></div>
+    	<p data-bind='var: product(youtube:videoid); format:showIfSet;'>Click a video to play it!</p>
+        <div data-bind="var: product(youtube:videoid); format: assignAttribute; attribute: data-youtubeid;">
+ 			<img class="pointer" src="blank.gif" data-bind="var: product(youtube:videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;"/>
+		</div>
 	</div>
     
     <div class='tabContent' data-anytab-content='prodWarranty'>
@@ -1348,9 +1351,7 @@ this will likely become more flexible in the future. ###
 	</div>
     
     <div class='tabContent' data-anytab-content='prodDet'>
-    	<div data-bind='var: product(user:prod_specialmedia) format: assignAttribute; attribute: data-youtubeid;'>
-			<img data-bind='var: product(user:prod_specialmedia); extension:myRIA; format:youtubeThumbnail;' onClick="showYoutubeInModal($(this).parent().data('youtubeid')); return false;"></img>
-        </div>
+			<div data-bind='var: product(user:prod_specialmedia); format:wiki; wikiFormats:myRIA'></div>
 	</div>
 	
 	
