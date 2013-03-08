@@ -927,7 +927,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
 		
-		<div class='catDesc'></div>
+		<!--<div class='catDesc'></div>-->
 	</div>
 </li>
 
@@ -1348,7 +1348,9 @@ this will likely become more flexible in the future. ###
 	</div>
     
     <div class='tabContent' data-anytab-content='prodDet'>
-		<div data-bind='var: product(user:prod_specialmedia); format:wiki; wikiFormats:myRIA'></div>
+    	<div data-bind='var: product(user:prod_specialmedia) format: assignAttribute; attribute: data-youtubeid;'>
+			<img data-bind='var: product(user:prod_specialmedia); extension:myRIA; format:youtubeThumbnail;' onClick="showYoutubeInModal($(this).parent().data('youtubeid')); return false;"></img>
+        </div>
 	</div>
 	
 	
