@@ -1447,7 +1447,7 @@ else	{
 
 		handleLogout : {
 			onSuccess : function(tagObj)	{
-				document.location = '/app/latest/logout.html'
+				document.location = '/app/latest/admin_logout.html'
 				}
 			},
 //in cases where the content needs to be reloaded after making an API call, but when a showUI directly won't do (because of sequencing, perhaps)
@@ -2152,13 +2152,13 @@ once multiple instances of the finder can be opened at one time, this will get u
 
 			login : function($form){
 				$('body').showLoading({"message":"Authenticating credentials. One moment please."});
-				app.calls.authentication.accountLogin.init($form.serializeJSON(),{'callback':'showHeader','extension':'admin'});
+				app.calls.authAdminLogin.init($form.serializeJSON(),{'callback':'showHeader','extension':'admin'});
 				app.model.dispatchThis('immutable');
 				}, //login
 
 			logout : function(){
 				$('body').showLoading({"message":"You are being logged out. One moment please."});
-				app.calls.authentication.authAdminLogout.init({'callback':'handleLogout','extension':'admin'});//always immutable.
+				app.calls.authAdminLogout.init({'callback':'handleLogout','extension':'admin'});//always immutable.
 				app.model.dispatchThis('immutable');
 //nuke all this after the request so that the dispatch has the info it needs.
 				app.ext.admin.u.selectivelyNukeLocalStorage(); //get rid of most local storage content. This will reduce issues for users with multiple accounts.
@@ -2404,6 +2404,34 @@ var chart = new Highcharts.Chart({
 				else {} //at this time, no other options.
 				return domain;
 				}, //getDomain
+
+
+//pass in a form and this will apply some events to add a 'edited' class any time the field is edited.
+//will also update a .numChanges selector with the number of elements within the context that have edited on them.
+//will also 'enable' the parent button of that class.
+			applyEditTrackingToInputs : function($context)	{
+
+				$("input",$context).each(function(){
+					
+					if($(this).hasClass('skipTrack')){} //allows for a field to be skipped.
+					else if($(this).is(':checkbox') || $(this).is('select'))	{
+						$(this).off('change.trackChange').on('change.trackChange',function(){
+							$(this).toggleClass('edited');
+							$('.numChanges',$context).text($('.edited',$context).length).closest('button').button("enable");
+							});			
+						}
+					else	{
+						$(this).off('keyup.trackChange').one('keyup.trackChange',function(){
+							$(this).addClass('edited');
+							$('.numChanges',$context).text($('.edited',$context).length).closest('button').button("enable");
+							});
+						}
+			
+					});
+
+				}, //applyEditTrackingToInputs
+
+
 
 			loadNativeApp : function(path,opts){
 //				app.u.dump("BEGIN loadNativeApp");
