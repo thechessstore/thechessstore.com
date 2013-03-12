@@ -1542,6 +1542,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .searchResultsPG img{
 	margin-left:0px;
 }
+.searchResultsDetails{
+	text-align:center;
+}
+
+#resultsProductListContainer .ui-menu-item{
+	height:10px;
+	visibility:
+}
+
+.resultsMenu{
+	border:none;
+}
+
+
 
 /******************************************************************************************************************************/
 /**Promotional tags classes**/
