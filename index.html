@@ -1396,12 +1396,13 @@ this will likely become more flexible in the future. ###
 <!-- a template used for a quickview link off of a category page -->
 <div id='productTemplateQuickView'>
 
-<table class='prodViewerContainer'>
+<table  class='prodViewerContainer'>
 <tr>
-	<td class='imageContainer'>
-<div>
+	<td class='imageContainer pointer' data-bind="var:product(pid);format:assignAttribute; attribute:data-pid;" onclick="showContent('product',{'pid':$(this).attr('data-pid')})">
+<div style="position:relative;">
 
-	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
+<!--<div class="promoTag" data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;"></div>-->
+	<div class="promoTag" data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
 	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
 
 </div>
@@ -1411,8 +1412,8 @@ this will likely become more flexible in the future. ###
 	<td class='prodSummaryContainer marginBottom no_underline'>
 	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	<h6 class='ztable_row_small stid' data-bind='var: product(pid); format:text; className: stid; pretext: Sku#: ;'></h6>
-	
-	
+
+
 	<div class='priceContainer'>
 		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
 		<h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
@@ -1421,22 +1422,22 @@ this will likely become more flexible in the future. ###
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
 		</span>
 	</div>
-	
+
 	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
-	
+
 	<section id='prodViewerReviewSummary' class='marginBottom'>
-		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-		<span data-bind='var: reviews(total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
+		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+		<span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
-	
+
 	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
 
 	</td>
 </tr>
 <tr>
 	<td colspan='2'>
-		
-	<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(@reviews); format:reviewList; extension:store_product; loadsTemplate:productReviewsTemplateDetail;"></ul>
+
+	<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
 
 	</td>
 </tr>
@@ -1777,7 +1778,12 @@ adding classes is not likely to have any bad effects.
 	</div>-->
 	
 	<div class='mainColumn'>
-		<ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList'></ul><!-- productListTemplateResults gets loaded into here -->
+		<div class='previewProductDetail displayNone'></div>
+
+		<div class='previewListContainer'>
+			<!-- productListTemplateResults gets loaded into here -->
+			<ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList'></ul>
+		</div>
 	</div>
 </div>
 
