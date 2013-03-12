@@ -68,7 +68,7 @@ var myRIA = function() {
 			"recentlyViewedItems" : [],
 			"recentCategories" : []
 			} //a list of other extensions (just the namespace) that are required for this one to load
-		},
+	},
 
 
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
@@ -92,6 +92,7 @@ var myRIA = function() {
 		init : {
 			onSuccess : function()	{
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
+				app.u.dump("BEGIN myRIA.callback.onSuccess");
 				return r;
 				},
 			onError : function()	{
@@ -103,7 +104,7 @@ var myRIA = function() {
 
 		startMyProgram : {
 			onSuccess : function()	{
-//			app.u.dump("BEGIN myRIA.callback.startMyProgram");
+			app.u.dump("BEGIN myRIA.callback.startMyProgram");
 //			app.u.dump(" -> window.onpopstate: "+typeof window.onpopstate);
 //			app.u.dump(" -> window.history.pushState: "+typeof window.history.pushState);
 //This will create the arrays for the template[templateID].onCompletes and onInits
