@@ -1574,11 +1574,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_preorder{
 }
 .is_discontinued{
+	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
 }
 .is_specialorder{
 }
 .is_sale{
-	background-image:url(images/Sale_placeholder.png);
+	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
 	background-size:100%;
 	width:100%;
@@ -1589,12 +1596,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_clearance{
 }
 .is_newarrival{
+	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
 }
 .is_bestseller{
+	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
 }
 .is_fresh{
 }
 .is_shipfree{
+	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
 }
 
 /*******************************************************************************************************************************/
