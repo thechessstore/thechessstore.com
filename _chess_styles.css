@@ -1576,7 +1576,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_discontinued{
 	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:129px 45px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
@@ -1585,7 +1585,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_specialorder{
 	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:129px 45px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
@@ -1594,7 +1594,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size: 129px 45px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
@@ -1605,7 +1605,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_newarrival{
 	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size: 130px 46px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
@@ -1614,7 +1614,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_bestseller{
 	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:130px 46px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
@@ -1625,7 +1625,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_shipfree{
 	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:129px 45px;
+	background-size:90%;
 	width:100%;
 	height:100%;
 	position:absolute;
