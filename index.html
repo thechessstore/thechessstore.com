@@ -401,7 +401,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
     		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
             <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
-    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-Most-Unique-Chess-Pieces'});">
+    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});">
     		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
     	</div>
     </div>
@@ -599,7 +599,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
                 <div class="homepageCatDesc">Large upright chess boards for demonstrating and teaching chess in the classroom.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});">
-            	<img class="" src="images/Homepage_CollectClub.gif" />
+            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-cases-banner-310.jpg" />
             	<div class="homepageCatTitle">Chess Cases</div>
                 <div class="homepageCatDesc">A chess case provides storage for pieces and a chess board on top. A great way to display your chess set.</div>
             </li>
@@ -1555,9 +1555,9 @@ adding classes is not likely to have any bad effects.
             <p>Hillsboro, OR 97124</p>
             <br />
             <h3>Order Status and Tracking Numbers &#58;</h3>
-            <p>If you'd like to check the status of an order, (or cancel one that hasn't been processed), please go to your <a href="#customer?show=myaccount" class='bindByAnchor'>Customer Account</a>page.</p>
+            <p>If you'd like to check the status of an order, (or cancel one that hasn't been processed), please go to your <a href='#top' onClick="return showContent('customer',{'show':'myaccount'});">Customer Account</a> page.</p>
             <p>You can also <a href='#top' onClick="return showContent('customer',{'show':'newsletter'});">subscribe to our mailing list.</a></p>
-			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
+			<form action='#' class="floatLeft" onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
 			<fieldset>
 				<legend>Contact Us</legend>
 				<div id='contactFormMessaging'></div>
