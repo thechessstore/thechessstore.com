@@ -1583,6 +1583,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	z-index:5;
 }
 .is_specialorder{
+	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;
 }
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
