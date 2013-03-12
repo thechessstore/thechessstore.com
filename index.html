@@ -1691,7 +1691,7 @@ adding classes is not likely to have any bad effects.
 		<div id='myaccountArticle' class='displayNone textContentArea'>
 			<h1>My Account</h1>
 			<div id='logMessaging'></div>
-			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('category',{'navcat':'.'}); return false;">Log Out</a></div>
+			<div><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></div>
 			
 			<section id='buyerAddresses' class='clearfix'>
 
@@ -2271,17 +2271,17 @@ The 'data-action' attribute is used to assign an onclick.
 <form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
 <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 	<fieldset>
-	
+
 	<div>
 	<label for='modalLoginlogin'>Login/Email</label>
 	<input type='email' class='zform_textbox zform_email'  name='login' id='modalLoginlogin' value='' size='25' />
 	</div>
-	
+
 	<div>
 	<label for='modalLoginpassword'>Password</label>
 	<input type='password' class='zform_textbox zform_password'   name='password' id='modalLoginpassword' value='' size='25' />
 	</div>
-	
+
 	<div>
 	<input type='submit' value='log in' class='ui-button-text ui-button ui-state-default ui-corner-all ' />
 	</div>
