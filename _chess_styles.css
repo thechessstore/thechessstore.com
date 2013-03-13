@@ -476,6 +476,12 @@ announceBar h2{
 .navBarPos a{
 	color:#763f27;
 }
+.navBarPos a:hover{
+	color:#763f27;
+}
+.navBarPos a:visited{
+	color:#763f27;
+}
 	
 .dropdown.leftAlign {
 		left: 0px;
