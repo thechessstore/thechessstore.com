@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130314091000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130314092500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
@@ -2327,7 +2327,6 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-
 <!--
 #################################
 
@@ -2373,16 +2372,6 @@ put all filters into the appFilters container.
 
 </form>
 
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
@@ -2395,31 +2384,38 @@ put all filters into the appFilters container.
 
 
 <div class='debug displayNone'>
-
-<menu>
-	<li><a href='#' onClick="return showContent('category',{'navcat':'.'});">Homepage</a></li>
-	<li><a href='#' onClick="return showContent('customer',{'show':'orders'});">Orders</a></li>
-	<li><a href='#' onClick="return showContent('cart',{'show':'cart'});">Cart</a></li>
-	<li><a href='#' onClick="app.ext.store_cart.u.showCartInModal({'templateID':'cartTemplate'});">CartInModal</a></li>
-	<li><a href='#' onClick="return showContent('company',{'show':'return'});">Returns</a></li>
-	<li><a href='#' onClick="return showContent('company',{'show':'privacy'});">Privacy</a></li>
-	<li><a href='#' onClick="return quickView('category',{'navcat':'.air_fresheners','templateID':'categoryTemplate'});">Cat in Modal</a></li>
-	
-</menu>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick="localStorage.clear(); return false;">Clear Local Storage</button>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.u.dump(app); return false;">Control to Console</button>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.u.loadCSSFile('examples/red.css','bg');">load red css</button>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick="alert(app.ext.store_checkout.u.thisSessionIsPayPal());">Alert isPaypal</button>
-	<button class='ui-button-text ui-button ui-state-default ui-corner-all' onClick="alert(app.ext.store_checkout.u.aValidPaypalTenderIsPresent());">Alert aValidPaypalTenderIsPresent</button>
-	
-<form name='headerSearchFrm' action='#' class='productSearchForm' method="get">
-	<fieldset>
-	<legend>Search</legend>
-	<input type='search' name='KEYWORDS' value='Enter Search Term' class="productSearchKeyword handleDefault" />
-	</fieldset>
-	<input class="search" type="submit" value="Search" />
+<table>
+<tr>
+	<td>
+<ul class='debugQuickLinks'>
+	<li>Store Links
+	<ul>
+		<li><a href='#' onClick="return showContent('homepage',{});">Homepage</a></li>
+		<li><a href='#' onClick="return showContent('customer',{'show':'orders'});">Orders</a></li>
+		<li><a href='#' onClick="return showContent('cart',{'show':'cart'});">Cart</a></li>
+		<li><a href='#' onClick="app.ext.store_cart.u.showCartInModal({'templateID':'cartTemplate'});">CartInModal</a></li>
+		<li><a href='#' onClick="return showContent('company',{'show':'return'});">Returns</a></li>
+		<li><a href='#' onClick="return showContent('company',{'show':'privacy'});">Privacy</a></li>
+		<li><a href='#' onClick="return quickView('category',{'navcat':'.air_fresheners','templateID':'categoryTemplate'});">Cat in Modal</a></li>
+	</ul>
+	</li>
+	<li>Some JS test links
+	<ul>
+		<li><a href='#' onClick="localStorage.clear();">Clear Local Storage</a></li>
+		<li><a href='#' onClick="app.ext.convertSessionToOrder.a.startCheckout($('#mainContentArea'));">mobile checkout</a></li>
+		<li><a href='#' onClick="localStorage.clear();">Clear Local Storage</a></li>
+	</ul>
+	</li>
+</ul>
+	</td>
+	<td>
+<form name='headerSearchFrm' action='#' class='productSearchForm marginLeft' method="get">
+	<input type='search' name='KEYWORDS' placeholder='product search' class="productSearchKeyword handleDefault" />
+	<button>Search</button>
 </form>
-
+	</td>
+</tr>
+</table>
 
 </div>
 
