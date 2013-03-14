@@ -2443,14 +2443,6 @@ return $r;
 				}
 			},
 
-			
-			//Identical to showIfSet but sets to inline instead.
-			showIfSetInline : function($tag,data)	{
-			if(data.value)	{
-				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
-				}
-			},
-
 
 
 //handy for enabling tabs and whatnot based on whether or not a field is populated.
