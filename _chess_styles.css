@@ -6,6 +6,8 @@ header,
 nav,
 section {
   display: block; }
+  
+  #appView { margin-top: -14px;}
 
 
 
