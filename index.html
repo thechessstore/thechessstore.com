@@ -33,15 +33,16 @@ var myCreole;
 var app = {vars:{
 	"release":"20130314100500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
-	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
-	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
+	//"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
+	//"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
+	"testURL": "http://www.87ffd4ea5f.hoth.zoovy.net/"
 	//"httpURL": "http://www.thechessstore.com/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
 if(document.location.protocol != 'file:')	{
-	app.vars.baseURL  = "https:" == document.location.protocol ? app.vars.httpsURL : app.vars.httpURL; 
+	app.vars.baseURL  = "/";
 	document.getElementsByTagName('base')[0].href = app.vars.baseURL;
 	}
 </script>
@@ -147,9 +148,10 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 						<!--<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>-->
 					</div>
 					<div class="headerBoxRight">
-						<p><a href="#" onClick="return showContent('cart',{});" class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
-						<p><a href="#" onClick="return showContent('cart',{});" class='bindByAnchor' title='Checkout'>Checkout</a></p>
-						<p><a href="#" onClick="return showContent('customer',{'show':'myaccount'});" class='bindByAnchor' title='Wishlist'>Wishlist</a></p>
+						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
+						<p><a href="#cart?." class='bindByAnchor' title='Checkout'>Checkout</a></p>
+						<p><a href="#customer?show=orders" class='bindByAnchor' title='Wishlist'>Wishlist</a></p>
+
                         <p><a class="pointer" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
 					</div>
 					<h2 class="headerMotto">Specializing in the game of chess since 1999</h2>

@@ -28,8 +28,13 @@ var myRIA = function() {
 //if this is a custom extension and you are loading system extensions (prodlist, etc), then load ALL templates you'll need here.
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
-			'homepageTemplate',	'categoryTemplate',
+			'homepageTemplate',	
+			'categoryTemplate',
+			'categoryTemplate3PanelCat',
+			'categoryTemplate4PanelCat',
 			'categoryListTemplate',
+			'categoryListTemplate3Panel',
+			'categoryListTemplate4Panel',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
 			'productListTemplateATC',
@@ -2572,9 +2577,16 @@ buyer to 'take with them' as they move between  pages.
 						
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
+		     			app.u.dump("homepage selected");
+             		}
+	  	
+            		else if(app.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+             			app.u.dump("category catsafeid option selected");
+              			infoObj.templateID = app.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default option selected");
+              			infoObj.templateID = 'categoryTemplate'
 						}
 					infoObj.state = 'onInits';
 					app.ext.myRIA.u.handleTemplateFunctions(infoObj);
