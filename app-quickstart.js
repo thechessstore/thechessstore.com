@@ -463,7 +463,9 @@ document.write = function(v){
 var $parent = $('#'+tagObj.parentID).removeClass('loadingBG');
 //if the page gets reloaded, de-tab so that running tabs() later re-inits properly.
 if($parent.hasClass("ui-tabs"))	{
-	$parent.anytabs('destroy').empty();
+	if($parent.hasClass("ui-tabs")) {
+ 		$parent.empty();
+		}
 	}
 if(app.data[tagObj.datapointer]['@lists'].length > 0)	{
 	var $ul = app.ext.store_crm.u.getBuyerListsAsUL(tagObj.datapointer);
