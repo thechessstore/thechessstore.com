@@ -1587,7 +1587,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	border:none;
 }
 
+#beforeThirdParty{
+	float:left;
+	clear:both;
+}
 
+.checkoutFormContainer legend{
+	float:left;
+	clear:both;
+}
 
 /******************************************************************************************************************************/
 /**Promotional tags classes**/
@@ -1677,7 +1685,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	width:100%;
 	text-align:center;
 }
-
 .ui-button{
 	padding-left:5px;
 	padding-right:5px;
