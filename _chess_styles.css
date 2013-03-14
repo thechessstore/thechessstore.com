@@ -408,6 +408,18 @@ border-radius:4px;
 	margin-right:15px;
 	float:left;
 }
+.HeaderNavBarLink a{
+	color:#763f27;
+}
+.HeaderNavBarLink a:visited{
+	color:#763f27;
+}
+.HeaderNavBarLink a:hover{
+	color:#763f27;
+}
+.HeaderNavBarLink a:link{
+	color:#763f27;
+}
 
 .announceBar{
 	width:1000px;
