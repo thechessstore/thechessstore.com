@@ -464,8 +464,12 @@ var $parent = $('#'+tagObj.parentID).removeClass('loadingBG');
 //if the page gets reloaded, de-tab so that running tabs() later re-inits properly.
 if($parent.hasClass("ui-tabs"))	{
 	if($parent.hasClass("ui-tabs")) {
- 		$parent.empty();
-		}
+	   $parent.empty();
+	   $parent.removeClass("ui-tabs");
+	   $parent.removeClass("ui-widget");
+	   $parent.removeClass("ui-widget-anytabs");
+	   $parent.attr("widget","");
+	   }
 	}
 if(app.data[tagObj.datapointer]['@lists'].length > 0)	{
 	var $ul = app.ext.store_crm.u.getBuyerListsAsUL(tagObj.datapointer);
