@@ -1676,6 +1676,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 #contactForm{
 	float:left;
 }
+#contactChat {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	float: left;
+}
+
 
 
 /*******************************************************************************************************************************/
