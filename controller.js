@@ -2450,8 +2450,6 @@ return $r;
 				}
 			},
 
-
-
 //handy for enabling tabs and whatnot based on whether or not a field is populated.
 //doesn't actually do anything with the value.
 		hideIfSet : function($tag,data)	{

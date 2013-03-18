@@ -1599,16 +1599,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 /******************************************************************************************************************************/
 /**Promotional tags classes**/
 .promoTagCont{
-	position:relative;
+	
 }
 .promoTag{
 	z-index:5;
-	width:40%;
-	height:40%;
+	width:100%;
+	height:100%;
+	overflow:visible;
+	position:relative;
+	display:none;
+}
+.tagsContainer{
+	position:absolute;
 	top:0px;
 	right:0px;
-	overflow:visible;
-	position:absolute;
+	overflow:hidden;
+	width:40%;
+	height:30%;
 }
 .is_preorder{
 }
@@ -1631,13 +1638,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	z-index:5;
 }
 .is_sale{
-	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:90%;
-	width:100%;
-	height:100%;
-	position:absolute;
-	z-index:5;
+}
+.is_sale img{
+	width:100%;	
 }
 .is_clearance{
 }
@@ -1651,13 +1654,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	z-index:5;
 }
 .is_bestseller{
-	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:90%;
-	width:100%;
-	height:100%;
-	position:absolute;
-	z-index:5;
 }
 .is_fresh{
 }
