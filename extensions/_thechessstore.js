@@ -39,7 +39,11 @@ var store_filter = function() {
 
 		".00012-wood-chess-sets-with-chess-boards":{
 			"filter": "completeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:300});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+		".00012-wood-chess-sets-with-chess-boards.11-standard-walnut-chess-board-packages" : {
+			"filter": "completeChessSetsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:400});}
 			}
 		},
 

@@ -1553,6 +1553,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .assembly .assemblyShow {display:inherit;}
 
 
+
+/* Layered Search */
+
+label.break	{display:block; margin-bottom:2px;}
+.layeredSearch	{color:#ffffff;}
+.layeredSearch legend	{font-size:1.0em; font-weight:bold;}
+.layeredSearch fieldset	{margin-bottom:12px;}
+
+
+
+
+
+/*
+Styles for product lists
+*/
+
+.productListTemplate .tagsContainer span	{display:block; width:100px; height:35px;}
+.productListTemplate .promoTag	{z-index:10000; position:absolute; top:0; right:0;}
+.twoColListItem .prodThumbContainer	{width:355px; height:210px;}
+
+
+
 /*****************************************************************************************************************************/
 /**Checkout Page**/
 
@@ -1601,7 +1623,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .promoTagCont{
 	
 }
-.promoTag{
+/*.promoTag{
 	z-index:5;
 	width:100%;
 	height:100%;
@@ -1609,6 +1631,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	position:relative;
 	display:none;
 }
+*/
 .tagsContainer{
 	position:absolute;
 	top:0px;
@@ -1638,10 +1661,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	z-index:5;
 }
 .is_sale{
+	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:90%;
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:5;	
+	
 }
-.is_sale img{
-	width:100%;	
-}
+
 .is_clearance{
 }
 .is_newarrival{
