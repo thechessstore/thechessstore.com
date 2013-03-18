@@ -7,7 +7,6 @@ nav,
 section {
   display: block; }
   
-  #appView { margin-top: -14px;}
 
 
 
@@ -1217,6 +1216,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	text-decoration:underline;
 	color:#763f27;
 }
+
+/* Layered Search */
+
+label.break	{display:block; margin-bottom:2px;}
+.layeredSearch	{color:#ffffff;}
+.layeredSearch legend	{font-size:1.0em; font-weight:bold;}
+.layeredSearch fieldset	{margin-bottom:12px;}
 /**Category template body**/
 #catTempCont{
 	width:760px;
@@ -1225,6 +1231,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	padding-left:20px;
 	padding-right:20px;
 }
+
+
 /**Category list section**/
 .catPageProdList li {
 	width:350px;
@@ -1554,24 +1562,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 
 
 
-/* Layered Search */
-
-label.break	{display:block; margin-bottom:2px;}
-.layeredSearch	{color:#ffffff;}
-.layeredSearch legend	{font-size:1.0em; font-weight:bold;}
-.layeredSearch fieldset	{margin-bottom:12px;}
-
-
-
-
-
-/*
-Styles for product lists
-*/
-
-.productListTemplate .tagsContainer span	{display:block; width:100px; height:35px;}
-.productListTemplate .promoTag	{z-index:10000; position:absolute; top:0; right:0;}
-.twoColListItem .prodThumbContainer	{width:355px; height:210px;}
 
 
 
@@ -1620,6 +1610,10 @@ Styles for product lists
 
 /******************************************************************************************************************************/
 /**Promotional tags classes**/
+
+/*.productListTemplate .tagsContainer span	{display:block; width:100px; height:35px;}*/
+.productListTemplate .promoTag	{z-index:10000; position:absolute; top:0; right:0;}
+.twoColListItem .prodThumbContainer	{width:355px; height:210px;}
 .promoTagCont{
 	
 }
@@ -1661,7 +1655,13 @@ Styles for product lists
 	z-index:5;
 }
 .is_sale{
-	
+	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:90%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
 	
 }
 
