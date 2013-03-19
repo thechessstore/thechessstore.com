@@ -1612,7 +1612,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 
 /*.productListTemplate .tagsContainer span	{display:block; width:100px; height:35px;}*/
 .quickView{
-	z-index:6;
+	z-index:15;
 }
 .productListTemplate .promoTag	{z-index:5; position:absolute; top:0; right:0;}
 .twoColListItem .prodThumbContainer	{width:355px; height:210px;}
@@ -1634,38 +1634,67 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	position:absolute;
 	top:0px;
 	right:0px;
-	overflow:hidden;
-	width:40%;
-	height:30%;
+	width:30%;
+	height:20%;
+}
+.tagsContainer3{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:30%;
+	height:20%;
+}
+.tagsContainer4{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:45%;
+	height:13%;
 }
 .is_preorder{
 }
 .is_discontinued{
 	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
 	z-index:10;
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/discontinued-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/discontinued-promo-button-128x45.jpg',
+sizingMethod='scale')";	
 }
 .is_specialorder{
 	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
 	z-index:7;
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
+sizingMethod='scale')";	
 }
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
@@ -1673,6 +1702,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	position:absolute;
 	z-index:9;
 	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/sale-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/sale-promo-button-128x45.jpg',
+sizingMethod='scale')";	
 }
 
 .is_clearance{
@@ -1680,24 +1716,41 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_newarrival{
 	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
 	z-index:6;
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
+sizingMethod='scale')";
 }
+
 .is_bestseller{
 	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
 	z-index:8;
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/hot-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/hot-promo-button-128x45.jpg',
+sizingMethod='scale')";	
 }
 .is_fresh{
 	
@@ -1705,13 +1758,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_shipfree{
 	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:95%;
+	background-size:100%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
 	z-index:5;
+	
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
+sizingMethod='scale');
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
+sizingMethod='scale')";	
 }
 
 /*******************************************************************************************************************************/
