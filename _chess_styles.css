@@ -1614,8 +1614,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 /*.productListTemplate .tagsContainer span	{display:block; width:100px; height:35px;}*/
 .productListTemplate .promoTag	{z-index:10000; position:absolute; top:0; right:0;}
 .twoColListItem .prodThumbContainer	{width:355px; height:210px;}
-.promoTagCont{
-	
+.promoTagCont{	
+}
+.tagsContainer span{
+	display:block;
 }
 /*.promoTag{
 	z-index:5;
@@ -1642,8 +1644,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	background-size:90%;
 	width:100%;
 	height:100%;
+	top:0;
+	right:0;
 	position:absolute;
-	z-index:5;
 }
 .is_specialorder{
 	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
@@ -1651,8 +1654,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	background-size:90%;
 	width:100%;
 	height:100%;
+	top:0;
+	right:0;
 	position:absolute;
-	z-index:5;
 }
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
@@ -1662,6 +1666,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	height:100%;
 	top:0;
 	right:0;
+	position:absolute;
 	
 }
 
@@ -1673,12 +1678,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	background-size:90%;
 	width:100%;
 	height:100%;
+	top:0;
+	right:0;
 	position:absolute;
-	z-index:5;
 }
 .is_bestseller{
+	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:90%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	position:absolute;
 }
 .is_fresh{
+	background-repeat:no-repeat;
+	background-size:90%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	position:absolute;
 }
 .is_shipfree{
 	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
@@ -1686,8 +1707,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	background-size:90%;
 	width:100%;
 	height:100%;
+	top:0;
+	right:0;
 	position:absolute;
-	z-index:5;
 }
 
 /*******************************************************************************************************************************/
