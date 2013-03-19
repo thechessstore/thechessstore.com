@@ -404,7 +404,7 @@ app.u.initMVC = function(attempts){
 	var resourcesLoaded = app.u.howManyPassZeroResourcesAreLoaded();
 	var percentComplete = resourcesLoaded * percentPerInclude; //used to sum how many includes have successfully loaded.
 	//make sure precentage is never over 100
-	if(percentComplete > 100 )	{
+	if(percentComplete >= 92 )	{
 		percentComplete = 100;
 		}
 	

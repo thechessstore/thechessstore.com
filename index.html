@@ -1204,11 +1204,11 @@ this will likely become more flexible in the future. ###
 	<td class='imageContainer'>
 <!--	<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
     <div class="promoTagCont">
-		<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
-			<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer promoTag'></div>
-			<!--<a data-bind='var: product(zoovy:prod_image1); format:imageURL;' class="MagicZoomPlus">-->
-    		<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='340' height='340' /><!--</a>-->
-		</div>
+        <div class='promoTag2' data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;"></div>
+        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+            <!--<a data-bind='var: product(zoovy:prod_image1); format:imageURL;' class="MagicZoomPlus">-->
+            <img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='340' height='340' /><!--</a>-->
+        </div>
     </div>
 
 <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
