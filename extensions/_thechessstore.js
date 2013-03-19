@@ -37,14 +37,10 @@ var store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 
-		".00012-wood-chess-sets-with-chess-boards":{
-			"filter": "completeChessSetsForm",
+		".00010-wood-chess-sets":{
+			"filter": "woodChessPieces",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
-		".00012-wood-chess-sets-with-chess-boards.11-standard-walnut-chess-board-packages" : {
-			"filter": "completeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:400});}
-			}
 		},
 
 					////////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
