@@ -38,7 +38,7 @@ var store_filter = function() {
 	filterMap : {
 
 		".00010-wood-chess-sets":{
-			"filter": "woodChessPieces",
+			"filter": "woodChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 		},

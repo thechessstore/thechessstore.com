@@ -1183,8 +1183,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	background-color:#402514;
 	float:left;
 	border-radius:5px;
-	padding-top:15px;
-	padding-bottom:15px;
+	
 }
 .catBrowseSidebar a{
 	color:#ffffff;
@@ -1227,7 +1226,7 @@ label.break	{display:block; margin-bottom:2px;}
 #catTempCont{
 	width:760px;
 	height:100%;
-	float:left;
+	float:right;
 	padding-left:20px;
 	padding-right:20px;
 }
@@ -1644,32 +1643,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_discontinued{
 	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:10;
 }
 .is_specialorder{
 	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:7;
 }
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:9;
 	
 }
 
@@ -1678,41 +1680,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .is_newarrival{
 	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:6;
 }
 .is_bestseller{
 	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:8;
 }
 .is_fresh{
-	background-repeat:no-repeat;
-	background-size:90%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	position:absolute;
+	
 }
 .is_shipfree{
 	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
 	background-repeat:no-repeat;
-	background-size:90%;
+	background-size:95%;
 	width:100%;
 	height:100%;
 	top:0;
 	right:0;
 	position:absolute;
+	z-index:5;
 }
 
 /*******************************************************************************************************************************/
