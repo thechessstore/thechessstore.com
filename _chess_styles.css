@@ -1718,7 +1718,7 @@ src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
 sizingMethod='scale')";	
 }
 .is_sale{
-	background-image:url(images/promo_tags/sale-promo-button-128x45.jpg);
+	background-image:url(images/promo_tags/sale-promo-button-128x45.png);
 	background-repeat:no-repeat;
 	background-size:100%;
 	width:100%;
