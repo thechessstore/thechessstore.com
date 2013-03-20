@@ -138,6 +138,20 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 				});
 			}
 		}
+		
+		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		$('.woodPieces:checkbox').click(function() {
+    		var woodPieces = $(this);
+			// $this will contain a reference to the checkbox   
+			if (woodPieces.is(':checked')) {
+				 $(".woodType").show();
+				 $(".kingHeight").show();
+			} else {
+				$(".woodType").hide();
+				$(".kingHeight").hide();
+			}
+		});
+		
 	}]);
 
 

@@ -38,7 +38,39 @@ var store_filter = function() {
 	filterMap : {
 
 		".00010-wood-chess-sets":{
-			"filter": "woodChessPiecesForm",
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00027-metal-chess-pieces":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00024-marble-onyx-chess-sets.marble-onyx-chess-pieces":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00020-plastic-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00029-theme-chess-pieces":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00055-unfinished-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00022-jaques-london-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00033-artisan-hand-carved-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".000295-most-unique-chess-pieces":{
+			"filter": "chessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 		},

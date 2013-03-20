@@ -2339,8 +2339,7 @@ put all filters into the appFilters container.
 <div id='appFilters' class='displayNone'>
 
 
-<form action='#' name='woodChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
-
+<form action='#' name='chessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2348,15 +2347,26 @@ put all filters into the appFilters container.
 	<div class="slider-range"></div>
 </fieldset>
 
-
 <fieldset data-elastic-key="prod_type" data-filtertype="hidden">
 	<input type='hidden' name="prod_type" value="chesspieces" />
 </fieldset>
-<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
-	<input type='hidden' name="prod_material" value="wood" />
+<fieldset data-elastic-key="prod_material" data-filtertype="checkboxes">
+	<legend>Material</legend>
+	<label class='break'><input class="woodPieces" type='checkbox' value='wood' />Wood</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='marble' />Marble</label>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='theme' />Theme</label>
+    <label class='break'><input type='checkbox' value='unfinished' />Unfinished Wood</label>
+    <label class='break'><input type='checkbox' value='jaques' />Jaques</label>
+    <label class='break'><input type='checkbox' value='bone' />Bone</label>
+    <label class='break'><input type='checkbox' value='unique' />Unique</label>
+    
 </fieldset>
 
-<fieldset data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+<div></div>
+
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
 	<legend>Wood Type</legend>
 	<label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
 	<label class='break'><input type='checkbox' value='ebony' />Ebony</label>
@@ -2366,7 +2376,7 @@ put all filters into the appFilters container.
 	<label class='break'><input type='checkbox' value='red' />Red</label>
 </fieldset>
 
-<fieldset data-elastic-key="prod_king_height" data-filtertype="checkboxes">
+<fieldset class="kingHeight" data-elastic-key="prod_king_height" data-filtertype="checkboxes">
 	<legend>King Height</legend>
 	<label class='break'><input type='checkbox' value='3' />3</label>
 	<label class='break'><input type='checkbox' value='3.5' />3.5</label>
