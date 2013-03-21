@@ -31,7 +31,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130319133000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130320172000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/",
@@ -150,7 +150,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<div class="headerBoxRight">
 						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
 						<p><a href="#cart?." class='bindByAnchor' title='Checkout'>Checkout</a></p>
-						<p><a href="#customer?show=orders" class='bindByAnchor' title='Wishlist'>Wishlist</a></p>
+						<p><a href="#customer?show=lists" class='bindByAnchor' title='Wishlist'>Wishlist</a></p>
 
                         <p><a class="pointer" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
 					</div>
@@ -165,7 +165,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         	<div class="dropdown headerDropdown leftAlign">
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" class="pointer">Wood Chess Sets with Boards</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});" class="pointer">Wood Chess Sets with Cases</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" class="pointer">Metal Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});" class="pointer">Metal Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" class="pointer">Plastic Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets.00012-theme-chess-set-packages'});" class="pointer">Theme Chess Sets</a></div>
@@ -422,7 +422,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<div class="homepageCatTitle">Wood Chess Sets with Cases</div>
                 <div class="homepageCatDesc">Whether you want to display your chess pieces or put them away, a chess case offers the perfect solution.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});">
             	<img class="" src="images/homepage_category_images/Chess Sets/metal-chess-sets-banner-310.jpg"	 />
             	<div class="homepageCatTitle">Metal Chess Sets</div>
                 <div class="homepageCatDesc">Beautiful metal chessmen with the perfect chess board. Traditional, theme, and contemporary designs.</div>
