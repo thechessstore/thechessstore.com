@@ -276,10 +276,10 @@ do NOT change any div id's or messaging will not work properly.
 			<li><a href="#storedPaymentsContainer">Existing Payments</a></li>
 			<li><a href="#nonStoredPaymentsContainer">More Options</a></li>
 		</ul>
-		<div id='storedPaymentsContainer'>
+		<div data-anytab-content='storedPaymentsContainer'>
 			<table data-bind="var: buyerWalletList(@wallets); format:processList; loadsTemplate: buyerWalletsListItem;"></table>
 		</div>
-		<div id='nonStoredPaymentsContainer'>
+		<div data-anytab-content='nonStoredPaymentsContainer'>
 			<ul id='chkout-payOptions' class='noPadOrMargin listStyleNone' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></ul>
 		</div>
 	</div>
@@ -329,8 +329,8 @@ do NOT change the input name or id or checkout will likely break.
 	<div class='floatRight ocmThirdParty'>
 		<h2 id='ocmPrompt'>What would you like to do next?</h2>
 <!-- the twitter and facebook actions are added post checkout. The order contents are included as part of the message -->
-		<div class='ocm ocmFacebookComment pointer zlink'><img src='../checkout_active/fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
-		<div class='ocm ocmTwitterComment pointer zlink' ><img src='../checkout_active/tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
+		<div class='ocm ocmFacebookComment pointer zlink'><img src='../../fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
+		<div class='ocm ocmTwitterComment pointer zlink' ><img src='../../tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
 <!--
 		<div class='ocm ocmContinue'><a href='/' class='zlink'><img src='continue_shopping-133x32.png' width='132' height='32' alt='continue shopping' /></a></div>
 -->
@@ -365,8 +365,8 @@ do NOT change the input name or id or checkout will likely break.
 
 
 <div id='cvvcidHelp' class='displayNone' title='Where to find your CVV/CID and why we ask for it'>
-	<img src='../checkout_active/sec_code-159x100.gif' alt='Visa/MC/Discover card security code' width='238' height='150'  />
-	<img src='../checkout_active/sec_code_amex-159x100.gif' alt='AMEX card security code' width='238' height='150' />
+	<img src="../../sec_code-159x100.gif" alt='Visa/MC/Discover card security code' width='238' height='150'  />
+	<img src="../../sec_code_amex-159x100.gif" alt='AMEX card security code' width='238' height='150' />
 	<p>For higher security and more efficient processing of your payment, you must provide a card security code to make this purchase. For Visa, MasterCard and Discover the security code is the last section of numbers in the signature area on the back of the card. For American Express the security code is the 4-digit number found in small print next to your account number on the front, usually above it on the right.</p>
 </div>
 
