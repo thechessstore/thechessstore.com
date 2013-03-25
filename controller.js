@@ -463,18 +463,19 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				}
 			},
 
-		buyerLogout : {
-			init : function(_tag)	{
-				this.dispatch(_tag);
-				return 1;
+		   buyerLogout : {
+			   init : function(_tag) {
+					this.dispatch(_tag);
+					return 1;
 				},
-			dispatch : function(_tag)	{
-				obj["_cmd"] = "buyerLogout";
-				obj["_tag"] = _tag || {};
-				obj["_tag"]["datapointer"] = "buyerLogout";
-				app.model.addDispatchToQ(obj,'immutable');
+			   dispatch : function(_tag) {
+					var obj = {};
+					obj["_cmd"] = "buyerLogout";
+					obj["_tag"] = _tag || {};
+					obj["_tag"]["datapointer"] = "buyerLogout";
+					app.model.addDispatchToQ(obj,'immutable');
 				}
-			}, //appBuyerLogout
+		   }, //appBuyerLogout
 
 		canIUse : {
 			init : function(flag,Q)	{
