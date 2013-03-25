@@ -20,7 +20,7 @@ Paying with PayPal? Scroll down to payment and select paypal, then click place o
 </div>
 
 
-	<form id='zCheckoutFrm' name='zCheckoutFrm' action='' onSubmit='return false;'>
+		<form id='zCheckoutFrm' name='zCheckoutFrm' action='' onSubmit='return false;'>
 	
 <!-- this is outside the fieldsets so that it can be used to maintain state (fieldsets sometimes get regenerated) -->
 	<input type='hidden' value='1' name='want/create_customer' id='want-create_customer' /><!-- valid values are 1/0 -->
@@ -272,14 +272,14 @@ do NOT change any div id's or messaging will not work properly.
 	</div>
 
 	<div id='paymentOptionsContainer'>
-		<ul class='tabs'>
+		<ul class='displayNone'>
 			<li><a href="#storedPaymentsContainer">Existing Payments</a></li>
 			<li><a href="#nonStoredPaymentsContainer">More Options</a></li>
 		</ul>
-		<div data-anytab-content='storedPaymentsContainer'>
+		<div id='storedPaymentsContainer'>
 			<table data-bind="var: buyerWalletList(@wallets); format:processList; loadsTemplate: buyerWalletsListItem;"></table>
 		</div>
-		<div data-anytab-content='nonStoredPaymentsContainer'>
+		<div id='nonStoredPaymentsContainer'>
 			<ul id='chkout-payOptions' class='noPadOrMargin listStyleNone' data-bind='var: getPaymentMethods(@methods); format:payMethodsAsRadioButtons; extension: convertSessionToOrder;'></ul>
 		</div>
 	</div>
@@ -456,7 +456,7 @@ If this gets recycled, test in order history after making changes.
 <ul>
 	<li id='productListTemplateInvoice' class='padMargBorderBottom'>
 	<div class='prodThumbContainer'>
-	<img src='../checkout_active/blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
 	</div>
 	
 <div class='infoContainer'>
