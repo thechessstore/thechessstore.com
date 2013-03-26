@@ -72,7 +72,7 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 //requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
 // AND the list spec must contain a catDesc class where the description is to appear.
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
-	var $catPage = $(app.u.jqSelector('#','categoryTemplate_'+app.u.makeSafeHTMLId(P.navcat))),
+	var $catPage = $(app.u.jqSelector('#',P.parentID)),
 	$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
 	
 	if($catList.children().length)	{
