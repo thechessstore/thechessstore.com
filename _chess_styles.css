@@ -461,6 +461,7 @@ announceBar h2{
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */		top: 20px;
 	float:left;
+	z-index:2;
 }
 .headerDropdownLink{
 	font-size:14px;
@@ -1233,10 +1234,10 @@ label.break	{display:block; margin-bottom:2px;}
 }
 
 .woodType{
-	display:none;
+	
 }
 .kingHeight{
-	display:none;
+	
 }
 
 
@@ -1855,4 +1856,12 @@ sizingMethod='scale')";
 }
 .buttonPadding{
 	padding:3px 5 px;
+}
+.ui-slider-horizontal .ui-slider-range{
+	height: 14px;
+	border-bottom: 0.3px solid #D3D3D3;
+	z-index:0;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	z-index:1;
 }

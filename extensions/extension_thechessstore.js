@@ -270,6 +270,10 @@ var extension_thechessstore = function() {
 				if(data.value.stid[0] == '%' || data.value.asm_master) {
 					$tag.addClass('assembly');
 				}
+			},
+			
+			resetFilters : {
+				//$('#thepageid').empty().remove();
 			}
 		}
 	}
