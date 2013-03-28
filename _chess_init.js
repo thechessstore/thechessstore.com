@@ -112,6 +112,9 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	
+	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	
 	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
 		app.u.dump(" -> safe id DOES have a filter.");
@@ -139,6 +142,8 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 			}
 		}
 		
+		
+		
 		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
 		/*$('.woodPieces:checkbox').click(function() {
     		var woodPieces = $(this);
@@ -151,6 +156,12 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 				$(".kingHeight").hide();
 			}
 		});*/
+		
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});
+		
 		
 	}]);
 
