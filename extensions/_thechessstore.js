@@ -37,7 +37,115 @@ var store_filter = function() {
 //key is safe id. value is name of the filter form.
 	filterMap : {
 
-		".00010-wood-chess-sets":{
+			".00010-wood-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.10-german-knight-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.12-french-lardy-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.16-kings-guard-staunton-chess-chess":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.18-parker-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.20-yugoslavia-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.22-deluxe-old-club-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.24-british-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.26-fierce-knight-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.28-royal-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.30-new-exclusive-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.32-wingfield-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.34-players-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.36-saint-george-antique-reproduction-chess-set":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.38-grande-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.40-edinburgh-upright-antique-reproduction-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.44-calvert-antique-reproduction-chess-set":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.46-khans-stallion-staunton-chess-set":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.48-columbian-knight-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.50-bridled-stallion-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.52-wellington-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.54-hampshire-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.56-saint-john-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.58-gotham-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.60-sultan-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.62-cambridge-staunton-chess-sets":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.64-alexander-staunton-chess-set":{
+			"filter": "chessPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00010-wood-chess-sets.66-kohinoor-staunton-chess-set":{
 			"filter": "chessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
