@@ -1164,6 +1164,20 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	</div>
 	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>
+
+<li id='productListTemplateResultsFilter' class='loadingBG searchResultsPG' >
+	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
+		<div class='prodThumbContainer'>
+        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
+		<img src='blank.gif' class='prodThumb' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' />
+		</div>
+
+		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+
+		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+	</div>
+	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+</li>
 </ul>
 
 

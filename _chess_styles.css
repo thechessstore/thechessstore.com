@@ -1664,6 +1664,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 }
 .productListTemplate .promoTag	{z-index:5; position:absolute; top:0; right:0;}
 .twoColListItem .prodThumbContainer	{width:355px; height:210px;}
+.prodThumbContainer{
+	position:relative;
+}
 .promoTagCont{
 	position:relative;
 }
