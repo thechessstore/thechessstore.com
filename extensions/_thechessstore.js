@@ -36,7 +36,9 @@ var store_filter = function() {
 	calls : {}, //calls
 //key is safe id. value is name of the filter form.
 	filterMap : {
-
+		
+			//****CHESS PIECES****
+			//**Wood Chess Pieces**
 			".00010-wood-chess-sets":{
 			"filter": "chessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
