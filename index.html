@@ -2352,8 +2352,9 @@ put all filters into the appFilters container.
 
 <div id='appFilters' class='displayNone'>
 
-
-<form action='#' name='chessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+<!--****CHESS PIECES FILTERED SEARCH FORMS****-->
+<!--**Wood Chess Pieces-->
+<form action='#' name='woodChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2399,6 +2400,46 @@ put all filters into the appFilters container.
 	<label class='break'><input type='checkbox' value='4' />4</label>
 </fieldset>
 
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Metal Chess Pieces**-->
+<form action='#' name='metalChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<p>Metal chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Marble/Onyx Chess Pieces**-->
+<form action='#' name='marbleChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="marble" />
+</fieldset>
+<p>Marble chess pieces form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
 </form>
