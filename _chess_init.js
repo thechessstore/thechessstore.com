@@ -164,6 +164,119 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 		
 		
 	}]);
+	
+	
+app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
+	
+	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext.store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+				});
+	
+			if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+				app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+				}
+	
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		
+		
+		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		/*$('.woodPieces:checkbox').click(function() {
+    		var woodPieces = $(this);
+			// $this will contain a reference to the checkbox   
+			if (woodPieces.is(':checked')) {
+				 $(".woodType").show();
+				 $(".kingHeight").show();
+			} else {
+				$(".woodType").hide();
+				$(".kingHeight").hide();
+			}
+		});*/
+		
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});
+		
+		
+	}]);
+	
+	
+	app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
+	
+	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext.store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+				});
+	
+			if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+				app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+				}
+	
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		
+		
+		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		/*$('.woodPieces:checkbox').click(function() {
+    		var woodPieces = $(this);
+			// $this will contain a reference to the checkbox   
+			if (woodPieces.is(':checked')) {
+				 $(".woodType").show();
+				 $(".kingHeight").show();
+			} else {
+				$(".woodType").hide();
+				$(".kingHeight").hide();
+			}
+		});*/
+		
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});
+		
+		
+	}]);
+	
+	
+	
 
 
 	

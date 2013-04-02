@@ -168,7 +168,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});" class="pointer">Metal Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" class="pointer">Plastic Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets.00012-theme-chess-set-packages'});" class="pointer">Theme Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});" class="pointer">Theme Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});" class="pointer">Travel Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});" class="pointer">Garden Chess Sets</a></div>
 							</div>
@@ -211,7 +211,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00053-chess-potpourri'});" class="pointer">Chess Potpourri</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink'>Gift Ideas</a> 
+						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink' onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas'});">Gift Ideas</a> 
                             <div class="dropdown headerDropdown leftAlign">
 								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.1-under-100'});" class="pointer">$1 - $100</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.2-100-19999'});" class="pointer">$100 - $200</a></div>
@@ -220,7 +220,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.5-500up'});" class="pointer">$500 and Up</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink'>Shop by Brand</a>
+						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink' onClick="return showContent('category',{'navcat':'.00064-shop-by-brand'});">Shop by Brand</a>
                        		<div class="dropdown headerDropdown leftAlign">
 								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.bhb'});" class="pointer">BHB</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.chessbase'});" class="pointer">ChessBase</a></div>
@@ -437,7 +437,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<div class="homepageCatTitle">Plastic Chess Sets</div>
                 <div class="homepageCatDesc">Plastic pieces with just a board or complete tournament kits with a bag. Ideal for clubs and tournaments.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets.00012-theme-chess-set-packages'});">
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});">
             	<img class="" src="images/homepage_category_images/Chess Sets/theme-chess-sets-banner-310.jpg" />
             	<div class="homepageCatTitle">Theme Chess Sets</div>
                 <div class="homepageCatDesc">Make the game even more fun and interesting with a beautiful theme chess set. Any theme you can imagine.</div>
@@ -2443,6 +2443,614 @@ put all filters into the appFilters container.
 <button class="resetButton"> Reset</button>
 
 </form>
+
+<!--Plastic Chess Pieces**-->
+<form action='#' name='plasticChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="plastic" />
+</fieldset>
+<p>Plastic chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Theme Chess Pieces**-->
+<form action='#' name='themeChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="theme" />
+</fieldset>
+<p>Theme chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Unfinished Wood Chess Pieces**-->
+<form action='#' name='unfinishedChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="unfinished" />
+</fieldset>
+<p>Unfinished wood chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Jaques of London Chess Pieces**-->
+<form action='#' name='jaquesChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="jaques" />
+</fieldset>
+<p>Jaques of London chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Artisan Bone Chess Pieces**-->
+<form action='#' name='boneChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="bone" />
+</fieldset>
+<p>Artisan Bone chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Unique Chess Pieces**-->
+<form action='#' name='uniqueChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="unique" />
+</fieldset>
+<p>Unique chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+
+<!--****CHESS SETS FILTERED SEARCH FORMS****-->
+<!--**Wood Chess Sets with Boards-->
+<form action='#' name='woodWithBoardChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="woodwithboard" />
+</fieldset>
+<p>Wood chess sets with boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Wood Chess Sets with Cases-->
+<form action='#' name='woodWithCasesChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="woodwithcase" />
+</fieldset>
+<p>Wood chess sets with cases form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Metal Chess Sets-->
+<form action='#' name='metalChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<p>Metal chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Marble/Onyx Chess Sets-->
+<form action='#' name='marbleChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="marble" />
+</fieldset>
+<p>Marble chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Plastic Chess Sets-->
+<form action='#' name='plasticChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="plastic" />
+</fieldset>
+<p>Plastic chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Theme Chess Sets-->
+<form action='#' name='themeChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="theme" />
+</fieldset>
+<p>Theme chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Travel Chess Sets-->
+<form action='#' name='travelChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="travel" />
+</fieldset>
+<p>Travel chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Garden Chess Sets-->
+<form action='#' name='gardenChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="garden" />
+</fieldset>
+<p>Garden chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+
+<!--****CHESS BOARDS FILTERED SEARCH FORMS****-->
+<!--**natural Wood Chess Boards-->
+<form action='#' name='natWoodChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="naturalwood" />
+</fieldset>
+<p>Natural Wood chess boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Stained Wood Chess Boards-->
+<form action='#' name='stainWoodChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="stainedwood" />
+</fieldset>
+<p>Stained wood chess boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Vinyl Chess Boards-->
+<form action='#' name='vinylChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="vinyl" />
+</fieldset>
+<p>Vinyl chess boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Cases-->
+<form action='#' name='chessCasesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="cases" />
+</fieldset>
+<p>Chess Cases form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Metal Chess Boards-->
+<form action='#' name='metalChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<p>Metal Chess Boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+
+<!--****CHESS ACCESSORIES FILTERED SEARCH FORMS****-->
+
+<!--**Chess Clocks-->
+<form action='#' name='chessClocksForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clocks" />
+</fieldset>
+<p>Chess Clocks form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Boxes-->
+<form action='#' name='chessBoxesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="boxes" />
+</fieldset>
+<p>Chess Boxes form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Club and Tournament Supplies-->
+<form action='#' name='chessTournamentForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="tournament" />
+</fieldset>
+<p>Chess Tournament form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Bags-->
+<form action='#' name='chessBagsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="bag" />
+</fieldset>
+<p>Chess Bags form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess DVDs-->
+<form action='#' name='chessDvdForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="dvd" />
+</fieldset>
+<p>Chess DVDs form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Books-->
+<form action='#' name='chessBookForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="book" />
+</fieldset>
+<p>Chess Books form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Software-->
+<form action='#' name='chessSoftwareForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="software" />
+</fieldset>
+<p>Chess Software form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Scorebooks-->
+<form action='#' name='chessScorebookForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="scorebook" />
+</fieldset>
+<p>Chess Scorebooks form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Tables-->
+<form action='#' name='chessTableForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="table" />
+</fieldset>
+<p>Chess Tables form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Demo boards-->
+<form action='#' name='chessDemoForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="demo" />
+</fieldset>
+<p>Chess Demo boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Potpourri-->
+<form action='#' name='chessPotpourriForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="potpourri" />
+</fieldset>
+<p>Chess Potpourri form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
 
 </div>
 
