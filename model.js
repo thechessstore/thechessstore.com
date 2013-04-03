@@ -852,6 +852,7 @@ so to ensure saving to appPageGet|.safe doesn't save over previously requested d
 				this.handleResponse_appCartCreate(responseData); //saves session data locally and into control.
 				}
 			else	{
+				app.u.dump("appCartExists FAILED. get a new cart id.");
 /* nuke references to old, invalid session id. if this doesn't happen, the old session ID gets passed and will be re-issued. */				
 				app.sessionId = null;
 				app.storageFunctions.writeLocal('cartid',null);
