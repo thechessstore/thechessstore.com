@@ -167,11 +167,11 @@ var store_filter = function() {
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			
-			//**Marble Chess Pieces**
+			/**Marble Chess Pieces**
 			".00024-marble-onyx-chess-sets.marble-onyx-chess-pieces":{
 			"filter": "marbleChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			//**Plastic Chess Pieces**
 			".00020-plastic-chess-sets":{
@@ -285,29 +285,29 @@ var store_filter = function() {
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			
-			//**Unfinished Wood Chess Pieces**
+			/**Unfinished Wood Chess Pieces**
 			".00055-unfinished-chess-sets":{
 			"filter": "unfinishedChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
-			//**Jaques of London Chess Pieces**
+			/**Jaques of London Chess Pieces**
 			".00022-jaques-london-chess-sets":{
 			"filter": "jaquesChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
-			//**Artisan Bone Chess Pieces**
+			/**Artisan Bone Chess Pieces**
 			".00033-artisan-hand-carved-chess-sets":{
 			"filter": "boneChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
-			//**Unique Chess Pieces**
+			/**Unique Chess Pieces**
 			".000295-most-unique-chess-pieces":{
 			"filter": "uniqueChessPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			
 			//****CHESS SETS****
@@ -422,7 +422,7 @@ var store_filter = function() {
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			
-			//**Marble/onyx Chess Sets**
+			/**Marble/onyx Chess Sets**
 			".00024-marble-onyx-chess-sets":{
 			"filter": "marbleChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
@@ -438,7 +438,7 @@ var store_filter = function() {
 			".00024-marble-onyx-chess-sets.8-marble-onyx-chess-tables-with-chess-pieces":{
 			"filter": "marbleChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			//**Plastic Chess Sets**
 			".00030-tournament-chess-set-kits":{
@@ -556,11 +556,11 @@ var store_filter = function() {
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			
-			//**Garden Chess Sets**
+			/**Garden Chess Sets**
 			".00045-garden-chess-sets":{
 			"filter": "gardenChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			
 			//****CHESS BOARDS****
@@ -799,46 +799,56 @@ var store_filter = function() {
 			},
 			
 			//**Chess Tournament**
-			".00028-club-tournament-supplies":{
+			/*".00028-club-tournament-supplies":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
+			//**Chess Tournament - Plastic Pieces**
 			".00028-club-tournament-supplies.02-plastic-chess-sets":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Vinyl**
 			".00028-club-tournament-supplies.04-vinyl-chess-boards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - CHess Bags**
 			".00028-club-tournament-supplies.06-chess-bags":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Roll-Up Boards**
 			".00028-club-tournament-supplies.08-chess-sets-rollup-chess-boards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Packages**
 			".00028-club-tournament-supplies.10-tournament-packages":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Clocks**
 			".00028-club-tournament-supplies.12-chess-clocks":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Books**
 			".00028-club-tournament-supplies.14-score-books":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Demo Boards**
 			".00028-club-tournament-supplies.16-chess-demo-boards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Awards**
 			".00028-club-tournament-supplies.18-chess-awards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			//**Chess Tournament - Single Plastic Pieces**
 			".00028-club-tournament-supplies.20-single-plastic-chess-pieces":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
