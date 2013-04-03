@@ -1,0 +1,10 @@
+prod_design_Type
+prod_model_type
+prod_subject
+prod_strategy
+prod_material_attribute_2
+
+The following attributes, if it is possible to change their names to a different please do that. If not, Please make these tags as well:
+prod_king_height > prod_size
+prod_wood_type > prod_material_attribute_1
+
