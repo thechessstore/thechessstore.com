@@ -805,54 +805,215 @@ var store_filter = function() {
 			},*/
 			//**Chess Tournament - Plastic Pieces**
 			".00028-club-tournament-supplies.02-plastic-chess-sets":{
-			"filter": "chessTournamentForm",
+			"filter": "clubPlasticPiecesForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.02-master-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.04-value-club-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.06-clubtourney-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.08-deluxe-club-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.10-conqueror-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.12-executive-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.14-professional-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.16-guardian-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.18-rogue-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.20-protourney-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.22-crown-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.02-plastic-chess-sets.24-zukert-plastic-chess-sets":{
+			"filter": "clubPlasticPiecesForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			
 			//**Chess Tournament - Vinyl**
 			".00028-club-tournament-supplies.04-vinyl-chess-boards":{
-			"filter": "chessTournamentForm",
+			"filter": "clubVinylForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
-			//**Chess Tournament - CHess Bags**
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.02-tcs-premium-vinyl-rollup-chess-boards-225_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.04-tcs-premium-vinyl-rollup-chess-boards-2375_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.06-club-vinyl-rollup-chess-boards-225_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.08-club-vinyl-rollup-chess-boards-2375_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.10-floppy-chess-boards-225_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.12-floppy-chess-boards-2375_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.04-vinyl-chess-boards.14-vinyl-folding-chess-boards-2_-squares":{
+			"filter": "clubVinylForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			
+			//**Chess Tournament - Chess Bags**
 			".00028-club-tournament-supplies.06-chess-bags":{
-			"filter": "chessTournamentForm",
+			"filter": "clubBagsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			".00028-club-tournament-supplies.06-chess-bags.02-chess-piece-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.06-chess-bags.04-chess-piece-sleeve-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.06-chess-bags.06-small-tournament-chess-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.06-chess-bags.10-large-tournament-chess-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.06-chess-bags.12-tcs-large-tournament-chess-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.06-chess-bags.14-jumbo-tournament-chess-bags":{
+			"filter": "clubBagsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			
 			//**Chess Tournament - Roll-Up Boards**
 			".00028-club-tournament-supplies.08-chess-sets-rollup-chess-boards":{
-			"filter": "chessTournamentForm",
+			"filter": "clubRollupBoardForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
-			//**Chess Tournament - Packages**
+			
+			//**Chess Tournament - Chess Packages**
 			".00028-club-tournament-supplies.10-tournament-packages":{
-			"filter": "chessTournamentForm",
+			"filter": "clubchesssets",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
+			".00028-club-tournament-supplies.10-tournament-packages.02-master-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.04-value-club-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.06-clubtourney-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.10-conqueror-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.12-executive-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.14-professional-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.16-guardian-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.18-rogue-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.20-protourney-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.22-crown-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.10-tournament-packages.24-zukert-tournament-packages":{
+			"filter": "clubchesssets",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			
 			//**Chess Tournament - Clocks**
 			".00028-club-tournament-supplies.12-chess-clocks":{
-			"filter": "chessTournamentForm",
+			"filter": "clubClocksForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
-			//**Chess Tournament - Books**
+			".00028-club-tournament-supplies.12-chess-clocks.digital-chess-clocks":{
+			"filter": "clubClocksForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			".00028-club-tournament-supplies.12-chess-clocks.analog-chess-clocks":{
+			"filter": "clubClocksForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			},
+			
+			/**Chess Tournament - Books**
 			".00028-club-tournament-supplies.14-score-books":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
-			//**Chess Tournament - Demo Boards**
+			},*/
+			
+			/**Chess Tournament - Demo Boards**
 			".00028-club-tournament-supplies.16-chess-demo-boards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
-			//**Chess Tournament - Awards**
+			},*/
+			
+			/**Chess Tournament - Awards**
 			".00028-club-tournament-supplies.18-chess-awards":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
-			//**Chess Tournament - Single Plastic Pieces**
+			},*/
+			
+			/**Chess Tournament - Single Plastic Pieces**
 			".00028-club-tournament-supplies.20-single-plastic-chess-pieces":{
 			"filter": "chessTournamentForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			//**Chess bags**
 			".00039-chess-bags":{

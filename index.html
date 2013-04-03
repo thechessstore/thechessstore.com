@@ -76,7 +76,6 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 </head>
 
 <body>
-TEST
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
@@ -1159,10 +1158,10 @@ remember to NOT put the button inside the 'onclick' container or two events will
 </li>
 
 <li id='productListTemplateResultsFilter' class='loadingBG searchResultsPG' >
-	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
+	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer'>
         <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' />
 		</div>
 
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
@@ -2527,7 +2526,9 @@ put all filters into the appFilters container.
 </fieldset>
 <fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
 	<legend>Theme</legend>
-    <label class='break'><input type='checkbox' value='americanbattlesandwars' />American, Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='american' />American</label>
+    <label class='break'><input type='checkbox' value='battlesandwars' />Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='asianoriental' />Asian Oriental</label>
     <label class='break'><input type='checkbox' value='european' />European</label>
     <label class='break'><input type='checkbox' value='egyptian' />Egyptian</label>
     <label class='break'><input type='checkbox' value='fictionalcharacters' />Fictional Characters</label>
@@ -2904,7 +2905,9 @@ put all filters into the appFilters container.
 </fieldset>
 <fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
 	<legend>Theme</legend>
-    <label class='break'><input type='checkbox' value='americanbattlesandwars' />American, Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='american' />American</label>
+    <label class='break'><input type='checkbox' value='battlesandwars' />Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='asianoriental' />Asian Oriental</label>
     <label class='break'><input type='checkbox' value='european' />European</label>
     <label class='break'><input type='checkbox' value='egyptian' />Egyptian</label>
     <label class='break'><input type='checkbox' value='fictionalcharacters' />Fictional Characters</label>
@@ -3239,8 +3242,10 @@ put all filters into the appFilters container.
 
 </form>
 
-<!--**Chess Club and Tournament Supplies-->
-<form action='#' name='chessTournamentForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<!--****CHESS CLUB AND TOURNAMENT SUPPLIES****-->
+<!--**Plastic Chess Pieces-->
+<form action='#' name='clubPlasticPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3252,13 +3257,238 @@ put all filters into the appFilters container.
 	<input type='hidden' name="prod_type" value="accessories" />
 </fieldset>
 <fieldset data-elastic-key="prod_material" data-filtertype="hidden">
-	<input type='hidden' name="prod_material" value="tournament" />
+	<input type='hidden' name="prod_material" value="clubplasticpieces" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_king_height" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='3.75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='3.875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='4' />4"</label>
+    <label class='break'><input type='checkbox' value='4.125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='4.4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='ivory' />Ivory</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Vinyl Chess Boards-->
+<form action='#' name='clubVinylForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubvinyl" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='floppy' />Floppy</label>
+    <label class='break'><input type='checkbox' value='folding' />Folding</label>
+    <label class='break'><input type='checkbox' value='rollup' />Rollup</label>
+    <label class='break'><input type='checkbox' value='silicon' />Silicon</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_king_height" data-filtertype="checkboxes">
+	<legend>Square Size</legend>
+    <label class='break'><input type='checkbox' value='2' />2"</label>
+    <label class='break'><input type='checkbox' value='2.125' />2.125"</label>
+    <label class='break'><input type='checkbox' value='2.25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='2.375' />2.375"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Bags-->
+<form action='#' name='clubBagsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubbags" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='piecesonly' />Pieces Only</label>
+    <label class='break'><input type='checkbox' value='sleevestyle' />Sleeve Style</label>
+    <label class='break'><input type='checkbox' value='smalltournament' />Small Tournament</label>
+    <label class='break'><input type='checkbox' value='largetournament' />Large Tournament</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Plastic Chess Pieces with Rollup Boards-->
+<form action='#' name='clubRollupBoardForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubrollupboard" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_king_height" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='3.75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='3.875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='4' />4"</label>
+    <label class='break'><input type='checkbox' value='4.125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='4.4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_material_attribute_2" data-filtertype="checkboxes">
+	<legend>Chess Board Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Tournament Chess Sets-->
+<form action='#' name='clubChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubchesssets" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_king_height" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='3.75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='3.875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='4' />4"</label>
+    <label class='break'><input type='checkbox' value='4.125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='4.4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_material_attribute_2" data-filtertype="checkboxes">
+	<legend>Chess Board Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Tournament Chess Clocks-->
+<form action='#' name='clubClocksForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubclocks" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Clock Type</legend>
+    <label class='break'><input type='checkbox' value='analog' />Analog</label>
+    <label class='break'><input type='checkbox' value='digital' />Digital</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_material_attribute_2" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='wood' />Wood</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+    <label class='break'><input type='checkbox' value='natural' />Natural</label>
+    <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
 </fieldset>
 <p>Chess Tournament form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
 </form>
 
+
+<!--****ACCESSORIES****-->
 <!--**Chess Bags-->
 <form action='#' name='chessBagsForm' id='completeChessSetsForm' class='layeredSearch'>
 
@@ -3272,9 +3502,24 @@ put all filters into the appFilters container.
 	<input type='hidden' name="prod_type" value="accessories" />
 </fieldset>
 <fieldset data-elastic-key="prod_material" data-filtertype="hidden">
-	<input type='hidden' name="prod_material" value="bag" />
+	<input type='hidden' name="prod_material" value="chessbags" />
 </fieldset>
-<p>Chess Bags form. Work in progress.</p>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='piecesonly' />Pieces Only</label>
+    <label class='break'><input type='checkbox' value='sleevestyle' />Sleeve Style</label>
+    <label class='break'><input type='checkbox' value='smalltournament' />Small Tournament</label>
+    <label class='break'><input type='checkbox' value='largetournament' />Large Tournament</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_wood_type" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
 <button class="resetButton"> Reset</button>
 
 </form>
@@ -3294,7 +3539,51 @@ put all filters into the appFilters container.
 <fieldset data-elastic-key="prod_material" data-filtertype="hidden">
 	<input type='hidden' name="prod_material" value="dvd" />
 </fieldset>
-<p>Chess DVDs form. Work in progress.</p>
+<fieldset class="prodSubject" data-elastic-key="prod_subject" data-filtertype="checkboxes">
+	<legend>Subject</legend>
+    <label class='break'><input type='checkbox' value='openings' />Openings</label>
+    <label class='break'><input type='checkbox' value='middlegame' />Middle Game</label>
+    <label class='break'><input type='checkbox' value='endgame' />End Game</label>
+    <label class='break'><input type='checkbox' value='strategy' />Strategy</label>
+    <label class='break'><input type='checkbox' value='tactics' />Tactics</label>
+    <label class='break'><input type='checkbox' value='biography' />Biography</label>
+    <label class='break'><input type='checkbox' value='beginner' />Beginner</label>
+</fieldset>
+<fieldset class="prodStrategy" data-elastic-key="prod_strategy" data-filtertype="checkboxes">
+	<legend>Strategy</legend>
+    <label class='break'><input type='checkbox' value='alekhinesdefense' />Alekhine's Defense</label>
+    <label class='break'><input type='checkbox' value='benkogambit' />Benko Gambit</label>
+    <label class='break'><input type='checkbox' value='budapestgambit' />Budapest Gambit</label>
+    <label class='break'><input type='checkbox' value='carokhan' />Caro-Khan</label>
+    <label class='break'><input type='checkbox' value='catalan' />Catalan</label>
+    <label class='break'><input type='checkbox' value='dutchDefense' />Dutch Defense</label>
+    <label class='break'><input type='checkbox' value='englishopening' />English Opening</label>
+    <label class='break'><input type='checkbox' value='frenchdefense' />French Defense</label>
+    <label class='break'><input type='checkbox' value='grunfelddefense' />Grunfeld Defense</label>
+    <label class='break'><input type='checkbox' value='kingsgambit' />King's Gambit</label>
+    <label class='break'><input type='checkbox' value='modernbenoni' />Modern Benoni</label>
+    <label class='break'><input type='checkbox' value='moderndefense' />Modern Defense</label>
+    <label class='break'><input type='checkbox' value='nimzoindian' />Nimzo Indian</label>
+    <label class='break'><input type='checkbox' value='petroffsdefense' />Petroff's Defense</label>
+    <label class='break'><input type='checkbox' value='queensgambit' />Queen's Gambit</label>
+    <label class='break'><input type='checkbox' value='queensindian' />Queen's Indian</label>
+    <label class='break'><input type='checkbox' value='queenspawn' />Queen's Pawn</label>
+    <label class='break'><input type='checkbox' value='retiopening' />Reti Opening</label>
+    <label class='break'><input type='checkbox' value='ruylopez' />Ruy Lopez</label>
+    <label class='break'><input type='checkbox' value='scandinavian' />Scandinavian</label>
+    <label class='break'><input type='checkbox' value='scotchgame' />Scotch Game</label>
+    <label class='break'><input type='checkbox' value='siciliandefense' />Sicilian Defense</label>
+    <label class='break'><input type='checkbox' value='slavdefense' />Slav Defense</label>
+    <label class='break'><input type='checkbox' value='viennagame' />Vienna Game</label>
+</fieldset>
+<fieldset class="prodPublisher" data-elastic-key="prod_publisher" data-filtertype="checkboxes">
+	<legend>Publisher</legend>
+    <label class='break'><input type='checkbox' value='chesslecture' />Chess Lecture</label>
+    <label class='break'><input type='checkbox' value='chessondvd' />Chess on DVD</label>
+    <label class='break'><input type='checkbox' value='chessbase' />Chessbase</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+
 <button class="resetButton"> Reset</button>
 
 </form>
@@ -3314,12 +3603,56 @@ put all filters into the appFilters container.
 <fieldset data-elastic-key="prod_material" data-filtertype="hidden">
 	<input type='hidden' name="prod_material" value="book" />
 </fieldset>
-<p>Chess Books form. Work in progress.</p>
+<fieldset class="prodSubject" data-elastic-key="prod_subject" data-filtertype="checkboxes">
+	<legend>Subject</legend>
+    <label class='break'><input type='checkbox' value='openings' />Openings</label>
+    <label class='break'><input type='checkbox' value='middlegame' />Middle Game</label>
+    <label class='break'><input type='checkbox' value='endgame' />End Game</label>
+    <label class='break'><input type='checkbox' value='strategy' />Strategy</label>
+    <label class='break'><input type='checkbox' value='tactics' />Tactics</label>
+    <label class='break'><input type='checkbox' value='puzzles' />Puzzles</label>
+    <label class='break'><input type='checkbox' value='biography' />Biography</label>
+    <label class='break'><input type='checkbox' value='beginner' />Beginner</label>
+</fieldset>
+<fieldset class="prodStrategy" data-elastic-key="prod_strategy" data-filtertype="checkboxes">
+	<legend>Strategy</legend>
+    <label class='break'><input type='checkbox' value='alekhinesdefense' />Alekhine's Defense</label>
+    <label class='break'><input type='checkbox' value='benkogambit' />Benko Gambit</label>
+    <label class='break'><input type='checkbox' value='budapestgambit' />Budapest Gambit</label>
+    <label class='break'><input type='checkbox' value='carokhan' />Caro-Khan</label>
+    <label class='break'><input type='checkbox' value='catalan' />Catalan</label>
+    <label class='break'><input type='checkbox' value='dutchDefense' />Dutch Defense</label>
+    <label class='break'><input type='checkbox' value='englishopening' />English Opening</label>
+    <label class='break'><input type='checkbox' value='frenchdefense' />French Defense</label>
+    <label class='break'><input type='checkbox' value='grunfelddefense' />Grunfeld Defense</label>
+    <label class='break'><input type='checkbox' value='kingsgambit' />King's Gambit</label>
+    <label class='break'><input type='checkbox' value='modernbenoni' />Modern Benoni</label>
+    <label class='break'><input type='checkbox' value='moderndefense' />Modern Defense</label>
+    <label class='break'><input type='checkbox' value='nimzoindian' />Nimzo Indian</label>
+    <label class='break'><input type='checkbox' value='petroffsdefense' />Petroff's Defense</label>
+    <label class='break'><input type='checkbox' value='queensgambit' />Queen's Gambit</label>
+    <label class='break'><input type='checkbox' value='queensindian' />Queen's Indian</label>
+    <label class='break'><input type='checkbox' value='queenspawn' />Queen's Pawn</label>
+    <label class='break'><input type='checkbox' value='retiopening' />Reti Opening</label>
+    <label class='break'><input type='checkbox' value='ruylopez' />Ruy Lopez</label>
+    <label class='break'><input type='checkbox' value='scandinavian' />Scandinavian</label>
+    <label class='break'><input type='checkbox' value='scotchgame' />Scotch Game</label>
+    <label class='break'><input type='checkbox' value='siciliandefense' />Sicilian Defense</label>
+    <label class='break'><input type='checkbox' value='slavdefense' />Slav Defense</label>
+    <label class='break'><input type='checkbox' value='viennagame' />Vienna Game</label>
+</fieldset>
+<fieldset class="prodPublisher" data-elastic-key="prod_publisher" data-filtertype="checkboxes">
+	<legend>Publisher</legend>
+    <label class='break'><input type='checkbox' value='gambit' />Gambit</label>
+    <label class='break'><input type='checkbox' value='everymanchess' />Everyman Chess</label>
+    <label class='break'><input type='checkbox' value='firesidelibrary' />Fireside Library</label>
+</fieldset>
+
 <button class="resetButton"> Reset</button>
 
 </form>
 
-<!--**Chess Software-->
+<!--**Chess Software
 <form action='#' name='chessSoftwareForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
@@ -3337,9 +3670,9 @@ put all filters into the appFilters container.
 <p>Chess Software form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
-</form>
+</form>-->
 
-<!--**Chess Scorebooks-->
+<!--**Chess Scorebooks
 <form action='#' name='chessScorebookForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
@@ -3357,9 +3690,9 @@ put all filters into the appFilters container.
 <p>Chess Scorebooks form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
-</form>
+</form>-->
 
-<!--**Chess Tables-->
+<!--**Chess Tables
 <form action='#' name='chessTableForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
@@ -3377,9 +3710,9 @@ put all filters into the appFilters container.
 <p>Chess Tables form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
-</form>
+</form>-->
 
-<!--**Chess Demo boards-->
+<!--**Chess Demo boards
 <form action='#' name='chessDemoForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
@@ -3397,9 +3730,9 @@ put all filters into the appFilters container.
 <p>Chess Demo boards form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
-</form>
+</form>-->
 
-<!--**Chess Potpourri-->
+<!--**Chess Potpourri
 <form action='#' name='chessPotpourriForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
@@ -3417,7 +3750,7 @@ put all filters into the appFilters container.
 <p>Chess Potpourri form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
-</form>
+</form>-->
 
 
 </div>
