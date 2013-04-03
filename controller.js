@@ -157,7 +157,7 @@ Exception - the controller is used for admin sessions too. if an admin session i
 
 A session ID could be passed in through vars, but app.sessionId isn't set until the session id has been verified OR the app is explicitly told to not validate the session.
 */
-		if(app.sessionId == 'null')	{
+		if(app.sessionId == 'null' || app.vars.sessionId == 'null')	{
 			app.calls.getValidSessionID.init('handleNewSession');
 			app.model.dispatchThis('immutable');
 			}
