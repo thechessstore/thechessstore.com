@@ -1040,7 +1040,7 @@ var store_filter = function() {
 			".00053-chess-potpourri":{
 			"filter": "chessPotpourriForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},  
+			}  
 			
 			
 			//**Chess Books**
