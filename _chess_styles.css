@@ -1889,3 +1889,7 @@ sizingMethod='scale')";
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
 	z-index:1;
 }
+
+.loginButton{
+	z-index:25px;
+}

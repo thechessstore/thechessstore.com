@@ -2832,8 +2832,8 @@ else	{
 //executed in checkout when 'next/submit' button is pushed for 'existing account' after adding an email/password. (preflight panel)
 //handles inline validation
 			loginFrmSubmit : function(email,password)	{
+				app.u.dump("submit begins");
 				var errors = '';
-				app.u.dump(email + "   " + password);
 				var $errorDiv = $("#loginMessaging").empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
 
 				if(app.u.isValidEmail(email) == false){
@@ -2842,19 +2842,18 @@ else	{
 				if(!password)	{
 					errors += "Please provide your password<br \/>";
 					}
-					
+
 				if(errors == ''){
 					app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
 					app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
 //					app.ext.store_crm.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
-					
+
 					app.model.dispatchThis('immutable');
 					}
 				else {
 					$errorDiv.append(app.u.formatMessage(errors));
 					}
-				}, //loginFrmSubmit
-			
+				}, //loginFrmSubmit			
 			
 //obj currently supports one param w/ two values:  action: modal|message
 			handleAddToCart : function($form,obj)	{

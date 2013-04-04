@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310e",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310f",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/",
@@ -2275,7 +2275,7 @@ The 'data-action' attribute is used to assign an onclick.
 <p id='loginMessaging' class='marginBottom appMessaging'></p>
 
 <div id='loginFormContainer'>
-<form action='#' onSubmit='alert("HI");app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
 <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 	<fieldset>
 
@@ -2290,7 +2290,7 @@ The 'data-action' attribute is used to assign an onclick.
 	</div>
 
 	<div>
-	<input type='submit' value='log in' class='ui-button-text ui-button ui-state-default ui-corner-all ' />
+	<input type='submit' value='log in' class='ui-button-text ui-button ui-state-default ui-corner-all loginButton' />
 	</div>
 	</fieldset>
 </form>
