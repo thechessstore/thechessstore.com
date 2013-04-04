@@ -170,7 +170,7 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 	
 	var $context = $(app.u.jqSelector('#',P.parentID)); 
 	
-	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
 		app.u.dump(" -> safe id DOES have a filter.");
 
@@ -225,7 +225,7 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 	
 	var $context = $(app.u.jqSelector('#',P.parentID)); 
 	
-	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
 		app.u.dump(" -> safe id DOES have a filter.");
 

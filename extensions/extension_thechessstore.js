@@ -39,23 +39,27 @@ var extension_thechessstore = function() {
 				".00031-natural-wood-chess-boards.18-elm-root-maple-deluxe-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.20-teak-maple-deluxe-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.22-palisander-maple-deluxe-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.24-tiger-ebony-maple-molded-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.24-tiger-ebony-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.25-african-padauk-maple-premier-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.26-african-padauk-maple-signature-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.255-american-black-walnut-maple-premier-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.30-elm-root-maple-framed-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.28-bud-rosewood-maple-molded-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.28-black-walnut-maple-signature-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.29-padauk-maple-molded-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.30-walnut-maple-molded-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.32-mahogany-maple-molded-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.34-elm-root-maple-thick-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.36-rosewood-maple-molded-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.32-bud-rosewood-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.34-african-padauk-birds-eye-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.36-walnut-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.38-mahogany-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.39-mahogany-burl-wood-high-gloss-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.40-mahogany-maple-classic-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.42-walnut-maple-classic-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.44-rosewood-maple-standard-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.46-mahogany-maple-standard-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.48-macassar-maple-standard-chess-board" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards.50-walnut-maple-standard-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.40-elm-root-maple-thick-deluxe-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.42-rosewood-maple-deluxe-molded-edge-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.44-mahogany-maple-classic-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.46-walnut-maple-classic-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.48-rosewood-maple-standard-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.50-mahogany-maple-standard-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.52-macassar-ebony-standard-chess-board" : "categoryTemplate3PanelCat",
+				".00031-natural-wood-chess-boards.54-walnut-maple-standard-chess-board" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards.12-black-ash-burl-high-gloss-deluxe-chess-board" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards.14-tulip-red-erable-high-gloss-deluxe-chess-board" : "categoryTemplate3PanelCat",
@@ -301,9 +305,7 @@ var extension_thechessstore = function() {
 				}
 			},
 			
-			resetFilters : {
-				//$('#thepageid').empty().remove();
-			}
+			
 		}
 	}
 	return r;

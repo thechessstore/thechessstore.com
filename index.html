@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>Chess store</title>
 
 <!--Jeff, I left instruction on how to make changes to the areas you requested as you approach them. To date, these notes can be
 found on lines 153 for the sales banner header and 281 for the home page banner image slider. Refer to them for instructions on
@@ -24,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310d",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310e",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/",
@@ -134,15 +135,15 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 						</form>
 					</div>
 					<div class="headerBoxCenter">
-						<!--<h6 class='accent'>Get up to $30% Off</h6><!-- TODO: 30% off - maybe popup -->
-                        <img src="ups-truck-image-homepage-172.jpg" class="headerImage" />
+						<!--<h6 class='accent'>Get up to $30% Off</h6> TODO: 30% off - maybe popup -->
+                        <img src="ups-truck-image-homepage-172.jpg" class="headerImage" alt="" />
 						<p>$7.00 Flat Rate Shipping <a class='secondary pointer' onClick="return showContent('category',{'navcat':'.informational_pages.5-dollar-ups-ground-shipping'});">* See details</a></p>
 						<!--<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>-->
 					</div>
 					<div class="headerBoxRight">
 						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
 						<p><a href="#cart?." class='bindByAnchor' title='Checkout'>Checkout</a></p>
-						<p><a href="#customer?show=lists" class='bindByAnchor' title='Wishlist'>Wishlist</a></p>
+						<p><a href="#customer?show=lists" class='bindByAnchor' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
 
                         <p><a class="pointer" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
 					</div>
@@ -151,13 +152,13 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 				<!-- <ul id="tier1categories"></ul> -->
 				<div class="headerNavBar">
 					<div class="headerNavUlBar">
-						<!--<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div><!-- TODO: chess set builder - get link -->
+						<!--<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div> TODO: chess set builder - get link -->
                         
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a  href="#" class='bindByAnchor HeaderNavBarLink'>Complete Chess Sets</a>
                         	<div class="dropdown headerDropdown leftAlign">
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" class="pointer">Wood Chess Sets with Boards</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});" class="pointer">Wood Chess Sets with Cases</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});" class="pointer">Metal Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" class="pointer">Metal Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" class="pointer">Plastic Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});" class="pointer">Theme Chess Sets</a></div>
@@ -238,10 +239,10 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 would be to replace the any text between the <h2> and </h2> tags with whatever you want your sales to say. Then,
                 you would need to update the link by replacing 
                 -->
-                <div class="announceBar pointer" onClick="return showContent('category',{'navcat':'.sales.st_patrick_s_day_sale'});" />
-                <img src="images/st-patricks-day-sale-banner-1000.jpg">
+                <div class="announceBar pointer" onClick="return showContent('category',{'navcat':'.sales.st_patrick_s_day_sale'});">
+                	<img src="images/st-patricks-day-sale-banner-1000.jpg" alt="">
                 </div>
-			</header>
+                <!--</header>-->
             <!--End Header Section-->
             
 			<div class="content">
@@ -259,7 +260,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 								<input type="text" name='fullname' value='' placeholder="   NAME...." class="footerUpperSubSecInput" id='subscribeFullname' />
                                 <input type="email" name='login' value='' placeholder="   EMAIL...." class="footerUpperSubSecInput" id='subscribeLogin' />
                                 <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-								<input class="subButton ui-button-text ui-button ui-state-default ui-corner-all" type="submit" value="Subscribe" id="" />
+								<input class="subButton ui-button-text ui-button ui-state-default ui-corner-all" type="submit" value="Subscribe" />
 							</fieldset>
 						</form>
                     </div>
@@ -290,24 +291,23 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         </div>
                         <div class="footerLinkSec">
                         	<h5>GET SOCIAL</h5>
-                            <img style="margin-right:5px;" href="http://www.facebook.com/yourchessstore" target="_blank" class="pointer" src="images/facebook.png" /><a  href="http://www.facebook.com/yourchessstore" target="_blank" class="footerLinkStyle pointer">Facebook</a><br /><br />
-                            <img style="margin-right:5px;" href="https://twitter.com/YourChessStore" target="_blank" class="pointer" src="images/twitter.png" /><a  href="https://twitter.com/YourChessStore" target="_blank" class="footerLinkStyle pointer">Twitter</a><br /><br />
+                            <a href="http://www.facebook.com/yourchessstore" target="_blank" class="pointer"><img style="margin-right:5px;" src="images/facebook.png" alt="" /></a><a  href="http://www.facebook.com/yourchessstore" target="_blank" class="footerLinkStyle pointer">Facebook</a><br /><br />
+                            <a href="https://twitter.com/YourChessStore" target="_blank" class="pointer"><img style="margin-right:5px;" src="images/twitter.png" alt="" /></a><a  href="https://twitter.com/YourChessStore" target="_blank" class="footerLinkStyle pointer">Twitter</a><br /><br />
                             <a  href="http://www.thechessstore.blogspot.com/" target="_blank" class="footerLinkStyle pointer">Read Our Blog</a><br /><br />
                         </div>
                     </div>
                 </div>
                 <div id="footerLowerSec">
                 	<div class="footerLower_TopSec">
-                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">| &nbsp Home &nbsp | </a>
-                            <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privacy Policy &nbsp | </a>
-                            <p>&#169 2013 The Chess Store<p>
-                        </ul>
+                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">| &nbsp; Home &nbsp; | </a>
+                            <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp; | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp; | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp; | </a>
+                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privacy Policy &nbsp; | </a>
+                            <p>&#169; 2013 The Chess Store</p>
                     </div>
                     <div class="footerLower_BottomSec">
-                    	<table align="center">
+                    	<table style="text-align:center;">
                         	<tbody>
                             	<tr>
                                 	<td>
@@ -337,12 +337,15 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                                 </tr>
                             </tbody>
                         </table>
-                </div>
-            </div>
+                 		</div>
+                        </div>
+                        </div>
+                        </header>
+                        </div>
+                        </div>
+                        </div>
             <!--End Footer Section-->
-		</div>
-	</div>
-</div>
+			
 
 
 
@@ -392,12 +395,12 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
-    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
-    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
-    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
-            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
-    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});">
-    		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
+    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" alt="" />
+            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" alt="" />
     	</div>
     </div>
     <h3 class="homepageProductCatHeader">Chess Sets</h3>
@@ -405,209 +408,209 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat1'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/wood-chess-sets-with-boards-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/wood-chess-sets-with-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Wood Chess Sets with Boards</div>
                 <div class="homepageCatDesc">High quality wood chess pieces matched with the perfect chess board. From basic to heirloom treasures.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/wood-chess-sets-with-cases-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/wood-chess-sets-with-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Wood Chess Sets with Cases</div>
                 <div class="homepageCatDesc">Whether you want to display your chess pieces or put them away, a chess case offers the perfect solution.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/metal-chess-sets-banner-310.jpg"	 />
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
+            	<img class="" src="images/homepage_category_images/Chess_Sets/metal-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Sets</div>
                 <div class="homepageCatDesc">Beautiful metal chessmen with the perfect chess board. Traditional, theme, and contemporary designs.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/marble-onyx-stone-chess-sets-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/marble-onyx-stone-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Marble & Onyx Chess Sets</div>
                 <div class="homepageCatDesc">These beautiful chess sets made from colorful marble, onyx, and exotic stone make wonderful chess d&eacute;cor.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/plastic-chess-sets-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/plastic-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Plastic Chess Sets</div>
                 <div class="homepageCatDesc">Plastic pieces with just a board or complete tournament kits with a bag. Ideal for clubs and tournaments.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/theme-chess-sets-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/theme-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Theme Chess Sets</div>
                 <div class="homepageCatDesc">Make the game even more fun and interesting with a beautiful theme chess set. Any theme you can imagine.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Sets/travel-chess-sets-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Sets/travel-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Travel Chess Sets</div>
                 <div class="homepageCatDesc">From magnetic pocket size to large folding models, these chess sets are designed for traveling.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});">
-            	<img class=""  src="images/homepage_category_images/Chess Sets/garden-chess-sets-banner-310.jpg" />
+            	<img class=""  src="images/homepage_category_images/Chess_Sets/garden-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Garden Chess Sets</div>
                 <div class="homepageCatDesc">Large chess sets for playing outside on your patio or for special events. Makes a fun group chess game.</div>
             </li>
         </ul>
        	<div class="clear"></div>
-        <img id="caroPrev1" src="images/scroll_left.gif" class="pointer" />
-	   	<img id="caroNext1" src="images/scroll_right.gif" class="pointer" />
+        <img id="caroPrev1" src="images/scroll_left.gif" class="pointer" alt="" />
+	   	<img id="caroNext1" src="images/scroll_right.gif" class="pointer" alt="" />
 	</div>
     <h3 class="homepageProductCatHeader">Chess Pieces</h3>
     <div class="carouselCont2">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat2'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/wood-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/wood-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Wood Chess Pieces</div>
                 <div class="homepageCatDesc">Old classics to our own exclusive designs, shop from the largest selection of wood chessmen in the world.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/metal-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/metal-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Pieces</div>
                 <div class="homepageCatDesc">Elegant metal chessmen including Staunton, theme, art deco, and contemporary designs in a variety of finishes.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets.marble-onyx-chess-pieces'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/marble-onyx-stone-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/marble-onyx-stone-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Marble & Onyx Chess Pieces</div>
                 <div class="homepageCatDesc">Beautiful marble, onyx, and stone chessmen for something different or upgrading with a board you have.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/plastic-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/plastic-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Plastic Chess Pieces</div>
                 <div class="homepageCatDesc">The largest selection of plastic chess sets in the world. Exclusive designs, popular colors, and low prices.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00029-theme-chess-pieces'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/theme-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/theme-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Theme Chess Pieces</div>
                 <div class="homepageCatDesc">From storybook tales to famous battles, theme chess sets are interesting, beautiful, and colorful.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/unfinished-wood-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/unfinished-wood-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Unfinished Wood Chess Pieces</div>
                 <div class="homepageCatDesc">Paint or stain these unfinished wood chess pieces to create your own unique and special chess set.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/jaques-london-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/jaques-london-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Jaques of London Chess Pieces</div>
                 <div class="homepageCatDesc">Amongst collectors and historians of the game, no other name is more recognized than Jaques of London.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/artisan-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/artisan-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Artisan Bone Chess Pieces</div>
                 <div class="homepageCatDesc">An art form passed on for hundreds of years, these hand carved chessmen from solid bone are stunning&#33;</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});">
-            	<img class="" src="images/homepage_category_images/Chess Pieces/most-uniqe-chess-pieces-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Pieces/most-uniqe-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Most Unique Chess Pieces</div>
                 <div class="homepageCatDesc">Our most unique and unusual chess sets, from hand carved bone to contemporary brass and wood.</div>
             </li>
             
         </ul>
        	<div class="clear"></div>
-        <img id="caroPrev2" src="images/scroll_left.gif" class="pointer" />
-	   	<img id="caroNext2" src="images/scroll_right.gif" class="pointer" />
+        <img id="caroPrev2" src="images/scroll_left.gif" class="pointer" alt="" />
+	   	<img id="caroNext2" src="images/scroll_right.gif" class="pointer" alt="" />
 	</div>
     <h3 class="homepageProductCatHeader">Chess Boards</h3>
     <div class="carouselCont3">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat3'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00031-natural-wood-chess-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Boards/natural-wood-chess-boards-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Boards/natural-wood-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Natural Wood Chess Boards</div>
                 <div class="homepageCatDesc">From walnut to exotic woods like African Padauk, you&#39;ll find the perfect board for your chess pieces.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000311-stained-wood-chess-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Boards/stained-wood-chess-boards-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Boards/stained-wood-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Stained Wood Chess Boards</div>
                 <div class="homepageCatDesc">Elegant wood chess boards stained in beautiful colors with a glass-like finish. Many colors and sizes.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000312-vinyl-chess-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Boards/vinyl-chess-boards-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Boards/vinyl-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Vinyl Chess Boards</div>
                 <div class="homepageCatDesc">Vinyl chess boards are perfect for schools and tournaments - they&#39;re durable, affordable, and portable.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});">
-            	<img class="" src="images/homepage_category_images/Chess Boards/chess-cases-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Boards/chess-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Cases</div>
                 <div class="homepageCatDesc">A chess case provides storage for pieces and a chess board on top. A great way to display your chess set.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000314-metal-chess-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Boards/metal-chess-boards-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Boards/metal-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Boards</div>
                 <div class="homepageCatDesc">These elegant and colorful metal chess boards are perfect for displaying your metal chess pieces on.</div>
             </li>
             
         </ul>
        	<div class="clear"></div>
-        <img id="caroPrev3" src="images/scroll_left.gif" class="pointer" />
-	   	<img id="caroNext3" src="images/scroll_right.gif" class="pointer" />
+        <img id="caroPrev3" src="images/scroll_left.gif" class="pointer" alt="" />
+	   	<img id="caroNext3" src="images/scroll_right.gif" class="pointer" alt="" />
 	</div>
     <h3 class="homepageProductCatHeader">Chess Accessories</h3>
     <div class="carouselCont4">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat4'>
         	
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-clocks-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-clocks-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Clocks</div>
                 <div class="homepageCatDesc">From analog to digital, you&#39;ll find nearly every brand of chess clock in plastic, wood, and every color.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00037-chess-boxes'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-boxes-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-boxes-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Boxes</div>
                 <div class="homepageCatDesc">A variety of different boxes for storing and protecting your chess pieces when they&#39;re not being used.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00028-club-tournament-supplies'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-club-supplies-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-club-supplies-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Club Supplies</div>
                 <div class="homepageCatDesc">Shop for all of your chess club supplies on one page for easy comparison and shopping. Volume discounts.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00039-chess-bags'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-bags-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-bags-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Bags</div>
                 <div class="homepageCatDesc">Perfect for packing away your chess pieces, board, and clock. Ideal for the club player or travel.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00044-chess-dvds'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-dvds-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-dvds-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess DVDs</div>
                 <div class="homepageCatDesc">Instruction from grandmasters on every phase of the game, there&#39;s no better way to learn and improve.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00034-chess-books'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-books-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-books-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Books</div>
                 <div class="homepageCatDesc">The best chess books from grandmaster authors. Learn as they share insight and move by move strategy.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00048-chess-software'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-software-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-software-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Software</div>
                 <div class="homepageCatDesc">Chess software playing programs and databases for playing, practice, and analyzing your chess games.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00046-chess-scorebooks'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-scorebooks-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-scorebooks-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Scorebooks</div>
                 <div class="homepageCatDesc">Record your chess games move by move so you can look back and learn from genius moves and blunders.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00050-chess-tables'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-tables-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-tables-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Tables</div>
                 <div class="homepageCatDesc">There&#39;s no better way to display your prized chess set than sitting on a beautiful chess table.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00042-chess-demonstration-boards'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-demo-board-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-demo-board-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Demo Boards</div>
                 <div class="homepageCatDesc">Large upright chess boards for demonstrating and teaching chess in the classroom.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});">
-            	<img class="" src="images/homepage_category_images/Chess Accessories/chess-cases-banner-310.jpg" />
+            	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Cases</div>
                 <div class="homepageCatDesc">A chess case provides storage for pieces and a chess board on top. A great way to display your chess set.</div>
             </li>
             <li class="pointer" onClick="return showContent('category',{'navcat':'.00053-chess-potpourri'});">
-            	<img class="" src="images/Homepage_CollectClub.gif" />
+            	<img class="" src="images/Homepage_CollectClub.gif" alt="" />
             	<div class="homepageCatTitle">Chess Potpourri</div>
                 <div class="homepageCatDesc">All kinds of fun chess stuff that make great gifts, from hand carved knight paperweights to mugs.</div>
             </li>
             
         </ul>
        	<div class="clear"></div>
-        <img id="caroPrev4" src="images/scroll_left.gif" class="pointer" />
-	   	<img id="caroNext4" src="images/scroll_right.gif" class="pointer" />
+        <img id="caroPrev4" src="images/scroll_left.gif" class="pointer" alt="" />
+	   	<img id="caroNext4" src="images/scroll_right.gif" class="pointer" alt="" />
 	</div>
     <!--Uncomment these buttons whenever testing on manual scrolling is ready to go-->    	    
     
@@ -617,12 +620,12 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
     -->
     <div class="homepage10OffClub">
-    	<img onClick="return showContent('category',{'navcat':'.informational_pages.the_10__club'});" src="images/homepage_bottom_ad_bars_images/10-percent-club-banner-472.jpg" class="pointer">
+    	<img onClick="return showContent('category',{'navcat':'.informational_pages.the_10__club'});" src="images/homepage_bottom_ad_bars_images/10-percent-club-banner-472.jpg" class="pointer" alt="">
         <!--<h3>10% Off Club</h3>
         <p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>-->
     </div>
     <div class="homepageCollectClub">
-    	<img onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" src="images/homepage_bottom_ad_bars_images/collectors-club-banner-472.jpg" class="pointer">
+    	<img onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" src="images/homepage_bottom_ad_bars_images/collectors-club-banner-472.jpg" class="pointer" alt="">
         <!--<h4>Are you a</h4><br /> 
         <h3>Collector?</h3>
         <p><a href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="underline">Join the Collectors Club </a><br />for special offers!</p>-->
@@ -704,7 +707,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div id="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
-		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" alt="" />-->
     
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
@@ -788,7 +791,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div id="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
-		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
     
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
@@ -872,7 +875,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div id="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
-		<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
     
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
@@ -909,7 +912,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <ul>
 <li id='categoryListTemplateHP' class="categoryListTemplateClassHP">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='330' height='219' /></div>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='330' height='219' alt="" /></div>
         <div class="categoryListTemplateTitle">
         	<div class='white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
         </div>
@@ -919,7 +922,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' alt="" /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
 		
 		<!--<div class='catDesc'></div>-->
@@ -928,14 +931,14 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplate3Panel' class="categoryListTemplateClass categoryListTemplate3Panel">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='180' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='180' alt="" /></div>
 		<div class='catName white2LGray catName3'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
 
 <li id='categoryListTemplate4Panel' class="categoryListTemplateClass categoryListTemplate4Panel">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='160' height='100' /></div>
+		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='160' height='100' alt="" /></div>
 		<div class='catName white2LGray catName4'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
@@ -943,7 +946,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <li id='categoryListTemplateRootCats'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' alt="" /></div>
 		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
 	</div>
 </li>
@@ -968,7 +971,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
           <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
           	<div class="promoTag tagsContainer" data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;"></div>
-          	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='355' height='210' />
+          	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='355' height='210' alt="" />
           </div>
 		
 			<h5 class="spaceAndAlignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
@@ -994,7 +997,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
           <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
               <div  data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer3 promoTag'></div>
-              <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='220' height='180' />
+              <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='220' height='180' alt="" />
           </div>
 		
         	<h5 class="spaceAndAlignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
@@ -1020,7 +1023,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
           <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
               <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer4'></div>
-              <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='160' height='100' />
+              <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_thumb); format:imageURL;' width='160' height='100' alt="" />
           </div>
 		
 		<h5 class="spaceAndAlignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
@@ -1044,7 +1047,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='180' height='90' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='180' height='90' alt="" />
 		</div>
 		
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
@@ -1070,7 +1073,7 @@ container ul should have lineItemProdlist class on it instead of productList
 	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 		<div class='prodThumbContainer floatLeft'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='120' height='120' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='120' height='120' alt="" />
 		</div>
 		
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
@@ -1098,7 +1101,7 @@ container ul should have lineItemProdlist class on it instead of productList
 
 		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
+				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' alt="" />
 				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
 
 <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
@@ -1147,7 +1150,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
         <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='225' height='225' />
+		<img src='blank.gif' class='prodThumb' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='225' height='225' alt="" />
 		</div>
 
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
@@ -1161,7 +1164,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer'>
         <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' alt="" />
 		</div>
 
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
@@ -1213,28 +1216,28 @@ this will likely become more flexible in the future. ###
         <div class='promoTag2' data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;"></div>
         <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
             <!--<a data-bind='var: product(zoovy:prod_image1); format:imageURL;' class="MagicZoomPlus">-->
-            <img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='340' height='340' /><!--</a>-->
+            <img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:magicZoomPlus; extension:magicToolBox_mzp;' width='340' height='340' alt="" /><!--</a>-->
         </div>
     </div>
 
 <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
 	
 <!--<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'>-->
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image2); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' /><!--</div>-->
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image2); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" /><!--</div>-->
 	
 <!--<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'>-->
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image3); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' /><!--</div>-->
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image3); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" /><!--</div>-->
 	
 <!--<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'>-->
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image4); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' /><!--</div>-->
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image4); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" /><!--</div>-->
 
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image5); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' />
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image5); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" />
 
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image6); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' />
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image6); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" />
 
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image7); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' />
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image7); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" />
 
-<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image8); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' />
+<img src='blank.gif' class="pointer" data-bind='var: product(zoovy:prod_image8); format:magicZoomPlus; extension:magicToolBox_mzp;' width='100' height='100' alt="" />
 	
 	</div>
 
@@ -1292,7 +1295,7 @@ this will likely become more flexible in the future. ###
 	</form>
     
     <div class="addToCartSideLinkCont" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
-  	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43 Add to Wishlist </a><br />
+  	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43; Add to Wishlist </a><br />
         
         <div class="socialLinks">
         </div>
@@ -1342,7 +1345,7 @@ this will likely become more flexible in the future. ###
 	<div class='tabContent' data-anytab-content='prodVideo'>
     	<p data-bind='var: product(youtube:videoid); format:showIfSet;'>Click a video to play it!</p>
         <div data-bind="var: product(youtube:videoid); format: assignAttribute; attribute: data-youtubeid;">
- 			<img class="pointer" src="blank.gif" data-bind="var: product(youtube:videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;"/>
+ 			<img class="pointer" src="blank.gif" data-bind="var: product(youtube:videoid); format:youtubeThumbnail; extension:myRIA;" onClick="app.ext.myRIA.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="" />
 		</div>
 	</div>
     
@@ -1407,7 +1410,7 @@ this will likely become more flexible in the future. ###
 
 <!--<div class="promoTag" data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer promoTag'></div>
-	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
+	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' alt="" /></div>
 
 </div>
 
@@ -1681,7 +1684,7 @@ adding classes is not likely to have any bad effects.
 		<li><a href='#customer?show=myaccount' id='navLink_myaccount'>My Account</a></li>
 		<li><a href='#customer?show=changepassword' id='navLink_changepassword'>Change Password</a></li>
 		<li><a href='#customer?show=orders' id='navLink_orders'>Order History</a></li>
-		<li><a href='#customer?show=lists' id='navLink_orders'>Wish List</a></li>
+		<li><a href='#customer?show=lists'>Wish List</a></li>
         <li class='hideIfLoggedOut'><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></li>
 	</ul>
 	</nav>
@@ -1768,7 +1771,7 @@ adding classes is not likely to have any bad effects.
 
 	<!--<div class='sideline' >
 	<nav id='searchNav'>
-	<ul class='listStyleNone noPadOrMargin'><!--
+	<ul class='listStyleNone noPadOrMargin'>
 		<li id='altSearchesContainer'>
 		<h3 class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top '>Alternative Searches</h3>
 		<ul id='altSearchesList' class='ui-corner-bottom ui-accordion-content ui-helper-reset ui-widget-content'></ul>
@@ -1922,7 +1925,6 @@ So the cart template should contain these two elements and the extension should 
 	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
 	app.model.dispatchThis('immutable');"  />
     <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
-	</menu>
 	</div>
 
 	
@@ -1972,7 +1974,7 @@ So the cart template should contain these two elements and the extension should 
 
 		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 		
-		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(full_product.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
+		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(full_product.zoovy:prod_image1); format:imageURL;' width='75' height='75' alt="" /></div>
         <div class="clear"></div>
         
 	
@@ -2008,7 +2010,7 @@ used on a product layout. Some product have 'children' which may represent the s
 
 <ul>
 <li id='productListTemplateChildren' onClick="showContent('product',{'pid':$(this).attr('data-pid')})" class='floatLeft pointer'>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='75' height='75' />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='75' height='75' alt="" />
 	<div data-bind='var: product(amz:grp_varvalue); defaultVar: product(zoovy:prod_name); format:text;'></div>
 </li>
 </ul>
@@ -2041,13 +2043,13 @@ used on a product layout. Some product have 'children' which may represent the s
 
 <table>
 <tr>
-	<td><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='500' height='500' /></td>
+	<td><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='500' height='500' alt="" /></td>
 	<td>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' />
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' />
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' />
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image5); format:imageURL;' width='100' height='100' />
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image6); format:imageURL;' width='100' height='100' />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' alt="" />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' alt="" />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' alt="" />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image5); format:imageURL;' width='100' height='100' alt="" />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image6); format:imageURL;' width='100' height='100' alt="" />
 	</td>
 </tr>
 </table>
@@ -2273,7 +2275,7 @@ The 'data-action' attribute is used to assign an onclick.
 <p id='loginMessaging' class='marginBottom appMessaging'></p>
 
 <div id='loginFormContainer'>
-<form action='#' onSubmit='app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
+<form action='#' onSubmit='alert("HI");app.ext.myRIA.u.loginFrmSubmit($("#modalLoginlogin").val(),$("#modalLoginpassword").val()); return false;' id='modalLoginForm'>
 <input type='hidden' name='loginCallback' id='loginCallback' value='' /><!-- used to save a callback action in -->
 	<fieldset>
 
@@ -2320,7 +2322,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 <!-- this div will appear after a successful login. if you bind a new action to the button, best to empty the div and re-add the button, so the actions don't statck. -->
 	<div id='loginSuccessContainer' class='center displayNone'>
-		<button class='ui-button-text ui-button ui-state-default ui-corner-all buttonPadding' id='modalLoginContinueButton' onClick="$('#loginFormForModal').dialog('close');">Continue</button>
+		<button class='ui-button-text ui-button ui-state-default ui-corner-all ' id='modalLoginContinueButton' onClick="$('#loginFormForModal').dialog('close');">Continue</button>
 	</div>
 </div>
 
@@ -2409,7 +2411,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--Metal Chess Pieces**-->
-<form action='#' name='metalChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='metalChessPiecesForm' id='completeMetalChessPiecesForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2474,7 +2476,7 @@ put all filters into the appFilters container.
 </form>-->
 
 <!--Plastic Chess Pieces**-->
-<form action='#' name='plasticChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='plasticChessPiecesForm' id='completePlasticChessPiecesForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2510,7 +2512,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--Theme Chess Pieces**-->
-<form action='#' name='themeChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='themeChessPiecesForm' id='completeThemeChessPiecesForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2636,7 +2638,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS SETS FILTERED SEARCH FORMS****-->
 <!--**Wood Chess Sets with Boards-->
-<form action='#' name='woodWithBoardChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='woodWithBoardChessSetsForm' id='completeWoodWithBoardChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2721,7 +2723,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Wood Chess Sets with Cases-->
-<form action='#' name='woodWithCasesChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='woodWithCasesChessSetsForm' id='completeWoodWithCasesChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2781,7 +2783,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Metal Chess Sets-->
-<form action='#' name='metalChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='metalChessSetsForm' id='completeMetalChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2846,7 +2848,7 @@ put all filters into the appFilters container.
 </form>-->
 
 <!--**Plastic Chess Sets-->
-<form action='#' name='plasticChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='plasticChessSetsForm' id='completePlasticChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2889,7 +2891,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Theme Chess Sets-->
-<form action='#' name='themeChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='themeChessSetsForm' id='completeThemeChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2933,7 +2935,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Travel Chess Sets-->
-<form action='#' name='travelChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='travelChessSetsForm' id='completeTravelChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -2994,7 +2996,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS BOARDS FILTERED SEARCH FORMS****-->
 <!--**natural Wood Chess Boards-->
-<form action='#' name='natWoodChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='natWoodChessBoardsForm' id='completeNatWoodChessBoardsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3046,7 +3048,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Stained Wood Chess Boards-->
-<form action='#' name='stainWoodChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='stainWoodChessBoardsForm' id='completeStainWoodChessBoardsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3096,7 +3098,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Vinyl Chess Boards-->
-<form action='#' name='vinylChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='vinylChessBoardsForm' id='completeVinylChessBoardsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3181,7 +3183,7 @@ put all filters into the appFilters container.
 <!--****CHESS ACCESSORIES FILTERED SEARCH FORMS****-->
 
 <!--**Chess Clocks-->
-<form action='#' name='chessClocksForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='chessClocksForm' id='completeChessClocksForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3223,7 +3225,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess Boxes-->
-<form action='#' name='chessBoxesForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='chessBoxesForm' id='completeChessBoxesForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3245,7 +3247,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS CLUB AND TOURNAMENT SUPPLIES****-->
 <!--**Plastic Chess Pieces-->
-<form action='#' name='clubPlasticPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubPlasticPiecesForm' id='completeClubPlasticPiecesForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3281,7 +3283,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Vinyl Chess Boards-->
-<form action='#' name='clubVinylForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubVinylForm' id='completeClubVinylForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3323,7 +3325,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess Bags-->
-<form action='#' name='clubBagsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubBagsForm' id='completeClubBagsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3358,7 +3360,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Plastic Chess Pieces with Rollup Boards-->
-<form action='#' name='clubRollupBoardForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubRollupBoardForm' id='completeClubRollupBoardForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3402,7 +3404,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Tournament Chess Sets-->
-<form action='#' name='clubChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubChessSetsForm' id='completeclubChessSetsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3446,7 +3448,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Tournament Chess Clocks-->
-<form action='#' name='clubClocksForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubClocksForm' id='completeClubClocksForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3490,7 +3492,7 @@ put all filters into the appFilters container.
 
 <!--****ACCESSORIES****-->
 <!--**Chess Bags-->
-<form action='#' name='chessBagsForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='chessBagsForm' id='completeChessBagsForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3525,7 +3527,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess DVDs-->
-<form action='#' name='chessDvdForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='chessDvdForm' id='completeChessDvdForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>
@@ -3589,7 +3591,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess Books-->
-<form action='#' name='chessBookForm' id='completeChessSetsForm' class='layeredSearch'>
+<form action='#' name='chessBookForm' id='completeChessBookForm' class='layeredSearch'>
 
 <fieldset data-elastic-key="base_price" data-filtertype="slider">
 	<legend>Price</legend>

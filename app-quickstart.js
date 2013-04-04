@@ -2833,6 +2833,7 @@ else	{
 //handles inline validation
 			loginFrmSubmit : function(email,password)	{
 				var errors = '';
+				app.u.dump(email + "   " + password);
 				var $errorDiv = $("#loginMessaging").empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
 
 				if(app.u.isValidEmail(email) == false){

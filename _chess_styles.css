@@ -1221,7 +1221,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 
 label.break	{display:block; margin-bottom:2px;}
 .layeredSearch	{color:#ffffff;}
-.layeredSearch legend	{font-size:1.0em; font-weight:bold;}
+.layeredSearch legend	{
+	font-size:13px; 
+	font-weight:bold;
+	text-decoration:underline;
+	}
 .layeredSearch fieldset	{margin-bottom:12px;}
 
 .layeredSearch div{
@@ -1333,7 +1337,7 @@ width:100%;
 /**categoryListTemplate3Panel**/
 .categoryList  li.categoryListTemplate3Panel{
 	width:220px;
-	height:200px;
+	height:220px;
 	float:left;
 	
 }
@@ -1406,7 +1410,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 /**'productListTemplate3Panel**/
 .productList li.productListTemplate3Panel{
 	width:225px;
-	height:300px;
+	height:330px;
 	
 }
 
