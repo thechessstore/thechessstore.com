@@ -322,6 +322,16 @@ fieldset {
 	  
 .lineItemProdlist li{
 	border:none;
+	clear: none;
+    float: left;
+	margin-right:20px;
+}
+
+.lineItemProdlist h5{
+	width:175px;
+}
+.lineItemProdlist h6{
+	width:175px;
 }
 /**************************************************************************************************************************
 /**Ratings Icon Images**/
@@ -1128,7 +1138,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 /**Accessories section**/
 .lineItemProdlist li{
 	width:200px !important;
-	height:165px;
+	height:490px !important;
+}
+.lineItemProdlist2 li{
+	width:200px !important;
+	height:165px !important;
 }
 .lineItemProdlist li.catListTempCatPage2 img{
 	margin-left:10px;

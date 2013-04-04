@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310f",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310h",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/",
@@ -1745,7 +1745,7 @@ adding classes is not likely to have any bad effects.
 		</div>
 	
 		<div id='listsArticle' class='displayNone textContentArea'>
-			<h1>List Manager</h1>
+			<h1>Wish List</h1>
 			<div id='listsContainer' class='prodlist loadingBG'></div>
 
 			<div id='listEditorContainer' class='displayNone loadingBG'></div><!-- editor for a given list gets added here -->
@@ -1884,7 +1884,7 @@ So the cart template should contain these two elements and the extension should 
 <tr>
 	<td class='cartStuffContainer'>
     <p>**Items with arrows next to them are components of an assembly product. They are not additional products and you will not be billed additionally for them.</p>
-	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
+	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist2'></ul>
 	</td>
 
 	<td class='cartSummaryTotalsContainer'>
