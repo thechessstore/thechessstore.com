@@ -1297,7 +1297,9 @@ div .slider-range a:nth-of-type(1){
 div .slider-range a:nth-of-type(2){
 	background-image:url(images/arrow_circle_green_left.png) !important;
 }
-
+.layeredSearch input{
+	color:#6F290F;
+}
 
 /**Category template body**/
 #catTempCont{
