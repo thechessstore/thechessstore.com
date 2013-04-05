@@ -42,129 +42,129 @@ var store_filter = function() {
 			//**Wood Chess Pieces**
 			".00010-wood-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.10-german-knight-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.12-french-lardy-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.16-kings-guard-staunton-chess-chess":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.18-parker-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.20-yugoslavia-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.22-deluxe-old-club-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.24-british-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.26-fierce-knight-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.28-royal-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.30-new-exclusive-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.32-wingfield-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.34-players-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.36-saint-george-antique-reproduction-chess-set":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.38-grande-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.40-edinburgh-upright-antique-reproduction-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.44-calvert-antique-reproduction-chess-set":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.46-khans-stallion-staunton-chess-set":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.48-columbian-knight-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.50-bridled-stallion-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.52-wellington-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.54-hampshire-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.56-saint-john-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.58-gotham-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.60-sultan-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.62-cambridge-staunton-chess-sets":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.64-alexander-staunton-chess-set":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			".00010-wood-chess-sets.66-kohinoor-staunton-chess-set":{
 			"filter": "woodChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:5000});}
 			},
 			
 			//**Metal Chess Pieces**
 			".00027-metal-chess-pieces":{
 			"filter": "metalChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1500});}
 			},
 			".00027-metal-chess-pieces.2-staunton-metal-chess-pieces":{
 			"filter": "metalChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1500});}
 			},
 			".00027-metal-chess-pieces.4-theme-metal-chess-pieces":{
 			"filter": "metalChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1500});}
 			},
 			
 			/**Marble Chess Pieces**
@@ -176,55 +176,55 @@ var store_filter = function() {
 			//**Plastic Chess Pieces**
 			".00020-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00010-master-series-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00012-value-club-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00014-clubtourney-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.000145-deluxe-club-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00015-conqueror-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00016-executive-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00018-professional-triple-weighted-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00020-guardian-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00022-rogue-knight-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00024-protourney-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00026-crown-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00020-plastic-chess-sets.00028-zukert-plastic-chess-sets":{
 			"filter": "plasticChessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			
 			//**Theme Chess Pieces**
@@ -315,111 +315,111 @@ var store_filter = function() {
 			//**Chess Sets with Boards**
 			".00012-wood-chess-sets-with-chess-boards":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.10-standard-mahogany-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.11-standard-walnut-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.12-standard-macassar-ebony-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},".00012-wood-chess-sets-with-chess-boards.13-standard-rosewood-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.14-standard-mahogany-chess-board-box-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.15-standard-walnut-chess-board-box-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.16-standard-macassar-ebony-chess-board-box-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.18-deluxe-black-ash-burl-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},".00012-wood-chess-sets-with-chess-boards.19-deluxe-stained-wood-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.20-deluxe-molded-edge-mahogany-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.21-deluxe-molded-edge-walnut-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.23-deluxe-molded-edge-african-padauk-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00012-wood-chess-sets-with-chess-boards.24-deluxe-molded-edge-rosewood-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},".00012-wood-chess-sets-with-chess-boards.27-african-padauk-signature-chess-board-packages":{
 			"filter": "woodWithBoardChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			
 			//**Chess Sets with Cases**
 			".00014-wood-chess-sets-with-chess-cases":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.12-walnut-folding-case-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.14-small-walnut-chess-backgammon-lift-top-case-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.16-small-walnut-case-with-drawers-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.18-small-macassar-case-with-drawers-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.20-medium-walnut-chess-backgammon-lift-top-case-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.22-medium-walnut-case-with-drawers-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},".00014-wood-chess-sets-with-chess-cases.24-medium-macassar-case-with-drawers-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			".00014-wood-chess-sets-with-chess-cases.26-large-walnut-case-with-drawers-chess-set-packages":{
 			"filter": "woodWithCasesChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:1000});}
 			},
 			
 			//**Metal Chess Sets**
 			".00018-metal-chess-sets.00012-metal-chess-set-packages":{
 			"filter": "metalChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00018-metal-chess-sets.00012-metal-chess-set-packages.00010-staunton-metal-chess-sets-with-boards":{
 			"filter": "metalChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00018-metal-chess-sets.00012-metal-chess-set-packages.00020-theme-metal-chess-sets-with-boards":{
 			"filter": "metalChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			
 			/**Marble/onyx Chess Sets**
@@ -443,117 +443,117 @@ var store_filter = function() {
 			//**Plastic Chess Sets**
 			".00030-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00010-master-series-tournament-packages":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00012-value-club-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00014-clubtourney-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00015-conqueror-tournament-packages":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00016-executive-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00018-professional-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00020-guardian-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00022-rogue-knight-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},".00030-tournament-chess-set-kits.00024-protourney-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},".00030-tournament-chess-set-kits.00026-crown-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00030-tournament-chess-set-kits.00028-zukert-tournament-chess-set-kits":{
 			"filter": "plasticChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			
 			//**Theme Chess Sets**
 			".00026-theme-chess-sets.00012-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00010-fame-usa-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00012-manopoulos-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00014-italfama-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00018-battles-wars-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00020-european-history-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00022-american-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00024-greek-roman-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00026-egyptian-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00028-asian-oriental-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00030-fictional-character-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages.00032-every-theme-in-between-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
 			
 			//**Travel Chess Sets**
 			".00054-travel-chess-sets":{
 			"filter": "travelChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
 			},
 			".00054-travel-chess-sets.plastic-travel-chess-sets":{
 			"filter": "travelChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
 			},
 			".00054-travel-chess-sets.wood_magnetic_travel_chess_sets":{
 			"filter": "travelChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
 			},
 			".00054-travel-chess-sets.wood_non-magnetic_folding_chess_sets":{
 			"filter": "travelChessSetsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:200});}
 			},
 			
 			/**Garden Chess Sets**
@@ -728,39 +728,39 @@ var store_filter = function() {
 			//**Vinyl Chess Boards**
 			".000312-vinyl-chess-boards":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.10-tcs-vinyl-rollup-chess-boards-225":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.12-tcs-vinyl-rollup-chess-boards-2375":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.14-club-vinyl-rollup-chess-boards-225":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.16-club-vinyl-rollup-chess-boards-2375":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.18-floppy-chess-boards-225":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.20-floppy-chess-boards-2375":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.22-silicon-rollup-chess-boards-225":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".000312-vinyl-chess-boards.24-vinyl-folding-chess-boards-225":{
 			"filter": "vinylChessBoardsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			
 			//**Chess Cases**
@@ -781,15 +781,15 @@ var store_filter = function() {
 			//**Chess Clocks**
 			".00036-chess-clocks":{
 			"filter": "chessClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			".00036-chess-clocks.00010-analog-chess-clocks":{
 			"filter": "chessClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			".00036-chess-clocks.00012-digital-chess-clocks":{
 			"filter": "chessClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			
 			//**Chess Boxes**
@@ -806,128 +806,128 @@ var store_filter = function() {
 			//**Chess Tournament - Plastic Pieces**
 			".00028-club-tournament-supplies.02-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.02-master-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.04-value-club-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.06-clubtourney-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.08-deluxe-club-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.10-conqueror-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.12-executive-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.14-professional-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.16-guardian-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.18-rogue-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.20-protourney-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.22-crown-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			".00028-club-tournament-supplies.02-plastic-chess-sets.24-zukert-plastic-chess-sets":{
 			"filter": "clubPlasticPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
 			
 			//**Chess Tournament - Vinyl**
 			".00028-club-tournament-supplies.04-vinyl-chess-boards":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.02-tcs-premium-vinyl-rollup-chess-boards-225_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.04-tcs-premium-vinyl-rollup-chess-boards-2375_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.06-club-vinyl-rollup-chess-boards-225_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.08-club-vinyl-rollup-chess-boards-2375_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.10-floppy-chess-boards-225_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.12-floppy-chess-boards-2375_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			".00028-club-tournament-supplies.04-vinyl-chess-boards.14-vinyl-folding-chess-boards-2_-squares":{
 			"filter": "clubVinylForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:30});}
 			},
 			
 			//**Chess Tournament - Chess Bags**
 			".00028-club-tournament-supplies.06-chess-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.02-chess-piece-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.04-chess-piece-sleeve-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.06-small-tournament-chess-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.10-large-tournament-chess-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.12-tcs-large-tournament-chess-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00028-club-tournament-supplies.06-chess-bags.14-jumbo-tournament-chess-bags":{
 			"filter": "clubBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
 			//**Chess Tournament - Roll-Up Boards**
 			".00028-club-tournament-supplies.08-chess-sets-rollup-chess-boards":{
 			"filter": "clubRollupBoardForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
-			//**Chess Tournament - Chess Packages**
+			/**Chess Tournament - Chess Packages**
 			".00028-club-tournament-supplies.10-tournament-packages":{
 			"filter": "clubchesssets",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
@@ -975,20 +975,20 @@ var store_filter = function() {
 			".00028-club-tournament-supplies.10-tournament-packages.24-zukert-tournament-packages":{
 			"filter": "clubchesssets",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},
+			},*/
 			
 			//**Chess Tournament - Clocks**
 			".00028-club-tournament-supplies.12-chess-clocks":{
 			"filter": "clubClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			".00028-club-tournament-supplies.12-chess-clocks.digital-chess-clocks":{
 			"filter": "clubClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			".00028-club-tournament-supplies.12-chess-clocks.analog-chess-clocks":{
 			"filter": "clubClocksForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:150});}
 			},
 			
 			/**Chess Tournament - Books**
@@ -1018,189 +1018,189 @@ var store_filter = function() {
 			//**Chess bags**
 			".00039-chess-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.12-chess-piece-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.14-chess-piece-sleeve-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.16-small-tournament-chess-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.18-large-tournament-chess-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.20-tcs-large-tournament-chess-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00039-chess-bags.22-jumbo-tournament-chess-bags":{
 			"filter": "chessBagsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
 			//**Chess DVDs**
 			".00044-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.10-novice-beginner-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.12-strategy-tactics-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.14-new-releases-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.16-chess-openings-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.18-chess-middlegame-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.20-chess-endgames-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.22-chessbase-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.24-chess-on-dvd-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.28-roman_s-lab-mastering-chess-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.30-foxy-openings-series-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.32-chessbase-power-play-series-chess-dvds":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.34-susan-polgar-chess-on-dvd-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.36-chessbase-end-game-chess-dvd-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.38-chessbase-tutorials-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.40-roman_s-forum-chess-dvd-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.42-roman_s-encyclopedia-chess-dvd-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			".00044-chess-dvds.44-chess-on-dvd-grandmaster-series":{
 			"filter": "chessDvdForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			
 			//**Chess Books**
 			".00034-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},   
 			".00034-chess-books.00010-everyman-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00012-gambit-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00014-fireside-chess-library-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00016-batsford-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00018-openings-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00020-middle-game-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00022-end-game-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00024-game-collection-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00026-puzzle-training-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00028-beginner-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00030-new-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			".00034-chess-books.00032-all-chess-books":{
 			"filter": "chessBookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
 			//**Chess Software**  
 			".00048-chess-software":{
 			"filter": "chessSoftwareForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},  
 			
 			//**Chess Scorebooks**
 			".00046-chess-scorebooks":{
 			"filter": "chessScorebookForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},   
 			
 			//**Chess Tables** 
 			".00050-chess-tables":{
 			"filter": "chessTableForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},   
 			
 			//**Chess Books** 
 			".00042-chess-demonstration-boards":{
 			"filter": "chessDemoForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
 			//**Chess Potpourri**
 			".00053-chess-potpourri":{
 			"filter": "chessPotpourriForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			}  
 			
 			
