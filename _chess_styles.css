@@ -1238,10 +1238,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 label.break	{display:block; margin-bottom:2px;}
 .layeredSearch	{color:#ffffff;}
 .layeredSearch legend	{
-	font-size:14px; 
+	font-size:16px; 
 	font-weight:bold;
-	text-decoration:underline;
-	color:#D35120;
+	font-family: 'Neuton', serif;
+	color:#6F290F;
 	}
 .layeredSearch label{
 	font-size:12px;
