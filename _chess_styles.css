@@ -180,9 +180,11 @@ fieldset {
   background: #5b3c28;
   color: #f4d57a;
   font-size: 1.2em;
+  height:35px;
   -webkit-box-shadow: 0 2px 2px 0 #999999;
   -moz-box-shadow: 0 2px 2px 0 #999999;
-  box-shadow: 0 2px 2px 0 #999999; }
+  box-shadow: 0 2px 2px 0 #999999; 
+  }
   .headerTop li {
     line-height: 3em; }
   .headerTop a {
@@ -1273,6 +1275,13 @@ label.break	{display:block; margin-bottom:2px;}
 	background: -ms-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
+}
+div .slider-range a:nth-of-type(1){
+	background-image:url(images/arrow_circle_green_right.png) !important;
+}
+
+div .slider-range a:nth-of-type(2){
+	background-image:url(images/arrow_circle_green_left.png) !important;
 }
 
 
