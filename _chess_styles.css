@@ -1238,10 +1238,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 label.break	{display:block; margin-bottom:2px;}
 .layeredSearch	{color:#ffffff;}
 .layeredSearch legend	{
-	font-size:13px; 
+	font-size:14px; 
 	font-weight:bold;
 	text-decoration:underline;
 	}
+.layeredSearch label{
+	font-size:12px;
+}
 .layeredSearch fieldset	{margin-bottom:12px;}
 
 .layeredSearch div{
@@ -1909,10 +1912,7 @@ sizingMethod='scale')";
 	border-bottom: 0.3px solid #D3D3D3;
 	z-index:0;
 }
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
-	z-index:1;
+#listsArticle h1{
+	margin-bottom: 70px;
 }
 
-.loginButton{
-	z-index:25px;
-}
