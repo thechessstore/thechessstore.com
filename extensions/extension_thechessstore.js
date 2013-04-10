@@ -262,7 +262,7 @@ var extension_thechessstore = function() {
 				".00064-shop-by-brand.manopoulos.5-backgammon-sets" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.the-chess-store.6-chess-boards" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.the-chess-store.8-chess-bags" : "categoryTemplate3PanelCat",
-				".00064-shop-by-brand.zmartfun_electronics" : "categoryTemplate3PanelCat",
+				".00064-shop-by-brand.zmartfun_electronics" : "categoryTemplate3PanelCat"
 				
 				
 				
