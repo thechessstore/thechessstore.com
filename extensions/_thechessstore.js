@@ -1309,7 +1309,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 				}
 			
 			},'datapointer':'appPublicSearch|elasticFiltering',
-			'templateID':'productListTemplateResultsFilter'
+			'templateID': $form.data('loadstemplate') || 'productListTemplateResultsFilter'
 			});
 		app.model.dispatchThis();
 		}
