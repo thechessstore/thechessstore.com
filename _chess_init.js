@@ -66,8 +66,6 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
 	
 
-
-
 //Will do an appPageGet for the description of each category.0
 //requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
 // AND the list spec must contain a catDesc class where the description is to appear.
@@ -113,8 +111,11 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	
-	var $context = $(app.u.jqSelector('#',P.parentID)); 
-	
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+	*/
 	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
 		app.u.dump(" -> safe id DOES have a filter.");
@@ -165,10 +166,22 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 		
 	}]);
 	
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) {
+		
+		app.ext.store_filter.vars.catPageID.empty().remove();		
+	}]);
+	*/
+	
 	
 app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
 	
-	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));
+	*/ 
 	
 	app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
@@ -220,10 +233,22 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 		
 	}]);
 	
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.rq.push(['templateFunction','categoryTemplate3PanelCat','onDeparts',function(P) {
+		
+		app.ext.store_filter.vars.catPageID.empty().remove();		
+	}]);
+	*/
+	
 	
 	app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
 	
-	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID)); 
+	*/
 	
 	app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
@@ -274,6 +299,16 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 		
 		
 	}]);
+	
+	//**UN-COMMENT TO ADD AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	/*
+	app.rq.push(['templateFunction','categoryTemplate4PanelCat','onDeparts',function(P) {
+		
+		app.ext.store_filter.vars.catPageID.empty().remove();
+		
+			
+	}]);
+	*/
 	
 	
 	

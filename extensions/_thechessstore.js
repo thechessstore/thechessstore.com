@@ -26,6 +26,7 @@ var store_filter = function() {
 	var r = {
 		
 	vars : {
+		catPageID: "",
 		'templates' : []
 		},
 
