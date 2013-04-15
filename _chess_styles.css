@@ -1301,6 +1301,11 @@ div .slider-range a:nth-of-type(2){
 	color:#6F290F;
 }
 
+div ul .filterSearchResults3{
+	height: 330px;
+	width: 220px;
+}
+
 /**Category template body**/
 #catTempCont{
 	width:760px;

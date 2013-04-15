@@ -697,49 +697,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		
 		</div>
 	
-		<!--
-  		<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
-       			<div class="browseDropdown sidebarShopByCat">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarSpecDept">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarShopByBrand">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarTeachAndLearn">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>-->
+	
         
         <div class="clear"></div>
     </div>
@@ -1121,6 +1079,20 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<div class='prodThumbContainer'>
         <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' alt="" />
+		</div>
+
+		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+
+		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+	</div>
+	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+</li>
+
+<li id='productListTemplateResultsFilter3' class='loadingBG searchResultsPG filterSearchResults3' >
+	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
+		<div class='prodThumbContainer'>
+        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='180' alt="" />
 		</div>
 
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
@@ -2304,7 +2276,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS PIECES FILTERED SEARCH FORMS****-->
 <!--**Wood Chess Pieces-->
-<form action='#' name='woodChessPiecesForm' id='completeChessSetsForm' class='layeredSearch' data-loadstemplate="someTemplateID">
+<form action='#' name='woodChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -2876,7 +2848,7 @@ put all filters into the appFilters container.
 </form>-->
 
 <!--**Plastic Chess Sets-->
-<form action='#' name='plasticChessSetsForm' id='completePlasticChessSetsForm' class='layeredSearch'>
+<form action='#' name='plasticChessSetsForm' id='completePlasticChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -2970,7 +2942,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Travel Chess Sets-->
-<form action='#' name='travelChessSetsForm' id='completeTravelChessSetsForm' class='layeredSearch'>
+<form action='#' name='travelChessSetsForm' id='completeTravelChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3038,7 +3010,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS BOARDS FILTERED SEARCH FORMS****-->
 <!--**natural Wood Chess Boards-->
-<form action='#' name='natWoodChessBoardsForm' id='completeNatWoodChessBoardsForm' class='layeredSearch'>
+<form action='#' name='natWoodChessBoardsForm' id='completeNatWoodChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3094,7 +3066,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Stained Wood Chess Boards-->
-<form action='#' name='stainWoodChessBoardsForm' id='completeStainWoodChessBoardsForm' class='layeredSearch'>
+<form action='#' name='stainWoodChessBoardsForm' id='completeStainWoodChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3148,7 +3120,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Vinyl Chess Boards-->
-<form action='#' name='vinylChessBoardsForm' id='completeVinylChessBoardsForm' class='layeredSearch'>
+<form action='#' name='vinylChessBoardsForm' id='completeVinylChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3243,7 +3215,7 @@ put all filters into the appFilters container.
 <!--****CHESS ACCESSORIES FILTERED SEARCH FORMS****-->
 
 <!--**Chess Clocks-->
-<form action='#' name='chessClocksForm' id='completeChessClocksForm' class='layeredSearch'>
+<form action='#' name='chessClocksForm' id='completeChessClocksForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3314,7 +3286,7 @@ put all filters into the appFilters container.
 
 <!--****CHESS CLUB AND TOURNAMENT SUPPLIES****-->
 <!--**Plastic Chess Pieces-->
-<form action='#' name='clubPlasticPiecesForm' id='completeClubPlasticPiecesForm' class='layeredSearch'>
+<form action='#' name='clubPlasticPiecesForm' id='completeClubPlasticPiecesForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3354,7 +3326,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Vinyl Chess Boards-->
-<form action='#' name='clubVinylForm' id='completeClubVinylForm' class='layeredSearch'>
+<form action='#' name='clubVinylForm' id='completeClubVinylForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3400,7 +3372,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess Bags-->
-<form action='#' name='clubBagsForm' id='completeClubBagsForm' class='layeredSearch'>
+<form action='#' name='clubBagsForm' id='completeClubBagsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3439,7 +3411,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Plastic Chess Pieces with Rollup Boards-->
-<form action='#' name='clubRollupBoardForm' id='completeClubRollupBoardForm' class='layeredSearch'>
+<form action='#' name='clubRollupBoardForm' id='completeClubRollupBoardForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3487,7 +3459,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Tournament Chess Sets-->
-<form action='#' name='clubChessSetsForm' id='completeclubChessSetsForm' class='layeredSearch'>
+<form action='#' name='clubChessSetsForm' id='completeclubChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3535,7 +3507,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Tournament Chess Clocks-->
-<form action='#' name='clubClocksForm' id='completeClubClocksForm' class='layeredSearch'>
+<form action='#' name='clubClocksForm' id='completeClubClocksForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3575,7 +3547,6 @@ put all filters into the appFilters container.
     <label class='break'><input type='checkbox' value='natural' />Natural</label>
     <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
 </fieldset>
-<p>Chess Tournament form. Work in progress.</p>
 <button class="resetButton"> Reset</button>
 
 </form>
@@ -3583,7 +3554,7 @@ put all filters into the appFilters container.
 
 <!--****ACCESSORIES****-->
 <!--**Chess Bags-->
-<form action='#' name='chessBagsForm' id='completeChessBagsForm' class='layeredSearch'>
+<form action='#' name='chessBagsForm' id='completeChessBagsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3622,7 +3593,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess DVDs-->
-<form action='#' name='chessDvdForm' id='completeChessDvdForm' class='layeredSearch'>
+<form action='#' name='chessDvdForm' id='completeChessDvdForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
@@ -3689,7 +3660,7 @@ put all filters into the appFilters container.
 </form>
 
 <!--**Chess Books-->
-<form action='#' name='chessBookForm' id='completeChessBookForm' class='layeredSearch'>
+<form action='#' name='chessBookForm' id='completeChessBookForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
 
 <br />
 <button class="resetButton"> Reset</button>
