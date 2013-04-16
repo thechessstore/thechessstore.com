@@ -181,7 +181,6 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
 	app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));
-	*
 	
 	app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
 	if(app.ext.store_filter.filterMap[P.navcat])	{
