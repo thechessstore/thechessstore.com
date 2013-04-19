@@ -1255,7 +1255,6 @@ var store_filter = function() {
 					}
 				return r;
 				}, //slider
-			
 			hidden : function($fieldset){
 				return app.ext.store_filter.u.buildElasticTerms($("input:hidden",$fieldset),$fieldset.attr('data-elastic-key'));
 				},
@@ -1287,7 +1286,7 @@ if(app.ext.store_filter.u.validateFilterProperties($form))	{
 	var query = {
 		"mode":"elastic-native",
 		"size":50,
-		"filter" : app.ext.store_filter.u.buildElasticFilters($form)
+		"filter" : app.ext.store_filter.u.buildElasticFilters($form),
 		}//query
 //	app.u.dump(" -> Query: "); app.u.dump(query);
 	if(query.filter.and.length > 0)	{
@@ -1378,7 +1377,7 @@ $('fieldset',$form).each(function(){
 //and requires at least 2 inputs, so add a match_all.
 //if there are no filters, don't add it. the return is also used to determine if any filters are present
 	if(filters.and.length == 1)	{
-		filters.and.push({match_all:{}})
+		filters.and.push({'not':{'term':{'prod_outofstock':'1'}}})
 		}
 return filters;				
 				
