@@ -1479,6 +1479,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 }
 .outOfStockBlock3 h1{
 	text-align:center;
+	line-height:105px;
 }
 
 .productList li.productListTemplate3Panel h6{
