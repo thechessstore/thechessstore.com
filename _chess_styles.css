@@ -1436,7 +1436,15 @@ width:100%;
 .productList li.productListTemplate{
 	width:355px;
 	height:330px;
-		
+	position:relative;	
+}
+outOfStockBlock{
+	position:absolute;
+	z-index:10;
+	background-color:gray;
+	opacity:.5;
+	width:355px;
+	height:330px;
 }
 .productList li.productListTemplate h6{
 	color:#D4511F;

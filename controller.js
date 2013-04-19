@@ -2454,6 +2454,13 @@ return $r;
 				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:inline is added as well.
 				}
 			},
+			greyIfSet : function($tag,data)	{
+			if(data.value)	{
+				$tag.show().css('background-color','gray'); 
+				$tag.show().css('opacity','.5');
+				$tag.show().css('z-index','10');
+				}
+			},
 
 //handy for enabling tabs and whatnot based on whether or not a field is populated.
 //doesn't actually do anything with the value.
