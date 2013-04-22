@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310y",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310z",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://www-87ffd4ea5f-hoth-zoovy-net.app-hosted.com/s=www.87ffd4ea5f.hoth.zoovy.net/",
 	"httpURL": "http://www.87ffd4ea5f.hoth.zoovy.net/",
@@ -673,7 +673,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<h5 class="floatLeft"> Your Selections:</h5>
     	</div> ********removed temporarily until filtered search can be implemented-->
 	
-    	<h4 data-bind='var: category(pretty); format:text;'></h4>
+    	<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
         
 		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	
