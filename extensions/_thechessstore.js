@@ -1374,11 +1374,16 @@ $('fieldset',$form).each(function(){
 		filters.and.push(filter);
 		}
 	});
+
+	filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
+
 //and requires at least 2 inputs, so add a match_all.
 //if there are no filters, don't add it. the return is also used to determine if any filters are present
-	if(filters.and.length == 1)	{
-		filters.and.push({'not':{'term':{'prod_outofstock':'1'}}})
-		}
+// * doesn't do anything. added by clinton. removed by JT.
+ 	if(filters.and.length == 1)	{
+		filters.and.push({match_all:{}})
+ 		}
+
 return filters;				
 				
 				},

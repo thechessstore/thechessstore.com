@@ -2262,11 +2262,22 @@ effects the display of the nav buttons only. should be run just after the handle
 					elasticsearch = app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.TAG)	{
-					elasticsearch = {"filter":{"term":{"tags":infoObj.TAG}}}
+					elasticsearch = {
+						"filter":{
+							and : [
+								{"term":{
+									"tags":infoObj.TAG
+									}},
+								{'not':{'term':{'prod_outofstock':'1'}}}
+								]
+							}
+						}
+//					filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
 					elasticsearch = app.ext.store_search.u.buildElasticRaw(elasticsearch);
 					}
 				else if (infoObj.KEYWORDS) {
 					var qObj = {'query':infoObj.KEYWORDS} //what is submitted to the query generator.
+					
 					if(infoObj.fields)	{qObj.fields = infoObj.fields}
 					elasticsearch = app.ext.store_search.u.buildElasticSimpleQuery(qObj);
 					}

@@ -466,6 +466,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 //Example of an obj would be: {'query':'some search string'} OR {'query':'some search string','fields':'prod_keywords'}
 			buildElasticSimpleQuery : function(obj)	{
 				var query = {}; //what is returned. false if error occurs.
+				app.u.dump(obj);
 				if(obj && obj.query)	{
 					query.type = 'product';
 					query.mode = 'elastic-native';
