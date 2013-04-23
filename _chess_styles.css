@@ -1972,3 +1972,28 @@ sizingMethod='scale')";
 .prodViewerContainer tbody tr td.imageContainer{
 	 padding-right: 15px;
 }
+.checkoutFormContainer form fieldset{
+	border: thin dashed;
+    float: left;
+    margin-bottom: 20px;
+    width: 99%;
+}
+.panelContent div textarea{
+	width:99%;
+}
+.checkoutFormContainer form button{
+	height:25px;
+	margin-top: -4px;
+}
+.checkoutFormContainer form button span{
+	margin-top: -3px;
+}
+.placeOrderButton{
+	height: 40px !important;
+    margin-bottom: 10px;
+    margin-top: 10px !important;
+    width: 150px;
+}
+.placeOrderButton span{
+	font-size: 17px;
+}

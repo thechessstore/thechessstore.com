@@ -29,12 +29,17 @@ var myRIA = function() {
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
+			'categoryTemplate3PanelCat',
+	        'categoryTemplate4PanelCat',
 			'categoryListTemplate',
+			'categoryListTemplate3Panel',
+            'categoryListTemplate4Panel',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
 			'productListTemplateATC',
 			'productListTemplateBuyerList',
 			'productListTemplateResults',
+			'productListTemplateResultsFilter',
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
@@ -2288,7 +2293,17 @@ effects the display of the nav buttons only. should be run just after the handle
 					elasticsearch = app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.TAG)	{
-					elasticsearch = {"filter":{"term":{"tags":infoObj.TAG}}}
+					elasticsearch = {
+            "filter":{
+              and : [
+                {"term":{
+                  "tags":infoObj.TAG
+                  }},
+                {'not':{'term':{'prod_outofstock':'1'}}}
+                ]
+              }
+            }
+//          filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
 					elasticsearch = app.ext.store_search.u.buildElasticRaw(elasticsearch);
 					}
 				else if (infoObj.KEYWORDS) {
@@ -2701,9 +2716,15 @@ buyer to 'take with them' as they move between  pages.
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
 						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
+	  	
+            		else if(app.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+             			app.u.dump("category list template option selected");
+              			infoObj.templateID = app.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			app.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
 					infoObj.state = 'onInits';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
 					infoObj.parentID = parentID;
@@ -3040,7 +3061,7 @@ else	{
 			createTemplateFunctions : function()	{
 
 				app.ext.myRIA.template = {};
-				var pageTemplates = new Array('categoryTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
+				var pageTemplates = new Array('categoryTemplate','categoryTemplate3PanelCat','categoryTemplate4PanelCat','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
 				var L = pageTemplates.length;
 				for(var i = 0; i < L; i += 1)	{
 					app.ext.myRIA.template[pageTemplates[i]] = {"onCompletes":[],"onInits":[],"onDeparts":[]};
