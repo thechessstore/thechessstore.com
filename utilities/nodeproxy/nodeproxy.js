@@ -1,3 +1,4 @@
+
 //
 // anyCommerce Developer Proxy+Webserver
 //
@@ -60,7 +61,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3a. change any of these variables to match your project:
-var TESTING_DOMAIN = "www.87ffd4ea5f.hoth.zoovy.net";
+var TESTING_DOMAIN = "www.zoovy.com";
 var PROJECT_DIRECTORY = process.cwd() + "/../..";		// the root directory where your project files are located
 
 // 3b. run: node nodeproxy.js
@@ -127,16 +128,16 @@ http.createServer(function(req, res) {
 		// res.write("404 Local File Not Found - Additionally \"Host:\" Header Missing - forwarding not possible.\n");
 		// res.end();
 		// return
-
+		
 		// for now we'll do all our requests http (we still need a way to know if origin request was http or https)
 		FILEMISSINGproxy.proxyRequest(req, res, {
 			host: req.headers.host,
 			port: 80
 			});
-
+			
 		return;
 		}
-
+	
 	if (fs.statSync(filename).isDirectory()) filename += '/index.html';
  
     fs.readFile(filename, "binary", function(err, file) {
@@ -277,7 +278,7 @@ proxyWebServer.on('connect', function(req, socket, head) {
 		// console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!** HTTP MAGIC **!!!!!!!!!!!!!!!!!!!!!");
 		parts[0] = "127.0.0.1"; parts[1] = "9002";
 		}
-
+	
 	var conn = net.connect(parts[1], parts[0], function() {
 		// respond to the client that the connection was made
 		socket.write("HTTP/1.1 200 OK\r\n\r\n");
@@ -298,3 +299,4 @@ console.log("Ready to work\n .. use ctrl+C to exit\n");
 
 // Copyright Zoovy, Inc. 2013
 // MIT-LICENSE
+

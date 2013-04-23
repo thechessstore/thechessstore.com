@@ -1969,3 +1969,6 @@ sizingMethod='scale')";
 	margin-bottom: 70px;
 }
 
+.prodViewerContainer tbody tr td.imageContainer{
+	 padding-right: 15px;
+}
