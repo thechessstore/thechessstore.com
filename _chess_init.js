@@ -169,8 +169,9 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
 	app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) {
-		
-		app.ext.store_filter.vars.catPageID.empty().remove();		
+		if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
+    		app.ext.store_filter.vars.catPageID.empty().remove();
+		}		
 	}]);
 	
 	
