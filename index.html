@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310al",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310ak",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -724,7 +724,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	
 		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate3Panel; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate3Panel; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
 	
 		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	</div>
@@ -808,7 +808,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	
 		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate4Panel; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate4Panel; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
 	
 		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	</div>
