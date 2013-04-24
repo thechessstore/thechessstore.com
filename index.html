@@ -173,7 +173,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         	<div class="dropdown headerDropdown leftAlign">
 								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" class="pointer">Wood Chess Pieces</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});" class="pointer">Metal Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets.marble-onyx-chess-pieces'});" class="pointer">Marble & Onyx Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000285-marble-onyx-stone-chess-pieces'});" class="pointer">Marble & Onyx Chess Pieces</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});" class="pointer">Plastic Chess Pieces</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00029-theme-chess-pieces'});" class="pointer">Theme Chess Pieces</a></div>
                                 <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});" class="pointer">Unfinished Wood Chess Pieces</a></div>
@@ -399,8 +399,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 	<div class="homepageBannerImg">
 		<div id="featureImg">
     		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});" alt="" />
             <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" alt="" />
     		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});" alt="" />
     		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" alt="" />
@@ -469,7 +469,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             	<div class="homepageCatTitle">Metal Chess Pieces</div>
                 <div class="homepageCatDesc">Elegant metal chessmen including Staunton, theme, art deco, and contemporary designs in a variety of finishes.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets.marble-onyx-chess-pieces'});">
+            <li class="pointer" onClick="return showContent('category',{'navcat':'.000285-marble-onyx-stone-chess-pieces'});">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/marble-onyx-stone-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Marble & Onyx Chess Pieces</div>
                 <div class="homepageCatDesc">Beautiful marble, onyx, and stone chessmen for something different or upgrading with a board you have.</div>
@@ -682,7 +682,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	
 		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
 	
 		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 	</div>
@@ -837,7 +837,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </li>
 
 
-<li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate" data-bind="category(id); format: hideNonAppCat; extension: extension_thechessstore;">
+<li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate" data-bind=" var: category(id); format: hideNonAppCat; extension: extension_thechessstore;">
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
 		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' alt="" /></div>
 		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>

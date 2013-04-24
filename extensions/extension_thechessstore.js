@@ -277,7 +277,8 @@ var extension_thechessstore = function() {
 			},
 			hiddenCats : [
         ".00012-wood-chess-sets-with-chess-boards.4-model",
-        ".bar"
+        ".00014-wood-chess-sets-with-chess-cases.4-model",
+		".00010-wood-chess-sets.4-model"
 			],
 			
 			reviewSelector : ".reviewsContainer"
@@ -312,7 +313,7 @@ var extension_thechessstore = function() {
 
 			hideNonAppCat : function($tag, data) {
 				 app.u.dump('category list hiding function begins');
-				if(app.ext.extension_thechessstore.vars.hiddenCats$.inArray(value, array)){
+				if($.inArray(data.value, app.ext.extension_thechessstore.vars.hiddenCats) != -1){
 					 $tag.hide();
 					 app.u.dump('Category item matches list item. Removing from list');
 				}
