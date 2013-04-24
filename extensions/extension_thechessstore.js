@@ -275,6 +275,10 @@ var extension_thechessstore = function() {
 
 
 			},
+			hiddenCats : [
+        ".00012-wood-chess-sets-with-chess-boards.4-model",
+        ".bar"
+			],
 			
 			reviewSelector : ".reviewsContainer"
 		},
@@ -290,7 +294,7 @@ var extension_thechessstore = function() {
 			},
 			startExtension : {
 				onSuccess : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess')
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');
 				},
 				onError : function (){
 					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
@@ -304,8 +308,18 @@ var extension_thechessstore = function() {
 					$tag.addClass('assembly');
 				}
 			},
-			
-			
+				
+
+			hideNonAppCat : function($tag, data) {
+				 app.u.dump('category list hiding function begins');
+				if(app.ext.extension_thechessstore.vars.hiddenCats$.inArray(value, array)){
+					 $tag.hide();
+					 app.u.dump('Category item matches list item. Removing from list');
+				}
+				else{
+					app.u.dump('Category item does not match list, ending hide check');
+				}
+			}
 		}
 	}
 	return r;
