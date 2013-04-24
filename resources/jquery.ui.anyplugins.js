@@ -743,12 +743,12 @@ and it'll turn the cb into an ios-esque on/off switch.
 
 			}, //_init
 		_turnOn : function()	{
-			this.span.text('yes');
+			this.span.text('Yes');
 			this.span.addClass('ui-state-highlight ui-corner-left').removeClass('ui-state-default ui-corner-right');
 			this.span.animate({'left':-1},'fast');
 			},
 		_turnOff : function()	{
-			this.span.text('no');
+			this.span.text('No');
 			this.span.addClass('ui-state-default ui-corner-right').removeClass('ui-state-highlight ui-corner-left');
 			this.span.animate({'left': 24},'fast');
 			},
