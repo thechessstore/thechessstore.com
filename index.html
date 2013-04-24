@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310ag",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310ah",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -57,6 +57,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <link href="magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
 <script type="text/javascript" src="loadscript.js"></script>
 <!--<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>-->
 <!--<script type="text/javascript" src="jquery-1.8.2.min.js"></script>-->
@@ -1881,7 +1882,7 @@ So the cart template should contain these two elements and the extension should 
 	<div class='checkoutButtonsContainer'>
 
 		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">Store Checkout</button></span>
-
+	
 		<span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
 
 		<span id='googleCheckoutButton' class='pointer' data-bind='var: cart(sum/items_total); format:googleCheckoutButton;'></span>
@@ -1891,8 +1892,6 @@ So the cart template should contain these two elements and the extension should 
 	</div>
 			
 </section>
-
-<span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed PostIt 170x52"></span>
 
 		</div>
 	</div>
