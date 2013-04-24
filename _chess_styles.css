@@ -2000,3 +2000,15 @@ sizingMethod='scale')";
 .placeOrderButton span{
 	font-size: 17px;
 }
+#checkoutContainer{
+	padding-left: 15px;
+    padding-right: 5px;
+}
+.extendedAddressInput{
+	width: 350px;
+}
+#checkoutContainer legend{
+	background-color: #B29F6B;
+    background-image: none;
+    color: #5B3C29;
+}

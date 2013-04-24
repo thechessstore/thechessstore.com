@@ -9,16 +9,16 @@ item list and summary are separate just to give more control over location.
 -->
 <div id='checkoutTemplate' class='checkoutFormContainer' data-app-role='checkout'>
 
-<div id='beforeThirdParty'>
-Paying with PayPal? Scroll down to payment and select paypal, then click place order and we'll see you when you get back from PayPal!
-</div>
-
-<div id='returnFromThirdPartyPayment' class="ui-state-highlight ui-corner-all displayNone"> 
-	<p class='clearfix'>
-	<span class='floatLeft ui-icon ui-icon-info'></span>
-	<strong>Welcome back, you are nearly done!</strong> Just confirm your information below and then push the 'place order' button at the bottom.
-	</p>
-</div>
+    <div id='beforeThirdParty'>
+    Paying with PayPal? Scroll down to payment and select paypal, then click place order and we'll see you when you get back from PayPal!
+    </div>
+    
+    <div id='returnFromThirdPartyPayment' class="ui-state-highlight ui-corner-all displayNone"> 
+        <p class='clearfix'>
+        <span class='floatLeft ui-icon ui-icon-info'></span>
+        <strong>Welcome back, you are nearly done!</strong> Just confirm your information below and then push the 'place order' button at the bottom.
+        </p>
+    </div>
 
 	<form action='#'>
 	<input type='hidden' name='bill/shortcut' data-bind="var: cart(bill/shortcut); format:popVal;" />
@@ -32,7 +32,7 @@ Paying with PayPal? Scroll down to payment and select paypal, then click place o
 
 
 
-	<fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom'>
+	<fieldset data-app-role='chkoutAccountCreate' class='displayNone marginBottom chkoutAccountCreate' >
 		<legend class='headerPadding' >Account Creation</legend>
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutAccountCreateTemplate; '></div>
 	</fieldset>
@@ -151,9 +151,9 @@ This template is also used in the myAccount page, which is why a default using _
 
 	<div class='bill_company'><input type='text' name='bill/company' placeholder='company' value='' data-bind='var: cart(bill/company); defaultVar: cart(bill/company); format:popVal;'  /></div><!-- class is added so it can be easily disabled w/ css -->
 
-	<div><input type='text' name='bill/address1' placeholder='address' required='required' value='' data-bind='var: cart(bill/address1); defaultVar: cart(bill/address1); format:popVal;'  data-app-event='orderCreate|execAddressUpdate' /></div>
+	<div><input class="extendedAddressInput" type='text' name='bill/address1' placeholder='address' required='required' value='' data-bind='var: cart(bill/address1); defaultVar: cart(bill/address1); format:popVal;'  data-app-event='orderCreate|execAddressUpdate' /></div>
 
-	<div><input type='text' name='bill/address2' placeholder='address 2' value='' data-bind='var: cart(bill/address2); defaultVar: cart(bill/address2); format:popVal;'  data-app-event='orderCreate|execAddressUpdate' /></div>
+	<div><input class="extendedAddressInput" type='text' name='bill/address2' placeholder='address 2' value='' data-bind='var: cart(bill/address2); defaultVar: cart(bill/address2); format:popVal;'  data-app-event='orderCreate|execAddressUpdate' /></div>
 
 	<div><input type='text' name='bill/city' placeholder='city' required='required' value='' data-bind='var: cart(bill/city); defaultVar: cart(bill/city); format:popVal;'  data-app-event='orderCreate|execAddressUpdate' /></div>
 	
@@ -184,9 +184,9 @@ don't add required to any inputs because if bill to ship is checked, NONE of the
 
 	<div class='bill_company'><input type='text' name='ship/company' placeholder='company' value='' data-bind='var: cart(ship/company); defaultVar: cart(ship/company); format:popVal;'  /></div><!-- class is added so it can be easily disabled w/ css -->
 
-	<div><input type='text' name='ship/address1' placeholder='address' required='required' value='' data-bind='var: cart(ship/address1); defaultVar: cart(ship/address1); format:popVal;' data-app-event='orderCreate|execAddressUpdate' /></div>
+	<div><input class="extendedAddressInput" type='text' name='ship/address1' placeholder='address' required='required' value='' data-bind='var: cart(ship/address1); defaultVar: cart(ship/address1); format:popVal;' data-app-event='orderCreate|execAddressUpdate' /></div>
 
-	<div><input type='text' name='ship/address2' placeholder='address 2' value='' data-bind='var: cart(ship/address2); defaultVar: cart(ship/address2); format:popVal;' /></div>
+	<div><input class="extendedAddressInput" type='text' name='ship/address2' placeholder='address 2' value='' data-bind='var: cart(ship/address2); defaultVar: cart(ship/address2); format:popVal;' /></div>
 
 	<div><input type='text' name='ship/city' placeholder='city' required='required' value='' data-bind='var: cart(ship/city); defaultVar: cart(ship/city); format:popVal;' data-app-event='orderCreate|execAddressUpdate' /></div>
 	

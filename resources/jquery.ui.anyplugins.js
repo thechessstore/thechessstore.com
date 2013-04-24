@@ -717,8 +717,8 @@ and it'll turn the cb into an ios-esque on/off switch.
 			else if($.browser && $.browser.msie && Number($.browser.version.substring(0, 1)) <= 8)	{} //ie 8 not supported. didn't link binding.
 			else if($label.length)	{
 				var $input = $("input",$label).first(),
-				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0,'float':'left','cursor':'pointer','float':'left'}),
-				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em','cursor':'pointer'});
+				$container = $("<span \/>").addClass('ui-widget ui-widget-content ui-corner-all ui-widget-header').css({'position':'relative','display':'block','width':'55px','margin-right':'6px','height':'20px','z-index':1,'padding':0,'float':'left','cursor':'pointer','float':'left','background-image':'none','background-color':'#B29F6B'}),
+				$span = $("<span \/>").css({'padding':'0px','width':'30px','text-align':'center','height':'20px','line-height':'20px','position':'absolute','top':-1,'z-index':2,'font-size':'.75em'});
 	
 				$label.data('anycb',true); // allows for plugin to check if it's already been run on this element.
 				self.span = $span; //global (within instance) for easy reference.
@@ -743,12 +743,12 @@ and it'll turn the cb into an ios-esque on/off switch.
 
 			}, //_init
 		_turnOn : function()	{
-			this.span.text('on');
+			this.span.text('yes');
 			this.span.addClass('ui-state-highlight ui-corner-left').removeClass('ui-state-default ui-corner-right');
 			this.span.animate({'left':-1},'fast');
 			},
 		_turnOff : function()	{
-			this.span.text('off');
+			this.span.text('no');
 			this.span.addClass('ui-state-default ui-corner-right').removeClass('ui-state-highlight ui-corner-left');
 			this.span.animate({'left': 24},'fast');
 			},
