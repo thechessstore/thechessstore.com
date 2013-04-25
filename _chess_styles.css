@@ -1976,7 +1976,7 @@ sizingMethod='scale')";
 	 padding-right: 15px;
 }
 .checkoutFormContainer form fieldset{
-	border: thin dashed;
+	border: thin solid;
     float: left;
     margin-bottom: 20px;
     width: 99%;
@@ -2011,4 +2011,18 @@ sizingMethod='scale')";
 	background-color: #B29F6B;
     background-image: none;
     color: #5B3C29;
+}
+.orderSummaryDetails{
+	float:left;
+	 margin-top: -110px;
+}
+.orderContentsTable{
+	float:left;
+}
+.orderSummaryDetails h2{
+}
+.orderSummaryDetails h2{
+}
+.hide4Print button.writeReview{
+	height:35px;
 }

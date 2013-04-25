@@ -9,6 +9,9 @@ item list and summary are separate just to give more control over location.
 -->
 <div id='checkoutTemplate' class='checkoutFormContainer' data-app-role='checkout'>
 
+    
+
+	<form action='#'>
     <div id='beforeThirdParty'>
     Paying with PayPal? Scroll down to payment and select paypal, then click place order and we'll see you when you get back from PayPal!
     </div>
@@ -19,8 +22,6 @@ item list and summary are separate just to give more control over location.
         <strong>Welcome back, you are nearly done!</strong> Just confirm your information below and then push the 'place order' button at the bottom.
         </p>
     </div>
-
-	<form action='#'>
 	<input type='hidden' name='bill/shortcut' data-bind="var: cart(bill/shortcut); format:popVal;" />
 	<input type='hidden' name='ship/shortcut' data-bind="var: cart(ship/shortcut); format:popVal;" />
 
