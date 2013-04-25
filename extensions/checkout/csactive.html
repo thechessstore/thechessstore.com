@@ -53,7 +53,7 @@ item list and summary are separate just to give more control over location.
 		<div data-app-role='billToShipContainer' >
 		<label>
 		<input type='checkbox' name='want/bill_to_ship' data-bind="var: cart(want/bill_to_ship); format:popCheckbox; hideZero:false;" checked='checked' data-app-event='orderCreate|tagAsBillToShip' />
-		ship to billing address
+		ship to billing address &#42;&#42; Click slider if shipping to different address than billing address. &#42;&#42;
 		</label>
 		</div>
 	</fieldset>
@@ -124,7 +124,7 @@ item list and summary are separate just to give more control over location.
 	</div>
 
 	<input type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account</label>
+	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account &#42;&#42; Click slider if you want to create a new account &#42;&#42;</label>
 	
 
 

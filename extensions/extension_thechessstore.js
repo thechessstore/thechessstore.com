@@ -207,7 +207,7 @@ var extension_thechessstore = function() {
 				".00064-shop-by-brand.italfama" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.jaques-of-london" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.mad_catz" : "categoryTemplate3PanelCat",
-				".00064-shop-by-brand.manopoulos" : "categoryTemplate3PanelCat",
+				//".00064-shop-by-brand.manopoulos" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.rechapados-ferrer" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.wood-expressions" : "categoryTemplate3PanelCat",
 				".sales.after_christmas" : "categoryTemplate3PanelCat",
