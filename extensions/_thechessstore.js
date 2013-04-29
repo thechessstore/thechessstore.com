@@ -490,6 +490,10 @@ var store_filter = function() {
 			},
 			
 			//**Theme Chess Sets**
+			".00026-theme-chess-sets":{
+			"filter": "themeChessSetsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
+			},
 			".00026-theme-chess-sets.00012-theme-chess-set-packages":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
@@ -928,55 +932,55 @@ var store_filter = function() {
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:50});}
 			},
 			
-			/**Chess Tournament - Chess Packages**
+			//**Chess Tournament - Chess Packages**
 			".00028-club-tournament-supplies.10-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.02-master-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.04-value-club-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.06-clubtourney-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.10-conqueror-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.12-executive-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.14-professional-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.16-guardian-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.18-rogue-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.20-protourney-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.22-crown-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
 			},
 			".00028-club-tournament-supplies.10-tournament-packages.24-zukert-tournament-packages":{
-			"filter": "clubchesssets",
+			"filter": "clubChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},*/
+			},
 			
 			//**Chess Tournament - Clocks**
 			".00028-club-tournament-supplies.12-chess-clocks":{
