@@ -54,7 +54,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.0.custom/css/custom-theme-chess-store/jquery-ui-1.10.0.custom.css">
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
 <link href='https://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
-<link href="magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen"/>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
@@ -159,80 +158,80 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a  href="#" class='bindByAnchor HeaderNavBarLink'>Complete Chess Sets</a>
                         	<div class="dropdown headerDropdown leftAlign">
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" class="pointer">Wood Chess Sets with Boards</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});" class="pointer">Wood Chess Sets with Cases</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" class="pointer">Metal Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});" class="pointer">Plastic Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00026-theme-chess-sets'});" class="pointer">Theme Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});" class="pointer">Travel Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});" class="pointer">Garden Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00012-wood-chess-sets-with-chess-boards" class="pointer bindByAnchor">Wood Chess Sets with Boards</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00014-wood-chess-sets-with-chess-cases" class="pointer bindByAnchor" >Wood Chess Sets with Cases</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00018-metal-chess-sets.00012-metal-chess-set-packages" class="pointer bindByAnchor" >Metal Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00024-marble-onyx-chess-sets" class="pointer bindByAnchor" >Marble & Onyx Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00030-tournament-chess-set-kits" class="pointer bindByAnchor" >Plastic Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00026-theme-chess-sets" class="pointer bindByAnchor" >Theme Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00054-travel-chess-sets" class="pointer bindByAnchor" >Travel Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00045-garden-chess-sets" class="pointer bindByAnchor" >Garden Chess Sets</a></div>
 							</div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink'>Chess Pieces</a>
                         	<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" class="pointer">Wood Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});" class="pointer">Metal Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000285-marble-onyx-stone-chess-pieces'});" class="pointer">Marble & Onyx Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});" class="pointer">Plastic Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00029-theme-chess-pieces'});" class="pointer">Theme Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});" class="pointer">Unfinished Wood Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});" class="pointer">Jaques of London Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});" class="pointer">Artisan Bone Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});" class="pointer">Most Unique Chess Pieces</a></div>
+								<div class="headerDropdownLink"><a href="#!category?navcat=.00010-wood-chess-sets" class="pointer bindByAnchor" >Wood Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00027-metal-chess-pieces" class="pointer bindByAnchor" >Metal Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000285-marble-onyx-stone-chess-pieces" class="pointer bindByAnchor" >Marble & Onyx Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00020-plastic-chess-sets" class="pointer bindByAnchor" >Plastic Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00029-theme-chess-pieces" class="pointer bindByAnchor" >Theme Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00055-unfinished-chess-sets" class="pointer bindByAnchor" >Unfinished Wood Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00022-jaques-london-chess-sets" class="pointer bindByAnchor" >Jaques of London Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00033-artisan-hand-carved-chess-sets" class="pointer bindByAnchor" >Artisan Bone Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000295-most-unique-chess-pieces" class="pointer bindByAnchor" >Most Unique Chess Pieces</a></div>
 							</div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink'>Chess Boards</a>
 							<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00031-natural-wood-chess-boards'});" class="pointer">Natural Wood Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000311-stained-wood-chess-boards'});" class="pointer">Stained Wood Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000312-vinyl-chess-boards'});" class="pointer">Vinyl Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});" class="pointer">Chess Cases</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000314-metal-chess-boards'});" class="pointer">Metal Chess Boards</a></div>
+								<div class="headerDropdownLink"><a href="#!category?navcat=.00031-natural-wood-chess-boards" class="pointer bindByAnchor" >Natural Wood Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000311-stained-wood-chess-boards" class="pointer bindByAnchor" >Stained Wood Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000312-vinyl-chess-boards" class="pointer bindByAnchor" >Vinyl Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000313-chess-cases" class="pointer bindByAnchor" >Chess Cases</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000314-metal-chess-boards" class="pointer bindByAnchor" >Metal Chess Boards</a></div>
 							</div>
                         </div>
                         <div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='bindByAnchor HeaderNavBarLink'>Accesories</a>
                         	<div class="dropdown headerDropdown leftAlign">
- 								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});" class="pointer">Chess Clocks</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00037-chess-boxes'});" class="pointer">Chess Boxes</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});" class="pointer">Chess Cases</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00028-club-tournament-supplies'});" class="pointer">Chess Club Supplies</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00039-chess-bags'});" class="pointer">Chess Bags</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00044-chess-dvds'});" class="pointer">Chess DVDs</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00034-chess-books'});" class="pointer">Chess Books</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00048-chess-software'});" class="pointer">Chess Software</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00046-chess-scorebooks'});" class="pointer">Chess Scorebooks</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00050-chess-tables'});" class="pointer">Chess Tables</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00042-chess-demonstration-boards'});" class="pointer">Chess Demo Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00053-chess-potpourri'});" class="pointer">Chess Potpourri</a></div>
+ 								<div class="headerDropdownLink"><a href="#!category?navcat=.00036-chess-clocks" class="pointer bindByAnchor" >Chess Clocks</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00037-chess-boxes" class="pointer bindByAnchor" >Chess Boxes</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.000313-chess-cases" class="pointer bindByAnchor" >Chess Cases</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00028-club-tournament-supplies" class="pointer bindByAnchor" >Chess Club Supplies</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00039-chess-bags" class="pointer bindByAnchor" >Chess Bags</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00044-chess-dvds" class="pointer bindByAnchor" >Chess DVDs</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00034-chess-books" class="pointer bindByAnchor" >Chess Books</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00048-chess-software" class="pointer bindByAnchor" >Chess Software</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00046-chess-scorebooks" class="pointer bindByAnchor" >Chess Scorebooks</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00050-chess-tables" class="pointer bindByAnchor" >Chess Tables</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00042-chess-demonstration-boards" class="pointer bindByAnchor" >Chess Demo Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00053-chess-potpourri" class="pointer bindByAnchor" >Chess Potpourri</a></div>
 							</div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='HeaderNavBarLink' onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas'});">Gift Ideas</a> 
                             <div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.1-under-100'});" class="pointer">$1 - $100</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.2-100-19999'});" class="pointer">$100 - $200</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.3-200-29999'});" class="pointer">$200 - $300</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.4-300-49999'});" class="pointer">$300 - $500</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00062-great-gift-ideas.5-500up'});" class="pointer">$500 and Up</a></div>
+								<div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.1-under-100" class="pointer bindByAnchor" >$1 - $100</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.2-100-19999" class="pointer bindByAnchor" >$100 - $200</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.3-200-29999" class="pointer bindByAnchor" >$200 - $300</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.4-300-49999" class="pointer bindByAnchor" >$300 - $500</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.5-500up" class="pointer bindByAnchor" >$500 and Up</a></div>
 							</div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#" class='HeaderNavBarLink' onClick="return showContent('category',{'navcat':'.00064-shop-by-brand'});">Shop by Brand</a>
                        		<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.bhb'});" class="pointer">BHB</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.chessbase'});" class="pointer">ChessBase</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.chess-on-dvd'});" class="pointer">Chess on DVD</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.dgt'});" class="pointer">DGT</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.everyman-chess'});" class="pointer">Everyman Chess</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.gambit-books'});" class="pointer">Gambit Books</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.italfama'});" class="pointer">Italfama</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.jaques-of-london'});" class="pointer">Jaques of London</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.mad_catz'});" class="pointer">Mad Catz</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.manopoulos'});" class="pointer">Manopoulos</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.rechapados-ferrer'});" class="pointer">Rechapados Ferrer</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.studio-anne-carlton'});" class="pointer">Studio Anne Carlton</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.the-chess-store'});" class="pointer">The Chess Store</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.wood-expressions'});" class="pointer">Wood Expressions</a></div>
-                                <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00064-shop-by-brand.zmartfun_electronics'});" class="pointer"> ZmartFun Electronics</a></div>
+								<div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.bhb" class="pointer bindByAnchor" >BHB</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.chessbase" class="pointer bindByAnchor" >ChessBase</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.chess-on-dvd" class="pointer bindByAnchor" >Chess on DVD</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.dgt" class="pointer bindByAnchor" >DGT</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.everyman-chess" class="pointer bindByAnchor" >Everyman Chess</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.gambit-books" class="pointer bindByAnchor" >Gambit Books</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.italfama" class="pointer bindByAnchor" >Italfama</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.jaques-of-london" class="pointer bindByAnchor" >Jaques of London</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.mad_catz" class="pointer bindByAnchor" >Mad Catz</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.manopoulos" class="pointer bindByAnchor" >Manopoulos</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.rechapados-ferrer" class="pointer bindByAnchor" >Rechapados Ferrer</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.studio-anne-carlton" class="pointer bindByAnchor" >Studio Anne Carlton</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.the-chess-store" class="pointer bindByAnchor" >The Chess Store</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.wood-expressions" class="pointer bindByAnchor" >Wood Expressions</a></div>
+                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.zmartfun_electronics" class="pointer bindByAnchor" > ZmartFun Electronics</a></div>
 							</div>
                         </div>
 					</div>
