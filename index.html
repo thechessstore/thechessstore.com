@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201310at",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201310au",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -159,7 +159,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                         
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a  href="#" class='bindByAnchor HeaderNavBarLink'>Complete Chess Sets</a>
                         	<div class="dropdown headerDropdown leftAlign">
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00012-wood-chess-sets-with-chess-boards" class="pointer">Wood Chess Sets with Boards</a></div>
+                                  <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" class="pointer">Wood Chess Sets with Boards</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});" class="pointer">Wood Chess Sets with Cases</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});" class="pointer">Metal Chess Sets</a></div>
                                   <div class="headerDropdownLink"><a href="#" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" class="pointer">Marble & Onyx Chess Sets</a></div>
