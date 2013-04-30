@@ -2019,10 +2019,10 @@ sizingMethod='scale')";
 .orderContentsTable{
 	float:left;
 }
-.orderSummaryDetails h2{
-}
-.orderSummaryDetails h2{
-}
 .hide4Print button.writeReview{
 	height:35px;
+}
+
+.shipAddressContainer div.marginBottom{
+	clear:both;
 }
