@@ -25,7 +25,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314bd",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314be",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -2897,7 +2897,7 @@ put all filters into the appFilters container.
 <fieldset data-elastic-key="prod_material" data-filtertype="hidden">
 	<input type='hidden' name="prod_material" value="metal" />
 </fieldset>
-<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+<fieldset class="modelType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
 	<legend>Chess Set Type</legend>
     <label class='break'><input type='checkbox' value='staunton' />Staunton</label>
     <label class='break'><input type='checkbox' value='theme' />Theme</label>
