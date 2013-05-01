@@ -291,6 +291,10 @@ fieldset {
   width: 250px;
   margin-right: 30px;
   margin-top: 24px; }
+  
+  .headerBoxCenter a{
+	  color:#837978;
+  }
 
 .headerBoxRight {
   width: 180px;
