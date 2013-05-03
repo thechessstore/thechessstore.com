@@ -1947,12 +1947,29 @@ sizingMethod='scale')";
 #contactForm{
 	float:left;
 }
-#contactChat {
+.contactChat {
 	width: 100px;
 	height: 100px;
 	position: relative;
 	float: left;
 }
+.headerBoxCenter div.contactChat {
+	float: left;
+    height: 30px;
+    margin-left: 50px;
+    position: relative;
+    width: 100px;
+}
+
+/*******************************************************************************************************************************/
+/**Company Template**/
+#aboutArticle{padding-left:25px;}
+#contactArticle{padding-left:25px;}
+#faqArticle{padding-left:25px;}
+#paymentArticle{padding-left:25px;}
+#privacyArticle{padding-left:25px;}
+#returnArticle{padding-left:25px;}
+#shippingArticle{padding-left:25px;}
 
 
 

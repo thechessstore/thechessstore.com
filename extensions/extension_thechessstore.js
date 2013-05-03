@@ -312,7 +312,10 @@ var extension_thechessstore = function() {
 			},
 			startExtension : {
 				onSuccess : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');
+					$('.contactChat div').empty();
+					$('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
+					app.u.dump("contactChat div appended successfully");
+					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess2');
 				},
 				onError : function (){
 					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
