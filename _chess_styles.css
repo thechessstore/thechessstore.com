@@ -2044,6 +2044,10 @@ sizingMethod='scale')";
 .hide4Print button.writeReview{
 	height:35px;
 }
+.lineItemProdlist tbody tr td button.writeReview{
+	height: 40px;
+    padding-top: 0;
+}
 
 .shipAddressContainer div.marginBottom{
 	clear:both;

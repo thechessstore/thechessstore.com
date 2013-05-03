@@ -1683,6 +1683,8 @@ subscribeListsArticle is used for authenticated buyers
 	
 		<div id='ordersArticle' class='displayNone textContentArea'>
 			<h1>Order History</h1>
+            <h5>For USPS orders, click <a href="https://tools.usps.com/go/TrackConfirmAction_input" target="_blank">here</a> to go to the USPS tracking site.</h5>
+            <h5>For UPS orders, click <a href="http://www.ups.com/WebTracking/track?loc=en_US" target="_blank">here</a> to go to the USPS tracking site.</h5>
 			<div data-bind="var: orders(@orders); format:processList; loadsTemplate:orderLineItemTemplate;" data-app-role='orderList' class='ui-accordion ui-widget ui-helper-reset ui-accordion-icons '></div>
 		</div>
         
@@ -2104,15 +2106,15 @@ used for store_crm.js
 
 <!-- used in the /customer section for order view -->
 
-<section id='orderLineItemTemplate' class='appAccordianesque'>
-	
-	<div onClick="app.ext.myRIA.u.showOrderDetails($(this).attr('data-orderid'));" class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' data-bind='var:order(ORDERID);format:assignAttribute; attribute:data-orderid;'>
-	<span class="ui-icon ui-icon-triangle-1-e"></span>
+<section id='orderLineItemTemplate' class='appAccordianesque' data-bind='var:order(ORDERID);format:assignAttribute; attribute:data-orderid;'>
+
+	<div data-app-role='orderHeader' onClick="app.ext.myRIA.u.showOrderDetails($(this).parent());" class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' >
+	<span class="ui-icon ui-icon-triangle-1-e floatLeft marginRight"></span>
 	<span data-bind='var:order(ORDERID);format:text;pretext:Order ID: ;'></span>
 	<span data-bind='var:order(MODIFIED_GMT);format:unix2mdy; pretext: Placed on ;'></span>
 	</div>
-	
-	<div data-bind='var:order(ORDERID);format:assignAttribute; attribute:id; valuePretext:orderContents_;' class='ui-accordion-content ui-helper-reset ui-widget-content '></div>
+
+	<div data-app-role='orderContents' class='ui-accordion-content ui-helper-reset displayNone ui-widget-content '></div>
 
 </section>
 
