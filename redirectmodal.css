@@ -14,7 +14,7 @@
 	clear:both;
 }
 .redirectToSiteApp div img{
-	margin-left:110px;
+	margin-left:100px;
 }
 .redirectToSiteApp button{
 	float:left;
@@ -23,7 +23,9 @@
 	margin-left:135px;
 }
 
-.redirectToSiteApp button.autoRedirectButton{
+
+
+.autoRedirectToSiteApp button.autoRedirectButton{
 	margin-top:10px;
 }
 
@@ -48,7 +50,7 @@
 	width:100%;
 	text-align:center;
 }
-.redirectToSiteApp button{
+.autoRedirectToSiteApp button{
 	float:left;
 	margin-top:10px;
 }

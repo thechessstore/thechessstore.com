@@ -78,7 +78,7 @@ $(document).ready(function() {
 		$('<div class="redirectToSiteApp"> '+
 		'<h3>For a superior shopping experience, would you like to try out our new app site&#63;</h3>' +
 		'<div>' +
-			'<img src="logo.png" />' +
+			'<img src="http://static.zoovy.com/merchant/thechessstore/_ticket_374655/tcs_logo2-219x170.png" />' +
 		'</div>' +
 		'<button onclick="handleRedirect(); return false;">Yes</button>' +
 		'<button class="bugLaterButton" onclick="bugLater()">Remind me next time</button>' +
@@ -99,7 +99,7 @@ $(document).ready(function() {
 				'</div>').appendTo('head');
 				$('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
 				function foo1(){
-					//window.location = "http://app.thechessstore.com";
+					window.location = "http://app.thechessstore.com";
 				}
 				var autoRedirectTimer;
 				redirectTimer = foo1;
