@@ -1,4 +1,28 @@
 .redirectToSiteApp{
 	float:left; 
-	border:solid thick;
+	border:solid thick !important;
+}
+.redirectToSiteApp h3{
+	float:left;
+	text-align:center;
+	width:100%;
+}
+.redirectToSiteApp div{
+	width:100%;
+	float:left;
+	clear:both;
+}
+.redirectToSiteApp div img{
+	margin-left:175px;
+	margin-top:20px;
+}
+.stopFutureRedirectMessage{
+	display:none;
+	color:red;
+	width:100%;
+	text-align:center;
+}
+.redirectToSiteApp button{
+	float:left;
+	margin-top:10px;
 }

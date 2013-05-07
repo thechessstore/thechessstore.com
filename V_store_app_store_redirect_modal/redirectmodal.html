@@ -76,7 +76,7 @@ $(document).ready(function() {
 			sessionStorage.redirectToAppSessionNoCheck = false;
 		}
 		$('<div class="redirectToSiteApp"> '+
-		'<h3 style="float:left; text-align:center; width:100%;">Would you like to try out our new app site&#63;</h3>' +
+		'<h3 style="float:left; text-align:center; width:100%;">For a superior shopping experience, would you like to try out our new app site&#63;</h3>' +
 		'<div style="width:100%; height:170px; float:left; clear:both;">' +
 			'<img style="margin-left:110px;" src="logo.png" />' +
 		'</div>' +
@@ -90,12 +90,12 @@ $(document).ready(function() {
 			console.log("storage exists check passed");
 			if(localStorage.redirectToAppVar == "true"){
 				$('<div style="background-color:white; float:left;" class="autoRedirectToSiteApp"> '+
-				'<h3 style="float:left; text-align:center; width:100%;">Redirecting to app site. Please wait a few Seconds....</h3>' +
-				'<div style="width:100% float:left; clear:both;">' +
-					'<img style="margin-left:175px; margin-top:20px;" src="loading.gif.gif" />' +
+				'<h3>Redirecting to app site. Please wait a few Seconds....</h3>' +
+				'<div>' +
+					'<img src="loading.gif.gif" />' +
 				'</div>' +
-				'<p class="stopFutureRedirectMessage" style="display:none; color:red; width:100%; text-align:center;">Done!</p>' +
-				'<button style="float:left; margin-top:10px;" onclick="resetRedirectPreferences()">Prompt me next time instead of auto-redirecting</button>' +
+				'<p class="stopFutureRedirectMessage">Done!</p>' +
+				'<button onclick="resetRedirectPreferences()">Prompt me next time instead of auto-redirecting</button>' +
 				'</div>').appendTo('head');
 				$('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
 				function foo1(){
@@ -109,7 +109,7 @@ $(document).ready(function() {
 				console.log("One of the two storage values was true, redirect modal is not displaying.");
 			}
 				else{
-					$('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:430});
+					$('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:450});
 					console.log("Neither storage value was true, displaying redirect modal");
 					console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
 					console.log("localStorage = " + localStorage.redirectToAppVar);
