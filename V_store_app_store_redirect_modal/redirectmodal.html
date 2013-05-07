@@ -9,15 +9,40 @@
 </head>
 
 <body style="background-color:blue;">
+
+<!--SIMPLE SCRIPT TO TRANSFER IN CSS VALUES--> 
 <script type="text/javascript">
+ /**
+ * Loads a CSS file from the supplied URL
+ * @param {String} url    The URL of the CSS file, if its relative
+                          it will be to the current page's url
+ * @return {HTMLElement}  The <link> which was appended to the <head>
+ */
+ function loadcss(url) {
+   var head = document.getElementsByTagName('head')[0],
+   link = document.createElement('link');
+   link.type = 'text/css';
+   link.rel = 'stylesheet';
+   link.href = url;
+   head.appendChild(link);
+   return link;
+ }
+ 
+ loadcss('http://app.thechessstore.com/V_store_app_store_redirect_modal/redirectmodal.css');
+ </script>
+ 
+ <!--BEGIN MODAL FUNCTION SCRIPT-->
+<script type="text/javascript">
+
+//FUNCTIONS
 function handleRedirect() {
 	window.location = "http://app.thechessstore.com";
 	console.log("var Function was added");
 }
 function bugLater(){
-	sessionStorage.redirectToAppVar = true;
+	sessionStorage.redirectToAppSessionNoCheck = true;
 	$('.redirectToSiteApp').dialog('close');
-	console.log("sessionStorage = " + sessionStorage.redirectToAppVar);
+	console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
 	console.log("localStorage = " + localStorage.redirectToAppVar);
 }
 function autoRedirect(){
@@ -27,27 +52,30 @@ function autoRedirect(){
 }
 function resetRedirectPreferences(){
 	localStorage.redirectToAppVar = false;
-	console.log("sessionStorage have now been set to: " + sessionStorage.redirectToAppVar);
+	$(".stopFutureRedirectMessage").css("display", "block");
+	console.log("sessionStorage have now been set to: " + sessionStorage.redirectToAppSessionNoCheck);
 	console.log("localStorage have now been set to: " + localStorage.redirectToAppVar);
-	window.clearTimeout(autoRedirectTimer);
-	$('.autoRedirectToSiteApp').dialog('close');
 }
 
 
-
+//SCRIPT BEGINS WHEN THE PAGE IS FULLY LOADED
 $(document).ready(function() {
+	//RESET FOR THE SESSION VARIABLE
+	//sessionStorage.redirectToAppSessionNoCheck = false;
+	
+	
 	if(typeof(Storage)!=="undefined"){
 		if(localStorage.redirectToAppVar){
 		}
 		else{
 			localStorage.redirectToAppVar = false;
 		}
-		if(sessionStorage.redirectToAppVar){
+		if(sessionStorage.redirectToAppSessionNoCheck){
 		}
 		else{
-			sessionStorage.redirectToAppVar = false;
+			sessionStorage.redirectToAppSessionNoCheck = false;
 		}
-		$('<div style="float:left; border:solid thick" class="redirectToSiteApp"> '+
+		$('<div class="redirectToSiteApp"> '+
 		'<h3 style="float:left; text-align:center; width:100%;">Would you like to try out our new app site&#63;</h3>' +
 		'<div style="width:100%; height:170px; float:left; clear:both;">' +
 			'<img style="margin-left:110px;" src="logo.png" />' +
@@ -66,26 +94,26 @@ $(document).ready(function() {
 				'<div style="width:100% float:left; clear:both;">' +
 					'<img style="margin-left:175px; margin-top:20px;" src="loading.gif.gif" />' +
 				'</div>' +
+				'<p class="stopFutureRedirectMessage" style="display:none; color:red; width:100%; text-align:center;">Done!</p>' +
 				'<button style="float:left; margin-top:10px;" onclick="resetRedirectPreferences()">Prompt me next time instead of auto-redirecting</button>' +
 				'</div>').appendTo('head');
 				$('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
-				var redirectTimer;
 				function foo1(){
 					window.location = "http://app.thechessstore.com";
 				}
-				redirectTimer = foo1;
 				var autoRedirectTimer;
+				redirectTimer = foo1;
 				autoRedirectTimer = setTimeout(redirectTimer, 5000);
 			}
-			else if (sessionStorage.redirectToAppVar == "true"){
+			else if (sessionStorage.redirectToAppSessionNoCheck == "true"){
 				console.log("One of the two storage values was true, redirect modal is not displaying.");
 			}
-			else{
-				$('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:430});
-				console.log("Neither storage value was true, displaying redirect modal");
-				console.log("sessionStorage = " + sessionStorage.redirectToAppVar);
-				console.log("localStorage = " + localStorage.redirectToAppVar);
-			}
+				else{
+					$('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:430});
+					console.log("Neither storage value was true, displaying redirect modal");
+					console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
+					console.log("localStorage = " + localStorage.redirectToAppVar);
+				}
 		}
 	}
 	else{
