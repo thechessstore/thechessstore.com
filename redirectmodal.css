@@ -20,7 +20,7 @@
 	float:left;
 }
 .redirectToSiteApp button.bugLaterButton{
-	margin-left:128px;
+	margin-left:135px;
 }
 
 .redirectToSiteApp button.autoRedirectButton{
@@ -38,8 +38,9 @@
 	clear:both;
 }
 .autoRedirectToSiteApp div img{
-	margin-left:175px;
-	margin-top:20px;
+	margin-bottom: 20px;
+    margin-left: 175px;
+    margin-top: 5px;
 }
 .stopFutureRedirectMessage{
 	display:none;
