@@ -76,13 +76,13 @@ $(document).ready(function() {
 			sessionStorage.redirectToAppSessionNoCheck = false;
 		}
 		$('<div class="redirectToSiteApp"> '+
-		'<h3 style="float:left; text-align:center; width:100%;">For a superior shopping experience, would you like to try out our new app site&#63;</h3>' +
-		'<div style="width:100%; height:170px; float:left; clear:both;">' +
-			'<img style="margin-left:110px;" src="logo.png" />' +
+		'<h3>For a superior shopping experience, would you like to try out our new app site&#63;</h3>' +
+		'<div>' +
+			'<img src="logo.png" />' +
 		'</div>' +
-		'<button onclick="handleRedirect(); return false;" style="float:left;">Yes</button>' +
-		'<button onclick="bugLater()" style="float:left; margin-left:128px;">Remind me next time</button>' +
-		'<button onclick="autoRedirect()" style="float:left; margin-top:10px;">Always redirect to app site when visiting this site</button>' +
+		'<button onclick="handleRedirect(); return false;">Yes</button>' +
+		'<button class="bugLaterButton" onclick="bugLater()">Remind me next time</button>' +
+		'<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to app site when visiting this site</button>' +
 		//'<button onclick="resetRedirectPreferences()">Reset Preferences</button>' +
 		'</div>').appendTo('head');
 		
