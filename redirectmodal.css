@@ -23,7 +23,8 @@
 	margin-top: 35px;
 }
 .redirectToSiteApp button.bugLaterButton{
-	margin-left:134px;
+	
+	float:right;
 }
 .redirectToSiteApp button.autoRedirectButton{
 	margin-top:10px;
