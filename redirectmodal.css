@@ -28,7 +28,9 @@
 .redirectToSiteApp button.autoRedirectButton{
 	margin-top:10px;
 }
-
+div.ui-dialog div.ui-dialog-titlebar button.ui-dialog-titlebar-close {
+	display:none;
+}
 
 .autoRedirectToSiteApp{
 	background-color:white;
