@@ -16,6 +16,7 @@
 .redirectToSiteApp div img{
 	margin-left:120px;
 	margin-top:20px;
+	cursor:pointer;
 }
 .redirectToSiteApp button{
 	float:left;
