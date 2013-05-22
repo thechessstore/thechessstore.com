@@ -1499,7 +1499,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 }
 
 .productList li.productListTemplate3Panel h6{
-	color:#D4511F;
+	clear: none;
+    color: #D4511F;
+    display: block;
+    margin-left: 25px;
+    text-align: left;
+    width: 95px;
 }
 
 /**'productListTemplate4Panel**/
