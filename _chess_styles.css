@@ -1332,6 +1332,12 @@ div ul .filterSearchResults3{
 	width:400px;
 	float:left;
 }
+.catListTempCatPage div h5.stid{
+	clear: none;
+    display: block;
+    float: left;
+    font-family: 'Neuton',serif;
+}
 .catListTempCatPage h5{
 	font-size:16px;
 }
@@ -1455,7 +1461,12 @@ width:100%;
 	text-align:center;
 }
 .productList li.productListTemplate h6{
-	color:#D4511F;
+	clear: none;
+    color: #D4511F;
+    display: block;
+    float: left;
+    margin-left: 75px;
+    width: 100px;
 }
 .catPageProdInfoBox{
 background: rgb(147,116,73); /* Old browsers */
@@ -1978,6 +1989,7 @@ sizingMethod='scale')";
 .spaceAndAlignCenter{
 	width:100%;
 	text-align:center;
+	float:left;
 }
 .ui-button{
 	padding: 3px 5px;
@@ -2057,4 +2069,10 @@ sizingMethod='scale')";
 }
 #scLKQX{
 	 margin-left: 55px;
+}
+.quickviewLinkBottom{
+	cursor:pointer;
+}
+.quickviewLinkBottom:hover{
+	color:#6F290F;
 }

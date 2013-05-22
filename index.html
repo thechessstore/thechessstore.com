@@ -903,14 +903,17 @@ remember to NOT put the button inside the 'onclick' container or two events will
             </div>
     
             <h6 class="spaceAndAlignCenter" data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
-        
-            <div class="spaceAndAlignCenter">
-                <a class="spaceAndAlignCenter">View Details</a>
-            </div>		
+        	
+            <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
+            
+            	
         
         
 <!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
     </div>
+    <div class="spaceAndAlignCenter">
+        <a class="spaceAndAlignCenter quickviewLinkBottom" onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">View Details</a>
+    </div>	
 </li>
 
 <li id='productListTemplate3Panel' class='loadingBG catListTempCatPage floatLeft productListTemplate3Panel' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" data-bind='var: product(user:prod_outofstock); format: hideIfSet;'>
