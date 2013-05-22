@@ -922,6 +922,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 							app.ext.myRIA.vars.session.recentCategories.unshift(infoObj.navcat);
 							}
 						
+						infoObj.performJumpToTop = false; //dont jump to top.
 						infoObj.parentID = app.ext.myRIA.u.showPage(infoObj); //### look into having showPage return infoObj instead of just parentID.
 						break;
 	
