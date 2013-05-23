@@ -128,7 +128,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					</div>
 					<div class="headerBoxCenter">
 						<h6>Need help?</h6>
-						<p>1-888-810-2437 or click for online help.</p><div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>'
+						<p>1-888-810-2437 or click for online help.</p><div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>
 						<div class="clear"></div>
 						<p style="margin-top:5px;">8am to 5pm Monday through Friday</p>
                         <a class="headerShowroom pointer bindByAnchor" href="#!category?navcat=.00060-special_departments.visit_our_showroom">Visit Our Showroom</a>
@@ -1090,6 +1090,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
 
 		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+        <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
 	</div>
 	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>

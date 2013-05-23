@@ -1666,6 +1666,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 	width:100%;
 	text-align:center;
 }
+.searchResultsPG h5.stid{
+	color:#D4511F;
+}
 .searchResultsPG h6{
 	font-family: 'Neuton', serif;
 	font-size:18px;
