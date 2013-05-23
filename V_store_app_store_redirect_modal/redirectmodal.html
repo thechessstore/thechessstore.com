@@ -71,13 +71,13 @@ $(document).ready(function() {
    sessionStorage.redirectToAppSessionNoCheck = false;
   }
   $('<div class="redirectToSiteApp"> '+
-  '<h3>Try our new site for a superior shopping experience&#63;</h3>' +
+  //'<h3>Try our new site for a superior shopping experience&#63;</h3>' +
+  '<button onclick="handleRedirect(); return false;">Visit New Site</button>' +
+  '<button class="bugLaterButton" onclick="bugLater()">Use Old Site</button>' +
   '<div>' +
    '<img onclick="handleRedirect(); return false;" src="http://app.thechessstore.com/images/logo.png" />' +
   '</div>' +
   '<button class="autoRedirectButton" onclick="autoRedirect()">Always redirect to new site when visiting www.TheChessStore.com</button>' +
-'<button onclick="handleRedirect(); return false;">See it in action</button>' +
-  '<a class="bugLaterButton" onclick="bugLater()">Remind me next time</a>' +
   //'<button onclick="resetRedirectPreferences()">Reset Preferences</button>' +
   '</div>').appendTo('head');
   
