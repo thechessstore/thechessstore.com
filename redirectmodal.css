@@ -26,9 +26,7 @@
 }
 .redirectToSiteApp button.bugLaterButton{
 	cursor: pointer;
-    float: right;
-    font-size: 14px;
-	margin-top:40px;
+    float: left;
 }
 .redirectToSiteApp a.bugLaterButton:hover{
 	text-decoration:underline;
