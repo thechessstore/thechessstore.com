@@ -3,7 +3,6 @@ chess store:
 - magic zoom acting funky. See podio.
 - orders not appending the domain to them. Find out why.
 - wiki issue with spec tabs
-- click slider instructions need to be changed on checkout.
 - category page needs to return to previous scroll state instead of scrolling to the top. Need to confirm before implementing.
 - function needs to be built to hide parts of the center header section whenever user is on the cat/prod page. check podio for content requests.
-- Modal changes. See podio. **number 2 priority
+- Modal changes. See podio. Awaiting install only. **number 2 priority
