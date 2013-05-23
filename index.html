@@ -123,24 +123,17 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					</nav>
 				</div>
 				<div class="headerBottom">
-					<div class="headerBoxLeft">
+					<div class="headerBoxLeft headerHideShow">
 						<a href="#homepage?." class='bindByAnchor' title='Home'><img src="images/logo.png" alt="The Chess Store" width='178' height='150'></a>
 					</div>
 					<div class="headerBoxCenter">
-						<h6>Need help?</h6>
-						<p>1-888-810-2437 or click for online help.</p><div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>
+						<h6 class="headerHideShow">Need help?</h6>
+						<p class="headerHideShow">1-888-810-2437 or click for online help.</p><div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>
 						<div class="clear"></div>
-						<p style="margin-top:5px;">8am to 5pm Monday through Friday</p>
-                        <a class="headerShowroom pointer bindByAnchor" href="#!category?navcat=.00060-special_departments.visit_our_showroom">Visit Our Showroom</a>
-						<form name='headerSearchFrm' action='#' class='productSearchForm marginTop' method="get">
-							<fieldset>
-								<!-- <legend>Search</legend> -->
-								<input type='search' name='KEYWORDS' value='Sets, Plastic Pieces, etc.' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
-								<input class="search" type="submit" value="GO" id="searchBarButton" />
-							</fieldset>
-						</form>
+						<p class="headerHideShow" style="margin-top:5px;">8am to 5pm Monday through Friday</p>
+                        <a class="headerShowroom pointer bindByAnchor headerHideShow" href="#!category?navcat=.00060-special_departments.visit_our_showroom">Visit Our Showroom</a>
 					</div>
-					<div class="headerBoxCenter">
+					<div class="headerBoxCenter headerHideShow">
 						<!--<h6 class='accent'>Get up to $30% Off</h6> TODO: 30% off - maybe popup -->
                         <img src="ups-truck-image-homepage-172.jpg" class="headerImage" alt="" />
 						<p>$7.00 Flat Rate Shipping <a class='secondary pointer bindByAnchor' href="#!category?navcat=.informational_pages.5-dollar-ups-ground-shipping">* See details</a></p>
@@ -149,17 +142,29 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<div class="headerBoxRight">
 						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
 						<p><a href="#cart?." class='bindByAnchor' title='Checkout'>Checkout</a></p>
-						<p><a href="#customer?show=lists" class='bindByAnchor' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
+						<p><a href="#customer?show=lists" class='bindByAnchor headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
 
-                        <p><a class="pointer" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
+                        <p><a class="pointer headerHideShow" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
 					</div>
-					<h2 class="headerMotto">Specializing in the game of chess since 1999</h2>
+                    <div class="headerHideShow headerHideShowContent">
+                        <h6>Need help?</h6>
+                        <p>1-888-810-2437 or click for online help.</p>
+                        <p style="margin-top:5px;">8am to 5pm Monday through Friday</p>
+                    </div>
+                    <h2 class="headerMotto headerHideShow">Specializing in the game of chess since 1999</h2>
+                    <form name='headerSearchFrm' action='#' class='productSearchForm' method="get">
+							<fieldset>
+								<!-- <legend>Search</legend> -->
+								<input type='search' name='KEYWORDS' value='Sets, Plastic Pieces, etc.' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
+								<input class="search" type="submit" value="GO" id="searchBarButton" />
+							</fieldset>
+						</form>
 				</div>
 				<!-- <ul id="tier1categories"></ul> -->
 				<div class="headerNavBar">
 					<div class="headerNavUlBar">
 						<!--<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div> TODO: chess set builder - get link -->
-                        
+                        <div class="floatLeft navBarPos"><a href="#homepage?." class="bindByAnchor HeaderNavBarLink">Homepage</a></div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Complete Chess Sets</a>
                         	<div class="dropdown headerDropdown leftAlign">
                                   <div class="headerDropdownLink"><a href="#!category?navcat=.00012-wood-chess-sets-with-chess-boards" class="pointer bindByAnchor">Wood Chess Sets with Boards</a></div>

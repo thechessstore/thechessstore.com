@@ -101,6 +101,18 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	else	{
 		//most likely, no subcats.
 		}
+		
+	//BEGIN HEADER HIDING FUNCTION
+	$(".headerHideShow").hide();
+	$(".headerBoxCenter").css("margin", "0");
+	$(".headerBottom").css("height", "50px");
+	$(".headerBottom").css("padding-bottom", "11px");
+	$(".headerBottom").css("padding-top", "4px");
+	$(".headerBoxCenter").css("width", "200px");
+	$(".headerBoxCenter").css("margin-top", "13px");
+	$(".headerHideShowContent").css("display", "block");
+	$(".productSearchForm").css("height", "100%");
+	$(".productSearchForm").css("margin-top", "18px");
 	}]);
 
 
@@ -171,8 +183,19 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) {
 		if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
     		app.ext.store_filter.vars.catPageID.empty().remove();
-		}		
-	}]);
+		}	
+		
+		//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+		$(".headerHideShow").show();
+		$(".headerBoxCenter").css("margin-right", "30px");
+		$(".headerBottom").css("height", "150px");
+		$(".headerBottom").css("padding", "15px");
+		$(".headerBoxCenter").css("width", "250px");
+		$(".headerBoxCenter").css("margin-top", "0px");
+		$(".headerHideShowContent").css("display", "none");
+		$(".productSearchForm").css("height", "22px");
+		$(".productSearchForm").css("margin", "0");
+		}]);
 	
 	
 	
@@ -230,14 +253,35 @@ app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',functi
 		showContent('category',{'navcat':P.navcat});
 		});
 		
-		
+		//BEGIN HEADER HIDING FUNCTION
+	$(".headerHideShow").hide();
+	$(".headerBoxCenter").css("margin", "0");
+	$(".headerBottom").css("height", "50px");
+	$(".headerBottom").css("padding-bottom", "11px");
+	$(".headerBottom").css("padding-top", "4px");
+	$(".headerBoxCenter").css("width", "200px");
+	$(".headerBoxCenter").css("margin-top", "13px");
+	$(".headerHideShowContent").css("display", "block");
+	$(".productSearchForm").css("height", "100%");
+	$(".productSearchForm").css("margin-top", "18px");
 	}]);
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
 	app.rq.push(['templateFunction','categoryTemplate3PanelCat','onDeparts',function(P) {
 		
-		app.ext.store_filter.vars.catPageID.empty().remove();		
+		app.ext.store_filter.vars.catPageID.empty().remove();
+		
+		//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+		$(".headerHideShow").show();
+		$(".headerBoxCenter").css("margin-right", "30px");
+		$(".headerBottom").css("height", "150px");
+		$(".headerBottom").css("padding", "15px");
+		$(".headerBoxCenter").css("width", "250px");
+		$(".headerBoxCenter").css("margin-top", "0px");
+		$(".headerHideShowContent").css("display", "none");
+		$(".productSearchForm").css("height", "22px");
+		$(".productSearchForm").css("margin", "0");		
 	}]);
 	
 	
@@ -527,7 +571,34 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 		app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
 		
 	}
+	
+	//BEGIN HEADER HIDING FUNCTION
+	$(".headerHideShow").hide();
+	$(".headerBoxCenter").css("margin", "0");
+	$(".headerBottom").css("height", "50px");
+	$(".headerBottom").css("padding-bottom", "11px");
+	$(".headerBottom").css("padding-top", "4px");
+	$(".headerBoxCenter").css("width", "200px");
+	$(".headerBoxCenter").css("margin-top", "13px");
+	$(".headerHideShowContent").css("display", "block");
+	$(".productSearchForm").css("height", "100%");
+	$(".productSearchForm").css("margin-top", "18px");
 
+}]);
+
+
+app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) 
+{
+//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+		$(".headerHideShow").show();
+		$(".headerBoxCenter").css("margin-right", "30px");
+		$(".headerBottom").css("height", "150px");
+		$(".headerBottom").css("padding", "15px");
+		$(".headerBoxCenter").css("width", "250px");
+		$(".headerBoxCenter").css("margin-top", "0px");
+		$(".headerHideShowContent").css("display", "none");
+		$(".productSearchForm").css("height", "22px");
+		$(".productSearchForm").css("margin", "0");
 }]);
 
 app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
