@@ -1,4 +1,3 @@
 chess store: 
-- orders not appending the domain to them. Find out why.
 - Issue with magic zoom acting funky still occurring.
 - wiki formatting not working for spec tab.

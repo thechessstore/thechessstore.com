@@ -522,7 +522,7 @@ announceBar h2{
 .navBarPos{
 	position:relative;
 	margin-left:20px;
-	margin-right:15px;
+	margin-right:20px;
 	float:left;
 	height:20px;
 }
