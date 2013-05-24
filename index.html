@@ -1319,7 +1319,7 @@ this will likely become more flexible in the future. ###
 			<div data-bind='var: product(user:prod_specialmedia); format:wiki; wikiFormats:myRIA'></div>
 	</div>
     <div class='tabContent' data-anytab-content='prodAccess'>
-			<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateATC;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
+			<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
 	</div>
 	
 	
@@ -1332,11 +1332,6 @@ this will likely become more flexible in the future. ###
 	<h2 style="color:#421908;">You Might Also Like</h2>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
 </div>
-
-<div class="displayNone" data-bind='var: product(zoovy:accesory_products); format:showIfSet;'>
-		<h2 style="color:#421908;">Accessories</h2>
-		<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist youMIghtLikeUL' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1; withInventory:1; withVariations:1;"></ul>
-	
 </div>
 <div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
 		

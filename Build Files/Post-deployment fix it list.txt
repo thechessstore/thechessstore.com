@@ -1,5 +1,4 @@
 chess store: 
 - orders not appending the domain to them. Find out why.
-- Accessories list should match related products with the exception of the beige background.
 - Issue with magic zoom acting funky still occurring.
 - wiki formatting not working for spec tab.
