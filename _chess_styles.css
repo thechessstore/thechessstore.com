@@ -1336,7 +1336,7 @@ div ul .filterSearchResults3{
 }
 
 /**Category template body**/
-#catTempCont{
+.catTempCont{
 	width:760px;
 	height:100%;
 	float:right;

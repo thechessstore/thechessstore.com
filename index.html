@@ -671,7 +671,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="clear"></div>
     </div>
 	
-    <div id="catTempCont">
+    <div class="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
 		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" alt="" />-->
@@ -713,7 +713,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="clear"></div>
     </div>
 	
-    <div id="catTempCont">
+    <div class="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
 		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
@@ -797,7 +797,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         <div class="clear"></div>
     </div>
 	
-    <div id="catTempCont">
+    <div class="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
 		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
@@ -1025,9 +1025,9 @@ container ul should have lineItemProdlist class on it instead of productList
 		
 			<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
 			
-			<input type='submit' value='Add to Cart' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' class='displayNone ui-button ui-button-text ui-corner-all ui-state-default addToCartButton atcButton' />
+			<input type='submit' value='Add to Cart' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' class='displayNone ui-button ui-button-text ui-corner-all ui-state-default addToCartButton atcButton' />
 			
-			<input type='hidden' value='1' size='3' name='quantity' />
+			<input type='hidden' value='1' name='quantity' />
 		
 		</form>
 
@@ -1332,7 +1332,6 @@ this will likely become more flexible in the future. ###
 	<h2 style="color:#421908;">You Might Also Like</h2>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
 </div>
-</div>
 <div data-bind="var:product(pid);format:assignAttribute; attribute:id; valuePretext:prodReviews_;">
 		
         <h2 id="readReview" style="color:#421908;">Reviews</h2>
@@ -1400,7 +1399,7 @@ this will likely become more flexible in the future. ###
 <tr>
 	<td colspan='2'>
 
-	<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+	<ul class='listStyleNone clearfix productReviewsList' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
 
 	</td>
 </tr>
@@ -1498,8 +1497,8 @@ adding classes is not likely to have any bad effects.
 	
 		<div id='contactArticle' class='displayNone textContentArea'>
 			<h1>Contact Us</h1>
-           <!-- <h3>Online Support&#58;</h3>
-            <!-- BEGIN ProvideSupport.com Graphics Chat Button Code -->
+           <!-- <h3>Online Support&#58;</h3>-->
+            <!--BEGIN ProvideSupport.com Graphics Chat Button Code -->
 			<!--<div class="contactChat">
             	<div></div>
             </div>
