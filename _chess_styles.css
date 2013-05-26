@@ -2108,3 +2108,7 @@ sizingMethod='scale')";
 .quickviewLinkBottom:hover{
 	color:#6F290F;
 }
+
+#modalCart div#modalCartContents div form.cartTemplateForm p, h4{
+	font-size:16px;
+}
