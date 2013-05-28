@@ -2051,7 +2051,7 @@ sizingMethod='scale')";
 	width:99%;
 }
 .checkoutFormContainer form button{
-	height:25px;
+	height:23px;
 	margin-top: -4px;
 }
 .checkoutFormContainer form button span{
@@ -2136,4 +2136,30 @@ sizingMethod='scale')";
 }
 .checkoutFormContainer legend{
 	font-size:14px;
+}
+.loginBox{
+	float:left;
+	clear:left;
+}
+.passwordBox{
+	float:left;
+	clear:left;
+}
+.accountCreateContainer{
+	float:left;
+	clear:left;
+}
+.checkoutLoginButton{
+	float:left;
+	margin-top:2px !important;
+}
+.cartShippingOptions{
+	border: thin solid black;
+    padding-bottom: 0;
+    padding-top: 8px;
+	margin-top:5px;
+}
+.cartShippingOptions p{
+	margin-bottom: 0;
+    margin-top: -5px;
 }

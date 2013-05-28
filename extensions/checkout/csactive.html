@@ -117,14 +117,13 @@ item list and summary are separate just to give more control over location.
 <h4 class='displayNone' data-app-role='username' data-bind="var:cart(bill/email); defaultVar: cart(customer/login); format:text;"></h4>
 
 <div data-app-role='login'>
-
+	<input class="loginBox" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><div>&#42;If you do not wish to create an account just enter your email.&#42;</div><br />
 	<div data-app-role='loginPasswordContainer' class='displayNone'>
-		<div>If you have an account with us, please enter your password below to login</div>
-		<input type='password' placeholder='password' size='30' name='password' /><button data-app-event='orderCreate|execBuyerLogin'>login</button>
+    	<input class="passwordBox" type='password' placeholder='password' size='30' name='password' /><button class="checkoutLoginButton" data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
+    <label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Toggle checkbox to Yes if you would like to create an account.</label>
 
-	<input type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><br />
-	<label class='accountCreateContainer'><input type='checkbox' name='want/create_customer' data-app-event='orderCreate|tagAsAccountCreate' />Create customer account &#42;&#42; Click slider/checkbox if you want to create a new account &#42;&#42;</label>
+	
 	
 
 

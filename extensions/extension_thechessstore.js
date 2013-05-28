@@ -322,6 +322,25 @@ var extension_thechessstore = function() {
 				}
 			}
 		},
+		
+		
+		////////////////////////////////////   ACTION    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//actions are functions triggered by a user interaction, such as a click/tap.
+//these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
+		a : {
+			
+			showCartShippingChart : function(){
+				function foo(){
+				 app.u.dump('begin showCartShippingChart function');
+				 $(".cartShippingOptions").show();
+				}
+				setTimeout(foo, 3000);
+			}
+			
+		},
+		
+		
 		renderFormats : {
 			//The render format for determining if a product is a component. Adds a class of assembly to these products that can be used to stylize them.
 			addAssemblyClass : function($tag, data){

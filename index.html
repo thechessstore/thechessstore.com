@@ -1900,13 +1900,22 @@ So the cart template should contain these two elements and the extension should 
 <section class='stdMargin'>
 
 	<div class='cartZipCodeContainer'>
-	<label for='data-ship_zip'>Zip/Postal Code:</label>
-	<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
-	app.ext.store_cart.u.updateCartSummary();
-	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
-	app.model.dispatchThis('immutable');"  />
-    <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
-	</div>
+        <label for='data-ship_zip'>Zip/Postal Code:</label>
+        <input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
+        app.ext.store_cart.u.updateCartSummary();
+        app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
+        app.model.dispatchThis('immutable');"  />
+        <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
+        <p>Here are your shipping options (select at checkout):</p>
+        <div class="cartShippingOptions">
+            <p>U.S.P.S. Priority Mail $5.95</p>
+            <p>UPS Ground $8.95</p>
+            <p>UPS 3 Day Select $19.95</p>
+            <p>UPS 2nd Day Air $32.00</p>
+            <p>UPS Next Day Air Saver $43.80</p>
+            <p>UPS Next Day Air $55.17</p>
+        </div>
+    </div>
 
 	
 
