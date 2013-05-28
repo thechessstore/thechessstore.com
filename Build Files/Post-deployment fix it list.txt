@@ -1,3 +1,4 @@
 chess store: 
 - wiki formatting not working for spec tab.
-- Make corrections to the cart/checkout. See podio in features section.
+- Make corrections to the cart/checkout. Shipping list for cart added but function to show list when calculate button is clicked is being overridden by the actual calculate function.
+- Alterations to the v-store and how GA registers a new user with the site.-- No simple fix to this issue. Will have to consult with JT on how best to change when GA counts a user as visiting the v-store.
