@@ -2109,6 +2109,31 @@ sizingMethod='scale')";
 	color:#6F290F;
 }
 
-#modalCart div#modalCartContents div form.cartTemplateForm p, h4{
-	font-size:16px;
+#modalCartContents p{
+	font-size:14px;
+}
+#modalCartContents h4{
+	font-size:12px;
+}
+#modalCartContents div{
+	font-size:12px;
+}
+.cartSummaryTotalsContainer h3{
+	margin:0;
+}
+.cartZipCodeContainer{
+	margin:0;
+}
+.stdMargin{
+	margin-top:0;
+}
+.cartSummary{
+	margin-top:2px;
+	margin-bottom:2px;
+}
+.checkoutFormContainer div{
+	font-size:12px;
+}
+.checkoutFormContainer legend{
+	font-size:14px;
 }

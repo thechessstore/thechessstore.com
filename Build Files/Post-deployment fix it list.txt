@@ -1,3 +1,3 @@
 chess store: 
-- Issue with magic zoom acting funky still occurring.
 - wiki formatting not working for spec tab.
+- Make corrections to the cart/checkout. See podio in features section.
