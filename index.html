@@ -28,7 +28,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"201314cx",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314cy",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -1906,7 +1906,7 @@ So the cart template should contain these two elements and the extension should 
         app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
         app.model.dispatchThis('immutable');"  />
         <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
-        <p>Here are your shipping options (select at checkout):</p>
+        <!--<p>Here are your shipping options (select at checkout):</p>-->
        <!-- <div class="cartShippingOptions">
             <p>U.S.P.S. Priority Mail $5.95</p>
             <p>UPS Ground $8.95</p>
