@@ -120,7 +120,6 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 
 
 
-//sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 	
 	var $context = $(app.u.jqSelector('#',P.parentID));
