@@ -1357,9 +1357,8 @@ div ul .filterSearchResults3{
 	float:left;
 }
 .catListTempCatPage div h5.stid{
-	clear: none;
-    display: block;
-    float: left;
+	text-align:center;
+	width:100%;
     font-family: 'Neuton',serif;
 }
 .catListTempCatPage h5{
@@ -1525,10 +1524,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', end
 .productList li.productListTemplate3Panel h6{
 	clear: none;
     color: #D4511F;
-    display: block;
-    margin-left: 15px;
-    text-align: left;
-    width: 95px;
+    display: inline;
+    text-align: center;
+    width: 100%;
 }
 
 /**'productListTemplate4Panel**/
