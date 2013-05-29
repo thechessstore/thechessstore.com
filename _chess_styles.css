@@ -1486,10 +1486,9 @@ width:100%;
 .productList li.productListTemplate h6{
 	clear: none;
     color: #D4511F;
-    display: block;
     float: left;
-    margin-left: 75px;
-    width: 100px;
+    width: 100%;
+	text-align:center;
 }
 .catPageProdInfoBox{
 background: rgb(147,116,73); /* Old browsers */
