@@ -1880,7 +1880,7 @@ So the cart template should contain these two elements and the extension should 
 	
 	<div data-bind='var: cart(sum/tax_total); format:money; className:orderTax; hideZero:true;currencySign: $; pretext:Tax: ; '></div>
 
-	<div data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
+	<div data-bind='var:  cart(@shipmethods); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
 	
 	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
 	
@@ -1895,7 +1895,7 @@ So the cart template should contain these two elements and the extension should 
 <section id='cartTemplateShippingContainer'>
 	<h3>Shipping:</h3>
     <p>**Shipping price above reflects lowest cost shipping. Shipping on orders over 50 dollars qualify for 7 dollar flat rate shipping. See the shipping information for more details.**</p>
-	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@shipmethods); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
+	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
 		
 <section class='stdMargin'>
