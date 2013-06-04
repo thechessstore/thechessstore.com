@@ -28,7 +28,7 @@ _gaq.push(['_trackPageview']);
 var myCreole;
 
 var app = {vars:{
-	"release":"201314df",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314dg",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -1897,7 +1897,7 @@ So the cart template should contain these two elements and the extension should 
 
 <section id='cartTemplateShippingContainer'>
 	<!--<h3>Shipping:</h3>-->
-    <p>**Enter your zip/postal code to view your accurate shipping options and cost.**</p>
+    <p>**Enter your zip/postal code to view your shipping options and cost.**</p>
     <div class='cartZipCodeContainer'>
         <label for='data-ship_zip'>Zip/Postal Code:</label>
         <input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
@@ -1905,6 +1905,7 @@ So the cart template should contain these two elements and the extension should 
         app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
         app.model.dispatchThis('immutable');"  />
         <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
+        <p>**International Orders: Shipping options and cost may vary from what is displayed and calculated due to size, weight, and value restrictions of the carrier and country. You will be contacted if there are any changes necessary.</p>
     </div>
 	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
