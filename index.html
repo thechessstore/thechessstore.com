@@ -1877,46 +1877,41 @@ So the cart template should contain these two elements and the extension should 
 <section id='cartTemplateCostSummary' class='cartSummary'>
 
 	<div data-bind="var: cart(sum/items_total); format:money; className:orderSubtotal; hideZero:false; currencySign: $; pretext:Subtotal: ; "></div>
-	
+
 	<div data-bind='var: cart(sum/tax_total); format:money; className:orderTax; hideZero:true;currencySign: $; pretext:Tax: ; '></div>
 
-	<div data-bind='var:  cart(@shipmethods); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
-	
-	<div data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
-	
+    <div class="cartShippingAmountPH">Shipping: Not Calculated.</div>
+    <div class="cartShippingAmount" data-bind='var: cart(want/shipping_id); format:shipInfoById; className:orderShipping; hideZero:false; extension:store_cart;'></div>
+
+	<div class="cartOrderAmountPH">Order Total: Not Calculated.</div>
+    <div class="cartOrderAmount" data-bind='var: cart(sum/order_total); format:money; className:orderTotal; hideZero:false; currencySign: $; pretext:Order Total: ; '></div>
+
 	<div data-bind='var: cart(sum/gfc_total); format:money; className:orderGiftcardTotal; hideZero:false; currencySign: $; pretext:Giftcard(s): ; '></div>
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; hideZero:false; currencySign: $; pretext:Reward Points: ; '></div>
 	<div data-bind='var: cart(sum/rmc_total); format:money; className:returnsCreditTotal; hideZero:false; currencySign: $; pretext:Returns Credit: ; '></div>
+
 	
-	<div data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Estimated Total: ; extension:store_cart;'></div>
+    <div class="cartTotalOrderAmount" data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:Estimated Total: ; extension:store_cart;'></div>
 
 </section>
 
 <section id='cartTemplateShippingContainer'>
-	<h3>Shipping:</h3>
-    <p>**Shipping price above reflects lowest cost shipping. Shipping on orders over 50 dollars qualify for 7 dollar flat rate shipping. See the shipping information for more details.**</p>
-	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
-</section>
-		
-<section class='stdMargin'>
-
-	<div class='cartZipCodeContainer'>
+	<!--<h3>Shipping:</h3>-->
+    <p>**Enter your zip/postal code to view your accurate shipping options and cost.**</p>
+    <div class='cartZipCodeContainer'>
         <label for='data-ship_zip'>Zip/Postal Code:</label>
         <input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
         app.ext.store_cart.u.updateCartSummary();
         app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
         app.model.dispatchThis('immutable');"  />
         <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
-        <!--<p>Here are your shipping options (select at checkout):</p>-->
-       <!-- <div class="cartShippingOptions">
-            <p>U.S.P.S. Priority Mail $5.95</p>
-            <p>UPS Ground $8.95</p>
-            <p>UPS 3 Day Select $19.95</p>
-            <p>UPS 2nd Day Air $32.00</p>
-            <p>UPS Next Day Air Saver $43.80</p>
-            <p>UPS Next Day Air $55.17</p>
-        </div>-->
     </div>
+	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
+</section>
+		
+<section class='stdMargin'>
+
+	
 
 	
 
@@ -1927,7 +1922,7 @@ So the cart template should contain these two elements and the extension should 
 	
 	<div class='checkoutButtonsContainer'>
 
-		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">Store Checkout</button></span>
+		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">Continue to Checkout</button></span>
 	
 		<span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
 

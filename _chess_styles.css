@@ -2160,3 +2160,12 @@ sizingMethod='scale')";
 	margin-bottom: 0;
     margin-top: -5px;
 }
+.cartShippingAmount{
+	display:none;
+}
+.cartOrderAmount{
+	display:none;
+}
+.cartTotalOrderAmount{
+	
+}

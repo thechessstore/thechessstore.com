@@ -334,12 +334,17 @@ var extension_thechessstore = function() {
 			showCartShippingChart : function(){
 				function foo(){
 				 app.u.dump('begin showCartShippingChart function');
-				 $(".cartShippingOptions").show();
+				 $(".cartShipMethods").show();
 				}
 				setTimeout(foo, 3000);
 			}
 			
+			
+			
+			
 		},
+		
+		
 		
 		
 		renderFormats : {

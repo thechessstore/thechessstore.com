@@ -314,6 +314,14 @@ $tag.one('click',function(event){
 						if(app.data.cartDetail['@SHIPMETHODS'][i].amount)	{
 							o += "<span class='orderShipAmount'>"+app.u.formatMoney(app.data.cartDetail['@SHIPMETHODS'][i].amount,' $',2,false)+"<\/span>";
 							}
+							
+							   $(".cartShippingAmount").show();
+							   $(".cartOrderAmount").show();
+							   
+							   $(".cartShippingAmountPH").hide();
+							   $(".cartOrderAmountPH").hide();
+							   
+						  
 						break; //once we hit a match, no need to continue. at this time, only one ship method/price is available.
 						}
 					}
