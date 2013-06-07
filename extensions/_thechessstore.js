@@ -490,55 +490,63 @@ var store_filter = function() {
 			},
 			
 			//**Theme Chess Sets**
-			".00026-theme-chess-sets":{
+			".00025-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages":{
+			".00025-theme-chess-sets.12-polystone-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00010-fame-usa-theme-chess-set-packages":{
+			".00025-theme-chess-sets.14-metal-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00012-manopoulos-theme-chess-set-packages":{
+			".00025-theme-chess-sets.16-plastic-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00014-italfama-theme-chess-set-packages":{
+			".00025-theme-chess-sets.18-italfama-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00018-battles-wars-theme-chess-set-packages":{
+			".00025-theme-chess-sets.20-manopoulos-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00020-european-history-theme-chess-set-packages":{
+			".00025-theme-chess-sets.22-studio-anne-carlton-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00022-american-theme-chess-set-packages":{
+			".00025-theme-chess-sets.24-battles-wars-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00024-greek-roman-theme-chess-set-packages":{
+			".00025-theme-chess-sets.26-european-history-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00026-egyptian-theme-chess-set-packages":{
+			".00025-theme-chess-sets.28-american-history-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00028-asian-oriental-theme-chess-set-packages":{
+			".00025-theme-chess-sets.30-greek-roman-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00030-fictional-character-theme-chess-set-packages":{
+			".00025-theme-chess-sets.32-egyptian-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
-			".00026-theme-chess-sets.00012-theme-chess-set-packages.00032-every-theme-in-between-theme-chess-set-packages":{
+			".00025-theme-chess-sets.34-asian-oriental-theme-chess-sets":{
+			"filter": "themeChessSetsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
+			},
+			".00025-theme-chess-sets.36-fictional-character-theme-chess-sets":{
+			"filter": "themeChessSetsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
+			},
+			".00025-theme-chess-sets.38-every-theme-in-between-theme-chess-sets":{
 			"filter": "themeChessSetsForm",
 			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:2000});}
 			},
