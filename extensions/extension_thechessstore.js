@@ -28,6 +28,7 @@ var extension_thechessstore = function() {
 				//**Begin Category:Template combinations**
 				
 				//3 column categories
+				".sales.the_chess_store_independence_day_celebration" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards" : "categoryTemplate3PanelCat",
 				".00034-chess-books.00010-everyman-chess-books" : "categoryTemplate3PanelCat",
 				".00034-chess-books" : "categoryTemplate3PanelCat",
