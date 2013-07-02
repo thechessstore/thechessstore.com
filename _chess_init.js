@@ -19,7 +19,7 @@ app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 app.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
 app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
-app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
 app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
