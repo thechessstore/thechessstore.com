@@ -1654,6 +1654,7 @@ subscribeListsArticle is used for authenticated buyers
 -->
 		<div id='newsletterArticle' class='displayNone textContentArea'>
 			<h1>Subscribe to our Newsletter and Save!</h1>
+			<p>**Account creation is currently only available at checkout. Feel free to create an account whenever you are ready to checkout.**</p>
 			<div data-bind="format:loadsTemplate; loadsTemplate:subscribeFormTemplate;"></div>
 		</div>
         
@@ -2098,23 +2099,21 @@ used for store_crm.js
 
 
 <div id='subscribeFormTemplate'>
-<form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+<form action='#' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe($(this)); return false">
 
 <fieldset class='userInfo borderNone'>
 <div>
-<label for='subscribeLogin'>Email Address</label>
-<input type='email'  maxlength='50' size='30' name='login' id='subscribeLogin' value='' />
+<input type='email' placeholder='email address' maxlength='50' size='30' required='required' name='login' value='' />
 </div>
 
 <div>
-<label for='subscribeFullname'>Full Name</label>
-<input type='text'  maxlength='50' size='30' name='fullname' id='subscribeFullname' value='' />
+<input type='text' placeholder='full name' maxlength='50' size='30' required='required' name='fullname' value='' />
 </div>
 </fieldset>
 
 <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
 
-<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
+<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe' />
 
 </form>
 </div>
@@ -2351,7 +2350,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 <div>
 <hr />
-<button class='ui-button-text ui-button ui-state-default ui-corner-all ' onClick="showContent('customer',{'show':'newsletter'});">Create Account</button>
+<button class='ui-button-text ui-button ui-state-default ui-corner-all ' onClick="showContent('customer',{'show':'newsletter'});">Create Account/Signup for Newsletter</button>
 </div>
 
 
