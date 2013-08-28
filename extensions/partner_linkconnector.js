@@ -36,7 +36,7 @@ var partner_linkconnector = function() {
 					return true;
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.partner_linkconnector.callbacks.init.onError');
+					app.u.dump('An error occurred with partner_linkconnector. The plugin was not added to checkout.');
 				}
 			},
 			
