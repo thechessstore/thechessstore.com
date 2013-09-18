@@ -47,7 +47,7 @@ var partner_linkconnector = function() {
 							app.u.dump("BEGIN partner_linkconnector code pushed on orderCreate.checkoutCompletes");
 							var order = app.data['order|'+P.orderID];
 							google_conversion_value = order.sum.items_total;
-							app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.linkconnector.com/tmjs.php?lc=000000003300&oid=%ORDERID%&amt=%SUBTOTAL%"');
+							app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.linkconnector.com/tmjs.php?lc=000000003300&oid=%ORDERID%&amt=%SUBTOTAL%');
 						});
 					} else	{
 						setTimeout(function(){app.ext.partner_linkconnector.callbacks.startExtension.onSuccess()},250);
