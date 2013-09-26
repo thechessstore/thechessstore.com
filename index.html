@@ -1251,7 +1251,7 @@ this will likely become more flexible in the future. ###
 	
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu prodTempReview'>
 
-	<a href='#readReview' class="noTextDec">Read the Reviews</a>
+	<a class="noTextDec" onClick="app.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
 	<a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
     <a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
     
@@ -1298,7 +1298,7 @@ this will likely become more flexible in the future. ###
         
         <div class="socialLinks">
         </div>
-        <a class="referFriendLink pointer">Tell a friend</a>
+        <a class="referFriendLink pointer" onclick="javascript:window.location='mailto:?subject=Check out what thechessstore.com has&body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>
     </div>
     <p class="alignLeft floatLeft" style="width:100%;">Questions? Click here for <a class="pointer" style="color: #D35120;" onclick="return showContent('company',{'show':'contact'});">online</a> help or call 1-888-810-2437</p>
 	

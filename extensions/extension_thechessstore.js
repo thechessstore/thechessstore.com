@@ -336,10 +336,18 @@ var extension_thechessstore = function() {
 			
 			showCartShippingChart : function(){
 				function foo(){
-				 app.u.dump('begin showCartShippingChart function');
+				 //app.u.dump('begin showCartShippingChart function');
 				 $(".cartShipMethods").show();
 				}
 				setTimeout(foo, 3000);
+			},
+			
+			scrollToReview : function(page){
+				//app.u.dump("scrollToReview Firing");
+				//app.u.dump(page);
+				$('html, body').animate({
+					scrollTop: $("#readReview", page).offset().top
+				}, 2000);
 			}
 			
 			
