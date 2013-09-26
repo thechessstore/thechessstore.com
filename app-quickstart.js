@@ -2325,7 +2325,7 @@ ex:  elasticsearch.size = 200
 */
 elasticsearch.size = 50;
 
-				_tag = {'callback':'handleElasticResults','extension':'store_search','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')};
+				_tag = {'callback':'handleElasticResults','extension':'store_search','templateID':'productListTemplateResultsFilter3','list':$('#resultsProductListContainer')};
 				_tag.datapointer = "appPublicSearch|"+JSON.stringify(elasticsearch);
 				//app.u.dump(_tag.datapointer);
 				
