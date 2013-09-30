@@ -583,7 +583,13 @@ app.rq.push(['templateFunction','productTemplate','onCompletes',function(P)
 	$(".headerHideShowContent").css("display", "block");
 	$(".productSearchForm").css("height", "100%");
 	$(".productSearchForm").css("margin-top", "18px");
-
+	//END HEADER HIDING FUNCTION
+	
+	
+	//PRODUCT IMAGE CLICK BLOCKER
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+	
 }]);
 
 
