@@ -196,6 +196,124 @@ app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 		$(".productSearchForm").css("height", "22px");
 		$(".productSearchForm").css("margin", "0");
 		}]);
+		
+		
+		
+	app.rq.push(['templateFunction','category2ProdWideTemplate','onCompletes',function(P) {
+		var $context = $(app.u.jqSelector('#',P.parentID));
+		var $catPage = $(app.u.jqSelector('#',P.parentID)),
+		$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+		
+		if($catList.children().length)	{
+			$catList.children().each(function(){
+				var $li = $(this);
+				
+				if($li.data('app-havesubcatdata'))	{} //already have data.
+				else if($('.catDesc',$li).length)	{
+					app.ext.store_navcats.calls.appPageGet.init({
+						'PATH':$li.data('catsafeid'),
+						'@get':['description']
+						},
+						{'callback': function(rd){					//if there are errors, leave them alone... for now.
+						$li.data('app-havesubcatdata',true);
+						if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
+							$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+							}
+						}
+						},'mutable')
+					}
+				else	{
+					app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+					//category description already obtained or template has no catDesc class (no description needed)
+					}
+				});
+			app.model.dispatchThis('mutable');
+			}
+		else	{
+			//most likely, no subcats.
+			}
+			
+		//BEGIN HEADER HIDING FUNCTION
+		$(".headerHideShow").hide();
+		$(".headerBoxCenter").css("margin", "0");
+		$(".headerBottom").css("height", "50px");
+		$(".headerBottom").css("padding-bottom", "11px");
+		$(".headerBottom").css("padding-top", "4px");
+		$(".headerBoxCenter").css("width", "200px");
+		$(".headerBoxCenter").css("margin-top", "13px");
+		$(".headerHideShowContent").css("display", "block");
+		$(".productSearchForm").css("height", "100%");
+		$(".productSearchForm").css("margin-top", "18px");
+		
+		//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+		
+		app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+		
+		app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+		if(app.ext.store_filter.filterMap[P.navcat])	{
+			app.u.dump(" -> safe id DOES have a filter.");
+	
+			var $page = $(app.u.jqSelector('#',P.parentID));
+			app.u.dump(" -> $page.length: "+$page.length);
+			if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+			else	{
+				$page.data('filterAdded',true)
+				var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+				$form.on('submit.filterSearch',function(event){
+					event.preventDefault()
+					app.u.dump(" -> Filter form submitted.");
+					app.ext.store_filter.a.execFilter($form,$page);
+					});
+		
+				if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+					app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+					}
+		
+		//make all the checkboxes auto-submit the form.
+				$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+					$form.submit();      
+					});
+				}
+			}
+			
+			
+			
+			//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+			/*$('.woodPieces:checkbox').click(function() {
+				var woodPieces = $(this);
+				// $this will contain a reference to the checkbox   
+				if (woodPieces.is(':checked')) {
+					 $(".woodType").show();
+					 $(".kingHeight").show();
+				} else {
+					$(".woodType").hide();
+					$(".kingHeight").hide();
+				}
+			});*/
+			
+			$('.resetButton', $context).click(function(){
+			$context.empty().remove();
+			showContent('category',{'navcat':P.navcat});
+			});
+	}]);
+	
+	
+	app.rq.push(['templateFunction','category2ProdWideTemplate','onDeparts',function(P) {
+		if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
+    		app.ext.store_filter.vars.catPageID.empty().remove();
+		}	
+		
+		//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+		$(".headerHideShow").show();
+		$(".headerBoxCenter").css("margin-right", "30px");
+		$(".headerBottom").css("height", "150px");
+		$(".headerBottom").css("padding", "15px");
+		$(".headerBoxCenter").css("width", "250px");
+		$(".headerBoxCenter").css("margin-top", "0px");
+		$(".headerHideShowContent").css("display", "none");
+		$(".productSearchForm").css("height", "22px");
+		$(".productSearchForm").css("margin", "0");
+	}]);
 	
 	
 	
