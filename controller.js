@@ -1852,10 +1852,10 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 			a.m = a.m ? 'M' : '';  //default to minimal mode off. If anything true value (not 0, false etc) is passed in as m, minimal is turned on.
 //			app.u.dump(' -> library: '+a.lib+' and name: '+a.name);
 			if(a.name == null) { a.name = 'i/imagenotfound'; }
-
+			
 			var url, tag;
 			// alert(a.lib);		// uncomment then go into media library for some really wonky behavior 
-
+		
 		//default height and width to blank. setting it to zero or NaN is bad for IE.
 			if(a.h == null || a.h == 'undefined' || a.h == 0)
 				a.h = '';
@@ -1867,13 +1867,13 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 //In an admin session, the config.js isn't loaded. The secure domain is set as a global var when a domain is selected or can be retrieved from adminDomainList
 			if(app.vars.thisSessionIsAdmin)	{
 				url = 'https:\/\/'+(app.vars.https_domain || app.ext.admin.a.getDataForDomain(app.vars.domain,'https'))+"\/"
+				url += "media\/img\/"+app.vars.username+"\/";
 				}
 			else	{
 				url = location.protocol === 'https:' ? zGlobals.appSettings.https_app_url : zGlobals.appSettings.http_app_url;
+				url += "media\/img\/"+app.vars.username+"\/";
 				}
-
-			url += "media\/img\/"+app.vars.username+"\/";
-
+		
 			if((a.w == '') && (a.h == ''))
 				url += '-';
 			else	{
@@ -1892,9 +1892,9 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 				url = url.slice(0,url.length-1); //strip trailing - because it isn't stricly 'compliant' with media lib specs.
 				}
 			url += '\/'+a.name;
-
+		
 //			app.u.dump(" -> URL: "+url);
-
+			
 			if(a.tag == true)	{
 				a['class'] = typeof a['class'] == 'string' ? a['class'] : ''; //default class to blank
 				a['id'] = typeof a['id'] == 'string' ? a['id'] : 'img_'+a.name; // default id to filename (more or less)
@@ -2650,7 +2650,7 @@ return $r;
 		imageURL : function($tag,data){
 //			app.u.dump('got into displayFunctions.image: "'+data.value+'"');
 			data.bindData.b = data.bindData.bgcolor || 'ffffff'; //default to white.
-
+			
 			if(data.bindData.isElastic) {
 				data.bindData.elasticImgIndex = data.bindData.elasticImgIndex || 0; //if a specific image isn't referenced, default to zero.
 				data.value = data.value[data.bindData.elasticImgIndex];
