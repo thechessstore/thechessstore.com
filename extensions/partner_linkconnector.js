@@ -44,10 +44,17 @@ var partner_linkconnector = function() {
 				onSuccess : function (){
 					if(app.ext.myRIA && app.ext.myRIA.template){
 						app.ext.orderCreate.checkoutCompletes.push(function(P){
+							var s = document.createElement("script");
+							s.type = "text/javascript";
+							s.src = "https://www.linkconnector.com/tmjs.php?lc=000000003300&oid=%ORDERID%&amt=%SUBTOTAL%";
+							$("head").append(s);
+							
+							/*
 							app.u.dump("BEGIN partner_linkconnector code pushed on orderCreate.checkoutCompletes");
 							var order = app.data['order|'+P.orderID];
 							google_conversion_value = order.sum.items_total;
 							app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.linkconnector.com/tmjs.php?lc=000000003300&oid=%ORDERID%&amt=%SUBTOTAL%');
+							*/
 						});
 					} else	{
 						setTimeout(function(){app.ext.partner_linkconnector.callbacks.startExtension.onSuccess()},250);
