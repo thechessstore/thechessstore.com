@@ -391,19 +391,6 @@ var extension_thechessstore = function() {
 			}
 		},
 		
-		calls : {
-			appCheckoutDestinations : {
-				init : function(_tag,Q)	{
-					this.dispatch(_tag,Q);
-					return 1;
-					},
-				dispatch : function(_tag,Q)	{
-					_tag = _tag || {};
-					_tag.datapointer = 'appCheckoutDestinations';
-					app.model.addDispatchToQ({"_cmd":"appCheckoutDestinations","_tag": _tag},Q || 'immutable');
-					}
-				}, //appCheckoutDestinations
-		},
 		
 		
 		////////////////////////////////////   ACTION    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -428,9 +415,30 @@ var extension_thechessstore = function() {
 				}, 2000);
 			}
 			
-			
-			
-			
+		},
+		
+		
+		u : {
+			updateCartSummary : function()	{
+				$countrySelector = $(".countrySelector").val();
+				app.u.dump($countrySelector);
+				$('#modalCartContents').replaceWith(app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
+				app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
+				app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+					if(app.model.responseHasErrors(rd)){
+						//app.u.throwMessage(rd);
+						}
+					else {
+						//app.u.dump("here");
+						var $selectList = $('.countrySelectListContainer');
+						//app.u.dump($selectList);
+						$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
+						}
+				}},'immutable');
+				app.model.dispatchThis('immutable');
+				$selectList.val($countrySelector);
+//don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
+				},
 		},
 		
 		
