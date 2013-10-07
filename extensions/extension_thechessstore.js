@@ -391,6 +391,20 @@ var extension_thechessstore = function() {
 			}
 		},
 		
+		calls : {
+			appCheckoutDestinations : {
+				init : function(_tag,Q)	{
+					this.dispatch(_tag,Q);
+					return 1;
+					},
+				dispatch : function(_tag,Q)	{
+					_tag = _tag || {};
+					_tag.datapointer = 'appCheckoutDestinations';
+					app.model.addDispatchToQ({"_cmd":"appCheckoutDestinations","_tag": _tag},Q || 'immutable');
+					}
+				}, //appCheckoutDestinations
+		},
+		
 		
 		////////////////////////////////////   ACTION    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -440,7 +454,29 @@ var extension_thechessstore = function() {
 				else{
 					app.u.dump('Category item does not match list, ending hide check');
 				}
-			}
+			},
+			
+			
+			countriesAsOptions : function($tag,data)	{
+//				app.u.dump("BEGIN app.ext.cco.renderFormats.countriesAsOptions");
+//				app.u.dump(" -> Country: "+data.value);
+				var r = '';
+				//function setCountrySelector(){
+					 var L = app.data.appCheckoutDestinations['@destinations'].length;
+					 for(var i = 0; i < L; i += 1)	{
+						r += "<option value='"+app.data.appCheckoutDestinations['@destinations'][i].ISO+"' ";
+						if(data.value == app.data.appCheckoutDestinations['@destinations'][i].ISO)	{
+							r += " selected='selected' ";
+							}
+						r += ">"+app.data.appCheckoutDestinations['@destinations'][i].Z+"</option>";
+						}
+					
+					$tag.html(r);
+				//}
+				//setTimeout(setCountrySelector, 3000);
+//				app.u.dump(" -> number of countries = "+L);
+				
+				},
 		}
 	}
 	return r;

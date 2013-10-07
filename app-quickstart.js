@@ -50,6 +50,7 @@ var myRIA = function() {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
+			'countryListTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',

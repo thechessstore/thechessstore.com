@@ -2020,6 +2020,11 @@ So the cart template should contain these two elements and the extension should 
     <p>**Enter your zip/postal code to view your shipping options and cost.**</p>
     <div class='cartZipCodeContainer'>
         <label for='data-ship_zip'>Zip/Postal Code:</label>
+        <!--
+        <div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(%bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
+       <select name='bill/countrycode' data-bind='var: cart(%bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: extension_thechessstore;' required='required' ></select>
+         -->
+         <div data-cart-role="countrySelectListContainer"></div>
         <input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
         app.ext.store_cart.u.updateCartSummary();
         app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
@@ -2065,7 +2070,9 @@ So the cart template should contain these two elements and the extension should 
 </div><!-- /cartTemplate -->
 
 
-
+<div id="countryListTemplate">
+<select name='bill/countrycode' data-bind='var: cart(%bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: extension_thechessstore;' required='required' ></select>
+</div>
 
 
 

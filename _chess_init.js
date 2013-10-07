@@ -732,6 +732,20 @@ app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
 }]);
 
 
+app.rq.push(['templateFunction','cartTemplate','onInits',function(P) {
+	var $context = $(app.u.jqSelector('#',P.parentID));
+	app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+			if(app.model.responseHasErrors(rd)){
+				app.u.throwMessage(rd);
+				}
+			else {
+				$('[data-cart-role=countrySelectListContainer]',$context).anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
+				}
+		}},'immutable');
+	app.model.dispatchThis('immutable');
+}]);
+
+
 	
 
 
