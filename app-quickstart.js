@@ -34,6 +34,7 @@ var myRIA = function() {
 			'categoryTemplate3PanelCat',
 	        'categoryTemplate4PanelCat',
 			'categoryListTemplate',
+			'categoryListWideTemplate',
 			'categoryListTemplate3Panel',
             'categoryListTemplate4Panel',
 			'categoryListTemplateRootCats',
