@@ -436,14 +436,14 @@ var extension_thechessstore = function() {
 						$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
 						}
 				}},'immutable');
-				app.model.dispatchThis('immutable');
+				//app.model.dispatchThis('immutable');
 				
 				function foo(){
 					app.u.dump(".countrySelector value after refresh = " + $countrySelector);
 					$('.countrySelector').val($countrySelector);
 					app.u.dump($('.countrySelector').val());
 				}
-				setTimeout(foo, 1000);
+				setTimeout(foo, 3000);
 				
 //don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
 				},
