@@ -420,23 +420,31 @@ var extension_thechessstore = function() {
 		
 		u : {
 			updateCartSummary : function()	{
-				$countrySelector = $(".countrySelector").val();
-				app.u.dump($countrySelector);
+				var $countrySelector = $(".countrySelector").val();
+				app.u.dump(".countrySelector value before refresh = " + $countrySelector);
 				$('#modalCartContents').replaceWith(app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
 				app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
+				
 				app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
 					if(app.model.responseHasErrors(rd)){
 						//app.u.throwMessage(rd);
 						}
 					else {
 						//app.u.dump("here");
-						var $selectList = $('.countrySelectListContainer');
 						//app.u.dump($selectList);
+						var $selectList = $('.countrySelectListContainer');
 						$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
 						}
 				}},'immutable');
 				app.model.dispatchThis('immutable');
-				$selectList.val($countrySelector);
+				
+				function foo(){
+					app.u.dump(".countrySelector value after refresh = " + $countrySelector);
+					$('.countrySelector').val($countrySelector);
+					app.u.dump($('.countrySelector').val());
+				}
+				setTimeout(foo, 1000);
+				
 //don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
 				},
 		},

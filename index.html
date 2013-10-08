@@ -2024,10 +2024,9 @@ So the cart template should contain these two elements and the extension should 
         <div class='billCountry' data-app-role='billCountry'><select name='bill/countrycode' data-bind='var: cart(%bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: cco;' required='required' data-app-event="orderCreate|execCountryUpdate" ></select></div>
        <select name='bill/countrycode' data-bind='var: cart(%bill/countrycode); defaultVar: cart(bill/countrycode); defaultValue:US; format:countriesAsOptions; extension: extension_thechessstore;' required='required' ></select>
          -->
-         <!--
          <div class="countrySelectListContainer"></div><!--data-cart-role="countrySelectListContainer"-->
         <input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(%ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value});
-        app.ext.store_cart.u.updateCartSummary();
+        app.ext.extension_thechessstore.u.updateCartSummary();
         app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
         app.model.dispatchThis('immutable');"  />
         <button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="">Calculate</button>
