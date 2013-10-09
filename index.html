@@ -824,7 +824,15 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div class="catTempCont">
 		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
-		<!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
+		<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="728x90"> (function (d, t) {
+			"use strict";
+			var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+			n.src = "//paypal.adtag.where.com/merchant.js";
+			s.parentNode.insertBefore(n, s);
+			}(document, "script"));
+		</script>
+        
+        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
     
 
 		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
@@ -1410,6 +1418,16 @@ this will likely become more flexible in the future. ###
 		<input type='submit' value='' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone addToCartButt' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
         
 	</form>
+    
+    <div class="productBillMeLaterBanner">
+		<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="280x280"> (function (d, t) {
+            "use strict";
+            var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+            n.src = "//paypal.adtag.where.com/merchant.js";
+            s.parentNode.insertBefore(n, s);
+            }(document, "script"));
+        </script>
+    </div>
     
     <div class="addToCartSideLinkCont" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
   	    <a href='#' class="wishListLink" onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;"> &#43; Add to Wishlist </a><br />
