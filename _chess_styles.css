@@ -2199,8 +2199,15 @@ sizingMethod='scale')";
     z-index: 5;
 }
 
+.prodViewerContainer{
+	position: relative;
+}
 
 .productBillMeLaterBanner{
+	padding: 0;
+    position: absolute;
+    right: 25px;
+    top: 240px;
 }
 
 
