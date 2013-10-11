@@ -117,7 +117,7 @@ item list and summary are separate just to give more control over location.
 <h4 class='displayNone' data-app-role='username' data-bind="var:cart(bill/email); defaultVar: cart(customer/login); format:text;"></h4>
 
 <div data-app-role='login'>
-	<input class="loginBox" type='email' name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><div>&#42;If you do not wish to create an account just enter your email.&#42;</div><br />
+	<input class="loginBox" type='email' required='required'  name='bill/email' size='30' placeholder="email address" data-bind="var:cart(bill/email); defaultVar:cart(customer/login); format:popVal;" data-app-event='orderCreate|execBuyerEmailUpdate' /><div>&#42;If you do not wish to create an account just enter your email.&#42;</div><br />
 	<div data-app-role='loginPasswordContainer' class='displayNone'>
     	<input class="passwordBox" type='password' placeholder='password' size='30' name='password' /><button class="checkoutLoginButton" data-app-event='orderCreate|execBuyerLogin'>login</button>
 	</div>
