@@ -90,7 +90,7 @@ var magicToolBox_mzp = function() {
 					var imgSrc = app.u.makeImage({'tag':0,'w':$tag.attr('width'),'h':$tag.attr('height'),'name':data.value,'b':bgcolor});
 					app.u.dump('ID => '+$tag.attr('id'));
 					$tag.attr('src',imgSrc);
-					$tag.wrap("<a href='"+app.u.makeImage({'tag':0,'w':800,'h':550,'name':data.value,'b':bgcolor})+"' class='MagicZoomPlus' id='"+$tag.attr('id')+"_href' />")
+					$tag.wrap("<a href='"+app.u.makeImage({'tag':0,'name':data.value,'b':bgcolor})+"' class='MagicZoomPlus' id='"+$tag.attr('id')+"_href' />")
 					}
 				else	{
 					$tag.style('display','none'); //if there is no image, hide the src.  !!! added 1/26/2012. this a good idea?
