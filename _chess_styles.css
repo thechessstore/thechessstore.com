@@ -2223,6 +2223,10 @@ sizingMethod='scale')";
 	text-align:center;
 }
 
+.productInfoContainer{
+	float: left;
+    width: 310px;
+}
 
 
 
