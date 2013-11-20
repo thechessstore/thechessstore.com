@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<!--**COPY ALL CODE FROM BELOW ITNO ADMIN UI TO USE THE MODAL IN YOUR V-STORE**-->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -74,7 +68,7 @@ $(document).ready(function() {
   $('<div class="redirectToSiteApp"> '+
   //'<h3>Try our new site for a superior shopping experience&#63;</h3>' +
   '<button onclick="handleRedirect(); return false;">Visit New Site</button>' +
-  '<button class="bugLaterButton" onclick="bugLater()">Use Old Site</button>' +
+  '<button class="bugLaterButton" onclick="bugLater()">Use This Site</button>' +
   '<div>' +
    '<img onclick="handleRedirect(); return false;" src="http://app.thechessstore.com/images/logo.png" />' +
   '</div>' +
@@ -105,7 +99,7 @@ $(document).ready(function() {
     console.log("One of the two storage values was true, redirect modal is not displaying.");
    }
     else{
-     $('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:390});
+     $('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:350});
      console.log("Neither storage value was true, displaying redirect modal");
      console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
      console.log("localStorage = " + localStorage.redirectToAppVar);
@@ -117,7 +111,3 @@ $(document).ready(function() {
  }
 });
 </script>
-<!--**END COPY**-->
-<div style=""></div>
-</body>
-</html>
