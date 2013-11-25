@@ -2227,6 +2227,13 @@ sizingMethod='scale')";
     width: 310px;
 }
 
+.headerHolidayShippingLink{
+	color: #008000 !important;
+    font-size: 16px;
+}
+.headerHolidayShippingLink span{
+}
+
 
 
 /**********************************************************************************************************************************/
