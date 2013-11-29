@@ -3171,6 +3171,12 @@ return $r;
 				$tag.show().css('display','block'); //IE isn't responding to the 'show', so the display:block is added as well.
 				}
 			},
+		showIfSetInline : function($tag,data)	{
+//			app.u.dump(" -> showIfSet: "+data.value);
+			if(data.value)	{
+				$tag.show().css('display','inline'); //IE isn't responding to the 'show', so the display:block is added as well.
+				}
+			},
 
 		showIfMatch : function($tag,data)	{
 //			app.u.dump("BEGIN renderFormat.showIfMatch. \n value: "+data.value+"\n matchValue: "+data.bindData.matchValue);

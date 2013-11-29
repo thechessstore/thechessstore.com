@@ -29,15 +29,29 @@ var myRIA = function() {
 		"templates" : [
 //the list of templates that are commonly edited (same order as they appear in appTemplates
 			'homepageTemplate',	'categoryTemplate',
+			'categoryUnfinishedWoodTemplate',
+            'category2ProdWideTemplate',
+            'categoryTemplate3PanelCat',
+            'categoryTemplate4PanelCat',
 			'categoryListTemplate',
+			'categoryListWideTemplate',
+	        'categoryListTemplate3Panel',
+            'categoryListTemplate4Panel',
 			'categoryListTemplateRootCats',
 			'productListTemplate',
+			'productList2WideTemplate',
+	        'productListTemplate3Panel',
+	        'productListTemplate4Panel',
+	        'productListTemplateProgPG',
 			'productListTemplateATC',
 			'productListTemplateBuyerList',
 			'productListTemplateResults',
+			'productListTemplateResultsFilter',
+	        'productListTemplateResultsFilter3',
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
+			'countryListTemplate',
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -57,6 +71,7 @@ var myRIA = function() {
 			'faqQnATemplate',
 			'billAddressTemplate',
 			'shipAddressTemplate'],
+
 		"sotw" : {}, //state of the world. set to most recent page info object.
 		"hotw" : new Array(15), //history of the world. contains 15 most recent sotw objects.
 		"session" : {
@@ -2780,9 +2795,14 @@ buyer to 'take with them' as they move between  pages.
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
 						}
-					else	{
+					else if(app.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+					   app.u.dump("category list template option selected");
+						infoObj.templateID = app.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+					}
+					else{
+						app.u.dump("category default template option selected");
 						infoObj.templateID = 'categoryTemplate'
-						}
+				    }
 					infoObj.state = 'onInits';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+app.u.makeSafeHTMLId(catSafeID);
 					infoObj.parentID = parentID;
@@ -3131,7 +3151,7 @@ else	{
 			createTemplateFunctions : function()	{
 
 				app.ext.myRIA.template = {};
-				var pageTemplates = new Array('categoryTemplate','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
+				var pageTemplates = new Array('categoryTemplate','category2ProdWideTemplate','categoryUnfinishedWoodTemplate','categoryTemplate3PanelCat','categoryTemplate4PanelCat','productTemplate','companyTemplate','customerTemplate','homepageTemplate','searchTemplate','cartTemplate','checkoutTemplate','pageNotFoundTemplate');
 				var L = pageTemplates.length;
 				for(var i = 0; i < L; i += 1)	{
 					app.ext.myRIA.template[pageTemplates[i]] = {"onCompletes":[],"onInits":[],"onDeparts":[]};
