@@ -118,7 +118,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				
 				var $list = _rtag.list;
 				if($list && $list.length)	{
-					$list.empty().removeClass('loadingBG').attr('data-app-role','searchResults');
+//*** 201336 -> setting data-app-role on the element was a bad idea. it may have already been set and it doesn't appear to get used at all.
+					$list.empty().removeClass('loadingBG'); //.attr('data-app-role','searchResults');
 					$list.closest('.previewListContainer').find('.resultsHeader').empty().remove(); //remove any previous results multipage headers
 
 					if(L == 0)	{
@@ -175,7 +176,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						}
 					}
 				else	{
-					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list was not defined, not a jquery objet or empty (not on DOM).',gMessage:true});
+					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list ['+typeof _rtag.list+'] was not defined, not a jquery object ['+(_rtag.list instanceof jQuery)+'] or does not exist ['+_rtag.list.length+'].',gMessage:true});
+					app.u.dump("handleElasticResults _rtag.list: "); app.u.dump(_rtag.list);
 					}
 				}
 			}
@@ -478,12 +480,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 					query.type = 'product';
 					query.mode = 'elastic-native';
 					query.size = 250;
-					query.query =  {
-						"filtered" : {
-						  "query" : {"query_string" : obj},
-						  "filter" : {"not" : { "term" : {"prod_outofstock":"1"}}}
-						  }
-					  };
+					query.query =  {"query_string" : obj};
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In store_search.u.buildElasticSimpleQuery, obj.query was empty. ',gMessage:true});

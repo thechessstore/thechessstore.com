@@ -29,7 +29,6 @@ var store_product = function() {
 
 
 
-
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
 
 
@@ -46,7 +45,7 @@ var store_product = function() {
 //if no object is passed in, one must be created so that adding datapointer to a non existent object doesn't cause a js error
 // Override datapointer, if set.
 // The advantage of saving the data in memory and local storage is lost if the datapointer isn't consistent, especially for product data.
-				pid = pid.toUpperCase();
+				pid = pid.toString().toUpperCase(); //if a pid is all numbers, pid.toUpperCase results in JS error.
 				tagObj = $.isEmptyObject(tagObj) ? {} : tagObj; 
 				tagObj["datapointer"] = "appProductGet|"+pid; 
 
@@ -95,7 +94,7 @@ var store_product = function() {
 				var r = 0; //will return a 1 or a 0 based on whether the item is in local storage or not, respectively.
 //app.u.dump("appReviewsList tagObj:");
 //app.u.dump(tagObj);
-				pid = pid.toUpperCase();
+				pid = pid.toString().toUpperCase();
 				tagObj = $.isEmptyObject(tagObj) ? {} : tagObj;
 				tagObj["datapointer"] = "appReviewsList|"+pid;
 
@@ -487,9 +486,9 @@ it has no inventory AND inventory matters to merchant
 					var L = variations.length;
 					for(var i = 0; i < L; i += 1)	{
 						r[variations[i].id] = {'prompt':variations[i].prompt};
-						var OL = variations[i].options.length;
+						var OL = variations[i]['@options'].length;
 						for(var oi = 0; oi < OL; oi += 1)	{
-							r[variations[i].id][variations[i].options[oi].v] = variations[i].options[oi].prompt;
+							r[variations[i].id][variations[i]['@options'][oi].v] = variations[i]['@options'][oi].prompt;
 							}
 						}
 					}
@@ -542,13 +541,13 @@ it has no inventory AND inventory matters to merchant
 //if variations are NOT present, inventory count is readily available.
 				if(app.data['appProductGet|'+pid])	{
 					if((app.data['appProductGet|'+pid]['@variations'] && $.isEmptyObject(app.data['appProductGet|'+pid]['@variations'])) && !$.isEmptyObject(app.data['appProductGet|'+pid]['@inventory']))	{
-						inv = Number(app.data['appProductGet|'+pid]['@inventory'][pid].inv);
+						inv = Number(app.data['appProductGet|'+pid]['@inventory'][pid].AVAILABLE);
 	//					app.u.dump(" -> item has no variations. inv = "+inv);
 						}
 	//if variations ARE present, inventory must be summed from each inventory-able variation.
 					else	{
 						for(var index in app.data['appProductGet|'+pid]['@inventory']) {
-							inv += Number(app.data['appProductGet|'+pid]['@inventory'][index].inv)
+							inv += Number(app.data['appProductGet|'+pid]['@inventory'][index].AVAILABLE)
 							}
 	//					app.u.dump(" -> item HAS variations. inv = "+inv);
 						}
@@ -623,7 +622,7 @@ NOTES
 						}
 					
 					
-					$parent.dialog('open');
+					$parent.dialog('open').append(app.renderFunctions.createTemplateInstance(P.templateID,P));
 
 					app.ext.store_product.calls.appProductGet.init(P.pid,{'callback': function(rd){
 						if(app.model.responseHasErrors(rd)){
@@ -631,12 +630,12 @@ NOTES
 							}
 						else	{
 							$parent.dialog( "option", "title", app.data["appProductGet|"+P.pid]['%attribs']['zoovy:prod_name'] );
-							$parent.anycontent({'templateID':P.templateID,'datapointer':"appProductGet|"+P.pid});
+							$parent.anycontent({'templateID':P.templateID,'translateOnly':true,'datapointer':"appProductGet|"+P.pid});
 							}
 						}});
 					app.ext.store_product.calls.appReviewsList.init(P.pid); //
 					app.model.dispatchThis();
-
+					app.u.handleCommonPlugins($parent);
 					}
 				else	{
 					app.u.dump(" -> pid ("+P.pid+") or templateID ("+P.templateID+") not set for viewer. both are required.");
@@ -701,15 +700,21 @@ NOTES
 
 							}
 						else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+							obj = false;
 							//the validation itself will display the errors.
 							}
 						}
 					else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+						obj = false;
 						$form.anymessage({'message':'The form for store_product.u.handleAddToCart was either missing a sku ['+sku+'] or qty input ['+$qtyInput.length+'].','gMessage':true});
 						}
 		
 					}
 				else	{
+// ** 201318 returning false will prevent the addItemToCart from dispatching calls
+					obj = false;
 					$('#globalMessaging').anymessage({'message':'In store_product.u.buildCartItemAppendObj, $form not passed.','gMessage':true});
 					}
 				return obj;
@@ -722,7 +727,7 @@ NOTES
 				if($form && $form.length && $form.is('form'))	{
 					var cartObj = app.ext.store_product.u.buildCartItemAppendObj($form);
 					if(cartObj)	{
-						app.u.dump(" -> have a valid cart object"); app.u.dump(cartObj);
+//						app.u.dump(" -> have a valid cart object"); app.u.dump(cartObj);
 						if(cartObj)	{
 							r = true;
 							app.calls.cartItemAppend.init(cartObj,_tag || {},'immutable');
