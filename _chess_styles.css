@@ -1173,8 +1173,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	height:520px !important;
 }
 .lineItemProdlist2 li{
-	width:200px !important;
-	height:165px !important;
+	height: auto;
+    width: 100%;
+}
+#cartTemplateCostSummary {
+    float: left;
+    width: 100%;
+}
+#cartTemplateShippingContainer {
+    float: left;
+    width: 100%;
 }
 .lineItemProdlist li.catListTempCatPage2 img{
 	margin-left:10px;
@@ -2127,6 +2135,10 @@ sizingMethod='scale')";
 }
 .cartSummaryContainer section.stdMargin{
 	margin-bottom:0;
+	float:left;
+}
+.cartStuffContainer{
+	width: 68%;
 }
 .cartShipMethods, .cartZipCodeContainer, .cartSummary{
 	margin: 0 0 12px;
