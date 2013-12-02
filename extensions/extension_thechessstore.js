@@ -27,6 +27,9 @@ var extension_thechessstore = function() {
 				
 				//**Begin Category:Template combinations**
 				
+				//Holiday Template
+				".1006-year-end-holiday-schedule" : "categoryHolidayTemplate",
+				
 				//3 column categories
 				".sales.the_chess_store_independence_day_celebration" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards" : "categoryTemplate3PanelCat",
