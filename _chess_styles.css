@@ -2246,6 +2246,13 @@ sizingMethod='scale')";
 .headerHolidayShippingLink span{
 }
 
+.categoryHolidayTemplate div.catTempCont{
+	width: 960px;
+}
+.categoryHolidayTemplate div.catTempCont p.categoryText ul{
+	margin-left:15px;
+}
+
 
 
 /**********************************************************************************************************************************/

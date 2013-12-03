@@ -52,17 +52,8 @@ var partner_pepperjam = function() {
 							s.type = "text/javascript";
 							s.src = "https://t.pepperjamnetwork.com/track?PID=6873&INT=ITEMIZED&ITEM1=<ITEM1ID>&ITEM2=<ITEM2ID>&QTY1="+order.sum.items_count+"&QTY2="+order.sum.items_count+"&AMOUNT1="+order.sum.items_total+"&AMOUNT2="+order.sum.items_total+"&OID="+P.orderID+"' width='1' height='1' frameborder='0'></iframe>"
 							*/
-							
-							/*
-							s.src = "https://www.linkconnector.com/tmjs.php?lc=000000003300&oid="+P.orderID+"&amt="+order.sum.items_total;
-							*/
 							$("head").append(s);
 							
-							/*
-							app.u.dump("BEGIN partner_linkconnector code pushed on orderCreate.checkoutCompletes");
-							google_conversion_value = order.sum.items_total;
-							app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.linkconnector.com/tmjs.php?lc=000000003300&oid=%ORDERID%&amt=%SUBTOTAL%');
-							*/
 						});
 					} else	{
 						setTimeout(function(){app.ext.partner_pepperjam.callbacks.startExtension.onSuccess()},250);
