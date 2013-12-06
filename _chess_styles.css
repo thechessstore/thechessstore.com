@@ -2253,6 +2253,13 @@ sizingMethod='scale')";
 	margin-left:15px;
 }
 
+.freeShippingAnnouncer{
+	font-size: 18px;
+    line-height: inherit;
+    margin-bottom: 4px;
+	color: #008000;
+}
+
 
 
 /**********************************************************************************************************************************/
