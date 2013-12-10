@@ -1721,23 +1721,17 @@ adding classes is not likely to have any bad effects.
 
 
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
-<div id='companyTemplate' class='clearfix loadingBG'>
+<div id='companyTemplate' class='clearfix'>
 
-	<div class='sideline' >
-<nav id='companyNav'>
-<ul class='listStyleNone noPadOrMargin'>
-	<li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
-	<li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
-	<li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
-	<!--<li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>-->
-	<li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
-	<li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
-	<li><a href='#' onClick="return showContent('category',{'navcat':'.shipping'});" id='navLink_shipping'>Shipping Information</a></li>
-</ul>
-</nav>
-	</div>
+    	<div class='sideline' >
+            <nav id='companyNav'>
+                <ul class='listStyleNone noPadOrMargin'>
+                <!-- these are generated via javascript, based on the myRIA.pages object. -->
+                </ul>
+            </nav>
+		</div>
 
-	<div class='mainColumn'>
+        <div class='mainColumn'>
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
 			<h1>About The Chess Store</h1>
@@ -1869,8 +1863,76 @@ adding classes is not likely to have any bad effects.
 	
 		
 		<div class='displayNone textContentArea' id='shippingArticle'>
-			<h1>Shipping Information</h1>
-			<div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
+			<font size="4"><b><center>Shipping Information</font></b></center><br>
+            <br>
+            <b><font size="3">U.S. Orders</font></b><br>
+            <br>
+            <b><font size="3">FREE UPS Ground Shipping on Orders Over $30!</font></b><br>
+            The Chess Store offers FREE UPS Ground shipping on all orders over $30 within the continental US. This applies to any and as many of our products as long as the order totals $30 or more. Orders with volume discounted items are excluded from this offer. Most coupons are still valid and can be combined with the FREE shipping.<br>
+            <br>
+            <b><font size="3">Other U.S. Shipping Options</font></b><br>
+            
+            All other shipping options are offered at published prices including USPS Priority Mail, UPS 3 Day Select, UPS 2nd Day Air, UPS Next Day Air Saver, UPS Next Day Air, and UPS Next Day Air Early AM.<br>
+            <br>
+            
+            <b><font size="3">International</font></b><br>
+            
+            The Chess Store ships to most "Safe Countries". We offer both UPS and USPS shipping options for international orders. Except for Standard UPS to Canada, the shipping amount does not include taxes, duty, and brokerage. These additional costs vary by country and it is the responsibility of the customer to pay any applicable fees upon delivery.<br>
+            <br>
+            The Chess Store will only ship to the address of record (bill to) for the credit card. If the "bill to" address cannot be verified through the credit card transaction, The Chess Store will contact the customer by email and ask for additional information so that the "bill to" address and the name on the account can be verified.<br>
+            <br>
+            As an alternative, international customers may choose to make their purchase through our eBay store which will eliminate the need for The Chess Store to verify the bill to address and account name. Our eBay store url is: stores.ebay.com/thechessstore<br>
+            <br>
+            After the bill to address and account name are verified, the order will be shipped within one business day. You will receive an email with tracking information within 24 hours after your order ships. From this email you can track the status of your order.<br>
+            <br>
+            <b><font size="3">Special for Canadian Customers</font></b><br>
+            UPS Standard to Canada includes everything - brokerage, tax, and duty. When you select UPS Standard to Canada the shipping price you see at check out includes these items. We collect and pay this upfront for you so that you know exactly what your total purchase will cost including these hidden costs that some customers are unaware of. When your package shows up at the door, there is nothing more to pay! When we ship UPS Standard to Canada we are able to provide you big savings on the brokerage and we pass this on to you! We're able to do this by consolidating Canadian shipments and spreading out the brokerage costs instead of a single shipment absorbing all of the cost.<br>
+            <br>
+            <font size="3"><b>All Interational Orders</font></b><br>
+            <br>
+            <font size="3"><b>UPS Worldwide Expedited (includes brokerage)</font></b><br>
+            Orders ship next business day. Delivery in 2 to 5 business days by end of day.
+            Time-in-transit does not include weekends, holiday, and the day the order ships.<br>
+            <br>
+            <font size="3"><b>UPS Worldwide Express (includes brokerage)</font></b><br>
+            Orders ship next business day. Delivery in 1 to 2 business days by noon.
+            Time-in-transit does not include weekends, holiday, and the day the order ships.
+            Taxes and duty are not included in the shipping price and you will be required
+            to pay this upon receipt of your package.<br>
+            <br>
+            <font size="3"><b>UPS Worldwide Express Plus (includes brokerage)</font></b><br>
+            Delivery in 1 to 2 business days by 9:00am. Time in-transit does not include weekends, holiday, and the day the order ships. Taxes and duty are not included in the shipping price and you will be required to pay this upon receipt of your package.<br>
+            <br>
+            <font size="3"><b>Calculating Time In-transit</font></b><br>
+            Time in -transit starts the day after a package ships, not the day that it ships. It does not include weekends and holidays recognized by the
+            carier. For example, an order placed on Thursday afternoon shipping to Ohio
+            would ship on Friday with the first day in-transit being the following Monday.
+            Ohio is 5 business days from The Chess Store so it would be delivered the
+            following Friday from when it was ordered.<br>
+            <br>
+            <div align="left">
+              <table border="0" width="100%">
+                <tr>
+                  <td width="100%">
+                    <p align="center"><b><font size="2">UPS Time In-transit Map From The Chess Store</font></b></td>
+                </tr>
+              </table>
+            </div>
+              <table border="0" width="100%">
+                <tr>
+                  <td>
+                    <p align="center">
+            <font size="2">
+            <img src="https://static.zoovy.com/img/thechessstore/-/ups/updated_ups_map2010" width="546" height="353" border="0"></font></td>
+                </tr>
+              </table>
+            <div align="left">
+              <table border="0" width="600">
+                  </table>
+            </div>
+            <!--
+            <div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
+            -->
 		</div>
 	
 	</div>
