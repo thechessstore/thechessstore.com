@@ -273,6 +273,14 @@ var extension_thechessstore = function() {
 				".00064-shop-by-brand.chronos" : "categoryTemplate3PanelCat",
 				".00064-shop-by-brand.zmartfun_electronics" : "categoryTemplate3PanelCat",
 				
+				".other-games-app.backgammon" : "categoryTemplate3PanelCat",
+				".other-games-app.checkers" : "categoryTemplate3PanelCat",
+				".other-games-app.cribbage" : "categoryTemplate3PanelCat",
+				".other-games-app.dominoes" : "categoryTemplate3PanelCat",
+				".other-games-app.go" : "categoryTemplate3PanelCat",
+				".other-games-app.mah_jong" : "categoryTemplate3PanelCat",
+				".other-games-app.backgammon.30-backgammon-accessories" : "categoryTemplate3PanelCat",
+				
 				
 				//2 column, 187 height, wide format categories
 				".00010-wood-chess-sets" : "category2ProdWideTemplate",
