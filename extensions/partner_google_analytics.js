@@ -145,11 +145,13 @@ app.ext.orderCreate.checkoutCompletes.push(function(P){
 			  order.sum.countrycode             // country
 		   ]);
 	   
+	   /*
 	   app.u.dump("order.sum.order_total= " + order.sum.order_total);
 	   app.u.dump("order.sum.ship_total= " + order.sum.ship_total);
 	   app.u.dump("order.sum.city= " + order.sum.city);
 	   app.u.dump("order.sum.region= " + order.sum.region);
 	   app.u.dump("order.sum.countrycode= " + order.sum.countrycode);
+	   */
 	   
 	   
 		   
@@ -167,11 +169,13 @@ app.ext.orderCreate.checkoutCompletes.push(function(P){
 				order['@ITEMS'][i].qty             // quantity - required
 				]);
 			
+			/*
 			app.u.dump("order['@ITEMS'][i].product= " + order['@ITEMS'][i].product);
 			app.u.dump("order['@ITEMS'][i].prod_name= " + order['@ITEMS'][i].prod_name);
 			app.u.dump("order['@ITEMS'][i].stid= " + order['@ITEMS'][i].stid);
 			app.u.dump("order['@ITEMS'][i].base_price= " + order['@ITEMS'][i].base_price);
 			app.u.dump("order['@ITEMS'][i].qty= " + order['@ITEMS'][i].qty);
+			*/
 			
 			}
 		_gaq.push(['_trackTrans']);

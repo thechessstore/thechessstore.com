@@ -6,7 +6,6 @@ app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
 app.rq.push(['extension',0,'orderCreate','extensions/checkout/extension.js']);
 app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
-app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
@@ -16,12 +15,13 @@ app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
+
 app.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
 app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
 
 app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
-app.rq.push(['extension',1,'analytics_google','extensions/analytics_google.js','startExtension']);
+app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 app.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
 //app.rq.push(['extension',1,'partner_pepperjam','extensions/partner_pepperjam.js','startExtension']);
 //app.rq.push(['extension',1,'bonding_buysafe','extensions/bonding_buysafe.js','startExtension']);
