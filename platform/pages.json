@@ -52,16 +52,13 @@
    ".sales.valentines_day" : {
       "description" : "Our annual Valentine's Day Sale is here - great chess sets at unbelievable prices for your chess playing Valentine! From elegant Staunton chess set packages to chess computers, you will find the perfect Valentine's Day gift!"
    },
-   ".00039-chess-bags.12-brown-leatherette-drawstring-chess-piece-bag" : {
-      "description" : "These attractive, heavy duty chess piece bags are a great way for storing and carrying your chess pieces.  The material looks like real leather and a drawstring to will keep the pieces secured inside. Choose from 2 sizes."
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.summer_sizzle_sale" : {
-      "about" : "<h2>The Backgammon Store Summer Sale</h2>\nTake advantage of special Summer Sale prices on a variety of bacgkammon sets including Dal Negro backgammon sets from Italy and our own cork-lined tournament size backgammon sets."
-   },
    ".00012-wood-chess-sets-with-chess-boards.4-model.16-rosewood-box.10-deluxe-old-club" : {
       "meta_description" : "Our Deluxe Old Club Staunton chess sets packaged with our Rosewood and Maple Chess Board and matching Chess Box. Choose from 2 sizes: 3.25\", 3.75\" (king height).",
       "page_title" : "Deluxe Old Club Staunton Chess Sets with Rosewood Chess Board & Box",
       "description" : "These packages include our Deluxe Old Club Staunton Chess Set in Rosewood and Boxwood matched with our Standard Rosewood Chess Board and Rosewood Chess Box. The rosewood and boxwood chess pieces are an elegant compliment to the lighter color rosewood and maple of the chess board. The Deluxe Old Club is a favorite with players and continues to be one of the most used chess sets for book covers and tournaments. Choose from 2 sizes."
+   },
+   ".00039-chess-bags.12-brown-leatherette-drawstring-chess-piece-bag" : {
+      "description" : "These attractive, heavy duty chess piece bags are a great way for storing and carrying your chess pieces.  The material looks like real leather and a drawstring to will keep the pieces secured inside. Choose from 2 sizes."
    },
    ".mahjong.specials.something" : {
       "page_title" : "The Mah Jong Shop Grand Opening Sale",
@@ -196,10 +193,6 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "These complete chess set packages include a set of our high quality Staunton chessmen, Standard Walnut and Maple Chess Board, and Walnut Chess Box. The color of the golden rosewood chess pieces and the walnut chess board are a perfect match. The matching chess box is an attractive way to store the pieces when you're not using them. Select from a wide range of models and sizes to fit anyone's taste and budget."
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.spring_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&",
-      "description" : "Take advantage of special Spring Sale prices on a variety of bacgkammon sets including Dal Negro backgammon sets from Italy!"
-   },
    ".00012-wood-chess-sets-with-chess-boards.4-model.10-mahogany-box.06-royal-guard" : {},
    ".00012-wood-chess-sets-with-chess-boards.4-model.12-walnut-box.18-fierce-knight" : {
       "meta_description" : "Our Fierce Knight Staunton chess sets with Walnut and Maple Chess Board and matching Chess Box. One of our best knights. Choose from 3 sizes: 3\", 3.5\", 4\" (king height).",
@@ -233,9 +226,6 @@
       "meta_description" : "Our New Exclusive Staunton Chess Sets with Deluxe Padauk and Bird's Eye Maple Chess Board. Heavy pieces and beautiful knights! Available in: 3\", 3.5\", 4\" (king height).",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : "These beautiful packages include our New Exclusve Staunton Chess Set matched with one of the most beautiful chess boards in our collection, the Deluxe Molded Edge Padauk and Bird's Eye Maple. African padauk is one of the most colorful exotic woods in the world and it makes for a stunning chess set combination. The New Exlusive is a favorite with all of the features and detail that players and collectors look for in a high quality Staunton set. Choose from the combination of padauk with boxwood or padauk with ebony and three sizes."
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.presidents_day_sale" : {
-      "description" : "We're honoring Presidents Day, and specifically George Washington's Birthday, with a spectacular sale and huge savings on many of our favorite backgammon sets. Celebrate with us while you look through our sales selection!"
    },
    ".00028-club-tournament-supplies.04-vinyl-chess-boards.14-vinyl-folding-chess-boards-2_-squares" : {
       "meta_description" : "Folding chess boards are an old time favorite! Covered in a durable vinyl this board is easy to use and durable. Choose from 4 colors.",
@@ -418,12 +408,7 @@
       "meta_description" : "At only $4.45 the Master Series Plastic Chess Set is our lowest priced tournament size plastic chess set with an attractive Staunton design.",
       "description" : "Our new Master Series Plastic Chess Set is the best looking and lowest priced club chess set available. Its new design is both elegant and funtional with pieces that are amazinly well balanced and stable on the chess board. The knight has a traditional Staunton design with attractive features and fine detail that players of any calibur will appreciate and enjoy playing with. Our new Master Series Plastic Chess Set is an unbeatable choice for schools, clubs, and tournaments looking for the very best value in a plastic chess set.<br>\n*Tournament Size Plastic Chess Set\n*Includes 2 spare queens for pawn promotion\n*Volume discounts to low as $3.45\n*Volume discounts apply to any mix of color"
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.labor_day_sale" : {
-      "about" : "<h2>TheBackgammonStore Labor Day Sale</h2>\nCelebrate Labor Day, relax and play backgammon!  Great savings on a wide range of our most popular backgammon sets.Choose from our most affordable, budget-minded backgammon sets to elegant designer backgammon sets from Italy.",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
-   },
    ".00025-theme-chess-sets.22-studio-anne-carlton-theme-chess-sets" : {},
-   "$marble___onyx_chess_sets" : {},
    ".v_backgammon_sets.4_real_leather_backgammon_sets" : {
       "meta_description" : "Backgammon sets that incorporate real leather into the design, both inside the case and out.",
       "page_title" : "Leather Backgammon Sets",
@@ -431,6 +416,7 @@
       "about" : "<h2>Backgammon Sets with Real Leather</h2>\nThis is The Backgammon Store's collection of real leather backgammon sets. These top of the line briefcase style backgammon sets feature leather both inside and out. These are ideal for the serious player or collector.",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
+   "$marble___onyx_chess_sets" : {},
    ".00014-wood-chess-sets-with-chess-cases.4-model" : {},
    ".00030-tournament-chess-set-kits.00024-protourney-tournament-chess-set-kits" : {
       "meta_description" : "Introduced in 2001, our ProTourney was the first plastic chess set in this class. Still popular, this triple weighted set is available in 6 color combinations and lots of pacakges.",
@@ -589,10 +575,6 @@
    ".u_chess_sets.shop_for_chess_sets_by" : {},
    ".u_chess_sets.chess_set_specials.chess_sets_on_sale_now" : {},
    ".00025-theme-chess-sets.16-plastic-theme-chess-sets" : {},
-   ".sales.beat_the_heat_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "We've chilled down our prices during our Beat the Heat Sale on hand-picked chess sets and accessories.  Turn down the heat with these low prices and enjoy your summer with these amazing values.\n"
-   },
    ".00024-marble-onyx-chess-sets.3-16_-classic-marble-onyx-chess-sets" : {
       "meta_description" : "The old Classic Marble Chess Set is still as popular as ever and a great value for a 16\" chess board package. Choose from 8 different combinations of marble, onyx, and exotic stones."
    },
@@ -813,10 +795,6 @@
    ".chess_resource_center.chess_clubs_of_america.florida" : {
       "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.florida\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/florida_state_flag_180.jpg\" width=\"180\" height=\"120\" border=\"0\" \n></a></font></td>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Florida Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Florida chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Florida and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><a href=\"http://www.bocachess.com/\"><font size=\"2\">Boca Raton Chess Club</font></a></li>\n  <li><a href=\"http://www.castlechess.org/dnn/\"><font size=\"2\">Castle Chess Camp</font></a></li>\n  <li><a href=\"http://www.centralflchess.org/\"><font size=\"2\">Central Florida Chess Club</font></a></li>\n  <li><a href=\"http://kosteniuk.com/\"><font size=\"2\">Chess Queen Alexandra Kosteniuk</font></a></li>\n  <li><a href=\"http://www.daytonabchcc.org/\"><font size=\"2\">Daytona Beach Chess Club</font></a></li>\n  <li><a href=\"http://www.gainesvillechess.com/Welcome.html\"><font size=\"2\">Gainesville Chess\n    Club (Alachua County)</font></a></li>\n  <li><a href=\"http://www.hollywoodkingschess.com/\"><font size=\"2\">Hollywood Kings Chess Club</font></a></li>\n  <li><a href=\"http://ircchessclub.org/default.aspx\"><font size=\"2\">Indian River County Chess\n    Club</font></a></li>\n  <li><font size=\"2\"><a href=\"http://www.jaxchess.org/\">Jacksonville Chess Club</a>&nbsp;</font></li>\n  <li><font size=\"2\">Lakeland Chess Club - Contact - <a href=\"mailto:marksmove1962@yahoo.com\">marksmove1962@yahoo.com</a></font></li>\n  <li><font size=\"2\">Melbourne Chess Club - Contact - <a href=\"mailto:pdyson@modusoperandi.com\">pdyson@modusoperandi.com</a></font></li>\n  <li><a href=\"http://www.miamichess.com/\"><font size=\"2\">Miami International Chess Academy</font></a></li>\n  <li><a href=\"http://orlandochess.com/\"><font size=\"2\">Orlando Chess and Games Center</font></a></li>\n  <li><a href=\"http://www.palatkachessclub.com/\"><font size=\"2\">Palatka Chess Club</font></a></li>\n  <li><a href=\"http://www.southfloridachessclub.com/\"><font size=\"2\">South Florida Chess Club</font></a>\n  </li>\n  <li><a href=\"http://www.stpetersburgchessclub.com/\"><font size=\"2\">St. Petersburg Chess Club</font></a></li>\n  <li><a href=\"http://wflachess.org/page/main.html\"><font size=\"2\">Tampa Chess\n    Club"
    },
-   ".sales.no_fooling_april_fool_s_day_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "No joke!  And no foolin'!  Our April Fool's Day Sale prices are real.  Get great deals and save money on hand-picked chess sets packages and accessories like our chess clocks.  "
-   },
    ".00016-chess-boards.00010-natural-wood-chess-boards.00048-macassar-maple-standard-chess-boards" : {
       "meta_description" : "Beautiful and affordable, this macassar and maple chess board is pefect for ebony or ebonized chess sets, 4 colors.",
       "page_title" : "Macassar & Maple Standard Chess Boards - Choose from 4 Sizes",
@@ -883,32 +861,28 @@
       "page_title" : "Tiger Ebony & Maple Deluxe Chess Boards - Choose from 5 Sizes",
       "description" : "From the largest chess board manufacturer in the world, Rechapados Ferrer in Spain, this Tiger Ebony and Maple Deluxe Chess Board is a favorite to match with ebony chess sets. The unique \"tiger-like\" stripes of the tiger ebony is purely elegant and creates a beautiful backdrop against polished ebony chess pieces. The entire chess board is sealed in a polyurethane finish that both protects and enhances the natural beauty of the wood. Choose from 5 sizes.\n"
    },
-   ".u_chess_sets.shop_for_chess_sets_by.3_chess_sets_by_size.4_chess_sets_35_" : {
-      "page_title" : "Chess Sets with 3.5\" Kings",
-      "about" : "<h2>Chess Sets with 3.5\" Kings</h2>",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
-   },
    ".00018-metal-chess-sets.00010-metal-chess-sets.2-theme-metal-chess-sets" : {
       "meta_description" : "Shop from a vast selection of elegant metal theme chess sets based on European and Asian history and culture. Many different themes, metals, sizes, and finishes.",
       "page_title" : "Theme Metal Chess Sets (pieces only)",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : "You will enjoy just looking at these beautiful theme chess sets that come from the workshops of Italfama in Italy and Manopoulos in Greece. These sets are cast from solid zinc and plated in a variety of metals including brass, nickel, and copper. Some of the sets are partially painted to accentuate certain details on the piece and the copper sets come with a faux blue and green oxidation for an antique appearance."
    },
+   ".u_chess_sets.shop_for_chess_sets_by.3_chess_sets_by_size.4_chess_sets_35_" : {
+      "page_title" : "Chess Sets with 3.5\" Kings",
+      "about" : "<h2>Chess Sets with 3.5\" Kings</h2>",
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
+   },
+   ".chess_resource_center.chess_clubs_of_america.nebraska" : {
+      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.nebraska\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/nebraska_state_flag_180.jpg\" width=\"180\" height=\"108\" border=\"0\" \n>\n      </a></font>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Nebraska Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Nebraska chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Nebraska and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><font size=\"2\">Columbus - Contact Jim Swartz - (402)-563-3820</font></li>\n  <li><font size=\"2\">Hastings - Contact Louis Stoeger - (402)-463-4089</font></li>\n  <li><a href=\"http://www.unl.edu/chess/\"><font size=\"2\">UNL Chess Club</font></a></li>\n  <li><font size=\"2\">Omaha - Contact Drew Thyden - (402)-393-7750</font></li>\n  <li><font size=\"2\">Omaha - Contact Roger Anderson - (402)-572-0946"
+   },
    ".00010-wood-chess-sets.4-model.0064-1849-heirloom-staunton" : {
       "meta_description" : "Antique reproduction, 4.4\" (club size) set, antiqued ebony and boxwood finish, comes with coffer.",
       "page_title" : "1849 Heirloom Staunton Chess Set (pieces only)",
       "head_title" : "Chess Sets in Wood | 1849 Heirloom Staunton"
    },
-   ".chess_resource_center.chess_clubs_of_america.nebraska" : {
-      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.nebraska\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/nebraska_state_flag_180.jpg\" width=\"180\" height=\"108\" border=\"0\" \n>\n      </a></font>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Nebraska Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Nebraska chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Nebraska and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><font size=\"2\">Columbus - Contact Jim Swartz - (402)-563-3820</font></li>\n  <li><font size=\"2\">Hastings - Contact Louis Stoeger - (402)-463-4089</font></li>\n  <li><a href=\"http://www.unl.edu/chess/\"><font size=\"2\">UNL Chess Club</font></a></li>\n  <li><font size=\"2\">Omaha - Contact Drew Thyden - (402)-393-7750</font></li>\n  <li><font size=\"2\">Omaha - Contact Roger Anderson - (402)-572-0946"
-   },
    ".u_chess_sets.chess_board_categories.chess_boards_25_squares" : {},
    ".000312-vinyl-chess-boards.24-vinyl-folding-chess-boards-225" : {
       "description" : "Folding chess boards are an old time favorite! No need to roll it up so there's no problem with it laying flat. This folding board is covered in a durable vinyl that can be easily washed. It measures 19.5\" square, has 2\" squares, and easy to read notation. Choose from 4 colors."
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.mother_s_day_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "Take advantage of low prices on these wonderful backgammon sets and surprise Mom with a special gift on Mother's Day. Save 10% with Coupon Code: MOM"
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.10-mahogany-box.10-deluxe-old-club" : {
       "meta_description" : "The Deluxe Old Club Staunton chess sets packaged with our Mahogany and Maple Chess Board and matching Chess Box. Great for tournament play. Choose from 2 sizes.",
@@ -949,13 +923,6 @@
       "meta_description" : "Brass chess sets look stunning sitting on the red and maple chess board, high gloss, 5 sizes."
    },
    ".0.035" : {},
-   ".v_backgammon_sets.the_backgammon_store_sales.fall_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
-   },
-   ".sales.mother_s_day_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Take advanatge of low prices on these wonderful chess products and surprise Mom with a special gift on Mother's Day. Mothers play chess too!"
-   },
    ".00012-wood-chess-sets-with-chess-boards.2-size__king_height_.6-3875_" : {
       "page_title" : "Wood Chess Sets with Boards 3.875\" Kings",
       "head_title" : "Chess Sets with Chess Boards 3.875\" Kings",
@@ -1264,6 +1231,10 @@
       "about" : "<h2>Chess Sets with 2.75\" Kings</h2>\nThis is our complete list of chess sets with a 2.75\" king. These are great sets for travel or recreational play because they are very affordable and don't have fine detail that might be damaged. All of these chess sets can be purchased in complete chess set packages that includes a board or case. We'll show you these options when you click through to the chess set you are interested in.\n",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
+   ".00027-metal-chess-pieces.8-italfama-metal-chess-pieces" : {
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "The workshops of Italfama near Florence Italy produce some of the most beautiful and impressive metal chess sets in the world.  They are renowned for their unique and elegant designs that are made using the lost wax casting process and also turning solid metal pieces from a lathe. Choose from a wide selection of chess sets from both traditional Staunton designs and theme in many different metal finishes."
+   },
    ".00026-theme-chess-sets.00010-theme-chess-sets.00022-american-theme-chess-sets" : {
       "meta_description" : "Theme chess sets on a wide range of American related themes. From firefighters to American Indians.",
       "prodlist_custom" : "&SORTBY=SKU&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
@@ -1330,6 +1301,7 @@
       "description" : "The Wingfield is one of our exclusive chess set designs. It has a purely traditional Staunton look but with a rook that stands as tall as the knight, a feature that many players prefer. The Wingfield is only available with a 3.75\" king which is the perfect size for tournament play, and it's an excellent set for that! Wood combinations include golden rosewood - boxwood, ebonized boxwood - boxwood, rosewood - boxwood, ebony - boxwood, African padauk boxwood, and ebony - African padauk. The Wingfield is triple weighted and all wood combinations have green baize pads. A set of spare set of queens are included for promoting pawns. Please note that we only display chess sets that are in stock.\n"
    },
    ".00027-metal-chess-pieces.2-staunton-metal-chess-pieces" : {
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "These beautiful Staunton chess sets are made from solid metal with combinations of finishes including brass, nickel, silver, and gold. We carry the complete list of Italfama metal chess sets from Italy that are a world standard in elegant design and quality"
    },
    "$wood_chess_sets_with_cases" : {},
@@ -1501,9 +1473,6 @@
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.10-mahogany-box.08-parker" : {},
    ".00044-chess-dvds.36-chessbase-end-game-chess-dvd-series" : {},
-   ".sales.50__off__-_last_chance_chess_sets" : {
-      "description" : "Take advantage of your 50% off coupon on any of these beautiful chess sets and save up to $1000! You'll never have this chance again to save so much money on a high quality Staunton chess set.\nUse Coupon Code: LCCS50"
-   },
    ".00012-wood-chess-sets-with-chess-boards.4-model.18-deluxe-mahogany.18-fierce-knight" : {},
    ".chess_resource_center.chess_clubs_of_america.alabama" : {
       "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.alabama\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/alabama_state_flag_180.jpg\" width=\"180\" height=\"120\" border=\"0\" \n></a></font></td>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Alabama Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Alabama chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Alabama and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><a href=\"http://www.logicalchess.com/hcc/\"><font size=\"2\">Huntsville Chess\n    Club</font></a></li>\n  <li><a href=\"http://freedomchess.blogspot.com/\"><font size=\"2\">Freedom Chess\n    Academy</font></a></li>\n  <li><font size=\"2\">Birmingham UAB Chess Club - Contact Bob Rieves - <a href=\"mailto:bobrieves@charter.net\">bobrieves@charter.net</a></font></li>\n  <li><font size=\"2\">Auburn University Chess Club - Contact Scott Veragona - <a href=\"mailto:veragsm@auburn.edu\">veragsm@auburn.edu</a></font></li>\n  <li><a href=\"http://knightwatchman.netfirms.com/\"><font size=\"2\">Maxwell/Gunter Montgomery\n    Chess Club</font></a></li>\n  <li><font size=\"2\">Montgomery Chess Club - Contact Caesar Lawrence - <a href=\"mailto:caesar.lawrence@juno.com\">caesar.lawrence@juno.com</a></font></li>\n  <li><font size=\"2\">Greenville Chess Club - Contact Jim Griffin - <a href=\"mailto:jog542004@yahoo.com\">jog542004@yahoo.com</a></font></li>\n  <li><font size=\"2\">Dothan Chess Club - Contact Tim Evans - <a href=\"mailto:slicksloth@centurytel.net\">slicksloth@centurytel.net</a></font></li>\n  <li><font size=\"2\">TeachMeChess Chess Club - <a href=\"mailto:PawnsAreTasty@teachmechess.com\">PawnsAreTasty@teachmechess.com</a></font></li>\n  <li><font size=\"2\">Fair Hope Chess Club - Contact Tim Yarh - (964-6151) or Valeri Hodgson\n    -(928-0727)</font></li>\n</ul>\n"
@@ -1515,7 +1484,7 @@
    ".00026-theme-chess-sets.00012-theme-chess-set-packages.00010-fame-usa-theme-chess-set-packages" : {
       "meta_description" : "Colorful theme chess sets matched with boards and cases at affordable prices, many themes.",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "These complete packages included the theme chess pieces matched with a variety of chess boards and cases. Choose from a wide range of themes matched with chess boards and cases we picked out that make a beautiful combination and a practical one in a wide range of prices."
+      "description" : "These colorful and fun theme chess sets are made of polystone which is a very hard stone-like material. The pieces are individually cast from molds and the level of intricate detail that can be achieved is amazing. The sculpture and design of each piece is done to accruately portray the subject in real life form. Pieces are masterfully handpainted with realistic colors to capture the essence of the subject and create a beautiful chess piece. These packages include a chess board and you will find a wide range of themes based on history from around the world."
    },
    ".00044-chess-dvds.00030-russian-school-of-chess-series-dvds" : {
       "meta_description" : "The 12th World Champion Anatoly Karpov's strategies for serious chess players on video! A course of study aimed at the novice to intermediate level chess player. ",
@@ -1526,6 +1495,9 @@
       "description" : "Finishing your own chess set can be a fun and rewarding project and there's thousands of ways you can make your own unique chess set. These are high quality chess pieces made in India by the same company that makes many of our finished high-end chess sets. The pieces are made from solid boxwood which is a white wood with a tight grain that makes it perfect for painting or staining. We offer 3 sizes including 2.75\", 3.25\", and 3.75\"."
    },
    ".00025-theme-chess-sets.28-american-history-theme-chess-sets" : {},
+   ".0003135-leatherette-chess-boards" : {
+      "description" : "This collection of leatherette (faux leather) chess boards come from Italfama in Italy. Beautiful and elegant, these chess boards will compliment nearly any chess set, from a traditional Staunton wood to an elegant metal theme chess set. Some come with a storage tray to store pieces and with a backgammon board on the other side of the chess board."
+   },
    ".00016-chess-boards.00010-natural-wood-chess-boards.00002-walnut-maple-standard-chess-boards" : {
       "meta_description" : "Our most affordable walnut and maple chess board. Great choice for golden rosewood or ebonized chess sets. Available in 4 sizes starting at $49.95.",
       "description" : "Our Walnut and Maple Standard Chess Board balances the need of a functional and attractive chess board with cost and quality to create our most affordable priced wood chess board. The brown color of the walnut wood is an excellent choice for matching with golden rosewood chess pieces or for contrasting with ebony or black chess pieces."
@@ -1593,10 +1565,8 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : "Chess sets with a 3.75\"king are the ideal tournament size and we have a wide range of different models to choose from. These chess sets are the most popular tounament wood chess sets used and we have matched the perfect boards with each set."
    },
-   ".00025-theme-chess-sets.12-polystone-theme-chess-sets" : {},
-   ".v_backgammon_sets.the_backgammon_store_sales.no_foolin_april_fools" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "No joke!  And no foolin'!  Our April Fool's Day Sale prices are real.  Get great deals and save money on hand-picked backgammon sets you will just love to have."
+   ".00025-theme-chess-sets.12-polystone-theme-chess-sets" : {
+      "description" : "These colorful and fun theme chess sets are made of polystone which is a very hard stone-like material. The pieces are individually cast from molds and the level of intricate detail that can be achieved is amazing. The sculpture and design of each piece is done to accruately portray the subject in real life form. Pieces are masterfully handpainted with realistic colors to capture the essence of the subject and create a beautiful chess piece. These packages include a chess board and you will find a wide range of themes based on history from around the world."
    },
    ".sales.the_chess_store_black_friday_sale" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
@@ -1628,14 +1598,6 @@
       "description" : "The Chess Store Premium Vinyl Rollup Chess Boards are simply the best vinyl chess board being made today. We spent nearly a year looking for the best vinyl for this purpose and evaluated dozens of colors to achieve the best color for contrasting with nearly any plastic chess set. These chess boards have 2.375\" squares and alpha-numeric notation around the board. Choose from 5 different color combinations."
    },
    ".00014-wood-chess-sets-with-chess-cases.4-model.00080-kohinoor-staunton-chess-sets-with-chess-cases" : {},
-   ".sales.independence_day" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Shop our Summer sale for great savings on chess sets & more! Be sure to take advantage of $5 UPS Ground shipping on orders over $25*.\n\n\n\n(*)Volume discounted orders do not apply to the $5 shipping."
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.black_friday_sale" : {
-      "about" : "<h2>The Backgammon Store Black Friday Sale</h2>\nTake advantage of low prices on this wide range of beautiful backgammon sets during our Black Friday Sale. Choose from affordable to elegant sets from Italy. Sale ends Monday.",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=20&SHOWSKU=&SHOWQUANTITY=0&"
-   },
    ".u_chess_sets.chess_sets_with_boards_categories.ebony_chess_sets_with_chess_boards" : {
       "about" : "<h2>Ebony Chess Sets with Chess Boards</h2>",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
@@ -1664,9 +1626,6 @@
       "meta_description" : "Antique reproduction featuring oversize jowls, 4\" set in antiqued ebony and boxwood finish.",
       "page_title" : "1851 Heirloom Staunton Chess Set (pieces only)",
       "head_title" : "Chess Sets in Wood | 1851 Heirloom Staunton"
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.easter_sale" : {
-      "description" : "Put all your eggs in one basket this Easter by collecting and saving your dollars during our Easter sale! Save up to 40% on specially chosen products.  Hop quick like the rabbit against the turtle (but don't nap too long) or you might miss out on these great deals."
    },
    ".v_backgammon_sets.mother_of_pearl_backgammon_chips.black___red_backgammon_chips" : {
       "image1" : "backgammon_chips/tcs_backgammon_chips_black_red_500",
@@ -1882,7 +1841,6 @@
       "page_title" : "Hampshire Staunton Chess Set Packages",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&"
    },
-   ".00012-wood-chess-sets-with-chess-boards.4-model.08-rosewood.12-yugoslavia" : {},
    ".v_backgammon_sets.shop_for_backgammon_sets_by.3_shop_for_backgammon_sets_by_size.2_small_backgammon_sets" : {
       "page_title" : "Small Backgammon Sets",
       "head_title" : "Small Backgammon Sets",
@@ -1890,6 +1848,7 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&",
       "description" : "These small backgammon sets are affordable and convenient for grabbing and taking anywhere. Whether you're heading on vacation or to the coffee shop around the corner, these backgammon sets are portable and perfect for the occasion."
    },
+   ".00012-wood-chess-sets-with-chess-boards.4-model.08-rosewood.12-yugoslavia" : {},
    ".v_backgammon_sets.mother_of_pearl_backgammon_chips.amber___light_blue_mother_of_pearl_backgammon_chips" : {
       "image1" : "backgammon_chips/tbs_backgammon_chips_amber_light_blue_500",
       "prodlistname" : "<center>Size</center>",
@@ -2000,7 +1959,7 @@
    ".00014-wood-chess-sets-with-chess-cases.1-price.4-_300-_39999" : {},
    ".00018-metal-chess-sets.00010-metal-chess-sets.1-staunton-metal-chess-sets" : {
       "meta_description" : "Shop from a large selection of beautiful Staunton metal chess sets in many unique and attractive designs, sizes, and finishes. From traditional and rustic looking to contemporary and highly ornate.",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "These beautiful Staunton chess sets are made from solid metal with combinations of finishes including brass, nickel, silver, and gold. We carry the complete list of Italfama metal chess sets from Italy that are a world standard in elegant design and quality."
    },
    ".chess_resource_center.chess_learning___training" : {},
@@ -2140,10 +2099,6 @@
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.18-deluxe-mahogany.06-royal-guard" : {},
    ".00056-other-games.go" : {},
-   ".sales.graduation_fathers_day" : {
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "The hallmark of a graduation gift is a thoughtful gift that lasts a lifetime.  Nothing says that more than a beautiful chess set; you will be remembered for your thoughtfulness every time your graduate plays throughout the years.  Choose a gift from one of our many handpicked chess sets, boards and packages on sale during our Graduation Sale!"
-   },
    ".00028-club-tournament-supplies.02-plastic-chess-sets.10-conqueror-plastic-chess-sets" : {
       "meta_description" : "Heavy tournament size plastic set, an extra wide base and attractive Staunton design. Excellent tournament or club set and a tremendous value at only $12.95 and volume discounts as low as $7.95!",
       "head_title" : "Club Supplies | Conqueror Plastic Chess Sets | Pieces Only",
@@ -2169,11 +2124,6 @@
       "page_title" : "Rogue Knight Tournament Chess Sets - Includes Pieces, Board, & Bag",
       "head_title" : "Club Supplies | Rogue Knight Series Tournament Chess Sets",
       "description" : "These tournament chess set pacakges include our exclusive Rogue Plastic Chess Set with 2 extra queens, vinyl rollup chess board, chess bag, and scorebook. Choose from a variety of different packages in popular colors. We offer volume discounts when you purchase 2 or more."
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.father_s_day_sale" : {
-      "about" : "A beautiful backgammon set makes a wonderful gift for every Dad! Backgammon is one of the most popular games in the world. We have selected some of our nicest and most popular backgammon sets for our Father's Day Sale and have them priced at unbelievably low prices. Treat your Father or any special man in your life with a thoughtful gift that will be used and treasured for a life time!",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Treat your father to something special, a backgammon set  he has always wanted. Now handpicked sets on sale at special prices just for Dad."
    },
    ".u_chess_sets.39_chess_sets_with_cases.chess_sets_with_large_walnut_chess___backgammon_case" : {
       "about" : "<h2>Chess Sets with Large Walnut Chess & Backgammon Case</h2>",
@@ -2455,10 +2405,6 @@
       "prodlist_custom" : "&SORTBY=NAME&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "This is our complete list of chess books from all publishers and on every subject of the game. Choose from the sort options to list the books how you prefer and select how many books you would like to view on a single page. Only books with available inventory are shown."
    },
-   ".sales.spring" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Start up this Spring with a new chess product from The Chess Store! Whether you're a collector, serious player or even a casual player, you'll want to take advantage of these prices. Choose from your basic and affordable chess set to some our most popular high-end premium Staunton chess sets along with many other products! "
-   },
    ".00014-wood-chess-sets-with-chess-cases.4-model.00052-columbian-knight-staunton-chess-sets-with-chess-cases" : {},
    ".00016-chess-boards.00016-vinyl-chess-boards.00022-the-chess-store-vinyl-rollup-chess-boards-2375-inch-squares" : {
       "meta_description" : "Our extra-large vinyl rollup chess board with 2.375\" squares - perfect for the larger sets. Affordable at only $5.95 and volume discounts. Available in 4 colors.",
@@ -2514,10 +2460,6 @@
    ".00010-wood-chess-sets.56-saint-john-staunton-chess-sets" : {
       "description" : "Our Saint John is a masterpiece in contemporary Staunton design with a knight unlike any ever before created. It combines realistic features with a striking poise and a unique mane for a stunning statuette of a stallion. The other pieces are equally impressive with elegant profiles beautifully turned and carved to perfection. Choose either ebony and boxwood or ebony and African padauk."
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.st_patrick_s_day_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "Don't just wear green on St. Patrick's Day, save some green during our St. Patrick's Day sale! Take advantage of specially priced backgammon sets."
-   },
    ".u_chess_sets.chess_board_categories.red_chess_boards" : {
       "about" : "<h2>Red Chess Boards</h2>"
    },
@@ -2560,11 +2502,6 @@
       "page_title" : "Professional Plastic Chess Sets (pieces only)",
       "description" : "Big, heavy, and good looking, our Professsional Plastic Chess set is a favorite with players. The Professional is a triple weighted set with a 4.125\" king and it comes with spare queens. Volume discounts when you buy 2 or more sets."
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.independence_day_sale" : {
-      "about" : "We are celebrating the 4th of July by blasting off our Independence Day Sale with great sale prices on backgammon sets. ",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Shop out Summer sale for hot prices and great savings on backgammon sets & more. Be sure to take advantage of $5 UPS Ground Shipping on orders over $25*."
-   },
    ".00010-wood-chess-sets.2-size__king_height_.1-275_" : {
       "page_title" : "Wood Chess Sets with 2.75\" King",
       "head_title" : "Chess Sets in Wood with 2.75\" King",
@@ -2577,10 +2514,6 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
    ".00016-chess-boards.00016-vinyl-chess-boards.00020-the-chess-store-vinyl-rollup-chess-boards-225-inch-squares" : {},
-   ".sales.after_christmas" : {
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Take advantage of our After Christmas Sale!  Save up to 35% on selected items.  "
-   },
    ".00012-wood-chess-sets-with-chess-boards.4-model.24-deluxe-padauk.24-players" : {},
    ".000311-stained-wood-chess-boards.20-brown-erable-high-gloss-deluxe-chess-board" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
@@ -2656,6 +2589,10 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.22-deluxe-tiger-ebony.04-french-lardy" : {},
+   ".00027-metal-chess-pieces.9-manopoulos-metal-chess-pieces" : {
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "These beautiful metal chessmen come from Manopoulos in Athens Greece and are based on both Greek mythology and Euro-Mediterranean history. These metal chess pieces are made by the lost wax casting process and are then plated in a variety of metals including brass, nickel, and copper. These pieces are also available in complete packages that include chess boards."
+   },
    ".00028-club-tournament-supplies.06-chess-bags.06-small-tournament-chess-bags" : {
       "meta_description" : "Fits the Value Club and ClubTourney plastic chess sets along with a roll chess board and clock. Made of heavy canvas, comes in 5 colors, volume discounts on 2 or more.",
       "page_title" : "Small Tournament Chess Bags",
@@ -2814,11 +2751,6 @@
       "meta_description" : "Shop from a vast selection theme metal chess set packages from the best companies including Italfama and Manopoulos. Choose from a wide range of themes, metals, finishes, and sizes. ",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "The Chess Store has the largest selection of theme metal chess sets in the world. These packages include a chess set matched with the ideal chess board. Choose from a vast selection of interesting themes metals, finishes, and sizes. These sets will make a stunning addition to your home's decor or chess set collection!"
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.graduation_sale" : {
-      "about" : "<h2>Graduation Sale</h2>",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&",
-      "description" : "Give your graduate the gift that keeps on giving.  Choose from one of our handpicked selections on sale during our Graduation Sale!"
    },
    ".00020-plastic-chess-sets.00014-clubtourney-plastic-chess-sets" : {
       "meta_description" : "Starting at $7.95 our ClubTourney with its snazzy knight is an excellent choice for an upscale set for tournaments and chess clubs for just a little more money.",
@@ -3105,11 +3037,6 @@
    "*cart" : {},
    "$jaques_london_chess_sets" : {},
    ".00014-wood-chess-sets-with-chess-cases.2-size__king_height_.8-4125__" : {},
-   ".00026-theme-chess-sets.00010-theme-chess-sets.00010-fame-usa-theme-chess-sets" : {
-      "meta_description" : "Cast polystone and pewter theme chess sets intricately painted with amazing detail. Colorful and interesting sets under $100.",
-      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "These colorful theme chess sets come in all sorts of interesting themes covering a broad range of subjects. Cast in solid polystone, a very hard and durable material, these pieces have amazingly intricate features and are hand painted with exacting detail."
-   },
    ".00028-club-tournament-supplies.10-tournament-packages" : {
       "meta_description" : "Complete tournament kits including pieces, board, bag, and scorebook, 10 models, volume discounts.",
       "page_title" : "Tournament Chess Sets - Includes Pieces, Board, & Bag",
@@ -3269,10 +3196,6 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
       "description" : "These chess set packages include our ebonized boxwood chess sets with a variety of different chess boards including walut, mahogany, and ebony."
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.christmas_sale" : {
-      "about" : "<h2>The Backgammon Store Christmas Sale</h2>\nThe Backgammon Store Christmas Sale is our biggest sale of the year with the largest selection of backgammon products at the lowest prices! From affordable attache backgammon sets priced under $30 to some of our highest-end backgammon sets imported from Italy, you'll find the perfect gift for the backgammon player on your Christmas list.\n",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
-   },
    ".00010-wood-chess-sets.44-calvert-antique-reproduction-chess-set" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "Our Calvert Antique Reproduction Chess Sets originate from the model produced by the Worshipful Company of Turners in England back in the late 1700's. John Calvert, a Master at the Worshipful Company of Turners, is generally credited with this design. While not Staunton traditional, this chess set has similar features found on Staunton sets being made by their contemporary, John Jaques and Son, Ltd. These unique chess sets pre-dating the original Staunton design are both elegant and practical for your chess game at home!"
@@ -3354,9 +3277,6 @@
    ".000312-vinyl-chess-boards.14-club-vinyl-rollup-chess-boards-225" : {
       "description" : "Our Club Vinyl Rollup Chess Boards are a great choice for chess clubs and tournaments where you want good quality board at an affordable price. It measures 20\" square, has 2.25\" squares, and has easy to read alpha-numeric notation . This chess board unrolls flat, is durable and will last for years! Choose from 5 colors."
    },
-   ".sales.easter_sale" : {
-      "description" : "Put all your eggs in one basket this Easter by collecting and saving your dollars during our Easter sale! Save up to 40% on specially chosen products.  Hop quick like the rabbit against the turtle (but don't nap too long) or you might miss out on these great deals."
-   },
    ".00016-chess-boards.00010-natural-wood-chess-boards.00008-macassar-ebony-maple-standard-chess-boards" : {
       "meta_description" : "Our Macassar Ebony and Maple Standard Chess Boards are the perfect choice for ebonized chess sets. Choose from 4 sizes starting at $49.95.",
       "description" : "Our Macassar Ebony and Maple Standard Chess Boards balance the need of a functional and attractive chess board with cost and quality to create our most affordable priced wood chess board. The black and brown striped grain pattern of the Macassar ebony is an excellent choice for contrasting with ebony or black chess pieces."
@@ -3368,6 +3288,7 @@
    ".u_chess_sets.player_series_chess_set_categories.player_series_chess_sets_with_3875__kings" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
+   ".00027-metal-chess-pieces.6-pewter-hand-painted-chess-pieces" : {},
    ".00014-wood-chess-sets-with-chess-cases.4-model.00046-calvert-antique-reproduction-chess-sets-with-chess-cases" : {},
    ".00031-natural-wood-chess-boards.42-rosewood-maple-deluxe-molded-edge-chess-board" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
@@ -3682,12 +3603,12 @@
       "about" : "<h2>Bud Rosewood (Red Sandalwood) Chess Boards<h2>",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
+   ".chess_resource_center.chess_clubs_of_america.arizona" : {
+      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.arizona\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/arizona_state_flag_180.jpg\" width=\"180\" height=\"119\" border=\"0\" \n></a></font></td>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Arizona Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Arizona chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in California and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><font size=\"2\">Tempe Chess Club -&nbsp; Contact Myon Leiberman - <a href=\"mailto:azchess@aol.com\">azchess@aol.com</a></font></li>\n  <li><a href=\"http://www.yetmanbrothers.com/\"><font size=\"2\">Desert Paradise Chess Club</font></a></li>\n  <li><a href=\"http://www.sazchess.org/escc.html\"><font size=\"2\">Eastside Chess Club</font></a></li>\n  <li><a href=\"http://mesabmchess.webhop.org/\"><font size=\"2\">Mesa Chess Club</font></a></li>\n  <li><font size=\"2\">Sedona Chess Club - Contact Marty Schneider - Sedona Public Library</font></li>\n  <li><a href=\"http://www.asu.edu/clubs/chess_team/\"><font size=\"2\">Arizona State University\n    Chess Club&nbsp;"
+   },
    ".00034-chess-books" : {
       "page_title" : "Chess Books",
       "description" : "Chess books are an important part of learning the game and its strategies and there's no better way to advance your game to the next level. You will find books on every phase of the game by some of the best players in the world. The many years of experience and insight they share with you is invaluable. Browse through 12 different catagories to narrow down the list or use the search to find a specific title. And don't forget the 33-33 deal! Buy $33 worth on non-book merchandise and receive a 33% discount on all chess books."
-   },
-   ".chess_resource_center.chess_clubs_of_america.arizona" : {
-      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.arizona\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/arizona_state_flag_180.jpg\" width=\"180\" height=\"119\" border=\"0\" \n></a></font></td>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Arizona Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Arizona chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in California and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><font size=\"2\">Tempe Chess Club -&nbsp; Contact Myon Leiberman - <a href=\"mailto:azchess@aol.com\">azchess@aol.com</a></font></li>\n  <li><a href=\"http://www.yetmanbrothers.com/\"><font size=\"2\">Desert Paradise Chess Club</font></a></li>\n  <li><a href=\"http://www.sazchess.org/escc.html\"><font size=\"2\">Eastside Chess Club</font></a></li>\n  <li><a href=\"http://mesabmchess.webhop.org/\"><font size=\"2\">Mesa Chess Club</font></a></li>\n  <li><font size=\"2\">Sedona Chess Club - Contact Marty Schneider - Sedona Public Library</font></li>\n  <li><a href=\"http://www.asu.edu/clubs/chess_team/\"><font size=\"2\">Arizona State University\n    Chess Club&nbsp;"
    },
    ".00010-wood-chess-sets.4-model.0076-cambridge-staunton" : {
       "meta_description" : "The Cambridge is a 4.4\" set and a true masterpiece from our Staunton by Design collection. ",
@@ -3701,20 +3622,20 @@
       "page_title" : "French Lardy Staunton Chess Sets with Mahogany Chess Board & Box",
       "description" : "These packages include one of our French Lardy Staunton Chess Sets matched with the Standard Walnut and Maple Chess Board. The French Lardy design is an old classic originating from the Lardy Chess Company in France and is a favorite with players for its' old traditional Staunton deign. We offer this package with ebonized and boxwood chess pieces to create a sharp and attractive contrast for clearly seeing the pieces on the board. Choose from 3 sizes."
    },
+   ".chess_resource_center.chess_clubs_of_america.wisconsin" : {
+      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.wisconsin\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/wisconsin_state_flag_180.jpg\" width=\"180\" height=\"120\" border=\"0\" \n>\n      </a></font>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Wisconsin Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Wisconsin chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Wisconsin and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><a href=\"http://www.wischess.org/\"><font size=\"2\">Wisconsin Chess Association</font></a></li>\n  <li><a href=\"http://www.thechessmill.com/\"><font size=\"2\">Chess in Milwaukee</font></a></li>\n  <li><a href=\"http://www.greenbaychess.org/\"><font size=\"2\">Green Bay Chess Association</font></a></li>\n  <li><a href=\"http://personalpages.tds.net/~rohe/ChessClub.htm\"><font size=\"2\">Middleton Chess\n    Club"
+   },
    ".00026-theme-chess-sets.00012-theme-chess-set-packages.00022-american-theme-chess-set-packages" : {
       "meta_description" : "These colorful and interesting theme chess set packqages depict our country's history and culture in a wide range of themes.",
       "description" : "These colorful and interesting theme chess set packqages depict our country's history and culture in a wide range of themes."
    },
-   ".chess_resource_center.chess_clubs_of_america.wisconsin" : {
-      "description" : "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n  <tr>\n    <td width=\"33%\"><font size=\"2\"><a href=\"http://www.thechessstore.com/category/chess_resource_center.chess_clubs_of_america.wisconsin\"><img src=\"http://static.zoovy.com/img/thechessstore/-/state_flags/wisconsin_state_flag_180.jpg\" width=\"180\" height=\"120\" border=\"0\" \n>\n      </a></font>\n    <td width=\"67%\" valign=\"top\">\n      <p style=\"margin-top: 0; margin-bottom: 0\"><b><font size=\"4\">Wisconsin Chess Clubs</font></b></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">Looking for a\n      chess club in your area? Here is our list of Wisconsin chess clubs along\n      with web site links and contact information. If you belong to a chess club\n      in Wisconsin and do not see it listed below, please contact us at <a href=\"mailto:chessresources@thechessstore.com\">chessresourcecenter@thechessstore.com</a>\n      so we can add your club to our list. Reciprocal links are always appreciated.</font></p>\n      <p style=\"margin-top: 0; margin-bottom: 0\">&nbsp;</td>\n  </tr>\n</table>\n<ul>\n  <li><a href=\"http://www.wischess.org/\"><font size=\"2\">Wisconsin Chess Association</font></a></li>\n  <li><a href=\"http://www.thechessmill.com/\"><font size=\"2\">Chess in Milwaukee</font></a></li>\n  <li><a href=\"http://www.greenbaychess.org/\"><font size=\"2\">Green Bay Chess Association</font></a></li>\n  <li><a href=\"http://personalpages.tds.net/~rohe/ChessClub.htm\"><font size=\"2\">Middleton Chess\n    Club"
+   ".00031-natural-wood-chess-boards.52-macassar-ebony-standard-chess-board" : {
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.00050-khans-stallion-staunton-chess-sets-with-chess-boards" : {
       "meta_description" : "Elegant packages in both ebony and red sandalwood, a unique and elegant set.",
       "page_title" : "Khan's Stallion Staunton Chess Set Packages",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&"
-   },
-   ".00031-natural-wood-chess-boards.52-macassar-ebony-standard-chess-board" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
    ".u_chess_sets.41_chess_boards" : {
       "about" : "<h2 style=\"margin-top: 0; margin-bottom: 0\">Chess Boards</h2>\r\n<p style=\"margin-top: 0; margin-bottom: 5\"><font size=\"2\">Chesssetsbd.com has\r\nthe largest selection of wood chess boards in the world&nbsp; from all of the\r\nmajor chess board manufacturers including our own exclusive line of custom chess\r\nboards. Below you can view chess boards by square size or wood and color.</font></p>\r\n\r\n<div align=\"center\">\r\n  <center>\r\n  <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" width=\"400\" bordercolor=\"#000080\">\r\n    <tr>\r\n      <td>\r\n        <p align=\"center\" style=\"margin-top: 3; margin-bottom: 3\"><font size=\"2\"><b>Square\r\n        Size:</b> <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_15_squares/\">1.5&quot;</a>\r\n      | <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_1625_squares/\"> 1.625&quot;</a> |\r\n      <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_175_squares/\"> 1.75&quot;</a>\r\n      | <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_2_squares/\"> 2&quot;</a> |\r\n      <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_2125_squares/\"> 2.125&quot;</a> |\r\n      <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_225_squares/\"> 2.25&quot;</a> |\r\n      <a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.chess_boards_2375_squares/\">\r\n      2.375&quot;</a></font></td>\r\n    </tr>\r\n  </table>\r\n  </center>\r\n</div>\r\n\r\n<h2 align=\"center\" style=\"margin-top: 5; margin-bottom: 5\">Chess Boards by Wood\r\n&amp; Color</h2>\r\n<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.walnut_chess_boards/\">Walnut\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.walnut_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/walnut_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a>\r\n</td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.mahogany_chess_boards/\">Mahogany\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.mahogany_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/mahogany_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.rosewood_chess_boards/\">Rosewood\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.rosewood_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/rosewood_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.black_chess_boards/\">Black\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.black_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/black_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.bud_rosewood_chess_boards/\">Bud\r\n      Rosewood (Red Sandalwood) Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.bud_rosewood_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/bud_rosewood_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.ebony_chess_boards/\">Ebony\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.ebony_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/ebony_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.teak_chess_boards/\">Teak\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.teak_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/teak_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.wenge_chess_boards/\">Wenge\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.wenge_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/wenge_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.brown_chess_boards/\">Brown\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.brown_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/brown_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.blue_chess_boards/\">Blue\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.blue_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/blue_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.green_chess_boards/\">Green\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.green_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/green_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.red_chess_boards/\">Red\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 5\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.red_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/red_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a>\r\n      </td>\r\n  </tr>\r\n  <tr>\r\n    <td width=\"50%\" align=\"center\">\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.gray_chess_boards/\">Gray\r\n      Chess Boards</a></font></p>\r\n      <p style=\"margin-top: 0; margin-bottom: 0\"><a href=\"http://www.chesssetsbd.com/category/u_chess_sets.chess_board_categories.gray_chess_boards/\"><img src=\"http://static.zoovy.com/img/thechessstore/-/banners/gray_chess_boards_banner_300\" width=\"300\" height=\"180\" border=\"0\" \r\n>\r\n      </a></td>\r\n    <td width=\"50%\" align=\"center\">\r\n      </td>\r\n  </tr>\r\n</table>"
@@ -3724,15 +3645,15 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
       "description" : "These packages include one of our British Staunton Chess Sets matched with the Standard Walnut and Maple Chess Board. Our British is based on an old Staunton set once made by the old British Chess Company. Choose from 3 different wood combinations and 3 sizes."
    },
+   ".00012-wood-chess-sets-with-chess-boards.4-model.26-deluxe-rosewood.14-british" : {},
    ".u_chess_sets.39_chess_sets_with_cases.chess_sets_with_walnut_folding_chess_case" : {
       "about" : "<h2>Chess Sets with Walnut Folding Chess Case</h2>",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
    },
-   ".00012-wood-chess-sets-with-chess-boards.4-model.26-deluxe-rosewood.14-british" : {},
-   ".00012-wood-chess-sets-with-chess-boards.4-model.08-rosewood.08-parker" : {},
    ".00064-shop-by-brand.manopoulos.3-metal-chess-sets" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
+   ".00012-wood-chess-sets-with-chess-boards.4-model.08-rosewood.08-parker" : {},
    ".00014-wood-chess-sets-with-chess-cases.4-model.0022-large-walnut-case-drawer-packages" : {
       "meta_description" : "Our largest case package with chess sets from 3.75\" to 4\". Beautiful packages with our most popular chess sets!",
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
@@ -3929,10 +3850,6 @@
    ".000311-stained-wood-chess-boards.26-tulip-red-maple-high-gloss-deluxe-chess-board" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".sales.st_patrick_s_day_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE_DESC&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Don't just wear green on St. Patrick's Day, save some green during our St. Patrick's Day sale!  Take advantage of special prices on a wide range of products including all types of chess sets, chess boards, tournament kits, and other great chess products.  "
-   },
    ".00010-wood-chess-sets.4-model.0044-centurion-staunton" : {
       "meta_description" : "The Centurion is a 4\" set available in ebony and red sandalwood.",
       "page_title" : "Centurion Staunton Wood Chess Sets",
@@ -3996,9 +3913,6 @@
    ".00014-wood-chess-sets-with-chess-cases.2-size__king_height_.1-275_" : {
       "page_title" : "Chess Sets with a Case - 2.75\""
    },
-   ".sales.presidents_day_sale" : {
-      "description" : "We're honoring Presidents Day, and specifically George Washington's Birthday, with a spectacular sale and  huge savings on many of our favorite chess sets, boards and accessories.  Celebrate with us while you look through our sales selection!"
-   },
    ".00064-shop-by-brand.bhb" : {
       "description" : "BHB chess clocks have been a standard for years. The easy to use functionality combined with its' reliability has made it a favorite choice for players. BHB offers both wood and plastic cases in a variety of attractive colors."
    },
@@ -4060,12 +3974,6 @@
    ".00064-shop-by-brand.italfama.6-chess-boards" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&"
    },
-   ".v_backgammon_sets.the_backgammon_store_sales.beat_the_heat_sale" : {
-      "page_title" : "Beat the Heat Backgammon Sale",
-      "head_title" : "Beat the Heat Backgammon Sale",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "We've chilled down our prices during our Beat the Heat Sale on hand-picked backgammon sets. Turn down the heat with these low prices and enjoy your summer with these amazing values.\n"
-   },
    ".260_other_games.dominoes.number_domino_sets" : {},
    ".00012-wood-chess-sets-with-chess-boards.4-model.08-rosewood.14-british" : {},
    ".u_chess_sets.chess_board_categories" : {},
@@ -4073,9 +3981,6 @@
       "image1" : "backgammon_chips/tbs_backgammon_chips_red_light_blue_500",
       "prodlistname" : "<center>Size</center>",
       "about" : "<p style=\"margin-top: 0; margin-bottom: 0\"><font size=\"2\">These beautiful, high\nquality mother-of-pearl backgammon chips with their rich colors and elegant\ndesign will enhance the enjoyability of your backgammon game. Made from a\npolyester-resin, these chips are indestructible and with their smooth surface will slide easily across any type of playing material. Choose from three sizes, 1.25â and 1.75â.</font></p>"
-   },
-   ".v_backgammon_sets.the_backgammon_store_sales.holiday_shipping" : {
-      "description" : "<p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"center\"><b>2010\r\nHoliday Shipping Schedule</b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b><font color=\"#0000FF\" size=\"4\">Today\r\n(December 20, 2010)</font></b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\"><font size=\"2\">All\r\norders placed after 8am today will ship on Tuesday. Carefully read the time-in-transit information on this page to determine what shipping method you need for delivery by Christmas.</font><p style=\"margin-left: 2; margin-right: 2; margin-top: 5; margin-bottom: 5\" align=\"left\"><b>General\r\nGuidelines for the Holidays</b>\r\n<ul style=\"margin-top: 5; margin-bottom: 5\">\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Order\r\n    early! Nothing can be done about bad weather and you can expect bad weather\r\n    in late November and December. The earlier you order the better.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Orders\r\n    ship same day if placed by 8am PST. Please call if you need same day\r\n    shipping after 8am.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">The\r\n    entire country can expect delivery by Christmas with UPS Ground if the order\r\n    is placed by noon on December 17th.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Time-in-transit\r\n    does not start when you place your order and it does not start when it is picked up. The first time-in-transit day starts the day after it is picked up.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">UPS\r\n    does not guarantee a late delivery if it is caused by bad weather and USPS\r\n    does not guarantee Priority Mail at all.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Read\r\n    the time-in-transit information and map to determine your delivery date.</font></li>\r\n</ul>\r\n<p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>UPS\r\nHoliday Schedule</b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Please\r\nread and familiarize yourself with the special UPS holiday schedule for pickup\r\nand delivery and how these changes will delay normal delivery times.</font>\r\n<ul style=\"margin-top: 5; margin-bottom: 5\">\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>Day\r\n    after Thanksgiving - Friday, November 26</b></p>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Delivery\r\n    of UPS air and international packages only. No UPS Ground pickups or\r\n    deliveries.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>Last\r\n    Day Delivery Before Christmas - Friday, December 24</b></p>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">Delivery\r\n    service for air, international and ground packages. No UPS Ground pickup\r\n    service.</font></li>\r\n  <li>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>Christmas\r\n    Day - Saturday, December 25</b></p>\r\n    <p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><font size=\"2\">No\r\n    pickup or delivery service.</font></li>\r\n</ul>\r\n<p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>Shipping Methods</b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\"><font size=\"2\">The Backgammon Store offers variety of shipping methods to meet your needs. We\r\noffer most UPS services and several USPS shipping options. You can select your shipping method when completing the online order form.</font><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>In-Transit Time & Shipping Policies</b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\"><font size=\"2\">Orders normally ship next business day.\r\n        For calculating delivery, in-transit time starts the day after your order is shipped and is based on business days\r\n(M-F) only.</font><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\">\r\n      <b>APO & FPO Addresses</b>\r\n<p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\">\r\n      <font size=\"2\">The Backgammon Store gladly ships to APO and FPO addresses.</font><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b><font size=\"2\">I</font><font size=\"3\">nternational Orders</font></b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\"><font size=\"2\">The Backgammon Store ships to most \"Safe Countries\" and we use UPS for most international orders.\r\nExcept for Standard UPS to Canada, the shipping amount does not include taxes, duty, and brokerage. These additional costs vary by country and it is the responsibility of the customer to pay any applicable fees upon delivery.</font><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 0\" align=\"left\"><b>Shipment Notification & Tracking Number</b><p style=\"margin-left: 2; margin-right: 2; margin-top: 0; margin-bottom: 5\" align=\"left\"><font size=\"2\">You will receive an email with tracking information the evening your order ships. From this email you can track the status of your order. Orders shipped by USPS Priority Mail will not receive a tracking number.</font>\r\n<div align=\"left\">\r\n  <table border=\"0\" width=\"100%\">\r\n    <tr>\r\n      <td width=\"100%\">\r\n        <p align=\"center\"><b><font size=\"3\">UPS Time In-transit Map From The Chess Store</font></b></td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n  <table border=\"0\" width=\"100%\">\r\n    <tr>\r\n      <td>\r\n        <p align=\"center\">\r\n<img src=\"https://static.zoovy.com/img/thechessstore/-/ups/updated_ups_map2010\" width=\"546\" height=\"353\" border=\"0\"></td>\r\n    </tr>\r\n  </table>\r\n<div align=\"left\">\r\n  <table border=\"0\" width=\"600\">\r\n      </table></body>"
    },
    ".chess_resource_center.chess_associations___federations" : {
       "description" : "<p>International Chess Federations</p>\r\n<ul>\r\n  <li>World Chess Federation - <a href=\"http://www.fide.com\">www.fide.com</a></li>\r\n  <li>International Correspondence Chess Federation - <a href=\"http://www.iccf.com\">www.icct.com</a></li>\r\n  <li>Singapore Chess Federation - <a href=\"http://www.singaporechess.org.sg/\">www.singaporechess.org</a></li>\r\n  <li>All India Chess Federation - <a href=\"http:///www.indianchessfed.org/\">www.indianchessfed.org</a></li>\r\n  <li>Ukrainian Chess Federation - <a href=\"http://www.ukrchess.org.ua/index_e.html\">www.ukrchess.org</a></li>\r\n  <li>Guernsey Chess Federation - <a href=\"http://www.guernseychessclub.org.gg/\">www.guernseychessclub.org</a></li>\r\n  <li>Armenian Chess Federation - <a href=\"http://www.armchess.am/\">www.armchess.am</a></li>\r\n  <li>Fiji Chess Federation - <a href=\"http://www.fijichess.com\">www.fijichess.com</a></li>\r\n  <li>English Chess Federation - <a href=\"http://www.englishchess.org.uk/\">www.englishchess.org.uk</a></li>\r\n  <li>Barbados Chess Federation - <a href=\"http://www.barbados.org/chess/\">www.barbados.org</a></li>\r\n  <li>Jamaican Chess Federation - <a href=\"http://www.chessjamaica.org/\">www.chessjamaica.org</a></li>\r\n  <li>Greek Chess Federation - <a href=\"http://www.greekchess.com/fed.htm\">www.greekchess.com</a></li>\r\n  <li>Malaysian Chess Federation - <a href=\"http://malaysianchessfederation.blogspot.com/\">www.malaysianchessfederation.blogspot.com</a></li>\r\n  <li>Sri Lanka Chess Federation - <a href=\"http://www.slchessfed.org/events.html\">www.slchessfed.org</a></li>\r\n  <li>Canada Chess Federation - <a href=\"http://www.chess.ca/\">www.chess.ca</a>&nbsp;</li>\r\n  <li>Lebanese Chess Federation - <a href=\"http://www.lebchess.org/\">www.lebchess.org</a></li>\r\n  <li>Asia Chess Federation - <a href=\"http://asia-chess.com/main/index.php?option=com_content&amp;task=view&amp;id=27&amp;Itemid=30\">www.asia-chess.com</a></li>\r\n  <li>Australian Chess Federation - <a href=\"http://www.auschess.org.au/\">www.auschess.org</a></li>\r\n  <li>Catalonian Chess Federation - <a href=\"http://www.chessdom.com/catalonian-chess-federation\">www.chessdom.com</a></li>\r\n  <li>African Chess Federation - <a href=\"http://www.africhess.com/index.php/Latest/FIDE-CACDEC-Seminar-for-Trainers-in-Gaborone.html\">www.africhess.com</a></li>\r\n  <li>Philippines Chess Federation - <a href=\"http://www.ncfphilippines.org/homepage.php\">www.ncfphilippines.org</a></li>\r\n  <li>New Zealand Chess Federation - <a href=\"http://www.poisonpawn.co.nz/\">www.poisonpawn.co.nz</a></li>\r\n  <li>Uganda Chess Federation - <a href=\"http://www.ucf.co.ug/\">www.ucf.co.ug</a></li>\r\n  <li>Serbia Chess Federation - <a href=\"http://www.serbiachess.net/english.htm\">www.serbiachess.net</a></li>\r\n  <li>Bahamas Chess Federation - <a href=\"http://www.bahamas-chess-federation.org/aboutus.html\">www.bahamas-chess-federation.org</a></li>\r\n  <li>Russian Chess Federation - <a href=\"http://www.russiachess.org/eng/\">www.russiachess.org</a></li>\r\n  <li>Polish Chess Federation - <a href=\"http://www.pzszach.org.pl/en/index.php?idm=2\">www.pzszach.org</a></li>\r\n  <li>Namibian Chess Federation - <a href=\"http://www.namibianchessfederation.com\">www.namibianchessfederation.com</a></li>\r\n  <li>Uzbekistan Chess Federation - <a href=\"http://www.uzchess.uz/\">www.uzchess.uz</a></li>\r\n  <li>Finland Chess Federation - <a href=\"http://www.kolumbus.fi/shakkiliitto/sksleng.htm\">www.kolumbus.fi</a></li>\r\n  <li>Greater Peoria Chess Federation - <a href=\"http://www.gpcf.net/\">www.gpcf.net</a></li>\r\n  <li>Angolan Chess Federation - <a href=\"http://www.portalangop.co.ao\">www.portalangop.co.ao</a></li>\r\n  <li>Georgian Chess Federation - <a href=\"http://www.gcf.org.ge/newseng.php\">www.gcf.org</a></li>\r\n  <li>Hungarian Chess Federation - <a href=\"http://www.chess.hu/en/index.php\">www.chess.hu</a></li>\r\n  <li>Estonian Chess Federation - <a href=\"http://www.maleliit.ee/parenteng.html\">www.maleliit.ee</a></li>\r\n  <li>Bangladesh Chess Federation - <a href=\"http://bcf-online.org/\">www.bcf-online.org</a></li>\r\n  <li>Somali Chess Federation - <a href=\"http://www.somchess.com/\">www.somchess.com</a></li>\r\n  <li>Malaysian Chess Federation - <a href=\"http://malaysianchessfederation.blogspot.com/2008/12/13th-rakan-muda-gacc-international.html\">www.malaysianchessfederation.blogspot.com</a></li>\r\n  <li>Israeli Chess Federation - <a href=\"http://www.herzliyachessclub.com/c_files/engInvitation.htm\">www.herzliyachesslucb.com</a></li>\r\n  <li>Barbados Chess Federation - <a href=\"http://www.barbados.org/chess/2007tournaments/OrangeBowl.htm\">www.barbados.org</a></li>\r\n  <li>Austrian Chess Federation - <a href=\"http://jugendschach.at\">www.jugendschach.at</a></li>\r\n  <li>German Chess Federation - <a href=\"http://www.schachbund.de\">www.schachbund.de</a></li>\r\n  <li>Arab Chess Federation - <a href=\"http://www.arabfide.com/\">www.arabfide.com</a></li>\r\n  <li>Pakistan Chess Federation - <a href=\"http://www.fide.com/component/fidedirectory/?task=country&amp;fid=111\">www.pakistanfide.com</a></li>\r\n  <li>Croatian Chess Federation - <a href=\"http://www.crochess.com/\">www.crochess.com</a></li>\r\n  <li>Bulgaria Chess Federation - <a href=\"http://www.chessbg.com\">www.chessbg.com</a></li>\r\n</ul>"
@@ -4370,10 +4275,6 @@
       "description" : "These packages include our Standard Macassar Ebony and Maple Chess Board and matching Macassar Ebony Chess Box packaged with one of our high quality Staunton chess sets. These packages are an unbeatable value and we offer our most popular Staunton models to choose from with most sets available in 2 or 3 sizes. Click on the chess sets below to see the available sizes, price, and details on each package.",
       "header" : "Shop by Chess Set"
    },
-   ".sales.back_to_school_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "We're celebrating education with our Back to School Sale. Join in by taking advantage of our greatly reduced prices on selected sets and accessories."
-   },
    ".00038-chess-club-tournament-equipment" : {
       "description" : "The Chess Store carries the largest selection of chess equipment in the world with the best prices and volume discounts. Whether you need just plastic chess pieces and boards or complete tournament kits, we have just what your chess club or tournament need at the lowest possible price.<br>\n<br>\nThe Chess Store accepts purchase orders from schools, businesses, and organizations. For immediate shipment please email your purchase order to [[customerservice@thechessstore.com]:url=mailto:customerservice@thechessstore.com] or fax a copy of your purchase order to (503) 629-5914."
    },
@@ -4473,7 +4374,7 @@
       "description" : "These complete packages include one of our fine Staunton wood chess sets with our Medium Walnut Case with Drawers. This wood case will look beautiful sitting on your offee table or game table. It has 2 drawers for storing pieces when you want them put away. Choose from our most popular chess sets in a variety of different wood combinations."
    },
    ".00027-metal-chess-pieces" : {
-      "description" : "Metal chess sets have grown in popularity over the past 100 years and are a favorite with collectors and make wonderful home decor. We carry the two biggest names in metal chess set design and production, Italfama from Italy and Manopoulos from Greece. These two companies produce hundreds of unique and beautiful designs including traditional Staunton, theme, contemporary, and decorative."
+      "description" : "Metal chess sets have grown in popularity over the past 100 years and are a favorite with collectors and make wonderful home decor. We carry the two biggest names in metal chess set design and production, Italfama from Italy and Manopoulos from Greece. These two companies produce hundreds of unique and beautiful designs including traditional Staunton, theme, contemporary, and decorative.<br>\n<br>\nOur metal chess sets are divided by Staunton and theme models to make shopping easier but please look at both!"
    },
    ".sales.the_chess_store_no_fooling_april_fool_s_day_sale" : {},
    ".00038-chess-club-tournament-equipment.03-chess-bags.00020-tcs-small-tournament-chess-bags" : {},
@@ -4576,10 +4477,6 @@
       "header" : "Shop by Chess Set"
    },
    ".00014-wood-chess-sets-with-chess-cases.4-model.00014-royal-guard-staunton-chess-sets-with-chess-cases" : {},
-   ".sales.labor_day" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&",
-      "description" : "This Labor Day, relax and play chess.  Take advantage of our reduced prices on handpicked items during our Labor Day Sale. "
-   },
    ".informational_pages.download-scorebook" : {},
    ".00012-wood-chess-sets-with-chess-boards.4-model.04-walnut.16-royal" : {
       "meta_description" : "Complete packages that include our Royal Staunton chess sets matched with a Walnut and Maple Chess Board. Choose from 2 wood combinations and 2 sizes.",
@@ -4743,7 +4640,8 @@
    ".00012-wood-chess-sets-with-chess-boards.4-model.14-macassar-box.08-parker" : {},
    ".v_backgammon_sets.the_backgammon_store_sales.january_clearance_sale" : {
       "about" : "<h2>The Backgammon Store January Clearance Sale</h2>\n\nThe Backgammon Store is offering some of the best prices ever on over-stocked and discontinued  products. Take advantage of these prices today because you'll not see prices this low and quantities are limited on many of these products. ",
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&"
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SIZE=&SHOWSKU=&",
+      "description" : "The Backgammon Store is offering some of the best prices ever on over-stocked and discontinued products. Take advantage of these prices today because you'll not see prices this low and quantities are limited on many of these products."
    },
    ".sales.the_chess_store_halloween_sale" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
@@ -4804,8 +4702,8 @@
       "description" : "Our Club Vinyl Rollup Chess Board with 2.375\" squares is a great choice for the larger plastic chess sets where you need a little more room for your pieces. This board is made from a high quality vinyl with a cloth backing and has printed black squares and alpha-numeric notation. This is a great choice for chess clubs and tournaments where you want a good quality board at an affordable price. Choose from 5 colors."
    },
    ".sales.the_chess_store_valentine_s_sale" : {
-      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Our annual Valentine's Day Sale is here - great chess sets at unbelievable prices for your chess playing Valentine! From elegant Staunton chess set packages to chess computers, you will find the perfect Valentine's Day gift!"
+      "prodlist_custom" : "&SORTBY=NONE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "Our annual Valentine's Day Sale is here - great chess sets at unbelievable prices for your chess playing Valentine! From elegant Staunton chess set packages to brass chess sets to everything inbetween,  you will find the perfect Valentine's Day gift!"
    },
    ".00062-great-gift-ideas.1-under-100" : {
       "description" : "Stay within your budget and still WOW your special person by choosing from our large selection of gifts that range from our Magnetic Travel Sets to hand carved French Lardy and German Knight Staunton Chess Set Packages.  What fabulous gifts!"
