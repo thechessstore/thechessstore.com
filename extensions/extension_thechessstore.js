@@ -32,7 +32,7 @@ var extension_thechessstore = function() {
 				
 				//3 column categories
 				".sales.the_chess_store_independence_day_celebration" : "categoryTemplate3PanelCat",
-				".00031-natural-wood-chess-boards" : "categoryTemplate3PanelCat",
+				//".00031-natural-wood-chess-boards" : "categoryTemplate3PanelCat",
 				".00034-chess-books.00010-everyman-chess-books" : "categoryTemplate3PanelCat",
 				".00034-chess-books" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.10-walnut-maple-deluxe-chess-boards" : "categoryTemplate3PanelCat",
@@ -64,7 +64,7 @@ var extension_thechessstore = function() {
 				".00031-natural-wood-chess-boards.50-mahogany-maple-standard-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.52-macassar-ebony-standard-chess-board" : "categoryTemplate3PanelCat",
 				".00031-natural-wood-chess-boards.54-walnut-maple-standard-chess-board" : "categoryTemplate3PanelCat",
-				".000311-stained-wood-chess-boards" : "categoryTemplate3PanelCat",
+				//".000311-stained-wood-chess-boards" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards.12-black-ash-burl-high-gloss-deluxe-chess-board" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards.14-tulip-red-erable-high-gloss-deluxe-chess-board" : "categoryTemplate3PanelCat",
 				".000311-stained-wood-chess-boards.16-blue-erable-high-gloss-deluxe-chess-board" : "categoryTemplate3PanelCat",
