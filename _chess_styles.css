@@ -1203,6 +1203,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 	padding-right:15px;
 	padding-left:10px;
 }
+
+.productQuantDiscountCont {
+	margin-bottom: 10px;
+    margin-top: 5px;
+}
+.productQuantDiscountCont h3{
+	font-size: 14px;
+    text-decoration: underline;
+}
+.productQuantDiscountTitle b{
+	font-size: 12px;
+}
+.productQuantDiscountText h3{
+	font-size: 14px;
+}
+.productQuantDiscountText ul{
+	margin-left: 13px;
+}
 /********************************************************************************************************************************/
 /**Category Template1**/
 /**Category template header**/
