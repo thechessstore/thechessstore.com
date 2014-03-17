@@ -56,7 +56,6 @@ document.getElementsByTagName('base')[0].href = app.vars.baseURL;
 </script>
 
 
-
 <!-- 
 all css includes need to be after the js that changes the base url. 
 css files should be included before any .js file to ensure they are downloaded in parallel
@@ -1620,7 +1619,7 @@ this will likely become more flexible in the future. ###
     <div class='tabContent' data-anytab-content='prodDet'>
 			<div data-bind='var: product(user:prod_specialmedia); format:wiki; wikiFormats:myRIA'></div>
 	</div>
-    <div class='tabContent' data-anytab-content='prodAccess'>
+    <div class='tabContent prodAccess' data-anytab-content='prodAccess'>
 			<ul class='listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist' data-bind="var: product(zoovy:accessory_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplateProgPG;hide_pagination:true;hide_summary:true; withReviews:1;"></ul>
 	</div>
 	

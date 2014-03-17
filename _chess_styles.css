@@ -1183,16 +1183,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
     float: left;
     width: 100%;
 }
-.lineItemProdlist li.catListTempCatPage2 img{
+.prodAccess li.catListTempCatPage2{
+	height: 220px !important;
+}
+.prodAccess li.catListTempCatPage2 img{
 	margin-left:10px;
 }
-.lineItemProdlist li.catListTempCatPage2 h5{
+.prodAccess li.catListTempCatPage2 h5{
 	font-size:12px;
 	text-align:center;
 	color:#d4511f;
 	text-decoration:underline;
 }
-.lineItemProdlist li.catListTempCatPage2 h6{
+.prodAccess li.catListTempCatPage2 h6{
 	font-size:12px;
 	text-align:center;
 	color:#561d09;
