@@ -37,7 +37,7 @@ var google_remarketing_only = false;
 var myCreole;
 
 var app = {vars:{
-	"release":"201346bm",  //increment this with each change. should solve caching issues. format: frameworkVersion AlphabeticIncrement. i.e. 201314bc becomes 201314bd
+	"release":"201346bn",  //increment this with each change. should solve caching issues. format: frameworkVersion AlphabeticIncrement. i.e. 201314bc becomes 201314bd
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "csactive",//can be passive, active or required
@@ -441,7 +441,13 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     To update the link you.....-->
 	<div class="homepageBannerImg">
 		<div id="featureImg">
+            
+            <!--EXAMPLES:
+            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('product',{'pid':'[PSBB375DP]'});" alt="" />
     		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" alt="" />
+            -->
+            
+            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('product',{'pid':'[PSBB375DP]'});" alt="" />
     		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});" alt="" />
     		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});" alt="" />
             <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" alt="" />
