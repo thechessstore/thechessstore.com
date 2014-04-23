@@ -17,10 +17,11 @@ app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
 
 app.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
-app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
-
-app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
+app.rq.push(['extension',0,'google_remarketing','extensions/google_remarketing.js','startExtension']);
+
+app.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
+app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 app.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 app.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
