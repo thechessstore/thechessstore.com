@@ -80,7 +80,16 @@ var google_remarketing = function() {
 								$.extend( js, noScriptContent );
 								$context.append(js);
 							}]);
+							
+							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
+								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+							}]);
+
 							*/
+							
+							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
+								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+							}]);
 							
 							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
