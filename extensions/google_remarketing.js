@@ -88,47 +88,59 @@ var google_remarketing = function() {
 							*/
 							
 							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$('.homepageCollectClub').after(js);
 							}]);
-							
-							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
-							
+														
 							app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','categoryUnfinishedWoodTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','category2ProdWideTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$context.after(js);
 							}]);
 							
 							app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$('#contactArticle').append(js);
 							}]);
 							
 							app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$('#customerNav').append(js);
 							}]);
 							
 							app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+								var js = "<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'></script><noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
+								$('.searchResultsPage').append(js);
 							}]);
 						} 
 						else	{
