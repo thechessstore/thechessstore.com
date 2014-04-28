@@ -395,6 +395,689 @@ var extension_thechessstore = function() {
 					$('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
 					app.u.dump("contactChat div appended successfully");
 					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess2');
+					
+					//BEGIN PROJECT INIT CODE
+						//Will do an appPageGet for the description of each category.0
+						//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
+						// AND the list spec must contain a catDesc class where the description is to appear.
+						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+							var $catPage = $(app.u.jqSelector('#',P.parentID)),
+							$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+							
+							if($catList.children().length)	{
+								$catList.children().each(function(){
+									var $li = $(this);
+									
+									if($li.data('app-havesubcatdata'))	{} //already have data.
+									else if($('.catDesc',$li).length)	{
+										app.ext.store_navcats.calls.appPageGet.init({
+											'PATH':$li.data('catsafeid'),
+											'@get':['description']
+											},
+											{'callback': function(rd){					//if there are errors, leave them alone... for now.
+											$li.data('app-havesubcatdata',true);
+											if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
+												$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+												}
+											}
+											},'mutable')
+										}
+									else	{
+										app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+										//category description already obtained or template has no catDesc class (no description needed)
+										}
+									});
+								app.model.dispatchThis('mutable');
+								}
+							else	{
+								//most likely, no subcats.
+								}
+								
+							//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							}]);
+						
+						
+						
+						
+						
+						
+						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+							
+							var $context = $(app.u.jqSelector('#',P.parentID));
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+							
+							app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+							if(app.ext.store_filter.filterMap[P.navcat])	{
+								app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(app.u.jqSelector('#',P.parentID));
+								app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										app.u.dump(" -> Filter form submitted.");
+										app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								
+							}]);
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) {
+								if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
+									app.ext.store_filter.vars.catPageID.empty().remove();
+								}	
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+								}]);
+								
+								
+								
+							app.rq.push(['templateFunction','category2ProdWideTemplate','onCompletes',function(P) {
+								var $context = $(app.u.jqSelector('#',P.parentID));
+								var $catPage = $(app.u.jqSelector('#',P.parentID)),
+								$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+								
+								if($catList.children().length)	{
+									$catList.children().each(function(){
+										var $li = $(this);
+										
+										if($li.data('app-havesubcatdata'))	{} //already have data.
+										else if($('.catDesc',$li).length)	{
+											app.ext.store_navcats.calls.appPageGet.init({
+												'PATH':$li.data('catsafeid'),
+												'@get':['description']
+												},
+												{'callback': function(rd){					//if there are errors, leave them alone... for now.
+												$li.data('app-havesubcatdata',true);
+												if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
+													$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+													}
+												}
+												},'mutable')
+											}
+										else	{
+											app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+											//category description already obtained or template has no catDesc class (no description needed)
+											}
+										});
+									app.model.dispatchThis('mutable');
+									}
+								else	{
+									//most likely, no subcats.
+									}
+									
+								//BEGIN HEADER HIDING FUNCTION
+								$(".headerHideShow").hide();
+								$(".headerBoxCenter").css("margin", "0");
+								$(".headerBottom").css("height", "50px");
+								$(".headerBottom").css("padding-bottom", "11px");
+								$(".headerBottom").css("padding-top", "4px");
+								$(".headerBoxCenter").css("width", "200px");
+								$(".headerBoxCenter").css("margin-top", "13px");
+								$(".headerHideShowContent").css("display", "block");
+								$(".productSearchForm").css("height", "100%");
+								$(".productSearchForm").css("margin-top", "18px");
+								
+								//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+								
+								app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+								
+								app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+								if(app.ext.store_filter.filterMap[P.navcat])	{
+									app.u.dump(" -> safe id DOES have a filter.");
+							
+									var $page = $(app.u.jqSelector('#',P.parentID));
+									app.u.dump(" -> $page.length: "+$page.length);
+									if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+									else	{
+										$page.data('filterAdded',true)
+										var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+										$form.on('submit.filterSearch',function(event){
+											event.preventDefault()
+											app.u.dump(" -> Filter form submitted.");
+											app.ext.store_filter.a.execFilter($form,$page);
+											});
+								
+										if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+											app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+											}
+								
+								//make all the checkboxes auto-submit the form.
+										$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+											$form.submit();      
+											});
+										}
+									}
+									
+									
+									
+									//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+									/*$('.woodPieces:checkbox').click(function() {
+										var woodPieces = $(this);
+										// $this will contain a reference to the checkbox   
+										if (woodPieces.is(':checked')) {
+											 $(".woodType").show();
+											 $(".kingHeight").show();
+										} else {
+											$(".woodType").hide();
+											$(".kingHeight").hide();
+										}
+									});*/
+									
+									$('.resetButton', $context).click(function(){
+									$context.empty().remove();
+									showContent('category',{'navcat':P.navcat});
+									});
+							}]);
+							
+							
+							app.rq.push(['templateFunction','category2ProdWideTemplate','onDeparts',function(P) {
+								if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
+									app.ext.store_filter.vars.catPageID.empty().remove();
+								}	
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+							}]);
+							
+							
+							
+						app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
+							
+							var $context = $(app.u.jqSelector('#',P.parentID));
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));
+							
+							app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
+							if(app.ext.store_filter.filterMap[P.navcat])	{
+								app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(app.u.jqSelector('#',P.parentID));
+								app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										app.u.dump(" -> Filter form submitted.");
+										app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							}]);
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.rq.push(['templateFunction','categoryTemplate3PanelCat','onDeparts',function(P) {
+								
+								app.ext.store_filter.vars.catPageID.empty().remove();
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");		
+							}]);
+							
+							
+							
+							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
+							
+							var $context = $(app.u.jqSelector('#',P.parentID));
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID)); 
+							
+							
+							app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
+							if(app.ext.store_filter.filterMap[P.navcat])	{
+								app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(app.u.jqSelector('#',P.parentID));
+								app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										app.u.dump(" -> Filter form submitted.");
+										app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								
+							}]);
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onDeparts',function(P) {
+								
+								app.ext.store_filter.vars.catPageID.empty().remove();
+								
+									
+							}]);
+							
+							
+							
+							
+						
+						
+							
+							
+						
+						//sample of an onDeparts. executed any time a user leaves this page/template type.
+						app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
+						
+						//Header dropdown menus
+						var showDropdown = function ($tag) {
+							var $dropdown = $(".dropdown", $tag);
+							var height = 0;
+							$dropdown.children().each(function(){
+								height += $(this).outerHeight(true);
+							});
+							$dropdown.stop().animate({"height":height+"px"}, 1000);
+						}
+							
+						var hideDropdown = function ($tag) {
+							$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+						}
+						
+						//Homepage Slideshow image code and carousel code
+						var homepageLoad = false;
+						app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
+							{
+							if (homepageLoad == false)
+							{
+							//Home page slideshow
+							$("#nav").html("");
+							$('#featureImg') 
+							.after('<div id="nav">') 
+							.cycle({ 
+							fx:     'fade',  
+							timeout: 5000, 
+							pager:  '#nav' 
+							});
+							
+							//Carousel horizontal sliders
+							var carousel1;
+							function foo1(){ $(".homepageCat1").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev1",
+							next : "#caroNext1"
+							});}
+							carousel1 = foo1;
+							setTimeout(carousel1, 2000);
+							
+							
+							//$("#caroNext1").delay(1500).click();
+							//$("#caroPrev1").click();
+							
+							var carousel2;
+							function foo2(){ $(".homepageCat2").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev2",
+							next : "#caroNext2"
+							});}
+							carousel2 = foo2;
+							setTimeout(carousel2, 2000);
+							
+							var carousel3;
+							function foo3(){
+							$(".homepageCat3").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev3",
+							next : "#caroNext3"
+							});}
+							carousel3 = foo3;
+							setTimeout(carousel3, 2000);
+							
+							var carousel4;
+							function foo4(){
+							$(".homepageCat4").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev4",
+							next : "#caroNext4"
+							});}
+							carousel4 = foo4;
+							setTimeout(carousel4, 2000);
+							
+							//$myselection.addClass('noScriptReExecute');
+							homepageLoad = true;
+							app.u.dump("Homepage functions loaded");
+							}
+							
+						}]);
+						
+						var categoryPageLoad = false;
+						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+							
+							if(!$(this).hasClass('noScriptReExecute'))
+							{
+							var altDDUpDown = false;
+							$(".sidebarShopByCat").hide();
+							$(".sidebarShopByCatButton").click(function(){
+							  if(altDDUpDown == true)
+							  {
+								$(".sidebarShopByCat").hide();
+								$(".sidebarShopByCatIcon").html("&#9658;").text();
+								altDDUpDown = false;
+							  }
+							  else if(altDDUpDown == false)
+							  {
+								  $(".sidebarShopByCat").show();
+								  $(".sidebarShopByCatIcon").html("&#9660;").text();
+								  altDDUpDown = true;
+							  }	
+						  });
+						  
+							var altDDUpDown2 = false;
+							$(".sidebarSpecDept").hide();
+							$(".sidebarSpecDeptButton").click(function(){
+							  if(altDDUpDown2 == true)
+							  {
+								$(".sidebarSpecDept").hide();
+								$(".sidebarSpecDeptIcon").html("&#9658;").text();
+								altDDUpDown2 = false;
+							  }
+							  else if(altDDUpDown2 == false)
+							  {
+								  $(".sidebarSpecDept").show();
+								  $(".sidebarSpecDeptIcon").html("&#9660;").text();
+								  altDDUpDown2 = true;
+							  }	
+						  });
+						  
+							var altDDUpDown3 = false;
+							$(".sidebarShopByBrand").hide();
+							$(".sidebarShopByBrandButton").click(function(){
+							  if(altDDUpDown3 == true)
+							  {
+								$(".sidebarShopByBrand").hide();
+								$(".sidebarShopByBrandIcon").html("&#9658;").text();
+								altDDUpDown3 = false;
+							  }
+							  else if(altDDUpDown3 == false)
+							  {
+								  $(".sidebarShopByBrand").show();
+								  $(".sidebarShopByBrandIcon").html("&#9660;").text();
+								  altDDUpDown3 = true;
+							  }	
+						  });
+						  
+							var altDDUpDown4 = false;
+							$(".sidebarTeachAndLearn").hide();
+							$(".sidebarTeachAndLearnButton").click(function(){
+							  if(altDDUpDown4 == true)
+							  {
+								$(".sidebarTeachAndLearn").hide();
+								$(".sidebarTeachAndLearnIcon").html("&#9658;").text();
+								altDDUpDown4 = false;
+							  }
+							  else if(altDDUpDown4 == false)
+							  {
+								  $(".sidebarTeachAndLearn").show();
+								  $(".sidebarTeachAndLearnIcon").html("&#9660;").text();
+								  altDDUpDown4 = true;
+							  }	
+						  });
+						  $(this).addClass('noScriptReExecute');
+						  app.u.dump("Sidebar functionality has ran");
+						  
+							}
+						}]);
+						
+						//Reviews function built to display a message if no reviews are present for this product. 
+						app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
+						{
+							var $thisProduct = $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+							app.u.dump("Begin review message displaying function");
+							if($(".reviewsBind", $thisProduct).children().length === 0){
+								app.u.dump("No reviews. Running existing message check");
+								if(($(".reviewsCont", $thisProduct).length === 0) || ($(".reviewsCont", $thisProduct).length === null)){
+								  app.u.dump("No message exists. Display message");
+								  $(app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
+								  '<p style="text-align:center;" class="reviewsCont">'
+								  + 'Be the First to Review This Product!'
+								  + '</p>');
+								  //var p = document.getElementsByClassName("reviewsCont");
+								  //p.reviewsCont += '#productTemplate_'+app.u.makeSafeHTMLId(P.pid);
+								  app.u.dump("Review message displaying for : " + '#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+								}
+								else{
+									app.u.dump("Message exists. Doing nothing");
+								}
+						
+						
+								/*var noReviews = document.createElement("p");
+								var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
+								noReviews.appendChild(noreviewsMessage);
+								var findReviewSec = document.getElementsByClassName("reviewsBind");
+								document.body.insertBefore(noReviews, findReviewSec);*/
+							}
+							else
+							{
+								app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
+								
+							}
+							
+							//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							//END HEADER HIDING FUNCTION
+							
+							
+							//PRODUCT IMAGE CLICK BLOCKER
+							var $context = $(app.u.jqSelector('#',P.parentID));
+							setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+							
+						}]);
+						
+						
+						app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) 
+						{
+						//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+						}]);
+						
+						app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
+							  $('.contactChat div').empty();
+							  $('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
+							  app.u.dump("contactChat div appended successfully");
+						}]);
+						
+						
+						app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) {
+							var $context = $(app.u.jqSelector('#',P.parentID));
+							app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+								if(app.model.responseHasErrors(rd)){
+									app.u.throwMessage(rd);
+									}
+								else {
+									//app.u.dump("here");
+									var $selectList = $('.countrySelectListContainer',$context);
+									//app.u.dump($selectList);
+									$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
+									}
+							}},'immutable');
+							app.model.dispatchThis('immutable');
+						}]);
+					//END PROJECT INIT CODE
 				},
 				onError : function (){
 					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
