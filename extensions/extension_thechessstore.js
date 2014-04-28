@@ -16,7 +16,7 @@
 
 ************************************************************** */
 
-var extension_thechessstore = function() {
+var extension_thechessstore = function(_app) {
 	var r= {
 		vars : {
 			catTemplates : {
@@ -372,9 +372,9 @@ var extension_thechessstore = function() {
 
 			},
 			hiddenCats : [
-        ".00012-wood-chess-sets-with-chess-boards.4-model",
-        ".00014-wood-chess-sets-with-chess-cases.4-model",
-		".00010-wood-chess-sets.4-model"
+				".00012-wood-chess-sets-with-chess-boards.4-model",
+				".00014-wood-chess-sets-with-chess-cases.4-model",
+				".00010-wood-chess-sets.4-model"
 			],
 			
 			reviewSelector : ".reviewsContainer"
@@ -383,25 +383,24 @@ var extension_thechessstore = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onSuccess');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.init.onSuccess');
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onError');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.init.onError');
 				}
 			},
 			startExtension : {
 				onSuccess : function (){
 					$('.contactChat div').empty();
 					$('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
-					app.u.dump("contactChat div appended successfully");
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess2');
+					_app.u.dump("contactChat div appended successfully");
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');
 					
 					//BEGIN PROJECT INIT CODE
 						//Will do an appPageGet for the description of each category.0
 						//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
 						// AND the list spec must contain a catDesc class where the description is to appear.
-						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
-							var $catPage = $(app.u.jqSelector('#',P.parentID)),
+						_app.templates.categoryTemplate.on('complete.formals',function(event,$catPage,P){
 							$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
 							
 							if($catList.children().length)	{
@@ -410,24 +409,24 @@ var extension_thechessstore = function() {
 									
 									if($li.data('app-havesubcatdata'))	{} //already have data.
 									else if($('.catDesc',$li).length)	{
-										app.ext.store_navcats.calls.appPageGet.init({
+										_app.ext.store_navcats.calls.appPageGet.init({
 											'PATH':$li.data('catsafeid'),
 											'@get':['description']
 											},
 											{'callback': function(rd){					//if there are errors, leave them alone... for now.
 											$li.data('app-havesubcatdata',true);
-											if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
-												$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+											if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
+												$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
 												}
 											}
 											},'mutable')
 										}
 									else	{
-										app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+										_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
 										//category description already obtained or template has no catDesc class (no description needed)
 										}
 									});
-								app.model.dispatchThis('mutable');
+								_app.model.dispatchThis('mutable');
 								}
 							else	{
 								//most likely, no subcats.
@@ -444,38 +443,34 @@ var extension_thechessstore = function() {
 							$(".headerHideShowContent").css("display", "block");
 							$(".productSearchForm").css("height", "100%");
 							$(".productSearchForm").css("margin-top", "18px");
-							}]);
-						
-						
-						
-						
-						
-						
-						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
 							
-							var $context = $(app.u.jqSelector('#',P.parentID));
+						});
+						
+						
+						_app.templates.categoryTemplate.on('complete.formals',function(event,$context,P){
+							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
 							
-							app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
-							if(app.ext.store_filter.filterMap[P.navcat])	{
-								app.u.dump(" -> safe id DOES have a filter.");
+							_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
 						
-								var $page = $(app.u.jqSelector('#',P.parentID));
-								app.u.dump(" -> $page.length: "+$page.length);
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
 								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 								else	{
 									$page.data('filterAdded',true)
-									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 									$form.on('submit.filterSearch',function(event){
 										event.preventDefault()
-										app.u.dump(" -> Filter form submitted.");
-										app.ext.store_filter.a.execFilter($form,$page);
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
 										});
 							
-									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
 										}
 							
 							//make all the checkboxes auto-submit the form.
@@ -506,13 +501,13 @@ var extension_thechessstore = function() {
 								});
 								
 								
-							}]);
+							});
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.rq.push(['templateFunction','categoryTemplate','onDeparts',function(P) {
-								if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
-									app.ext.store_filter.vars.catPageID.empty().remove();
+							_app.templates.categoryTemplate.on('depart.formals',function(event,$context,P){
+								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
+									_app.ext.store_filter.vars.catPageID.empty().remove();
 								}	
 								
 								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
@@ -525,13 +520,12 @@ var extension_thechessstore = function() {
 								$(".headerHideShowContent").css("display", "none");
 								$(".productSearchForm").css("height", "22px");
 								$(".productSearchForm").css("margin", "0");
-								}]);
+								});
 								
 								
 								
-							app.rq.push(['templateFunction','category2ProdWideTemplate','onCompletes',function(P) {
-								var $context = $(app.u.jqSelector('#',P.parentID));
-								var $catPage = $(app.u.jqSelector('#',P.parentID)),
+							_app.templates.category2ProdWideTemplate.on('complete.formals',function(event,$context,P){
+								var $catPage = $context,
 								$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
 								
 								if($catList.children().length)	{
@@ -540,24 +534,24 @@ var extension_thechessstore = function() {
 										
 										if($li.data('app-havesubcatdata'))	{} //already have data.
 										else if($('.catDesc',$li).length)	{
-											app.ext.store_navcats.calls.appPageGet.init({
+											_app.ext.store_navcats.calls.appPageGet.init({
 												'PATH':$li.data('catsafeid'),
 												'@get':['description']
 												},
 												{'callback': function(rd){					//if there are errors, leave them alone... for now.
 												$li.data('app-havesubcatdata',true);
-												if(app.data[rd.datapointer] && app.data[rd.datapointer]['%page'])	{
-													$('.catDesc',$li).append(app.data[rd.datapointer]['%page'].description);
+												if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
+													$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
 													}
 												}
 												},'mutable')
 											}
 										else	{
-											app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+											_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
 											//category description already obtained or template has no catDesc class (no description needed)
 											}
 										});
-									app.model.dispatchThis('mutable');
+									_app.model.dispatchThis('mutable');
 									}
 								else	{
 									//most likely, no subcats.
@@ -577,26 +571,26 @@ var extension_thechessstore = function() {
 								
 								//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 								
-								app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));  
+								_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
 								
-								app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
-								if(app.ext.store_filter.filterMap[P.navcat])	{
-									app.u.dump(" -> safe id DOES have a filter.");
+								_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+								if(_app.ext.store_filter.filterMap[P.navcat])	{
+									_app.u.dump(" -> safe id DOES have a filter.");
 							
-									var $page = $(app.u.jqSelector('#',P.parentID));
-									app.u.dump(" -> $page.length: "+$page.length);
+									var $page = $(_app.u.jqSelector('#',P.parentID));
+									_app.u.dump(" -> $page.length: "+$page.length);
 									if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 									else	{
 										$page.data('filterAdded',true)
-										var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+										var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 										$form.on('submit.filterSearch',function(event){
 											event.preventDefault()
-											app.u.dump(" -> Filter form submitted.");
-											app.ext.store_filter.a.execFilter($form,$page);
+											_app.u.dump(" -> Filter form submitted.");
+											_app.ext.store_filter.a.execFilter($form,$page);
 											});
 								
-										if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-											app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+											_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
 											}
 								
 								//make all the checkboxes auto-submit the form.
@@ -625,12 +619,12 @@ var extension_thechessstore = function() {
 									$context.empty().remove();
 									showContent('category',{'navcat':P.navcat});
 									});
-							}]);
+							});
 							
 							
-							app.rq.push(['templateFunction','category2ProdWideTemplate','onDeparts',function(P) {
-								if(app.ext.store_filter.vars.catPageID.empty && typeof app.ext.store_filter.vars.catPageID.empty === 'function'){
-									app.ext.store_filter.vars.catPageID.empty().remove();
+							_app.templates.category2ProdWideTemplate.on('depart.formals',function(event,$context,P){
+								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
+									_app.ext.store_filter.vars.catPageID.empty().remove();
 								}	
 								
 								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
@@ -643,35 +637,34 @@ var extension_thechessstore = function() {
 								$(".headerHideShowContent").css("display", "none");
 								$(".productSearchForm").css("height", "22px");
 								$(".productSearchForm").css("margin", "0");
-							}]);
+							});
 							
 							
 							
-						app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
+						_app.templates.categoryTemplate3PanelCat.on('complete.formals',function(event,$context,P){
 							
-							var $context = $(app.u.jqSelector('#',P.parentID));
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID));
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));
 							
-							app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
-							if(app.ext.store_filter.filterMap[P.navcat])	{
-								app.u.dump(" -> safe id DOES have a filter.");
+							_app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
 						
-								var $page = $(app.u.jqSelector('#',P.parentID));
-								app.u.dump(" -> $page.length: "+$page.length);
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
 								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 								else	{
 									$page.data('filterAdded',true)
-									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 									$form.on('submit.filterSearch',function(event){
 										event.preventDefault()
-										app.u.dump(" -> Filter form submitted.");
-										app.ext.store_filter.a.execFilter($form,$page);
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
 										});
 							
-									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
 										}
 							
 							//make all the checkboxes auto-submit the form.
@@ -712,13 +705,13 @@ var extension_thechessstore = function() {
 							$(".headerHideShowContent").css("display", "block");
 							$(".productSearchForm").css("height", "100%");
 							$(".productSearchForm").css("margin-top", "18px");
-							}]);
+							});
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.rq.push(['templateFunction','categoryTemplate3PanelCat','onDeparts',function(P) {
+							_app.templates.categoryTemplate3PanelCat.on('depart.formals',function(event,$context,P){
 								
-								app.ext.store_filter.vars.catPageID.empty().remove();
+								_app.ext.store_filter.vars.catPageID.empty().remove();
 								
 								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
 								$(".headerHideShow").show();
@@ -730,36 +723,34 @@ var extension_thechessstore = function() {
 								$(".headerHideShowContent").css("display", "none");
 								$(".productSearchForm").css("height", "22px");
 								$(".productSearchForm").css("margin", "0");		
-							}]);
+							});
 							
 							
+							_app.templates.categoryTemplate4PanelCat.on('complete.formals',function(event,$context,P){
 							
-							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
-							
-							var $context = $(app.u.jqSelector('#',P.parentID));
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.ext.store_filter.vars.catPageID = $(app.u.jqSelector('#',P.parentID)); 
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID)); 
 							
 							
-							app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
-							if(app.ext.store_filter.filterMap[P.navcat])	{
-								app.u.dump(" -> safe id DOES have a filter.");
+							_app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
 						
-								var $page = $(app.u.jqSelector('#',P.parentID));
-								app.u.dump(" -> $page.length: "+$page.length);
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
 								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 								else	{
 									$page.data('filterAdded',true)
-									var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 									$form.on('submit.filterSearch',function(event){
 										event.preventDefault()
-										app.u.dump(" -> Filter form submitted.");
-										app.ext.store_filter.a.execFilter($form,$page);
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
 										});
 							
-									if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-										app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
 										}
 							
 							//make all the checkboxes auto-submit the form.
@@ -790,16 +781,16 @@ var extension_thechessstore = function() {
 								});
 								
 								
-							}]);
+							});
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onDeparts',function(P) {
+							_app.templates.categoryTemplate4PanelCat.on('depart.formals',function(event,$context,P){
 								
-								app.ext.store_filter.vars.catPageID.empty().remove();
+								_app.ext.store_filter.vars.catPageID.empty().remove();
 								
 									
-							}]);
+							});
 							
 							
 							
@@ -810,7 +801,7 @@ var extension_thechessstore = function() {
 							
 						
 						//sample of an onDeparts. executed any time a user leaves this page/template type.
-						app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
+						_app.templates.homepageTemplate.on('complete.formals',function(event,$context,P) {_app.u.dump("just left the homepage")});
 						
 						//Header dropdown menus
 						var showDropdown = function ($tag) {
@@ -828,7 +819,7 @@ var extension_thechessstore = function() {
 						
 						//Homepage Slideshow image code and carousel code
 						var homepageLoad = false;
-						app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
+						_app.templates.homepageTemplate.on('complete.formals',function(event,$context,P)
 							{
 							if (homepageLoad == false)
 							{
@@ -903,13 +894,13 @@ var extension_thechessstore = function() {
 							
 							//$myselection.addClass('noScriptReExecute');
 							homepageLoad = true;
-							app.u.dump("Homepage functions loaded");
+							_app.u.dump("Homepage functions loaded");
 							}
 							
-						}]);
+						});
 						
 						var categoryPageLoad = false;
-						app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+						_app.templates.categoryTemplate.on('complete.formals',function(event,$context,P){
 							
 							if(!$(this).hasClass('noScriptReExecute'))
 							{
@@ -981,30 +972,29 @@ var extension_thechessstore = function() {
 							  }	
 						  });
 						  $(this).addClass('noScriptReExecute');
-						  app.u.dump("Sidebar functionality has ran");
+						  _app.u.dump("Sidebar functionality has ran");
 						  
 							}
-						}]);
+						});
 						
 						//Reviews function built to display a message if no reviews are present for this product. 
-						app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) 
-						{
-							var $thisProduct = $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
-							app.u.dump("Begin review message displaying function");
+						_app.templates.productTemplate.on('complete.formals',function(event,$thisProduct,P){
+							
+							_app.u.dump("Begin review message displaying function");
 							if($(".reviewsBind", $thisProduct).children().length === 0){
-								app.u.dump("No reviews. Running existing message check");
+								_app.u.dump("No reviews. Running existing message check");
 								if(($(".reviewsCont", $thisProduct).length === 0) || ($(".reviewsCont", $thisProduct).length === null)){
-								  app.u.dump("No message exists. Display message");
-								  $(app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+app.u.makeSafeHTMLId(P.pid)).append(
+								  _app.u.dump("No message exists. Display message");
+								  $(_app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid)).append(
 								  '<p style="text-align:center;" class="reviewsCont">'
 								  + 'Be the First to Review This Product!'
 								  + '</p>');
 								  //var p = document.getElementsByClassName("reviewsCont");
-								  //p.reviewsCont += '#productTemplate_'+app.u.makeSafeHTMLId(P.pid);
-								  app.u.dump("Review message displaying for : " + '#productTemplate_'+app.u.makeSafeHTMLId(P.pid));
+								  //p.reviewsCont += '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid);
+								  _app.u.dump("Review message displaying for : " + '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid));
 								}
 								else{
-									app.u.dump("Message exists. Doing nothing");
+									_app.u.dump("Message exists. Doing nothing");
 								}
 						
 						
@@ -1016,7 +1006,7 @@ var extension_thechessstore = function() {
 							}
 							else
 							{
-								app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
+								_app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
 								
 							}
 							
@@ -1035,14 +1025,13 @@ var extension_thechessstore = function() {
 							
 							
 							//PRODUCT IMAGE CLICK BLOCKER
-							var $context = $(app.u.jqSelector('#',P.parentID));
+							var $context = $(_app.u.jqSelector('#',P.parentID));
 							setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
 							
-						}]);
+						});
 						
 						
-						app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) 
-						{
+						_app.templates.productTemplate.on('depart.formals',function(event,$context,P){
 						//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
 								$(".headerHideShow").show();
 								$(".headerBoxCenter").css("margin-right", "30px");
@@ -1053,34 +1042,34 @@ var extension_thechessstore = function() {
 								$(".headerHideShowContent").css("display", "none");
 								$(".productSearchForm").css("height", "22px");
 								$(".productSearchForm").css("margin", "0");
-						}]);
+						});
 						
-						app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
+						_app.templates.companyTemplate.on('complete.formals',function(event,$context,P){
 							  $('.contactChat div').empty();
 							  $('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
-							  app.u.dump("contactChat div appended successfully");
-						}]);
+							  _app.u.dump("contactChat div appended successfully");
+						});
 						
 						
-						app.rq.push(['templateFunction','cartTemplate','onCompletes',function(P) {
-							var $context = $(app.u.jqSelector('#',P.parentID));
-							app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
-								if(app.model.responseHasErrors(rd)){
-									app.u.throwMessage(rd);
+						_app.templates.cartTemplate.on('complete.formals',function(event,$context,P){
+							var $context = $(_app.u.jqSelector('#',P.parentID));
+							_app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+								if(_app.model.responseHasErrors(rd)){
+									_app.u.throwMessage(rd);
 									}
 								else {
-									//app.u.dump("here");
+									//_app.u.dump("here");
 									var $selectList = $('.countrySelectListContainer',$context);
-									//app.u.dump($selectList);
+									//_app.u.dump($selectList);
 									$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
 									}
 							}},'immutable');
-							app.model.dispatchThis('immutable');
-						}]);
+							_app.model.dispatchThis('immutable');
+						});
 					//END PROJECT INIT CODE
 				},
 				onError : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onError');
 				}
 			}
 		},
@@ -1095,15 +1084,15 @@ var extension_thechessstore = function() {
 			
 			showCartShippingChart : function(){
 				function foo(){
-				 //app.u.dump('begin showCartShippingChart function');
+				 //_app.u.dump('begin showCartShippingChart function');
 				 $(".cartShipMethods").show();
 				}
 				setTimeout(foo, 3000);
 			},
 			
 			scrollToReview : function(page){
-				//app.u.dump("scrollToReview Firing");
-				//app.u.dump(page);
+				//_app.u.dump("scrollToReview Firing");
+				//_app.u.dump(page);
 				$('html, body').animate({
 					scrollTop: $("#readReview", page).offset().top
 				}, 2000);
@@ -1115,27 +1104,27 @@ var extension_thechessstore = function() {
 		u : {
 			updateCartSummary : function()	{
 				var $countrySelector = $(".countrySelector").val();
-				app.u.dump(".countrySelector value before refresh = " + $countrySelector);
-				$('#modalCartContents').replaceWith(app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
-				app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
+				_app.u.dump(".countrySelector value before refresh = " + $countrySelector);
+				$('#modalCartContents').replaceWith(_app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
+				_app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
 				
-				app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
-					if(app.model.responseHasErrors(rd)){
-						//app.u.throwMessage(rd);
+				_app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+					if(_app.model.responseHasErrors(rd)){
+						//_app.u.throwMessage(rd);
 						}
 					else {
-						//app.u.dump("here");
-						//app.u.dump($selectList);
+						//_app.u.dump("here");
+						//_app.u.dump($selectList);
 						var $selectList = $('.countrySelectListContainer');
 						$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
 						}
 				}},'immutable');
-				//app.model.dispatchThis('immutable');
+				//_app.model.dispatchThis('immutable');
 				
 				function foo(){
-					app.u.dump(".countrySelector value after refresh = " + $countrySelector);
+					_app.u.dump(".countrySelector value after refresh = " + $countrySelector);
 					$('.countrySelector').val($countrySelector);
-					app.u.dump($('.countrySelector').val());
+					_app.u.dump($('.countrySelector').val());
 				}
 				setTimeout(foo, 3000);
 				
@@ -1156,35 +1145,35 @@ var extension_thechessstore = function() {
 				
 
 			hideNonAppCat : function($tag, data) {
-				 app.u.dump('category list hiding function begins');
-				if($.inArray(data.value, app.ext.extension_thechessstore.vars.hiddenCats) != -1){
+				 _app.u.dump('category list hiding function begins');
+				if($.inArray(data.value, _app.ext.extension_thechessstore.vars.hiddenCats) != -1){
 					 $tag.hide();
-					 app.u.dump('Category item matches list item. Removing from list');
+					 _app.u.dump('Category item matches list item. Removing from list');
 				}
 				else{
-					app.u.dump('Category item does not match list, ending hide check');
+					_app.u.dump('Category item does not match list, ending hide check');
 				}
 			},
 			
 			
 			countriesAsOptions : function($tag,data)	{
-//				app.u.dump("BEGIN app.ext.cco.renderFormats.countriesAsOptions");
-//				app.u.dump(" -> Country: "+data.value);
+//				_app.u.dump("BEGIN _app.ext.cco.renderFormats.countriesAsOptions");
+//				_app.u.dump(" -> Country: "+data.value);
 				var r = '';
 				//function setCountrySelector(){
-					 var L = app.data.appCheckoutDestinations['@destinations'].length;
+					 var L = _app.data.appCheckoutDestinations['@destinations'].length;
 					 for(var i = 0; i < L; i += 1)	{
-						r += "<option value='"+app.data.appCheckoutDestinations['@destinations'][i].ISO+"' ";
-						if(data.value == app.data.appCheckoutDestinations['@destinations'][i].ISO)	{
+						r += "<option value='"+_app.data.appCheckoutDestinations['@destinations'][i].ISO+"' ";
+						if(data.value == _app.data.appCheckoutDestinations['@destinations'][i].ISO)	{
 							r += " selected='selected' ";
 							}
-						r += ">"+app.data.appCheckoutDestinations['@destinations'][i].Z+"</option>";
+						r += ">"+_app.data.appCheckoutDestinations['@destinations'][i].Z+"</option>";
 						}
 					
 					$tag.html(r);
 				//}
 				//setTimeout(setCountrySelector, 3000);
-//				app.u.dump(" -> number of countries = "+L);
+//				_app.u.dump(" -> number of countries = "+L);
 				
 				},
 		}
