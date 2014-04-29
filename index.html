@@ -4,11 +4,7 @@
 <meta charset="utf-8">
 <title>Chess store</title>
 
-<!--Jeff, I left instruction on how to make changes to the areas you requested as you approach them. To date, these notes can be
-found on lines 153 for the sales banner header and 281 for the home page banner image slider. Refer to them for instructions on
-how to make changes to your site for these Sections.-->
-
-<!-- do not populate or add meta data or title, the SEO layer will add it -->
+<!-- do not populate or add meta data, the SEO layer will add it -->
 
 <!-- used for optional social media extensions -->
 <meta property="og:type" content="" id='ogType' />
@@ -16,8 +12,9 @@ how to make changes to your site for these Sections.-->
 <meta property="og:description" content="" id='ogDescription' />
 <meta name="google-site-verification" content="nN8XwLVwMmpZKlDabgZ13e8AivtNQCRff66tzlla6D0" />
 
+<meta name=viewport content="width=device-width, initial-scale=1">
 
-<base href='' /><!-- leave blank so it works for a local file -->
+<base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
 
 
@@ -35,7 +32,7 @@ var google_conversion_value = 0; // Will be replaced by subtotal on checkout
 var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 
-var myCreole;
+var myCreole, baseURL;
 
 var app = {vars:{
 	"release":"201346bv",  //increment this with each change. should solve caching issues. format: frameworkVersion AlphabeticIncrement. i.e. 201314bc becomes 201314bd
@@ -48,20 +45,20 @@ var app = {vars:{
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
 if(document.location.protocol == 'file:')	{
-	app.vars.baseURL  = "";
+	baseURL  = "";
 	}
 else	{
-	app.vars.baseURL = document.location.protocol+"//"+document.domain+"/";
+	baseURL = document.location.protocol+"//"+document.domain+"/";
 	}
-document.getElementsByTagName('base')[0].href = app.vars.baseURL;
+document.getElementsByTagName('base')[0].href = baseURL;
 </script>
 
 
-<!-- 
-all css includes need to be after the js that changes the base url. 
+
+<!--
+all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
-
 <link rel="stylesheet" type="text/css" href="app-quickstart.css" />
 <link rel="stylesheet" type="text/css" href="Theme/jquery-ui-1.10.0.custom/css/custom-theme-chess-store/jquery-ui-1.10.0.custom.css">
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
@@ -73,13 +70,42 @@ css files should be included before any .js file to ensure they are downloaded i
 <!--<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>-->
 <!--<script type="text/javascript" src="jquery-1.8.2.min.js"></script>-->
 
+<!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script src="controller.js"></script>
+<script src="model.js"></script>
+
+<!-- ### TODO -> test how the load process goes w/ these in init. if includes is moved, move the new Parse  -->
+<script src="resources/jquery.ui.anyplugins.js"></script>
+<script type="text/javascript" src="includes.js"></script><!-- contains some polyfills and should be loaded early -->
 
 <!-- IE Shim for HTML5 -->
 <!--[if lt IE 9]><script type="text/javascript" src="html5shiv/html5shiv.js"></script><![endif]-->
 
 
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"_chess_init.js");
+$(document).ready(function(){
+
+	window.myApp = new initApp({
+		"release":"201402.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
+		"baseURL":baseURL, //used in non-local mode.
+		"checkoutAuthMode" : "active",//can be passive, active or required
+		"testURL":"http://app.thechessstore.com/", //used ONLY if protocol is file: (for testing)
+		"addjQueryPointer" : true,
+		"initComplete" : function(){
+			dump(" -> init is complete");
+			myApp.u.loadScript('_chess_init.js',function(){
+				var progress = myApp.u.loadResources(); //the object returns by loadResources will get updated as the resources finish loading.
+				myApp.u.showProgress(progress);
+				});
+			$('#appversion').text(myApp.vars.release);
+			}
+		});
+	myApp.vars.initComplete();
+	myCreole = new Parse.Simple.Creole();
+	});
 </script>
 <script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script>
@@ -111,6 +137,12 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 
 
 <div id='appView' class='displayNone'>
+	<!--
+	ANIMATION TESTING
+	<div style="background: black; float: left;">
+	<div data-animation-mouseenter="cogs?animFunc=fwd" data-animation-mouseout="cogs?animFunc=back" style="width: 55px; height: 55px;" id="cogs"></div>
+	</div>
+	-->
 	<div class="container containerAppView">
 		<div class="page">
         	<!--Begin Header Section-->
@@ -119,50 +151,50 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 					<nav class="navTopLeft">
 						<ul>
 							<!--
-                            <li><a href="#" onClick="app.ext.myRIA.a.linkToStore('http://www.themahjongshop.com/','vstore'); return false;" title="The Mah Jong Shop" target="_blank">Visit the Mah Jong Shop</a></li>
+                            <li><a href="#" onClick="myApp.ext.quickstart.a.linkToStore('http://www.themahjongshop.com/','vstore'); return false;" title="The Mah Jong Shop" target="_blank">Visit the Mah Jong Shop</a></li>
 							-->
-                            <li><a href="#" onClick="app.ext.myRIA.a.linkToStore('http://www.thebackgammonstore.com/','vstore'); return false;" title="The Backgammon Shop" target="_blank">Visit the Backgammon Store</a></li>
+                            <li><a href="#" onClick="myApp.ext.quickstart.a.linkToStore('http://www.thebackgammonstore.com/','vstore'); return false;" title="The Backgammon Shop" target="_blank">Visit the Backgammon Store</a></li>
 						</ul>
 					</nav>
 					<nav class="navTopRight">
 						<ul>
-							<li><a href='#top' onClick="return showContent('company',{'show':'about'});" title='About Us'>About Us</a></li>
-							<li><a href='#top' onClick="return showContent('company',{'show':'contact'});" title='Contact Us'>Contact Us</a></li>
-							<li><a href='#top' onClick="return showContent('customer',{'show':'myaccount'});" title='My Account'>My Account</a></li>
-							<li><a href='#top' onClick="return showContent('customer',{'show':'orders'});">Track My Order</a></li>
+							<li><a href='#!company/about' title='About Us'>About Us</a></li>
+							<li><a href='#!company/contact' title='Contact Us'>Contact Us</a></li>
+							<li><a href='#!customer/myaccount' title='My Account'>My Account</a></li>
+							<li><a href='#!customer/orders' >Track My Order</a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="headerBottom">
 					<div class="headerBoxLeft headerHideShow">
-						<a href="#homepage?." class='bindByAnchor' title='Home'><img src="images/logo.png" alt="The Chess Store" width='178' height='150'></a>
+						<a href="#!home" title='Home'><img src="images/logo.png" alt="The Chess Store" width='178' height='150'></a>
 					</div>
 					<div class="headerBoxCenter">
 						<h6 class="headerHideShow">Need help?</h6>
 						<p class="headerHideShow">1-888-810-2437 or click for online help.</p><div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>
 						<div class="clear"></div>
 						<p class="headerHideShow" style="margin-top:5px;">8am to 4:30pm Monday through Friday</p>
-                        <a class="headerShowroom pointer bindByAnchor headerHideShow" href="#!category?navcat=.00060-special_departments.visit_our_showroom">Visit Our Showroom</a>
+                        <a class="headerShowroom pointer headerHideShow" href="#!category/.00060-special_departments.visit_our_showroom">Visit Our Showroom</a>
 					</div>
 					<div class="headerBoxCenter headerHideShow">
 						<!--<h6 class='accent'>Get up to $30% Off</h6> TODO: 30% off - maybe popup -->
                         <img src="free-shipping-truck-over-50.jpg" class="headerImage" alt="" />
-						<p>Free Shipping Over $50 <a class='secondary pointer bindByAnchor' href="#!category?navcat=.informational_pages.5-dollar-ups-ground-shipping">* See details</a></p>
-						<!--<p class='marginTop'><strong>Give something special.</strong> <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});" class='bindByAnchor' title='Gift Ideas'>Shop Gifts</a>.</p>-->
+						<p>Free Shipping Over $50 <a class='secondary pointer' href="#!category/.informational_pages.5-dollar-ups-ground-shipping">* See details</a></p>
+						<!--<p class='marginTop'><strong>Give something special.</strong> <a href="#!category/.00058-gift-cards" title='Gift Ideas'>Shop Gifts</a>.</p>-->
 					</div>
 					<div class="headerBoxRight">
-						<p><a href="#cart?." class='bindByAnchor' title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
-						<p><a href="#cart?." class='bindByAnchor' title='Checkout'>Checkout</a></p>
-						<p><a href="#customer?show=lists" class='bindByAnchor headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
+						<p><a href="#!cart" title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
+						<p><a href="#!cart" title='Checkout'>Checkout</a></p>
+						<p><a href="#!customer/lists" class='headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
 
-                        <p><a class="pointer headerHideShow" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});">Join Collectors Club</a></p>
+                        <p><a class="pointer headerHideShow" href="#!category/.00060-special_departments.chess-set-collectors-club">Join Collectors Club</a></p>
 					</div>
                     <div class="headerHideShow headerHideShowContent">
                         <h6>Need help?</h6>
                         <p>1-888-810-2437 or click for online help.</p>
                         <p style="margin-top:5px;">8am to 5pm Monday through Friday</p>
                     </div>
-                    <!--<a class='secondary headerHolidayShippingLink pointer bindByAnchor' href="#!category?navcat=.1006-year-end-holiday-schedule">Holiday <span>Shipping</span> Information</a>-->
+                    <!--<a class='secondary headerHolidayShippingLink pointer' href="#!category/.1006-year-end-holiday-schedule">Holiday <span>Shipping</span> Information</a>-->
                     <h2 class="headerMotto headerHideShow">Specializing in the game of chess since 1999</h2>
                     <form name='headerSearchFrm' action='#' class='productSearchForm' method="get">
 							<fieldset>
@@ -176,98 +208,98 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 				<div class="headerNavBar">
 					<div class="headerNavUlBar">
 						<!--<div class="floatLeft"><a href="#" class='bindByAnchor HeaderNavBarLink' title='Chess Set Builder'><p class="HeaderNavBarLink">Chess Set Builder (Coming Soon!)</p></a></div> TODO: chess set builder - get link -->
-                        <div class="floatLeft navBarPos"><a href="#homepage?." class="bindByAnchor HeaderNavBarLink">Home</a></div>
+                        <div class="floatLeft navBarPos"><a href="#!home" class="HeaderNavBarLink">Home</a></div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Complete Chess Sets</a>
                         	<div class="dropdown headerDropdown leftAlign">
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00012-wood-chess-sets-with-chess-boards" class="pointer bindByAnchor">Wood Chess Sets with Boards</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00014-wood-chess-sets-with-chess-cases" class="pointer bindByAnchor" >Wood Chess Sets with Cases</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00018-metal-chess-sets.00012-metal-chess-set-packages" class="pointer bindByAnchor" >Metal Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00024-marble-onyx-chess-sets" class="pointer bindByAnchor" >Marble & Onyx Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00030-tournament-chess-set-kits" class="pointer bindByAnchor" >Plastic Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00025-theme-chess-sets" class="pointer bindByAnchor" >Theme Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00054-travel-chess-sets" class="pointer bindByAnchor" >Travel Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00015-artisan-bone-chess-sets" class="pointer bindByAnchor" >Artisan Bone Chess Sets</a></div>
-                                  <div class="headerDropdownLink"><a href="#!category?navcat=.00045-garden-chess-sets" class="pointer bindByAnchor" >Garden Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00012-wood-chess-sets-with-chess-boards" class="pointer">Wood Chess Sets with Boards</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00014-wood-chess-sets-with-chess-cases" class="pointer" >Wood Chess Sets with Cases</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00018-metal-chess-sets.00012-metal-chess-set-packages" class="pointer" >Metal Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00024-marble-onyx-chess-sets" class="pointer" >Marble & Onyx Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00030-tournament-chess-set-kits" class="pointer" >Plastic Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00025-theme-chess-sets" class="pointer" >Theme Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00054-travel-chess-sets" class="pointer" >Travel Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00015-artisan-bone-chess-sets" class="pointer" >Artisan Bone Chess Sets</a></div>
+                                  <div class="headerDropdownLink"><a href="#!category/.00045-garden-chess-sets" class="pointer" >Garden Chess Sets</a></div>
 							</div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Chess Pieces</a>
                         	<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#!category?navcat=.00010-wood-chess-sets" class="pointer bindByAnchor" >Staunton Wood Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00027-metal-chess-pieces" class="pointer bindByAnchor" >Metal Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00020-plastic-chess-sets" class="pointer bindByAnchor" >Plastic Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00029-theme-chess-pieces" class="pointer bindByAnchor" >Theme Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00055-unfinished-chess-sets" class="pointer bindByAnchor" >Unfinished Wood Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000285-marble-onyx-stone-chess-pieces" class="pointer bindByAnchor" >Marble & Onyx Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00011-pre-staunton-antique-chess-pieces" class="pointer bindByAnchor" >Antique Repro Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00033-artisan-hand-carved-chess-sets" class="pointer bindByAnchor" >Artisan Bone Chess Pieces</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000295-most-unique-chess-pieces" class="pointer bindByAnchor" >Most Unique Chess Pieces</a></div>
-								<div class="headerDropdownLink"><a href="#!category?navcat=.00019-retired-chess-set-models" class="pointer bindByAnchor" >Retired Models</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.00010-wood-chess-sets" class="pointer" >Staunton Wood Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00027-metal-chess-pieces" class="pointer" >Metal Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00020-plastic-chess-sets" class="pointer" >Plastic Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00029-theme-chess-pieces" class="pointer" >Theme Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00055-unfinished-chess-sets" class="pointer" >Unfinished Wood Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000285-marble-onyx-stone-chess-pieces" class="pointer" >Marble & Onyx Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00011-pre-staunton-antique-chess-pieces" class="pointer" >Antique Repro Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00033-artisan-hand-carved-chess-sets" class="pointer" >Artisan Bone Chess Pieces</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000295-most-unique-chess-pieces" class="pointer" >Most Unique Chess Pieces</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.00019-retired-chess-set-models" class="pointer" >Retired Models</a></div>
                             </div>
                         </div>
 						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Chess Boards</a>
 							<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#!category?navcat=.00031-natural-wood-chess-boards" class="pointer bindByAnchor" >Natural Wood Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000311-stained-wood-chess-boards" class="pointer bindByAnchor" >Stained Wood Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000312-vinyl-chess-boards" class="pointer bindByAnchor" >Vinyl Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000313-chess-cases" class="pointer bindByAnchor" >Chess Cases</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.0003135-leatherette-chess-boards" class="pointer bindByAnchor" >Leatherette Chess Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000314-metal-chess-boards" class="pointer bindByAnchor" >Metal Chess Boards</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.00031-natural-wood-chess-boards" class="pointer" >Natural Wood Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000311-stained-wood-chess-boards" class="pointer" >Stained Wood Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000312-vinyl-chess-boards" class="pointer" >Vinyl Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000313-chess-cases" class="pointer" >Chess Cases</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.0003135-leatherette-chess-boards" class="pointer" >Leatherette Chess Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000314-metal-chess-boards" class="pointer" >Metal Chess Boards</a></div>
 							</div>
                         </div>
                         <div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Accessories</a>
                         	<div class="dropdown headerDropdown leftAlign">
- 								<div class="headerDropdownLink"><a href="#!category?navcat=.00036-chess-clocks" class="pointer bindByAnchor" >Chess Clocks</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00037-chess-boxes" class="pointer bindByAnchor" >Chess Boxes</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.000313-chess-cases" class="pointer bindByAnchor" >Chess Cases</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00028-club-tournament-supplies" class="pointer bindByAnchor" >Chess Club Supplies</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00039-chess-bags" class="pointer bindByAnchor" >Chess Bags</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00044-chess-dvds" class="pointer bindByAnchor" >Chess DVDs</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00034-chess-books" class="pointer bindByAnchor" >Chess Books</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00048-chess-software" class="pointer bindByAnchor" >Chess Software</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00046-chess-scorebooks" class="pointer bindByAnchor" >Chess Scorebooks</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00050-chess-tables" class="pointer bindByAnchor" >Chess Tables</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00042-chess-demonstration-boards" class="pointer bindByAnchor" >Chess Demo Boards</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00053-chess-potpourri" class="pointer bindByAnchor" >Chess Potpourri</a></div>
+ 								<div class="headerDropdownLink"><a href="#!category/.00036-chess-clocks" class="pointer" >Chess Clocks</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00037-chess-boxes" class="pointer" >Chess Boxes</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.000313-chess-cases" class="pointer" >Chess Cases</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00028-club-tournament-supplies" class="pointer" >Chess Club Supplies</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00039-chess-bags" class="pointer" >Chess Bags</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00044-chess-dvds" class="pointer" >Chess DVDs</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00034-chess-books" class="pointer" >Chess Books</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00048-chess-software" class="pointer" >Chess Software</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00046-chess-scorebooks" class="pointer" >Chess Scorebooks</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00050-chess-tables" class="pointer" >Chess Tables</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00042-chess-demonstration-boards" class="pointer" >Chess Demo Boards</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00053-chess-potpourri" class="pointer" >Chess Potpourri</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#!category?navcat=.00062-great-gift-ideas" class='HeaderNavBarLink bindByAnchor'>Gift Ideas</a> 
+						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#!category/.00062-great-gift-ideas" class='HeaderNavBarLink bindByAnchor'>Gift Ideas</a> 
                             <div class="dropdown headerDropdown leftAlign">
-                            	<div class="headerDropdownLink"><a href="#!category?navcat=.00058-gift-cards" class="pointer bindByAnchor" >Gift Cards</a></div>
-								<div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.1-under-100" class="pointer bindByAnchor" >$1 - $100</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.2-100-19999" class="pointer bindByAnchor" >$100 - $200</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.3-200-29999" class="pointer bindByAnchor" >$200 - $300</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.4-300-49999" class="pointer bindByAnchor" >$300 - $500</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00062-great-gift-ideas.5-500up" class="pointer bindByAnchor" >$500 and Up</a></div>
+                            	<div class="headerDropdownLink"><a href="#!category/.00058-gift-cards" class="pointer" >Gift Cards</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.00062-great-gift-ideas.1-under-100" class="pointer" >$1 - $100</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00062-great-gift-ideas.2-100-19999" class="pointer" >$100 - $200</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00062-great-gift-ideas.3-200-29999" class="pointer" >$200 - $300</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00062-great-gift-ideas.4-300-49999" class="pointer" >$300 - $500</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00062-great-gift-ideas.5-500up" class="pointer" >$500 and Up</a></div>
 							</div>
                         </div>
-						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#!category?navcat=.00064-shop-by-brand" class='HeaderNavBarLink bindByAnchor'>Shop by Brand</a>
+						<div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a href="#!category/.00064-shop-by-brand" class='HeaderNavBarLink bindByAnchor'>Shop by Brand</a>
                        		<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.bhb" class="pointer bindByAnchor" >BHB</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.chessbase" class="pointer bindByAnchor" >ChessBase</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.chess-on-dvd" class="pointer bindByAnchor" >Chess on DVD</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.chronos" class="pointer bindByAnchor" >Chronos</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.dgt" class="pointer bindByAnchor" >DGT</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.everyman-chess" class="pointer bindByAnchor" >Everyman Chess</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.gambit-books" class="pointer bindByAnchor" >Gambit Books</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.italfama" class="pointer bindByAnchor" >Italfama</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.mad_catz" class="pointer bindByAnchor" >Mad Catz</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.manopoulos" class="pointer bindByAnchor" >Manopoulos</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.rechapados-ferrer" class="pointer bindByAnchor" >Rechapados Ferrer</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.the-chess-store" class="pointer bindByAnchor" >The Chess Store</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.wood-expressions" class="pointer bindByAnchor" >Wood Expressions</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.00064-shop-by-brand.zmartfun_electronics" class="pointer bindByAnchor" > ZmartFun Electronics</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.bhb" class="pointer" >BHB</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.chessbase" class="pointer" >ChessBase</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.chess-on-dvd" class="pointer" >Chess on DVD</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.chronos" class="pointer" >Chronos</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.dgt" class="pointer" >DGT</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.everyman-chess" class="pointer" >Everyman Chess</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.gambit-books" class="pointer" >Gambit Books</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.italfama" class="pointer" >Italfama</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.mad_catz" class="pointer" >Mad Catz</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.manopoulos" class="pointer" >Manopoulos</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.rechapados-ferrer" class="pointer" >Rechapados Ferrer</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.the-chess-store" class="pointer" >The Chess Store</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.wood-expressions" class="pointer" >Wood Expressions</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.00064-shop-by-brand.zmartfun_electronics" class="pointer" > ZmartFun Electronics</a></div>
 							</div>
                         </div>
                         <div class="floatLeft navBarPos" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))"><a class='HeaderNavBarLink'>Other Games</a>
                        		<div class="dropdown headerDropdown leftAlign">
-								<div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.backgammon" class="pointer bindByAnchor" >Backgammon</a></div>
-								<div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.checkers" class="pointer bindByAnchor" >Checkers</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.cribbage" class="pointer bindByAnchor" >Cribbage</a></div>
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.dominoes" class="pointer bindByAnchor" >Dominoes</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.other-games-app.backgammon" class="pointer" >Backgammon</a></div>
+								<div class="headerDropdownLink"><a href="#!category/.other-games-app.checkers" class="pointer" >Checkers</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.other-games-app.cribbage" class="pointer" >Cribbage</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.other-games-app.dominoes" class="pointer" >Dominoes</a></div>
                                 <!--
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.go" class="pointer bindByAnchor" >Go</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.other-games-app.go" class="pointer" >Go</a></div>
                                 -->
-                                <div class="headerDropdownLink"><a href="#!category?navcat=.other-games-app.mah_jong" class="pointer bindByAnchor" >Mah Jong</a></div>
+                                <div class="headerDropdownLink"><a href="#!category/.other-games-app.mah_jong" class="pointer" >Mah Jong</a></div>
                             </div>
                         </div>
 					</div>
@@ -277,7 +309,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 would be to replace the any text between the <h2> and </h2> tags with whatever you want your sales to say. Then,
                 you would need to update the link by replacing 
                 -->
-                <div class="announceBar pointer"><a href="#!category?navcat=.sales.the_chess_store_spring_sale" class="pointer bindByAnchor" >
+                <div class="announceBar pointer"><a href="#!category/.sales.the_chess_store_spring_sale" class="pointer" >
                 	<img src="images/homepage_top_ad_bar_images/tcs-2014-spring-into-chess-sale.jpg" alt="">
                 </a></div>
                 <!--</header>-->
@@ -314,27 +346,27 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                     <div id="footerUpperLinkSec">
                     	<div class="footerLinkSec">
                         	<h5>CUSTOMER SERVICE</h5>
-                            <p class="footerLinkStyle">1-888-810-2437 or <a onClick="return showContent('company',{'show':'contact'});" class="pointer footerLinkStyle" href="#" style="text-decoration:underline">online help</a></p>
-                            <a href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="footerLinkStyle pointer">My Account</a><br /><br />
-                            <a href="#" onClick="return showContent('customer',{'show':'orders'});" class="footerLinkStyle pointer">Check Order Status</a><br /><br />
-                            <a href="#" onClick="return showContent('company',{'show':'faq'});" class="footerLinkStyle pointer">FAQ</a><br /><br />
-                            <a href="#!category?navcat=.1003" class="footerLinkStyle pointer bindByAnchor">Reseller Program</a><br /><br />
-                            <a href="#!category?navcat=.1004-affiliate-program" class="footerLinkStyle pointer bindByAnchor">Affiliate Program</a><br /><br />
+                            <p class="footerLinkStyle">1-888-810-2437 or <a class="pointer footerLinkStyle" href="#!company/contact" style="text-decoration:underline">online help</a></p>
+                            <a href="#!customer/myaccount" class="footerLinkStyle pointer">My Account</a><br /><br />
+                            <a href="#!customer/orders" class="footerLinkStyle pointer">Check Order Status</a><br /><br />
+                            <a href="#!company/faq" class="footerLinkStyle pointer">FAQ</a><br /><br />
+                            <a href="#!category/.1003" class="footerLinkStyle pointer">Reseller Program</a><br /><br />
+                            <a href="#!category/.1004-affiliate-program" class="footerLinkStyle pointer">Affiliate Program</a><br /><br />
                         </div>
                         <div class="footerLinkSec" style="padding-left:35px;">
                         	<h5>SHOPPING</h5>
-                            <a href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="footerLinkStyle pointer">Wishlist</a><br /><br />
-                            <a href="#" onClick="return showContent('category',{'navcat':'.00058-gift-cards'});"  class="footerLinkStyle pointer">Gift Certificates</a><br /><br />
-                            <a href="#!category?navcat=.shipping" class="footerLinkStyle pointer bindByAnchor">Shipping</a><br /><br />
-                            <a href="#" onClick="return showContent('company',{'show':'return'});" class="footerLinkStyle pointer">Returns</a><br /><br />
+                            <a href="#!customer/myaccount" onClick="return showContent('customer',{'show':'myaccount'});" class="footerLinkStyle pointer">Wishlist</a><br /><br />
+                            <a href="#!category/.00058-gift-cards" class="footerLinkStyle pointer">Gift Certificates</a><br /><br />
+                            <a href="#!category/.shipping" class="footerLinkStyle pointer">Shipping</a><br /><br />
+                            <a href="#!company/return" class="footerLinkStyle pointer">Returns</a><br /><br />
                         </div>
                         <div class="footerLinkSec">
                         	<h5>AND MORE</h5>
-                            <a  href="#" onClick="return showContent('company',{'show':'about'});" class="footerLinkStyle pointer">About Us</a><br /><br />
-                            <a  href="#!category?navcat=.00060-special_departments.visit_our_showroom" class="footerLinkStyle pointer bindByAnchor">Visit Our Showroom</a><br /><br />
-                            <a  href="#!category?navcat=.00060-special_departments.chess-set-collectors-club" class="footerLinkStyle pointer bindByAnchor">Collector's Club</a><br /><br />
-                            <a  href="#!category?navcat=.informational_pages.the_10__club" class="footerLinkStyle pointer bindByAnchor">The 10% Off Club</a><br /><br />
-                            <a  href="#!category?navcat=.rulesofchess" class="footerLinkStyle pointer bindByAnchor">Rules of Chess</a><br /><br />
+                            <a  href="#!company/about" class="footerLinkStyle pointer">About Us</a><br /><br />
+                            <a  href="#!category/.00060-special_departments.visit_our_showroom" class="footerLinkStyle pointer">Visit Our Showroom</a><br /><br />
+                            <a  href="#!category/.00060-special_departments.chess-set-collectors-club" class="footerLinkStyle pointer">Collector's Club</a><br /><br />
+                            <a  href="#!category/.informational_pages.the_10__club" class="footerLinkStyle pointer">The 10% Off Club</a><br /><br />
+                            <a  href="#!category/.rulesofchess" class="footerLinkStyle pointer">Rules of Chess</a><br /><br />
                         </div>
                         <div class="footerLinkSec">
                         	<h5>GET SOCIAL</h5>
@@ -346,11 +378,11 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
                 </div>
                 <div id="footerLowerSec">
                 	<div class="footerLower_TopSec">
-                        	<a  href="#" onClick="return showContent('homepage',{});" class="pointer">| &nbsp; Home &nbsp; | </a>
-                            <a  href="#" onClick="return showContent('customer',{'show':'myaccount'});" class="pointer">Track My Order &nbsp; | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'faq'});" class="pointer">Help &nbsp; | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'contact'});" class="pointer">Contact Us &nbsp; | </a>
-                            <a  href="#" onClick="return showContent('company',{'show':'privacy'});" class="pointer">Privacy Policy &nbsp; | </a>
+                        	<a  href="#!home" class="pointer">| &nbsp; Home &nbsp; | </a>
+                            <a  href="#!customer/myaccount" class="pointer">Track My Order &nbsp; | </a>
+                            <a  href="#!company/faq" class="pointer">Help &nbsp; | </a>
+                            <a  href="#!company/contact" class="pointer">Contact Us &nbsp; | </a>
+                            <a  href="#!company/privacy" class="pointer">Privacy Policy &nbsp; | </a>
                             <p>&#169; 2013 The Chess Store</p>
                     </div>
                     <div class="footerLower_BottomSec">
@@ -396,6 +428,35 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 
 
 
+<!--
+*************************************************************************************************************
+**
+**
+**										C A R T   M E S S A G E   U I      S T A R T S      H E R E
+**
+** A mechanism where buyers and merchants can communicate in real time.
+**
+*************************************************************************************************************
+-->
+
+
+
+<div id='cartMessenger' class='displayNone seoStrip' data-app-role='cartMessenger' title="help">
+	<form novalidate='novalidate' onSubmit="return false">
+		<div class='messageHistoryContainer'>
+			<section data-app-role='messageHistory'></section>
+		</div>
+		<fieldset data-app-role='messageInput' class='smallButton messageInputContainer displayNone'>
+			<textarea name='message' required='required' class='fullWidth' rows='5' placeholder='send a message'></textarea>
+			<button class='applyButton' data-app-click='cart_message|chatPostExec' data-app-role='messageSubmitButton'>Send Message</button>
+		</fieldset>
+		<input type='text' placeholder='first name' name='bill/firstname' value='' data-tlc="bind $var 'bill.firstname'; apply --select=$var;" data-app-blur='cco|cartSetAttrib' />
+		<section data-app-role='messageCommands' class='messageCommandsContainer'>
+		<button class='applyButton displayNone show4ActiveChat' data-app-click="quickstart|cartMessagePageSend" title='Show the associate what page I am on.'>Send Page</button>
+		<button data-app-click="cart_message|cartCSRShortcutExec" class='applyButton hide4ActiveChat'>Cart Shortcut</button><!-- if the buyer is already on the phone w/ the merchant, they could use this so the admin can access the cart -->
+		</section>
+	</form>
+</div>
 
 
 
@@ -415,7 +476,7 @@ app.u.loadScript(app.vars.baseURL+"_chess_init.js");
 -->
 
 
-<div id='appTemplates' class='displayNone'>
+<div id='appTemplates' class='displayNone seoStrip'>
 
 
 <!--
@@ -430,10 +491,11 @@ COMMONLY EDITED TEMPLATES
 
 
 
+
 <!--
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
-<div id='homepageTemplate' class='homeTemplate'>
+<div id="homepageTemplate" class='homeTemplate'>
 
 	<!-- Jeff, To update your homepage banner images, you must first make sure the images you want in your banner are properly 
     loaded into the images folder. You then simply need to replace all text after the <img src="images/ part up until you see the
@@ -444,63 +506,63 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		<div id="featureImg">
             
             <!--EXAMPLES:
-            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('product',{'pid':'PSBB375DP'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});" alt="" />
+            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" href="#!product/PSBB375DP" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer"  href="#!category/.00012-wood-chess-sets-with-chess-boards" alt="" />
             -->
             
-            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" onClick="return showContent('product',{'pid':'PSBB375DP'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});" alt="" />
-            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});" alt="" />
-    		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});" alt="" />
+            <img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" href="#!product/PSBB375DP" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" href="#!category/.00027-metal-chess-pieces" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" href="#!category/.00020-plastic-chess-sets" alt="" />
+            <img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" href="#!category/.00010-wood-chess-sets" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-unique-chess-sets-banner-1000.jpg" class="pointer" href="#!category/.000295-most-unique-chess-pieces" alt="" />
+    		<img src="images/homepage_banner_images/top-slider-marble-onyx-chess-sets-banner-1000.jpg" class="pointer" href="#!category/.00024-marble-onyx-chess-sets" alt="" />
     	</div>
     </div>
     <h3 class="homepageProductCatHeader">Chess Sets</h3>
     <div class="carouselCont1">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat1'>
         	
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00012-wood-chess-sets-with-chess-boards'});">
+            <li class="pointer" href="#!category/.00012-wood-chess-sets-with-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Sets/wood-chess-sets-with-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Wood Chess Sets with Boards</div>
                 <div class="homepageCatDesc">High quality wood chess pieces matched with the perfect chess board. From basic to heirloom treasures.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00014-wood-chess-sets-with-chess-cases'});">
+            <li class="pointer" href="#!category/.00014-wood-chess-sets-with-chess-cases">
             	<img class="" src="images/homepage_category_images/Chess_Sets/wood-chess-sets-with-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Wood Chess Sets with Cases</div>
                 <div class="homepageCatDesc">Whether you want to display your chess pieces or put them away, a chess case offers the perfect solution.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00018-metal-chess-sets.00012-metal-chess-set-packages'});">
+            <li class="pointer"  href="#!category/.00018-metal-chess-sets.00012-metal-chess-set-packages">
             	<img class="" src="images/homepage_category_images/Chess_Sets/metal-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Sets</div>
                 <div class="homepageCatDesc">Beautiful metal chessmen with the perfect chess board. Traditional, theme, and contemporary designs.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00024-marble-onyx-chess-sets'});">
+            <li class="pointer"  href="#!category/.00024-marble-onyx-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Sets/marble-onyx-stone-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Marble & Onyx Chess Sets</div>
                 <div class="homepageCatDesc">These beautiful chess sets made from colorful marble, onyx, and exotic stone make wonderful chess d&eacute;cor.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00030-tournament-chess-set-kits'});">
+            <li class="pointer"  href="#!category/.00030-tournament-chess-set-kits">
             	<img class="" src="images/homepage_category_images/Chess_Sets/plastic-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Plastic Chess Sets</div>
                 <div class="homepageCatDesc">Plastic pieces with just a board or complete tournament kits with a bag. Ideal for clubs and tournaments.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00025-theme-chess-sets'});">
+            <li class="pointer"  href="#!category/.00025-theme-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Sets/theme-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Theme Chess Sets</div>
                 <div class="homepageCatDesc">Make the game even more fun and interesting with a beautiful theme chess set. Any theme you can imagine.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00054-travel-chess-sets'});">
+            <li class="pointer"  href="#!category/.00054-travel-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Sets/travel-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Travel Chess Sets</div>
                 <div class="homepageCatDesc">From magnetic pocket size to large folding models, these chess sets are designed for traveling.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00015-artisan-bone-chess-sets'});">
+            <li class="pointer"  href="#!category/.00015-artisan-bone-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Sets/bone-chess-set-packages-homepage-banners-310x219.jpg" alt="" />
             	<div class="homepageCatTitle">Artisan Bone Chess Sets</div>
                 <div class="homepageCatDesc">Decorative hand carved bone chess sets matched with beautiful chess boards. Unique pieces of chess art!</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00045-garden-chess-sets'});">
+            <li class="pointer"  href="#!category/.00045-garden-chess-sets">
             	<img class=""  src="images/homepage_category_images/Chess_Sets/garden-chess-sets-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Garden Chess Sets</div>
                 <div class="homepageCatDesc">Large chess sets for playing outside on your patio or for special events. Makes a fun group chess game.</div>
@@ -514,54 +576,54 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont2">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat2'>
         	
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00010-wood-chess-sets'});">
+            <li class="pointer"  href="#!category/.00010-wood-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/wood-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Staunton Wood Chess Pieces</div>
                 <div class="homepageCatDesc">Old classics to our own exclusive designs, shop from the largest selection of wood chessmen in the world.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00027-metal-chess-pieces'});">
+            <li class="pointer"  href="#!category/.00027-metal-chess-pieces">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/metal-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Pieces</div>
                 <div class="homepageCatDesc">Elegant metal chessmen including Staunton, theme, art deco, and contemporary designs in a variety of finishes.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00020-plastic-chess-sets'});">
+            <li class="pointer"  href="#!category/.00020-plastic-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/plastic-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Plastic Chess Pieces</div>
                 <div class="homepageCatDesc">The largest selection of plastic chess sets in the world. Exclusive designs, popular colors, and low prices.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00029-theme-chess-pieces'});">
+            <li class="pointer"  href="#!category/.00029-theme-chess-pieces">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/theme-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Theme Chess Pieces</div>
                 <div class="homepageCatDesc">From storybook tales to famous battles, theme chess sets are interesting, beautiful, and colorful.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00055-unfinished-chess-sets'});">
+            <li class="pointer"  href="#!category/.00055-unfinished-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/unfinished-wood-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Unfinished Wood Chess Pieces</div>
                 <div class="homepageCatDesc">Paint or stain these unfinished wood chess pieces to create your own unique and special chess set.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000285-marble-onyx-stone-chess-pieces'});">
+            <li class="pointer"  href="#!category/.000285-marble-onyx-stone-chess-pieces">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/marble-onyx-stone-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Marble & Onyx Chess Pieces</div>
                 <div class="homepageCatDesc">Beautiful marble, onyx, and stone chessmen for something different or upgrading with a board you have.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00011-pre-staunton-antique-chess-pieces'});">
+            <li class="pointer"  href="#!category/.00011-pre-staunton-antique-chess-pieces">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/pre-staunton-chess-pieces-homepage-banners-310x219.jpg" alt="" />
             	<div class="homepageCatTitle">Antique Repro Chess Pieces</div>
                 <div class="homepageCatDesc">Antique reproduction chess pieces based on old designs before Staunton became the standard in chess and after.</div>
             </li>
             <!--
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
+            <li class="pointer"  href="#!category/" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/jaques-london-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Jaques of London Chess Pieces</div>
                 <div class="homepageCatDesc">Amongst collectors and historians of the game, no other name is more recognized than Jaques of London.</div>
             </li>
             -->
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00033-artisan-hand-carved-chess-sets'});">
+            <li class="pointer"  href="#!category/.00033-artisan-hand-carved-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/artisan-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Artisan Bone Chess Pieces</div>
                 <div class="homepageCatDesc">An art form passed on for hundreds of years, these hand carved chessmen from solid bone are stunning&#33;</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000295-most-unique-chess-pieces'});">
+            <li class="pointer"  href="#!category/.000295-most-unique-chess-pieces">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/most-uniqe-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Most Unique Chess Pieces</div>
                 <div class="homepageCatDesc">Our most unique and unusual chess sets, from hand carved bone to contemporary brass and wood.</div>
@@ -575,32 +637,32 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont3">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat3'>
         	
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00031-natural-wood-chess-boards'});">
+            <li class="pointer"  href="#!category/.00031-natural-wood-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Boards/natural-wood-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Natural Wood Chess Boards</div>
                 <div class="homepageCatDesc">From walnut to exotic woods like African Padauk, you&#39;ll find the perfect board for your chess pieces.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000311-stained-wood-chess-boards'});">
+            <li class="pointer"  href="#!category/.000311-stained-wood-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Boards/stained-wood-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Stained Wood Chess Boards</div>
                 <div class="homepageCatDesc">Elegant wood chess boards stained in beautiful colors with a glass-like finish. Many colors and sizes.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000312-vinyl-chess-boards'});">
+            <li class="pointer"  href="#!category/.000312-vinyl-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Boards/vinyl-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Vinyl Chess Boards</div>
                 <div class="homepageCatDesc">Vinyl chess boards are perfect for schools and tournaments - they&#39;re durable, affordable, and portable.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});">
+            <li class="pointer"  href="#!category/.000313-chess-cases">
             	<img class="" src="images/homepage_category_images/Chess_Boards/chess-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Cases</div>
                 <div class="homepageCatDesc">A chess case provides storage for pieces and a chess board on top. A great way to display your chess set.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.0003135-leatherette-chess-boards'});">
+            <li class="pointer"  href="#!category/.0003135-leatherette-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Boards/leatherette-chess-board-banner-310x219.jpg" alt="" />
             	<div class="homepageCatTitle">Leatherette Chess Boards</div>
                 <div class="homepageCatDesc">From Italy, beautiful leatherette covered chess boards in a variety of colors, sizes, and models.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000314-metal-chess-boards'});">
+            <li class="pointer"  href="#!category/.000314-metal-chess-boards">
             	<img class="" src="images/homepage_category_images/Chess_Boards/metal-chess-boards-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Metal Chess Boards</div>
                 <div class="homepageCatDesc">These elegant and colorful metal chess boards are perfect for displaying your metal chess pieces on.</div>
@@ -615,62 +677,62 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class="carouselCont4">
 		<ul class='listStyleNone fluidList clearfix noPadOrMargin homepageChessSetSec homepageCat4'>
         	
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00036-chess-clocks'});">
+            <li class="pointer"  href="#!category/.00036-chess-clocks">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-clocks-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Clocks</div>
                 <div class="homepageCatDesc">From analog to digital, you&#39;ll find nearly every brand of chess clock in plastic, wood, and every color.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00037-chess-boxes'});">
+            <li class="pointer"  href="#!category/.00037-chess-boxes">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-boxes-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Boxes</div>
                 <div class="homepageCatDesc">A variety of different boxes for storing and protecting your chess pieces when they&#39;re not being used.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00028-club-tournament-supplies'});">
+            <li class="pointer"  href="#!category/.00028-club-tournament-supplies">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-club-supplies-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Club Supplies</div>
                 <div class="homepageCatDesc">Shop for all of your chess club supplies on one page for easy comparison and shopping. Volume discounts.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00039-chess-bags'});">
+            <li class="pointer"  href="#!category/.00039-chess-bags">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-bags-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Bags</div>
                 <div class="homepageCatDesc">Perfect for packing away your chess pieces, board, and clock. Ideal for the club player or travel.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00044-chess-dvds'});">
+            <li class="pointer"  href="#!category/.00044-chess-dvds">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-dvds-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess DVDs</div>
                 <div class="homepageCatDesc">Instruction from grandmasters on every phase of the game, there&#39;s no better way to learn and improve.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00034-chess-books'});">
+            <li class="pointer"  href="#!category/.00034-chess-books">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-books-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Books</div>
                 <div class="homepageCatDesc">The best chess books from grandmaster authors. Learn as they share insight and move by move strategy.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00048-chess-software'});">
+            <li class="pointer"  href="#!category/.00048-chess-software">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-software-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Software</div>
                 <div class="homepageCatDesc">Chess software playing programs and databases for playing, practice, and analyzing your chess games.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00046-chess-scorebooks'});">
+            <li class="pointer"  href="#!category/.00046-chess-scorebooks">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-scorebooks-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Scorebooks</div>
                 <div class="homepageCatDesc">Record your chess games move by move so you can look back and learn from genius moves and blunders.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00050-chess-tables'});">
+            <li class="pointer"  href="#!category/.00050-chess-tables">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-tables-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Tables</div>
                 <div class="homepageCatDesc">There&#39;s no better way to display your prized chess set than sitting on a beautiful chess table.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00042-chess-demonstration-boards'});">
+            <li class="pointer"  href="#!category/.00042-chess-demonstration-boards">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-demo-board-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Demo Boards</div>
                 <div class="homepageCatDesc">Large upright chess boards for demonstrating and teaching chess in the classroom.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.000313-chess-cases'});">
+            <li class="pointer"  href="#!category/.000313-chess-cases">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-cases-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Cases</div>
                 <div class="homepageCatDesc">A chess case provides storage for pieces and a chess board on top. A great way to display your chess set.</div>
             </li>
-            <li class="pointer" onClick="return showContent('category',{'navcat':'.00053-chess-potpourri'});">
+            <li class="pointer"  href="#!category/.00053-chess-potpourri">
             	<img class="" src="images/homepage_category_images/Chess_Accessories/chess-potpourri-banner-310x219.jpg" alt="" />
             	<div class="homepageCatTitle">Chess Potpourri</div>
                 <div class="homepageCatDesc">All kinds of fun chess stuff that make great gifts, from hand carved knight paperweights to mugs.</div>
