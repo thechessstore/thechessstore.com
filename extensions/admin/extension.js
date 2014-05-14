@@ -3063,7 +3063,7 @@ else	{} //findertype is not declared. The error handling for this has already ta
 				var qObj = {}; //query object
 				var columnValue = $('#finderSearchQuery').val();
 				qObj.type = 'product';
-				qObj.mode = 'elastic-native';
+				qObj.mode = 'elastic-search';
 				qObj.size = 400;
 				qObj.query =  {"query_string" : {"query" : columnValue}};
 			
@@ -3247,6 +3247,7 @@ else	{
 //domain and partition are persitent between sessions. bad for support so clear them.
 //for multi-account users, the domainInit code checks to make sure the selected domain is valid.
 				if(_app.vars.trigger == 'support')	{
+					dps.admin = dps.admin || {};
 					dps.admin.domain = '';
 					dps.admin.partition = '';
 					}
@@ -3777,6 +3778,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 //for delegated events. Also triggered by process form.
 // $ele could be the form itself or the button.
 			submitForm : function($ele,p)	{
+				dump("BEGIN admin.e.submitForm");
 				var $form = $ele.closest('form');
 				p.preventDefault();
 				if($ele.data('skipvalidation') || _app.u.validateForm($form))	{					
@@ -4223,7 +4225,7 @@ dataAttribs -> an object that will be set as data- on the panel.
 //						dump(" -> tableFilter is searching: "+$table.data('isSearching'));
 						if($table.data('isSearching'))	{$table.data('killSearch',true)} //tells any search in progress to stop.
 //only rows that are not already hidden are impacted. In some cases, some other operation may have hidden the row and we don't want our 'unhide' later to show them.
-//the 'not' is to target only the first level of table contents, no nested data (used in domains, for example).
+//the 'not' is to target only the first level of table contents, no nested data (used in domains, for example) is not inadvertantly impacted.
 						$(($table.data('tablefilterSelector') ? $table.data('tablefilterSelector')+":visible" : 'tbody tr:visible'),$table).not('tbody tbody',$table).hide().data('hidden4Search',true);
 						var filter = $ele.val().toLowerCase();
 						$table.data('isSearching',true);

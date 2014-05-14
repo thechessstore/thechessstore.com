@@ -66,7 +66,7 @@ if(_app.data[_rtag.datapointer]['@BODY'] && _app.data[_rtag.datapointer]['@BODY'
 	if(_app.data[_rtag.datapointer]['@BODY'][0].length == _app.data[_rtag.datapointer]['@HEAD'].length)	{
 //@HEAD is returned with each item as an object. google visualization wants a simple array. this handles the conversion.							
 		for(var i = 0; i < L; i += 1)	{
-			tableHeads.push(_app.data[_rtag.datapointer]['@HEAD'][i].name);
+			tableHeads.push(_app.data[_rtag.datapointer]['@HEAD'][i].name || _app.data[_rtag.datapointer]['@HEAD'][i].id);
 			}
 
 		var $expBtn = $("<button \/>").text('Export to CSV').button().addClass('floatRight').on('click',function(){
@@ -224,7 +224,7 @@ _rtag.jqObj.hideLoading(); //this is after drawTable, which may take a moment.
 						'_cmd':'adminBatchJobStatus',
 						'jobid':jobid,
 						'_tag':	{
-							'callback':'anycontent',
+							'callback':'tlc',
 							'datapointer':'adminBatchJobStatus|'+jobid,
 							'jqObj':$target,
 							'mode' : 'dialog',
@@ -414,7 +414,7 @@ _rtag.jqObj.hideLoading(); //this is after drawTable, which may take a moment.
 
 			adminBatchJobExec : function($ele,p)	{
 				var data = $ele.closest("[data-element]").data();
-				dump(" -> data: "); dump(data);
+//				dump(" -> data: "); dump(data);
 				if(data && $ele.data('whitelist') && $ele.data('type'))	{
 					var whitelist = $ele.data('whitelist').split(',');
 					var vars = _app.u.getWhitelistedObject(data,whitelist) || {};
