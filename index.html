@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Chess store</title>
 
 <!-- do not populate or add meta data, the SEO layer will add it -->
+<title>Chess store</title><!-- this will get populated by the SEO layer -->
 
 <!-- used for optional social media extensions -->
 <meta property="og:type" content="" id='ogType' />
@@ -34,14 +34,6 @@ var google_remarketing_only = true;
 
 var myCreole, baseURL;
 
-var app = {vars:{
-	"release":"201346bv",  //increment this with each change. should solve caching issues. format: frameworkVersion AlphabeticIncrement. i.e. 201314bc becomes 201314bd
-	"_clientid":"zmvc",
-	"baseURL":"",
-	"checkoutAuthMode" : "csactive",//can be passive, active or required
-	"testURL":"http://www.thechessstore.com/"
-	},u:{},rq:[]};
-
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
 if(document.location.protocol == 'file:')	{
@@ -64,11 +56,8 @@ css files should be included before any .js file to ensure they are downloaded i
 <link rel="stylesheet" type="text/css" href="_chess_styles.css" />
 <link href='https://fonts.googleapis.com/css?family=Neuton:400,700,400italic' rel='stylesheet' type='text/css'>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
-<script type="text/javascript" src="loadscript.js"></script>
-<!--<script src="magiczoomplus/magiczoomplus.js" type="text/javascript"></script>-->
-<!--<script type="text/javascript" src="jquery-1.8.2.min.js"></script>-->
+<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
+<script type="text/javascript" src="magiczoomplus-commercial/magiczoomplus/magiczoomplus.js"></script>
 
 <!-- jquery and jquery ui are pivotal to the functionality of the app. load them early -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -80,15 +69,12 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="resources/jquery.ui.anyplugins.js"></script>
 <script type="text/javascript" src="includes.js"></script><!-- contains some polyfills and should be loaded early -->
 
-<!-- IE Shim for HTML5 -->
-<!--[if lt IE 9]><script type="text/javascript" src="html5shiv/html5shiv.js"></script><![endif]-->
-
 
 <script type="text/javascript">
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201402.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -107,16 +93,14 @@ $(document).ready(function(){
 	myCreole = new Parse.Simple.Creole();
 	});
 </script>
-<script type="text/javascript" src="_jquery_cycle_plugin.js"></script>
-<script type="text/javascript" src="jquery.ui.widget.min.js"></script>
-<script type="text/javascript" src="magiczoomplus-commercial/magiczoomplus/magiczoomplus.js"></script>
-	
-
 
 
 </head>
 
 <body>
+
+
+
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
@@ -334,7 +318,8 @@ $(document).ready(function(){
             	<div id="footerUpperSec">
                 	<div class="footerUpperSubSec">
                     	<h5>Subscribe and save 5% on your first order.</h5>
-                        <form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+                        <!--
+			<form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
 							<fieldset class='userInfo'>
 								<input type="text" name='fullname' value='' placeholder="   NAME...." class="footerUpperSubSecInput" id='subscribeFullname' />
                                 <input type="email" name='login' value='' placeholder="   EMAIL...." class="footerUpperSubSecInput" id='subscribeLogin' />
@@ -342,6 +327,8 @@ $(document).ready(function(){
 								<input class="subButton ui-button-text ui-button ui-state-default ui-corner-all" type="submit" value="Subscribe" />
 							</fieldset>
 						</form>
+			-->
+			<a href="#!customer/createaccount"><input class="subButton pointer" type="submit" value="Join" /></a>
                     </div>
                     <div id="footerUpperLinkSec">
                     	<div class="footerLinkSec">
@@ -495,7 +482,7 @@ COMMONLY EDITED TEMPLATES
 <!--
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
-<div id="homepageTemplate" class='homeTemplate'>
+<div id="homepageTemplate" class="homeTemplate">
 
 	<!-- Jeff, To update your homepage banner images, you must first make sure the images you want in your banner are properly 
     loaded into the images folder. You then simply need to replace all text after the <img src="images/ part up until you see the
@@ -612,7 +599,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
                 <div class="homepageCatDesc">Antique reproduction chess pieces based on old designs before Staunton became the standard in chess and after.</div>
             </li>
             <!--
-            <li class="pointer"  href="#!category/" onClick="return showContent('category',{'navcat':'.00022-jaques-london-chess-sets'});">
+            <li class="pointer"  href="#!category/.00022-jaques-london-chess-sets">
             	<img class="" src="images/homepage_category_images/Chess_Pieces/jaques-london-chess-pieces-banner-310.jpg" alt="" />
             	<div class="homepageCatTitle">Jaques of London Chess Pieces</div>
                 <div class="homepageCatDesc">Amongst collectors and historians of the game, no other name is more recognized than Jaques of London.</div>
@@ -743,25 +730,35 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <img id="caroPrev4" src="images/scroll_left.gif" class="pointer" alt="" />
 	   	<img id="caroNext4" src="images/scroll_right.gif" class="pointer" alt="" />
 	</div>
-    <!--Uncomment these buttons whenever testing on manual scrolling is ready to go-->    	    
     
-	<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-    -->
     <div class="homepage10OffClub">
-    	<img onClick="return showContent('category',{'navcat':'.informational_pages.the_10__club'});" src="images/homepage_bottom_ad_bars_images/10-percent-club-banner-472.jpg" class="pointer" alt="">
-        <!--<h3>10% Off Club</h3>
-        <p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>-->
+    	<a href=""#!category/.informational_pages.the_10__club">
+		<img src="images/homepage_bottom_ad_bars_images/10-percent-club-banner-472.jpg" class="pointer" alt="">
+        	<!--<h3>10% Off Club</h3>
+        	<p><a  href="#" onClick="" class="underline">Join now</a> for special discounts<br /> and offers to members only.</p>-->
+    	</a>
     </div>
     <div class="homepageCollectClub">
-    	<img onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" src="images/homepage_bottom_ad_bars_images/collectors-club-banner-472.jpg" class="pointer" alt="">
-        <!--<h4>Are you a</h4><br /> 
-        <h3>Collector?</h3>
-        <p><a href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="underline">Join the Collectors Club </a><br />for special offers!</p>-->
+	<a href=""#!category/.00060-special_departments.chess-set-collectors-club">
+    		<img src="images/homepage_bottom_ad_bars_images/collectors-club-banner-472.jpg" class="pointer" alt="">
+        	<!--<h4>Are you a</h4><br /> 
+        	<h3>Collector?</h3>
+        	<p><a href="#" onClick="return showContent('category',{'navcat':'.00060-special_departments.chess-set-collectors-club'});" class="underline">Join the Collectors Club </a><br />for special offers!</p>-->
+    	</a>
     </div>
     <div class="clear"></div>
+
+    <!--
+    <ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul>
+
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --hideSummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
+
+	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+
+	<ul data-tlc="quickstart#searchbytag --tag='IS_BESTSELLER' --title='Best Sellers' --size='8' --templateid='productListTemplateResultsNoPreview';" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+
+	<ul data-tlc="bind $var '.$listName.@products'; store_prodlist#productlist  --hideSummary='1' --withReviews='1' --withVariations='1' --withInventory='1' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul>
+    -->
 
 </div>
 
@@ -779,7 +776,7 @@ used to organize content when a category is clicked.
 each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
-<div id='categoryTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+<div id="categoryTemplate" class=" categoryTemplate" data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
 	
@@ -792,7 +789,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
 		<div class="categoryBillMeLaterBanner">
 			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="468x60"> (function (d, t) {
@@ -813,53 +812,49 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<h5 class="floatLeft"> Your Selections:</h5>
     	</div> ********removed temporarily until filtered search can be implemented-->
 	
-    	<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
+    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
-		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
+		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
+		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productListTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
 	
-		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
+
+	<!--
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+	<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
+
+	<img data-tlc="bind $var '.%page.banner1'; quickstart#banner  --height='250' --width='750' --legacy;" src="images/blank.gif" alt="">
+
+	<h2 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h2>
+
+	<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+
+	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
+
+	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+
+	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	-->
 </div>
 
 
 
 
-<div id='categoryHolidayTemplate' class='loadingBG categoryHolidayTemplate categoryTemplate' data-app-role='categoryPage'>
+<div id='categoryHolidayTemplate' class='categoryHolidayTemplate categoryTemplate' data-app-role='categoryPage'>
 
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-
-		
-        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" alt="" />-->
-    
-
-		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<!--<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess Sets - </h3>
-        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
-        	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div> ********removed temporarily until filtered search can be implemented-->
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
 	
-    	<!--
-        <h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
-        -->
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
         
-		<p class='categoryText' data-bind="var: category(%page.about); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.about'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" class="categoryText"></p>
 	
-		<!--
-        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
-
-		<!--
-        <ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
-    
-		<!--
-        <p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-		-->
     </div>
 </div>
 
@@ -867,7 +862,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 
-<div id='category2ProdWideTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+<div id='category2ProdWideTemplate' class='categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
 	
@@ -880,7 +875,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
 		<div class="categoryBillMeLaterBanner">
 			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="468x60"> (function (d, t) {
@@ -891,33 +888,23 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 }(document, "script"));
             </script>
         </div>
+	
+    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
-        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" alt="" />-->
-    
+		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	
+		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role="subcategoryList"></ul><!-- outputs a list of subcategories -->
 
-		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<!--<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess Sets - </h3>
-        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
-        	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div> ********removed temporarily until filtered search can be implemented-->
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
 	
-    	<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
-        
-		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListWideTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
-
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productList2WideTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
-	
-		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
 </div>
 
     
     
     
-    <div id='categoryUnfinishedWoodTemplate' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+    <div id="categoryUnfinishedWoodTemplate" class="categoryTemplate" data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
 	
@@ -930,7 +917,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
 		<div class="categoryBillMeLaterBanner">
 			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="468x60"> (function (d, t) {
@@ -941,28 +930,18 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 }(document, "script"));
             </script>
         </div>
-        
-        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" alt="" />-->
-    
-
-		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<!--<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess Sets - </h3>
-        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
-        	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div> ********removed temporarily until filtered search can be implemented-->
 	
-    	<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
+    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
-		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	
 		<img class="unfinishedWoodCatBanner" src="images/category_page/all-the-king-colors-760x235.jpg">
         
-        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList' data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
+       		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role="subcategoryList"></ul><!-- outputs a list of subcategories -->
 
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productList2WideTemplate; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
-	
-		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul>
+		
+		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
     
     
