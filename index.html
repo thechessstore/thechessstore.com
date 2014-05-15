@@ -963,7 +963,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
 		<div class="categoryBillMeLaterBanner">
 			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="468x60"> (function (d, t) {
@@ -974,33 +976,23 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 }(document, "script"));
             </script>
         </div>
+                
+        	<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
-        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
-    
+		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	
+		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate3Panel'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul>
 
-		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<!--<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess Sets - </h3>
-        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
-        	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div> ********removed temporarily until filtered search can be implemented-->
-        
-        <h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productListTemplate3Panel'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul>
 	
-		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate3Panel; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate3Panel; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
-	
-		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
     
     
 		
 </div>
 
-<div id='categoryTemplate4PanelCat' class='loadingBG categoryTemplate' data-app-role='categoryPage'>
+<div id='categoryTemplate4PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
 
 	<div class="catBrowseSidebar">
 	
@@ -1009,55 +1001,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
 		
 		</div>
 	
-		<!--
-    	<div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByCatButton'>Shop by Category <span class="sidebarShopByCatIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarShopByCat">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me1</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarSpecDeptButton'>Special Departments <span class="sidebarSpecDeptIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarSpecDept">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me2</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarShopByBrandButton'>Shop by Brand <span class="sidebarShopByBrandIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarShopByBrand">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me3</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        <div class="clear"></div>
-        
-        <div class="floatLeft browseContPos"><a href="#" class='bindByAnchor sidebarTeachAndLearnButton'>Teaching and Learning <span class="sidebarTeachAndLearnIcon">&#9658 </span></a>
-        	<div class="browseDropdown sidebarTeachAndLearn">
-            	<div class="browseDropdownLink"><a class="pointer">Click Me4</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-                <div class="browseDropdownLink"><a class="pointer">Click Me</a></div>
-            </div>
-        </div>
-        -->
         <div class="clear"></div>
     </div>
 	
     <div class="catTempCont">
-		<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(path); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	
+		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
 		<div class="categoryBillMeLaterBanner">
 			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="468x60"> (function (d, t) {
@@ -1068,26 +1018,16 @@ don't modify the 'data-templateid' unless you are changing template names and up
                 }(document, "script"));
             </script>
         </div>
+        	
+    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
-        <!--<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" src="" alt="" />-->
-    
+		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	
+		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate4Panel'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul>
 
-		<!--**removed to match design**<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>-->
-    	<!--<div class="catTempHeader">
-    		<h3 class="floatLeft">Chess Sets - </h3>
-        	<h4 class="floatLeft">we found <span></span>&nbsp items</h4> 
-        	<h5 class="floatLeft"> Your Selections:</h5>
-    	</div> ********removed temporarily until filtered search can be implemented-->
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productListTemplate4Panel'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul>
 	
-    	<h4 data-bind="var: category(pretty); format: catText; extension: myRIA;"></h4>
-        
-		<p class='categoryText' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate4Panel; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-
-		<ul data-app-role='productList' data-bind="var: category(@products); format: infiniteProductList; extension:prodlist_infinite; loadsTemplate: productListTemplate4Panel; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList'></ul><!-- outputs the product list -->
-	
-		<p class='categoryText' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
     
     
@@ -1104,54 +1044,43 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
-<!--<li id='categoryListTemplateHP' class="categoryListTemplateClassHP">
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='330' height='219' alt="" /></div>
-        <div class="categoryListTemplateTitle">
-        	<div class='white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
-        </div>
-	</div>
-</li>-->
 
+<li data-tlc="bind $var '.id'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListTemplate" class="categoryListTemplateClass categoryListTemplate">
+	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="210" width="355"></div>
+		<div class="catName white2LGray catName2"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy;"></span></div>
+				
+	</a>
+</li>
 
-<li id='categoryListTemplate' class="categoryListTemplateClass categoryListTemplate" data-bind=" var: category(id); format: hideNonAppCat; extension: extension_thechessstore;">
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='210' alt="" /></div>
-		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
+<li data-tlc="bind $var '.id'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListWideTemplate" class="categoryListTemplateClass categoryListTemplate">
+	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=178 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="178" width="355"></div>
+		<div class="catName white2LGray catName2"><span data-tlc="bind $var '.pretty'; if (is $var --notblank;) {{apply --append;}};"></span></div>
 		
-		<!--<div class='catDesc'></div>-->
-	</div>
+	</a>
 </li>
 
-<li id='categoryListWideTemplate' class="categoryListTemplateClass categoryListTemplate" data-bind=" var: category(id); format: hideNonAppCat; extension: extension_thechessstore;">
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='355' height='178' alt="" /></div>
-		<div class='catName white2LGray catName2'><span data-bind='var: category(pretty); format:text;'></span></div>
-		
-		<!--<div class='catDesc'></div>-->
-	</div>
+<li data-tlc="bind $var '.id'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListTemplate3Panel" class="categoryListTemplateClass categoryListTemplate3Panel">
+	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank;) {{ apply --img --media=$var --width=220 --height=180 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="180" width="220"></div>
+		<div class="catName white2LGray catName3"><span data-tlc="bind $var '.pretty'; if (is $var --notblank;) {{apply --append;}};"></span></div>
+	</a>
 </li>
 
-<li id='categoryListTemplate3Panel' class="categoryListTemplateClass categoryListTemplate3Panel" data-bind=" var: category(id); format: hideNonAppCat; extension: extension_thechessstore;">
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='220' height='180' alt="" /></div>
-		<div class='catName white2LGray catName3'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
-</li>
-
-<li id='categoryListTemplate4Panel' class="categoryListTemplateClass categoryListTemplate4Panel" data-bind=" var: category(id); format: hideNonAppCat; extension: extension_thechessstore;">
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer thumbContainerCat'><img src='blank.gif' class='catThumb catThumb2' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='160' height='100' alt="" /></div>
-		<div class='catName white2LGray catName4'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
+<li data-tlc="bind $var '.id'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListTemplate4Panel" class="categoryListTemplateClass categoryListTemplate4Panel"></li>
+	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank;) {{ apply --img --media=$var --width=160 --height=100 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="100" width="160"></div>
+		<div class="catName white2LGray catName4"><span data-tlc="bind $var '.pretty'; if (is $var --notblank;) {{apply --append;}};"></span></div>
+	</a>
 </li>
 
 
-<li id='categoryListTemplateRootCats'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer catSec'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' alt="" /></div>
-		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
+<li id="categoryListTemplateRootCats">
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
+		<div class="thumbContainer"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=35 --height=35 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb" alt="" height="35" width="35"></div>
+		<div class="catName"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy; apply --append;"></span></div>
+	</a>
 </li>
 
 </ul>
@@ -1165,38 +1094,36 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li id='productListTemplate' class='loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" data-bind='var: product(user:prod_outofstock); format: hideIfSet;'>
+<li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 	
-    <!--<div class="displayNone outOfStockBlock" data-bind='var: product(user:prod_outofstock); format: showIfSet;'>
-     	<h1>Product is out of stock!</h1>
-     </div>-->
-    <button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
+    <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
-    <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-          <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-            <div class="promoTag tagsContainer" data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;"></div>
-            <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='355' height='210' alt="" />
+    <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
+          <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+            <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="210" width="355">
           </div>
         
-            <h5 class="spaceAndAlignCenter" data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
-                <span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+                <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
     
-            <h6 class="spaceAndAlignCenter" data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Price: ;'></h6>
-        	
-            <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
+	    <h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
+
+            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
             
             	
         
         
-<!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
-    </div>
-    <div class="spaceAndAlignCenter">
-        <a class="spaceAndAlignCenter quickviewLinkBottom" onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">View Details</a>
-    </div>	
+<!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
+    </a>
+    <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
+	<input name="qty" value="1" type="hidden">
+	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
+    </form>	
 </li>
 
 
