@@ -1309,7 +1309,7 @@ remember to NOT put the button inside the 'href' container or two events will oc
 
 SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
 -->
-<li id='productListTemplateResults' class='loadingBG searchResultsPG' >
+<li id='productListTemplateResults' class='loadingBG searchResultsPG searchResultsProduct' >
 	<div data-app-click="quickstart|inlineProductPreviewShow" class="pointer">
 		<div class='prodThumbContainer'>
         <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
@@ -1326,49 +1326,45 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 	<a class="hideInMinimalMode pointer moreDetails searchResultsDetails" data-tlc="bind $seoname '.prod_name'; bind $var '.'; store_routing#seoanchor --type='product' --seo --seoname=$seoname; apply --attrib='href';">more details</a>
 </li>
 
-<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsPG' >
-	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-		<div class='prodThumbContainer'>
-        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});" data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='225' height='225' alt="" />
+<li id='productListTemplateResultsNoPreview' class='loadingBG searchResultsPG searchResultsProduct' >
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
+		<div class="prodThumbContainer">
+		<img data-tlc="bind $var '.images.0'; if (is $var --notblank;) {{apply --img --media=$var --width=225 --height=225 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="225" width="225">
 		</div>
 
-		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-        <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
-	</div>
-	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+
+	</a>
 </li>
 
 <li id='productListTemplateResultsFilter' class='loadingBG searchResultsPG' >
-	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-		<div class='prodThumbContainer'>
-        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='355' height='210' alt="" />
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
+		<div class="prodThumbContainer">
+		<div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+		<img data-tlc="bind $var '.images.0'; if (is $var --notblank;) {{apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="210" width="355">
 		</div>
 
-		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-        <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
-	</div>
-	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+
+	</a>
 </li>
 
 <li id='productListTemplateResultsFilter3' class='loadingBG searchResultsPG filterSearchResults3' >
-	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-		<div class='prodThumbContainer'>
-        <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='promoTag tagsContainer'></div>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='180' alt="" />
+	<a data-tlc="bind $var '.'; store_routing#seoanchor --type='product' --seo; apply --attrib='href';" class="pointer">
+		<div class="prodThumbContainer">
+		<div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+		<img data-tlc="bind $var '.images.0'; if (is $var --notblank;) {{apply --img --media=$var --width=220 --height=180 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="180" width="220">
 		</div>
 
-		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-        <h5 class='stid clearfix' data-bind='var: product(pid); format:text; pretext: Item: ;'></h5>
-	</div>
-	<div class='pointer moreDetails searchResultsDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+
+	</a>
 </li>
 </ul>
 
