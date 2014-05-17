@@ -51,10 +51,10 @@ myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords
 myApp.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
 //myApp.rq.push(['extension',1,'partner_pepperjam','extensions/partner_pepperjam.js','startExtension']);
 
-myApp.rq.push(['script',0,app.vars.baseURL+'_DropDowns.js']);
-myApp.rq.push(['script',0,app.vars.baseURL+'_jquery_cycle_plugin.js']);
-myApp.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
-myApp.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'_DropDowns.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'_jquery_cycle_plugin.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'carouFredSel-6.1.0/jquery.carouFredSel-6.1.0-packed.js']);
+myApp.rq.push(['script',0,myApp.vars.baseURL+'anyplugins.js']);
 
 //END CUSTOM EXTENSIONS/SCRIPTS
 
