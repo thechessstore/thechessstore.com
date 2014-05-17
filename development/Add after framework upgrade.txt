@@ -1,0 +1,6 @@
+app-quickstart.js:
+- add the following templates to template list: 
+//CUSTOM TEMPLATES
+			'category2ProdWideTemplate',
+			'categoryTemplate3PanelCat',
+			'categoryTemplate4PanelCat',

@@ -39,6 +39,15 @@ var google_dynamicremarketing = function(_app) {
 	callbacks : {
 		init : {
 			onSuccess : function()	{
+				
+				},
+			onError : function()	{
+
+				}
+			},
+			
+			startExtension : {
+				onSuccess : function()	{
 				var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 				
 				_app.templates.productTemplate.on('complete.chessstore',function(event,$catPage,P){

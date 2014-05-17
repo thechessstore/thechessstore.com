@@ -819,19 +819,20 @@ var extension_thechessstore = function(_app) {
 						
 						//Homepage Slideshow image code and carousel code
 						var homepageLoad = false;
-						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P)
-							{
-							if (homepageLoad == false)
-							{
-							//Home page slideshow
-							$("#nav").html("");
-							$('#featureImg') 
-							.after('<div id="nav">') 
-							.cycle({ 
-							fx:     'fade',  
-							timeout: 5000, 
-							pager:  '#nav' 
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P){
+						
+							
+							if (homepageLoad == false){
+								//Home page slideshow
+								$("#nav").html("");
+								$('#featureImg') 
+								.after('<div id="nav">') 
+								.cycle({ 
+								fx:     'fade',  
+								timeout: 5000, 
+								pager:  '#nav' 
 							});
+							
 							
 							//Carousel horizontal sliders
 							var carousel1;
