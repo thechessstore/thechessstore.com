@@ -87,43 +87,43 @@ var google_remarketing = function(_app) {
 
 							*/
 							
-							_app.templates.homepageTemplate.on('complete.formals',function(event,$catPage,P){							
+							_app.templates.homepageTemplate.on('complete.chessstore',function(event,$catPage,P){							
 								_app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.categoryTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.categoryTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.categoryUnfinishedWoodTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.categoryUnfinishedWoodTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.category2ProdWideTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.category2ProdWideTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.categoryTemplate3PanelCat.on('complete.formals',function(event,$catPage,P){
+							_app.templates.categoryTemplate3PanelCat.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.categoryTemplate4PanelCat.on('complete.formals',function(event,$catPage,P){
+							_app.templates.categoryTemplate4PanelCat.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.productTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.productTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.companyTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.companyTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.customerTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.customerTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 							
-							_app.templates.searchTemplate.on('complete.formals',function(event,$catPage,P){
+							_app.templates.searchTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							});
 						} 

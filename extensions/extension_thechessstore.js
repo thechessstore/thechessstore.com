@@ -400,7 +400,7 @@ var extension_thechessstore = function(_app) {
 						//Will do an appPageGet for the description of each category.0
 						//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
 						// AND the list spec must contain a catDesc class where the description is to appear.
-						_app.templates.categoryTemplate.on('complete.formals',function(event,$catPage,P){
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$catPage,P){
 							$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
 							
 							if($catList.children().length)	{
@@ -447,7 +447,7 @@ var extension_thechessstore = function(_app) {
 						});
 						
 						
-						_app.templates.categoryTemplate.on('complete.formals',function(event,$context,P){
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
@@ -505,7 +505,7 @@ var extension_thechessstore = function(_app) {
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							_app.templates.categoryTemplate.on('depart.formals',function(event,$context,P){
+							_app.templates.categoryTemplate.on('depart.chessstore',function(event,$context,P){
 								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
 									_app.ext.store_filter.vars.catPageID.empty().remove();
 								}	
@@ -524,7 +524,7 @@ var extension_thechessstore = function(_app) {
 								
 								
 								
-							_app.templates.category2ProdWideTemplate.on('complete.formals',function(event,$context,P){
+							_app.templates.category2ProdWideTemplate.on('complete.chessstore',function(event,$context,P){
 								var $catPage = $context,
 								$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
 								
@@ -622,7 +622,7 @@ var extension_thechessstore = function(_app) {
 							});
 							
 							
-							_app.templates.category2ProdWideTemplate.on('depart.formals',function(event,$context,P){
+							_app.templates.category2ProdWideTemplate.on('depart.chessstore',function(event,$context,P){
 								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
 									_app.ext.store_filter.vars.catPageID.empty().remove();
 								}	
@@ -641,7 +641,7 @@ var extension_thechessstore = function(_app) {
 							
 							
 							
-						_app.templates.categoryTemplate3PanelCat.on('complete.formals',function(event,$context,P){
+						_app.templates.categoryTemplate3PanelCat.on('complete.chessstore',function(event,$context,P){
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
@@ -709,7 +709,7 @@ var extension_thechessstore = function(_app) {
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							_app.templates.categoryTemplate3PanelCat.on('depart.formals',function(event,$context,P){
+							_app.templates.categoryTemplate3PanelCat.on('depart.chessstore',function(event,$context,P){
 								
 								_app.ext.store_filter.vars.catPageID.empty().remove();
 								
@@ -726,7 +726,7 @@ var extension_thechessstore = function(_app) {
 							});
 							
 							
-							_app.templates.categoryTemplate4PanelCat.on('complete.formals',function(event,$context,P){
+							_app.templates.categoryTemplate4PanelCat.on('complete.chessstore',function(event,$context,P){
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
@@ -785,7 +785,7 @@ var extension_thechessstore = function(_app) {
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 							
-							_app.templates.categoryTemplate4PanelCat.on('depart.formals',function(event,$context,P){
+							_app.templates.categoryTemplate4PanelCat.on('depart.chessstore',function(event,$context,P){
 								
 								_app.ext.store_filter.vars.catPageID.empty().remove();
 								
@@ -801,7 +801,7 @@ var extension_thechessstore = function(_app) {
 							
 						
 						//sample of an onDeparts. executed any time a user leaves this page/template type.
-						_app.templates.homepageTemplate.on('complete.formals',function(event,$context,P) {_app.u.dump("just left the homepage")});
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P) {_app.u.dump("just left the homepage")});
 						
 						//Header dropdown menus
 						var showDropdown = function ($tag) {
@@ -819,7 +819,7 @@ var extension_thechessstore = function(_app) {
 						
 						//Homepage Slideshow image code and carousel code
 						var homepageLoad = false;
-						_app.templates.homepageTemplate.on('complete.formals',function(event,$context,P)
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P)
 							{
 							if (homepageLoad == false)
 							{
@@ -900,7 +900,7 @@ var extension_thechessstore = function(_app) {
 						});
 						
 						var categoryPageLoad = false;
-						_app.templates.categoryTemplate.on('complete.formals',function(event,$context,P){
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
 							
 							if(!$(this).hasClass('noScriptReExecute'))
 							{
@@ -978,7 +978,7 @@ var extension_thechessstore = function(_app) {
 						});
 						
 						//Reviews function built to display a message if no reviews are present for this product. 
-						_app.templates.productTemplate.on('complete.formals',function(event,$thisProduct,P){
+						_app.templates.productTemplate.on('complete.chessstore',function(event,$thisProduct,P){
 							
 							_app.u.dump("Begin review message displaying function");
 							if($(".reviewsBind", $thisProduct).children().length === 0){
@@ -1031,7 +1031,7 @@ var extension_thechessstore = function(_app) {
 						});
 						
 						
-						_app.templates.productTemplate.on('depart.formals',function(event,$context,P){
+						_app.templates.productTemplate.on('depart.chessstore',function(event,$context,P){
 						//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
 								$(".headerHideShow").show();
 								$(".headerBoxCenter").css("margin-right", "30px");
@@ -1044,14 +1044,14 @@ var extension_thechessstore = function(_app) {
 								$(".productSearchForm").css("margin", "0");
 						});
 						
-						_app.templates.companyTemplate.on('complete.formals',function(event,$context,P){
+						_app.templates.companyTemplate.on('complete.chessstore',function(event,$context,P){
 							  $('.contactChat div').empty();
 							  $('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
 							  _app.u.dump("contactChat div appended successfully");
 						});
 						
 						
-						_app.templates.cartTemplate.on('complete.formals',function(event,$context,P){
+						_app.templates.cartTemplate.on('complete.chessstore',function(event,$context,P){
 							var $context = $(_app.u.jqSelector('#',P.parentID));
 							_app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
 								if(_app.model.responseHasErrors(rd)){
