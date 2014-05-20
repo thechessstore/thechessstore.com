@@ -1,6 +1,23 @@
-app-quickstart.js:
+1. app-quickstart.js:
 - add the following templates to template list: 
 //CUSTOM TEMPLATES
 			'category2ProdWideTemplate',
 			'categoryTemplate3PanelCat',
 			'categoryTemplate4PanelCat',
+- 						}
+					else	{
+						infoObj.templateID = 'categoryTemplate'
+						}
+
+becomes
+						}					else if(myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+             			myApp.u.dump("category list template option selected");
+              			infoObj.templateID = myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			myApp.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
+
+2. partner_addThis.js:
+Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.

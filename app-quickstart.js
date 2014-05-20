@@ -2661,10 +2661,14 @@ buyer to 'take with them' as they move between  pages.
 						}
 					else if(catSafeID == zGlobals.appSettings.rootcat || infoObj.pageType == 'homepage')	{
 						infoObj.templateID = 'homepageTemplate'
-						}
-					else	{
-						infoObj.templateID = 'categoryTemplate'
-						}
+						}					else if(myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
+             			myApp.u.dump("category list template option selected");
+              			infoObj.templateID = myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]
+            		}
+          			else{
+              			myApp.u.dump("category default template option selected");
+              			infoObj.templateID = 'categoryTemplate'
+					}
 					infoObj.state = 'init';
 					var parentID = infoObj.parentID || infoObj.templateID+'_'+_app.u.makeSafeHTMLId(catSafeID);
 					var $parent = $(_app.u.jqSelector('#',parentID));
