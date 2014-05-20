@@ -38,12 +38,6 @@ var quickstart = function(_app) {
 			'productTemplate',
 			'productTemplateQuickView',
 			'pageNotFoundTemplate',
-			
-			//CUSTOM TEMPLATES
-			'category2ProdWideTemplate',
-			'categoryTemplate3PanelCat',
-			'categoryTemplate4PanelCat',
-			
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
 			'companyTemplate',
@@ -515,13 +509,15 @@ need to be customized on a per-ria basis.
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
 //$o MAY be a jquery instance but have no length, so check both.
 			if($o instanceof jQuery && $o.length)	{
-/* *** 201403 -> move the scroll to top into the page transition for 2 reasons:
+/*
+*** 201403 -> move the scroll to top into the page transition for 2 reasons:
 1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
 2. Puts control of this into custom page transitions.
 */
-				if(infoObj.performJumpToTop && $('html, body').scrollTop() > 0)	{
+
+				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
 					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : ($('header','#appView').length ? $('header','#appView').first().height() : 0)},500,function(){
+					$('html, body').animate({scrollTop : 0},'fast',function(){
 						$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
 						})
 					} 
@@ -530,7 +526,10 @@ need to be customized on a per-ria basis.
 					}
 				}
 			else if($n instanceof jQuery)	{
-				$n.fadeIn(1000);
+				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
+				$('html, body').animate({scrollTop : 0},'fast',function(){
+					$n.fadeIn(1000);
+					});
 				}
 			else	{
 				//hhmm  not sure how or why we got here.
@@ -1116,7 +1115,8 @@ the ui also helps the buyer show the merchant what they're looking at and, optio
  -> while it's possible to automatically send a lot of info to the merchant, please keep in mind buyer privacy.
 */
 			showBuyerCMUI : function()	{
-				var $ui = $('#cartMessenger').data('cartid',_app.model.fetchCartID());
+				//the cart id needs to be a data- attrib because cartSetAttrib 'looks' for it.
+				var $ui = $('#cartMessenger').attr('data-cartid',_app.model.fetchCartID());
 				if($ui.hasClass('ui-dialog-content'))	{
 					//the help interface has been opened once already.
 					}
@@ -1127,7 +1127,6 @@ the ui also helps the buyer show the merchant what they're looking at and, optio
 					// SANITY -> do not run a destroyCartMessenger on dialog close.  It will kill the polling.
 					_app.u.handleButtons($ui);
 					_app.u.handleCommonPlugins($ui);
-					_app.u.addEventDelegation($ui);
 					}
 				$ui.find('.show4ActiveChat').hide(); //hidden by default. will be activated once a chat starts.
 				//the information below is added to the dialog each time it's opened. that way it's up to date.
@@ -3118,6 +3117,16 @@ else	{
 					$('#globalMessaging').anymessage({"message":"In quickstart.e.quickviewShow, unable to ascertain PID ["+PID+"] or no data-loadstemplate set on trigger element.","gMessage":true});
 					}
 				return false;
+				},
+// use this on inputs where 'enter' should NOT submit the form but can/should trigger an onblur.
+			triggerBlurOnEnter : function($ele,p)	{
+				var r = true;
+				if (p.keyCode == 13)	{
+					p.preventDefault();
+					$ele.trigger('blur')
+					r = false;
+					}
+				return r;
 				}
 
 			}, // e/events
