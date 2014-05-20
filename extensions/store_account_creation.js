@@ -100,7 +100,7 @@ var store_account_creation = function(_app) {
 										}
 										else {
 												//showContent('customer',{'show':'myaccount'});
-												_app.u.throwMessage(_app.u.successMsgObject("Your account has been created!"));
+												_app.u.throwMessage(_app.u.successMsgObject("Your account has been created. Please sign into your account to get started!"));
 										}
 								}
 						}
