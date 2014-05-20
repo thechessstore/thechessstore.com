@@ -50,6 +50,7 @@ myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.j
 myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 myApp.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
 //myApp.rq.push(['extension',1,'partner_pepperjam','extensions/partner_pepperjam.js','startExtension']);
+myApp.rq.push(['extension',0,'store_account_creation','extensions/store_account_creation.js']);
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'_DropDowns.js']);
 myApp.rq.push(['script',0,myApp.vars.baseURL+'_jquery_cycle_plugin.js']);
