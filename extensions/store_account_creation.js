@@ -99,7 +99,7 @@ var store_account_creation = function(_app) {
 												$form.anymessage({'message':rd});
 										}
 										else {
-												showContent('customer',{'show':'myaccount'});
+												//showContent('customer',{'show':'myaccount'});
 												_app.u.throwMessage(_app.u.successMsgObject("Your account has been created!"));
 										}
 								}
