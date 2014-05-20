@@ -623,8 +623,10 @@ announceBar h2{
 	font-family: 'Neuton', serif;
 	font-weight:500;
 }
-.homepageChessSetSec{
+.homepageChessSetSec li a{
+	text-decoration:none;
 }
+
 
 .categoryListTemplateClassHP{
 	height:219px;
