@@ -1101,11 +1101,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
 
-<li data-tlc="bind $var '.id'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListTemplate" class="categoryListTemplateClass categoryListTemplate">
+<li data-tlc="bind $var '.'; extension_thechessstore#hidenonappcat  --legacy;" id="categoryListTemplate" class="categoryListTemplateClass categoryListTemplate">
 	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
 		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank){{apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="210" width="355"></div>
 		<div class="catName white2LGray catName2"><span data-tlc="bind $var '.pretty'; quickstart#cattext  --legacy;"></span></div>
-				
 	</a>
 </li>
 
@@ -1113,7 +1112,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<a class="catSec pointer" data-tlc="bind $var '.'; store_routing#seoanchor --type='category' --seo; apply --attrib='href';">
 		<div class="thumbContainer thumbContainerCat"><img data-tlc="bind $var '.%meta.CAT_THUMB'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=178 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="catThumb catThumb2" alt="" height="178" width="355"></div>
 		<div class="catName white2LGray catName2"><span data-tlc="bind $var '.pretty'; if (is $var --notblank;) {{apply --append;}};"></span></div>
-		
 	</a>
 </li>
 

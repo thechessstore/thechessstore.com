@@ -1145,9 +1145,11 @@ var extension_thechessstore = function(_app) {
 			},
 				
 
-			hideNonAppCat : function($tag, data) {
+			hidenonappcat : function($tag, data) {
 				 _app.u.dump('category list hiding function begins');
-				if($.inArray(data.value, _app.ext.extension_thechessstore.vars.hiddenCats) != -1){
+				 dump("hideNonAppCat data.value = " + data.value);
+				 dump(data);
+				if($.inArray(data.value.path, _app.ext.extension_thechessstore.vars.hiddenCats) != -1){
 					 $tag.hide();
 					 _app.u.dump('Category item matches list item. Removing from list');
 				}
