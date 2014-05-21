@@ -1169,7 +1169,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
-            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
+            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix spaceAndAlignCenter"></h5>
             
             	
         
@@ -1178,7 +1178,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton --legacy; apply --append;" class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton --legacy; apply --append;" class='applyButton prodListATCButton'>more details</button>
     </form>	
 </li>
 
@@ -1198,7 +1198,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
     
-	    <h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
+	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
             
