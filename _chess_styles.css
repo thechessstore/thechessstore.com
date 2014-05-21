@@ -1501,7 +1501,8 @@ width:100%;
 .productList li.productListTemplate{
 	width:355px;
 	height:330px;
-	position:relative;	
+	position:relative;
+	margin: 12px;
 }
 .outOfStockBlock{
 	position:absolute;

@@ -868,13 +868,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
         	<h5 class="floatLeft"> Your Selections:</h5>
     	</div> ********removed temporarily until filtered search can be implemented-->
 	
-    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
+    	<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
 		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 
 		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productListTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
 	
 		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
@@ -892,9 +892,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList"></ul><!-- outputs a list of subcategories -->
 
-	<ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
+	
+    <ul data-tlc="bind $var '.@products'; store_prodlist#productlist  --withReviews='1' --withInventory='1' --withVariations='1' --itemsperpage='25' --templateid='productListTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin productList"></ul><!-- outputs the product list -->
 
-	<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
+	<!--
+    <p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	-->
 </div>
 
@@ -1165,7 +1167,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
     
-	    <h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
+	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
             
@@ -1176,7 +1178,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton --legacy; apply --append;" class='applyButton'>more details</button>
     </form>	
 </li>
 
@@ -1207,7 +1209,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;"  class='applyButton'>more details</button>
     </form>	
 </li>
 
@@ -1238,7 +1240,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;"  class='applyButton'>more details</button>
     </form>	
 </li>
 
@@ -1268,7 +1270,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;" data-bind="format:addtocartbutton; extension:quickstart; useParentData:true;" class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;"  class='applyButton'>more details</button>
     </form>
 </li>
 
