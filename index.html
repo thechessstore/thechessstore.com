@@ -1586,22 +1586,22 @@ this will likely become more flexible in the future. ###
 	or the tab clicked won't open the right content.
 	It's done this way because ID's hard coded into template are bad mojo (templates are recycled) and because using data-binds to add id's caused some serious issues
 	-->
-
+<!--
 <div style="margin-top:20px; border:none;" data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="prodTabs tabbedProductContent applyAnytabs">
 
 	<ul class='tabs prodTempTabCont'>
 		<li data-tlc="bind $var '.%attribs.zoovy:prod_detail'; if(is $var --notblank) {{apply --show; }};" class="prodDetailTab displayNone"><a href="#prodDetail" class="prodTempTab">Specs</a></li>
 		<li class='prodFeaturesTab displayNone prodTempTab pointer' data-tlc="bind $var '.%attribs.zoovy:prod_features'; if(is $var --notblank) {{ apply --show; }};"><a href="#prodFeatures" class="prodTempTab">Features</a></li>
 		<li class='prodVideoTab displayNone prodTempTab pointer' data-tlc="bind $var '.%attribs.youtube:videoid'; if(is $var --notblank) {{ apply --show; }};"><a href="#prodVideo" class="prodTempTab">Video</a></li>
-        <li class='prodTempTab pointer displayNone' data-tlc="bind $var '.%attribs.zoovy:accessory_products'; if(is $var --notblank) {{ apply --show; }};"><a href="#prodAccess" class="prodTempTab">Accessories</a></li>
-        <li data-tlc="bind $var '.%attribs.user:prod_warranty'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
-        <li data-tlc="bind $var '.%attribs.user:prod_volumedisc'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
-        <li data-tlc="bind $var '.%attribs.user:prod_specialmedia'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone">Product Details</a></li>
+        	<li class='prodTempTab pointer displayNone' data-tlc="bind $var '.%attribs.zoovy:accessory_products'; if(is $var --notblank) {{ apply --show; }};"><a href="#prodAccess" class="prodTempTab">Accessories</a></li>
+        	<li data-tlc="bind $var '.%attribs.user:prod_warranty'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
+        	<li data-tlc="bind $var '.%attribs.user:prod_volumedisc'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
+        	<li data-tlc="bind $var '.%attribs.user:prod_specialmedia'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone">Product Details</a></li>
 	</ul>
     <div class="prodTempTabBordSpace"></div>
 	
 <!-- tab content. only 1 databind per element, so there's a container with a dynamically generated id (for tabs or other scripts) and child with the data. -->
-
+<!--
 	<div class="tabContent" data-anytab-content="prodSpecs">
 		<div data-tlc="bind $var '.%attribs.zoovy:prod_detail'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
 	</div>
@@ -1634,6 +1634,7 @@ this will likely become more flexible in the future. ###
 	
 	
 </div>
+-->
 
 	</td>
 </tr>

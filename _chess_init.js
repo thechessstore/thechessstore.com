@@ -30,7 +30,7 @@ myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram'])
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //myApp.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
-//myApp.rq.push(['extension',0,'magicToolBox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
+myApp.rq.push(['extension',0,'magictoolbox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
 
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
@@ -68,12 +68,18 @@ myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
 //Cart Messaging Responses.
 
 myApp.cmr.push(['chat.join',function(message){
-//	dump(" -> message: "); dump(message);
-	var $ui = myApp.ext.quickstart.a.showBuyerCMUI();
-	$("[data-app-role='messageInput']",$ui).show();
-	$("[data-app-role='messageHistory']",$ui).append("<p class='chat_join'>"+message.FROM+" has joined the chat.<\/p>");
-	$('.show4ActiveChat',$ui).show();
-	$('.hide4ActiveChat',$ui).hide();
+	if(message.FROM == 'ADMIN')	{
+		var $ui = myApp.ext.quickstart.a.showBuyerCMUI();
+		$("[data-app-role='messageInput']",$ui).show();
+		$("[data-app-role='messageHistory']",$ui).append("<p class='chat_join'>"+message.FROM+" has joined the chat.<\/p>");
+		$('.show4ActiveChat',$ui).show();
+		$('.hide4ActiveChat',$ui).hide();
+		}
+	}]);
+
+//the default behavior for an itemAppend is to show the chat portion of the dialog. that's an undesired behavior from the buyer perspective (chat only works if admin is actively listening).
+myApp.cmr.push(['cart.itemAppend',function(message,$context)	{
+	$("[data-app-role='messageHistory']",$context).append("<p class='cart_item_append'>"+message.FROM+" has added item "+message.sku+" to the cart.<\/p>");
 	}]);
 
 myApp.cmr.push(['goto',function(message,$context){
