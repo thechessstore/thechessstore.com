@@ -1534,8 +1534,11 @@ width:100%;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 
-.prodListATCButton{
-	font-size: 16px;
+button.prodListATCButton{
+	font-size: 14px;
+    height: 30px;
+    padding: 0;
+    width: 125px;
 }
 /**'productListTemplate3Panel**/
 .productList li.productListTemplate3Panel{
