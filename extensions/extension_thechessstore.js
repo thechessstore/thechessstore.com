@@ -1146,9 +1146,6 @@ var extension_thechessstore = function(_app) {
 				
 
 			hidenonappcat : function($tag, data) {
-				 _app.u.dump('category list hiding function begins');
-				 dump("hideNonAppCat data.value = " + data.value);
-				 dump(data);
 				if($.inArray(data.value.path, _app.ext.extension_thechessstore.vars.hiddenCats) != -1){
 					 $tag.hide();
 					 _app.u.dump('Category item matches list item. Removing from list');
@@ -1178,7 +1175,7 @@ var extension_thechessstore = function(_app) {
 				//setTimeout(setCountrySelector, 3000);
 //				_app.u.dump(" -> number of countries = "+L);
 				
-				},
+			}
 		}
 	}
 	return r;

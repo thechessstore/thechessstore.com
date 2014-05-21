@@ -1156,7 +1156,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
           <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
-            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; if(is $var --notblank;){{ quickstart#tags --legacy; }};" class="tagsContainer prodListTagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="210" width="355">
           </div>
         
