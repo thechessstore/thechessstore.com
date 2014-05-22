@@ -1461,10 +1461,8 @@ this will likely become more flexible in the future. ###
     <div class="promoTagCont">
         <div class="prodImageClickBlocker"></div>
         <div class='promoTag2 tagsContainer' data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#tags --legacy;" class="tagsContainer"></div>
-        <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="pointer clearfix"><!--onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});'-->
-            <!--<img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="prodBigImage" alt="" height="340" width="340">-->
+        <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="pointer clearfix">
             <img data-tlc="bind $var '.'; magictoolbox_mzp#magiczoomplus  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="prodBigImage" alt="" rel="selectors-change: mouseover" height="340" width="340" data-apptimize="embed">
-				<div class="zhint">Mouse over main image to zoom in</div>
         </div>
     </div>
 
@@ -1475,32 +1473,11 @@ this will likely become more flexible in the future. ###
         <a href="#" class="prodPageCarPrev sprite displayNone"><span>prev</span></a>
         <a href="#" class="prodPageCarNext sprite displayNone"><span>next</span></a>
     </div>
-    <!--
-    <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="prodThumbs">
-
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-            
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-            
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-            
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-        
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-        
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-        
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image7'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-        
-        <img data-tlc="bind $var '.%attribs.zoovy:prod_image8'; magicToolBox_mzp#magiczoomplus  --legacy;" src="blank.gif" class="pointer" alt="" height="100" width="100" />
-	
-	</div>
-    -->
 
 	</td>
 
 	<td class="prodSummaryContainer marginBottom no_underline">
-	<h1 data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;"></h1>
+	<h1 class="prodTempName" data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;"></h1>
     
     <section class="marginBottom clearfix">
 			<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite floatLeft marginRight"></span>
@@ -1509,21 +1486,9 @@ this will likely become more flexible in the future. ###
 	
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu prodTempReview'>
 
-	<a class="noTextDec" onClick="app.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
-	<a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
-    
-
-	</menu>
-
-	<menu data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="CRMButtonMenu">
-	
-		<a href="#" data-app-click="store_crm|productReviewShow">Write Review</a>	|
-
-		<a class="noTextDec" onClick="app.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>	|
-	
-		<a href="#" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>	|
-	
-		<a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
+        <a class="noTextDec" onClick="app.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
+        <a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
+        <a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
 
 	</menu>
     
@@ -1533,8 +1498,13 @@ this will likely become more flexible in the future. ###
         <div class='priceContainer'>
             <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
             <div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};">
-                <h4 data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --show; }}; " class="PriceTag">Sale </h4>
-                <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Price: '; apply --append;}};" class="basePrice"></h4>
+                <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice"></h4>
+            </div>
+            
+            <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+               <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+               <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+               <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
             </div>
             <span class="savings">
                 <span data-useparentdata='1' data-tlc="quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
@@ -1544,23 +1514,24 @@ this will likely become more flexible in the future. ###
         </div>
         
         <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
-		<h5 class="prodTempDescH5Color" data-tlc="bind $var '.%attribs.zoovy:prod_mfgid';  if (is $var --notblank;) {{format --prepend='Mfr: '; apply --append;}};"></h5>
+        <h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
         
         
         <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
 			<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hideSummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
 		</table>
         
-        <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency marginBottom"></div>
+        <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
+		<div data-app-role="timeInTransit" class="displayNone"></div>
         <div data-tlc="bind $var '.%attribs.user:app_shipfree'; if(is $var --notblank;) {{ apply --show; }}; " class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
         
 
         <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
         
             <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-            <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color"></fieldset>
+            <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color">Quantity: </fieldset>
         
-            <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="Add to Cart" class="applyButton addtocartbutton displayNone" type="submit" /></div>
+            <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
         </form>        
 
     </div>
