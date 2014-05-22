@@ -947,13 +947,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </script>
         </div>
 	
-    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
+    	<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
 		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
-	
-		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role="subcategoryList"></ul><!-- outputs a list of subcategories -->
 
-		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
+		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
+
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
 	
 		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
@@ -1184,14 +1184,13 @@ remember to NOT put the button inside the href or two events will occur onclick.
 
 
 <li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
-	
-    <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
+	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
           <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
-            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; if(is $var --notblank;){{ quickstart#tags --legacy; }};" class="tagsContainer prodListTagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=178 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="178" width="355">
-          </div>
+         </div>
         
             <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
@@ -1200,7 +1199,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
-            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
+            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix spaceAndAlignCenter"></h5>
             
             	
         
@@ -1209,8 +1208,9 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </a>
     <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix spaceAndAlignCenter" action="#" onsubmit="return false" data-app-submit="quickstart|productAdd2Cart" data-show="modal">
 	<input name="qty" value="1" type="hidden">
-	<button data-tlc="quickstart#addtocartbutton  --legacy; apply --append;"  class='applyButton'>more details</button>
+	<button data-tlc="quickstart#addtocartbutton --legacy; apply --append;" class='applyButton prodListATCButton'>more details</button>
     </form>	
+         
 </li>
 
 
