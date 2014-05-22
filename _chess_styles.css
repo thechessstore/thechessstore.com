@@ -1159,7 +1159,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 }
 .productList li.catListTempCatPage2{
 	width:200px;
-	height:165px;
+	height:auto;
 	background-color:#e5dfd0;
 	margin-left:10px;
 	margin-top:15px;

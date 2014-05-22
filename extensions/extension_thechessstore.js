@@ -1131,6 +1131,8 @@ var extension_thechessstore = function(_app) {
 				
 //don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
 				},
+				
+				
 		},
 		
 		
@@ -1175,7 +1177,53 @@ var extension_thechessstore = function(_app) {
 				//setTimeout(setCountrySelector, 3000);
 //				_app.u.dump(" -> number of countries = "+L);
 				
-			}
+			},
+			
+			priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
+					dump("$tag = ");
+					dump($tag);
+					dump("data = ");
+					dump(data);
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						o = _app.u.formatMoney(msrp-price,'$',2,true)
+						o = "You save: " + o;
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+						}
+				}, //priceRetailSavings
+				
+				priceretailsavingspercentageprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						var savings = (( msrp - price ) / msrp) * 100;
+						o = savings.toFixed(0)+'%';
+						o = "(" + o + ")";
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceRetailSavings	
+				
+				showhidearea : function($tag,data)	{
+						if(data.value == null || data.value == ""){
+							$tag.hide();
+						}
+						else{
+							$tag.show();
+						}	
+				}//showhidearea
 		}
 	}
 	return r;

@@ -1501,19 +1501,15 @@ this will likely become more flexible in the future. ###
                 <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice"></h4>
             </div>
             
-            <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{_store_formals#showhidearea  --legacy}};">                	
+            <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{apply --show;}};">	
                <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-               <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-               <span data-tlc="bind $var '.pid'; _store_formals#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+               <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+               <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
             </div>
-            <span class="savings">
-                <span data-useparentdata='1' data-tlc="quickstart#priceretailsavingsdifference  --legacy; apply --append;" class="savingsDifference"></span>
-                <span data-useparentdata='1' data-tlc="quickstart#priceretailsavingspercentage  --legacy; apply --append;" class="savingsPercentage"></span>
-			</span>
             
         </div>
         
-        <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Sku: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
+        <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
         <h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
         
         
@@ -1565,6 +1561,58 @@ this will likely become more flexible in the future. ###
 </tr>
 <tr>
 	<td colspan='2' class="tabbedProductContentTD">
+    
+    
+    
+    <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="prodTabs tabbedProductContent applyAnytabs">
+		<ul class="tabs">
+			<li data-tlc="bind $var '.%attribs.zoovy:prod_detail'; if(is $var --notblank) {{apply --show; }};" class="prodDetailTab displayNone"><a href="#prodDetail" class="prodTempTab">Specs</a></li>
+			<li data-tlc="bind $var '.%attribs.zoovy:prod_features'; if(is $var --notblank) {{ apply --show; }};" class='prodFeaturesTab displayNone prodTempTab pointer'><a href="#prodFeatures" class="prodTempTab">Features</a></li>
+			<li data-tlc="bind $var '.%attribs.youtube:videoid'; if(is $var --notblank) {{ apply --show; }};" class='prodVideoTab displayNone prodTempTab pointer'><a href="#prodVideo" class="prodTempTab">Video</a></li>
+            <li data-tlc="bind $var '.%attribs.zoovy:accessory_products'; if(is $var --notblank) {{ apply --show; }};" class='prodTempTab pointer displayNone'><a href="#prodAccessories" class="prodTempTab">Accessories</a></li>
+            <li data-tlc="bind $var '.%attribs.user:prod_warranty'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodWarranty" class="prodTempTab">Warranty</a></li>
+        	<li data-tlc="bind $var '.%attribs.user:prod_volumedisc'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodVolDisc" class="prodTempTab">Volume Discount</a></li>
+        	<li data-tlc="bind $var '.%attribs.user:prod_specialmedia'; if(is $var --notblank;) {{ apply --show; }}; " class="prodTempTab pointer displayNone"><a href="#prodVolDisc" class="prodTempTab">Product Details</a></li>
+		</ul>
+	
+		<div class="tabContent" data-anytab-content="prodDetail">
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_detail'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
+        </div>
+	
+		<div class="tabContent" data-anytab-content="prodFeatures">
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_features'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
+        </div>
+                
+        <div class="tabContent" data-anytab-content="prodVideo">
+            <p data-tlc="bind $var '.%attribs.youtube:videoid'; if(is $var --notblank;) {{ apply --show; }}; ">Click a video to play it!</p>
+            <div data-tlc="bind $var '.%attribs.youtube:videoid'; apply --attrib='data-youtubeid'; ">
+                <img data-tlc="bind $var '.%attribs.youtube:videoid'; quickstart#youtubethumbnail  --legacy;" class="pointer" src="blank.gif" onclick="app.ext.quickstart.a.showYoutubeInModal($(this).parent().data('youtubeid')); return false;" alt="">
+            </div>
+        </div>
+        
+        <div class="tabContent" data-anytab-content="prodAccessories">
+			<ul data-tlc="bind $var '.%attribs.zoovy:accessory_products'; store_prodlist#productlist  --hidePagination='true' --hideSummary='true' --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productListTemplateATC'  --legacy; apply --append;" class="listStyleNone fluidList clearfix noPadOrMargin lineItemProdlist"></ul>
+		</div>
+	
+        <div class='tabContent' data-anytab-content='prodWarranty'>
+             <div data-tlc="bind $var '.%attribs.user:prod_warranty'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
+        </div>
+        
+        <div class='tabContent' data-anytab-content='prodVolDisc'>
+            <div data-tlc="bind $var '.%attribs.user:prod_volumedisc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
+        </div>
+    
+        <div class='tabContent' data-anytab-content='prodDet'>
+            <div data-tlc="bind $var '.%attribs.user:prod_specialmedia'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};"></div>
+        </div>
+
+	</div>
+    
+    
+    
+    
+    
+    
 	<!--
 	the tabs are built in an onComplete.  ID's are added based on sku AND index, so the index (order) of the tabs MUST match the order of the tabContent divs
 	or the tab clicked won't open the right content.
@@ -1625,7 +1673,7 @@ this will likely become more flexible in the future. ###
 </table>
 <div data-tlc="bind $var '.%attribs.zoovy:related_products'; if(is $var --notblank;) {{ apply --show; }}; " class="prodlistRelatedContainer displayNone">
 	<h2 style="color:#421908;">You Might Also Like</h2>
-	<ul data-tlc="bind $var '.%attribs.zoovy:related_products'; store_prodlist#productlist  --hidePagination='true' --hideSummary='true' --prepend='<h2>Similar Items</h2>' --withReviews='1' --templateid='productListTemplate'  --legacy; apply --append;" class="listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL"></ul>
+	<ul data-tlc="bind $var '.%attribs.zoovy:related_products'; store_prodlist#productlist  --hidePagination='true' --hideSummary='true' --prepend='<h2>Similar Items</h2>' --withReviews='1' --templateid='productListTemplateProgPG'  --legacy; apply --append;" class="listStyleNone fluidList clearfix noPadOrMargin productList youMIghtLikeUL"></ul>
 </div>
 <div data-tlc="bind $var '.pid'; apply --attrib='id'; ">
 		
