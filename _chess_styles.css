@@ -1004,6 +1004,16 @@ announceBar h2{
 
 /********************************************************************************************************************************/
 /**Product Page**/
+/**Product Image Section**/
+.prodPageThumbList{
+}
+.prodPageThumbList li{
+	float: left;
+    list-style: none outside none;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
 /**Product Description Section**/
 .prodTempName{
 	font-family:Arial, Helvetica, sans-serif;
