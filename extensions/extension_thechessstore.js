@@ -1242,6 +1242,7 @@ var extension_thechessstore = function(_app) {
 					}
 					
 				}
+				
 		}
 	}
 	return r;
