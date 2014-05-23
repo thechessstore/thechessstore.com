@@ -1819,6 +1819,11 @@ button.prodListATCButton{
     padding-bottom: 16px !important;
 }
 
+.checkoutFormContainer fieldset{
+	float: left;
+    width: 980px;
+}
+
 /************************************************************************************************************************/
 /**Search Page**/
 #mainContentArea_search{
