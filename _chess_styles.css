@@ -1180,8 +1180,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', end
 }
 /**Accessories section**/
 .lineItemProdlist li{
-	width:200px !important;
-	height:520px !important;
+	margin: 10px;
+    width: 99%;
 }
 .lineItemProdlist2 li{
 	height: auto;
@@ -1776,6 +1776,20 @@ button.prodListATCButton{
 .assembly .assemblyHide {display:none;}
 .assembly .assemblyShow {display:inherit;}
 
+.productListTemplateCart{
+}
+.productListTemplateCart h4{
+	font-size: 12px;
+    font-weight: 600;
+}
+.productListTemplateCart div{
+	font-size: 10px;
+}
+
+.cartProdItemImage{
+	margin-right: 5px;
+}
+
 
 
 
@@ -2178,7 +2192,10 @@ sizingMethod='scale')";
 	float:left;
 }
 .cartStuffContainer{
-	width: 68%;
+	width: 55%;
+}
+.cartSummaryTotalsContainer, .cartStuffContainer{
+	width: 49%;
 }
 .cartShipMethods, .cartZipCodeContainer, .cartSummary{
 	margin: 0 0 12px;
