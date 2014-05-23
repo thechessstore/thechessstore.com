@@ -24,3 +24,10 @@ becomes
 
 2. partner_addThis.js:
 Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
+
+3. active.js:
+- Line 45: <div data-app-role="billToShipContainer">
+		<label>
+becomes
+<div data-app-role="billToShipContainer">
+		<label class="billToShipAnyCB">
