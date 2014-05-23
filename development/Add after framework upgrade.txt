@@ -4,7 +4,7 @@
 			'category2ProdWideTemplate',
 			'categoryTemplate3PanelCat',
 			'categoryTemplate4PanelCat',
-- 						}
+- Line 2664:					}
 					else	{
 						infoObj.templateID = 'categoryTemplate'
 						}
@@ -18,6 +18,9 @@ becomes
               			myApp.u.dump("category default template option selected");
               			infoObj.templateID = 'categoryTemplate'
 					}
+- Line 2221: _app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleElasticResults','datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'store_search','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')}));
+becomes
+  _app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleElasticResults','datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'store_search','templateID':'productListTemplateResultsNoPreview','list':$('#resultsProductListContainer')}));
 
 2. partner_addThis.js:
 Grab the old version from the file you just uploaded.....only this one is updated to use a startExtension.
