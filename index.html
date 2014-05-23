@@ -1147,7 +1147,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1178,7 +1178,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
@@ -1209,7 +1209,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1239,7 +1239,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </form>	
 </li>
 
-<li id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	
      <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     

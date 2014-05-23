@@ -1223,7 +1223,25 @@ var extension_thechessstore = function(_app) {
 						else{
 							$tag.show();
 						}	
-				}//showhidearea
+				},//showhidearea
+				
+				outofstockprodhide : function($tag,data)	{
+					
+					pid = data.value;
+					inv = _app.ext.store_product.u.getProductInventory(pid);
+					//dump("outofstockprodhide inv =");
+					//dump(inv);
+					//dump("outofstockprodhide pid =");
+					//dump(pid);
+					if(inv >= 1){
+						//dump("Inventory is 1 or higher. Show product")
+					}
+					else{
+						$($tag).hide();
+						//dump("Inventory is 0. Hide product")
+					}
+					
+				}
 		}
 	}
 	return r;
