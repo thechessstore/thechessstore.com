@@ -177,13 +177,12 @@ $(document).ready(function(){
                     </div>
                     <!--<a class='secondary headerHolidayShippingLink pointer' href="#!category/.1006-year-end-holiday-schedule">Holiday <span>Shipping</span> Information</a>-->
                     <h2 class="headerMotto headerHideShow">Specializing in the game of chess since 1999</h2>
-                    <form name='headerSearchFrm' action='#' class='productSearchForm' method="get">
-							<fieldset>
-								<!-- <legend>Search</legend> -->
-								<input type='search' name='KEYWORDS' value='Sets, Plastic Pieces, etc.' class="productSearchKeyword handleDefault secondary" id="searchBarInput" />
-								<input class="search" type="submit" value="GO" id="searchBarButton" />
-							</fieldset>
-						</form>
+                    
+                    <form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get" data-app-submit='quickstart|searchFormSubmit'>
+						<input type='search' name='KEYWORDS' placeholder="Sets, Plastic Pieces, etc." class="productSearchKeyword handleDefault secondary" id="searchBarInput"/>
+						<input class="search pointer" type="submit" value="Search" id="searchBarButton" />
+					</form>
+                    
 				</div>
 				<!-- <ul id="tier1categories"></ul> -->
 				<div class="headerNavBar">

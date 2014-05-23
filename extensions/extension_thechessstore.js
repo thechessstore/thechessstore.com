@@ -362,7 +362,7 @@ var extension_thechessstore = function(_app) {
 				
 				
 				
-				//4 column category template
+				//4 column category template **DO NOT ADD ANY TEMPLATES TO THIS CATEGORY UNTIL IT HAS BEEN UPDATED/TESTED. IT HAS NOT BEEN UPDATED/TESTED SINCE PRE-201404 UPDATE.**
 
 
 
