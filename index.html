@@ -989,16 +989,16 @@ don't modify the 'data-templateid' unless you are changing template names and up
             </script>
         </div>
 	
-    		<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
+    	<h4 data-tlc="bind $var '.%page.header'; if (is $var --notblank;) {{apply --append;}};"></h4>
         
 		<p data-tlc="bind $var '.%page.description'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	
-		<img class="unfinishedWoodCatBanner" src="images/category_page/all-the-king-colors-760x235.jpg">
+		<img class="unfinishedWoodCatBanner" src="images/category_page/all-the-king-colors-760x235.jpg" />
         
-       		<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role="subcategoryList"></ul><!-- outputs a list of subcategories -->
+       	<ul data-tlc="bind $var '.@subcategoryDetail'; store_navcats#categorylist  --detail='max' --templateid='categoryListWideTemplate'  --legacy;" class="listStyleNone fluidList clearfix noPadOrMargin categoryList" data-app-role='subcategoryList'></ul><!-- outputs a list of subcategories -->
 
-		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withreviews='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul>
-		
+		<ul data-tlc="bind $var '.@products'; prodlist_infinite#infiniteproductlist  --withReviews='1' --withInventory='1' --withVariations='1' --templateid='productList2WideTemplate'  --legacy;" data-app-role="productList" class="listStyleNone fluidList clearfix noPadOrMargin productList catPageProdList"></ul><!-- outputs the product list -->
+	
 		<p data-tlc="bind $var '.%page.description2'; if (is $var --notblank;) {{ render --wiki='quickstart'; apply --append;}};"></p>
 	</div>
     
@@ -1148,7 +1148,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1179,7 +1179,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
@@ -1210,7 +1210,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1240,7 +1240,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </form>	
 </li>
 
-<li data-tlc="bind $var '.%attribs.user:prod_outofstock'; if(is $var --notblank;) {{ apply --hide; }}; if (is $var --notblank;) {{apply --append;}};" id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
+<li id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();">
 	
      <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
