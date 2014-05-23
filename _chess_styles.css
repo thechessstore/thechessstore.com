@@ -1789,6 +1789,8 @@ button.prodListATCButton{
 .cartProdItemImage{
 	margin-right: 5px;
 }
+.ui-widget-anycb{
+}
 
 
 
@@ -1808,6 +1810,13 @@ button.prodListATCButton{
 }
 #userLoginBtn{
 	padding: 3px 5px;
+}
+
+.billToShipAnyCB{
+}
+.billToShipAnyCB span{
+	font-size: 11px !important;
+    padding-bottom: 16px !important;
 }
 
 /************************************************************************************************************************/
@@ -2109,17 +2118,18 @@ sizingMethod='scale')";
 	border: thin solid;
     float: left;
     margin-bottom: 20px;
-    width: 99%;
+    width: 97%;
 }
 .panelContent div textarea{
 	width:99%;
 }
 .checkoutFormContainer form button{
-	height:23px;
-	margin-top: -4px;
+	margin-top: -1px;
+	padding: 0;
 }
 .checkoutFormContainer form button span{
 	margin-top: -3px;
+	padding: 4px 10px !important;
 }
 .placeOrderButton{
 	height: 40px !important;
@@ -2218,7 +2228,7 @@ sizingMethod='scale')";
 	margin-bottom:2px;
 }
 .checkoutFormContainer div{
-	font-size:12px;
+	font-size:14px;
 }
 .checkoutFormContainer legend{
 	font-size:14px;
@@ -2232,8 +2242,7 @@ sizingMethod='scale')";
 	clear:left;
 }
 .accountCreateContainer{
-	float:left;
-	clear:left;
+	font-size: 16px;
 }
 .checkoutLoginButton{
 	float:left;
