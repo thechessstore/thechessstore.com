@@ -496,8 +496,8 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 						  "query" : {"query_string" : obj},
 						  "filter" : {"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}}
 						  }
-					  };
-					
+					};
+						
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In store_search.u.buildElasticSimpleQuery, obj.query was empty. ',gMessage:true});
