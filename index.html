@@ -73,7 +73,7 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201404.aatest14",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.aatest15",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1514,51 +1514,55 @@ this will likely become more flexible in the future. ###
     <div data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" class="floatLeft clearfix prodTempDesc"></div>
 	
     <div class="productInfoContainer">
-        <div class='priceContainer'>
-            <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
-            <div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};">
-                <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice"></h4>
+        <div>
+            <div class='priceContainer'>
+                <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
+                <div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};">
+                    <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice"></h4>
+                </div>
+                
+                <div class="displayNone productSavings savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{apply --show;}};">	
+                   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+                   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+                   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+                </div>
+                
             </div>
             
-            <div class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{apply --show;}};">	
-               <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-               <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-               <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-            </div>
+            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
+            <h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
             
+            
+            <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
+                <tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hideSummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
+            </table>
+            
+            <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
+            <div data-app-role="timeInTransit" class="displayNone"></div>
+            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; if(is $var --notblank;) {{ apply --show; }}; " class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
+            
+    
+            <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
+            
+                <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+                <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color">Quantity: </fieldset>
+            
+                <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
+            </form>        
+    
         </div>
-        
-        <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
-        <h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
-        
-        
-        <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
-			<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hideSummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
-		</table>
-        
-        <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
-		<div data-app-role="timeInTransit" class="displayNone"></div>
-        <div data-tlc="bind $var '.%attribs.user:app_shipfree'; if(is $var --notblank;) {{ apply --show; }}; " class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
-        
-
-        <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
-        
-            <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-            <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color">Quantity: </fieldset>
-        
-            <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
-        </form>        
-
     </div>
     
     <div class="productBillMeLaterBanner">
-		<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
-			"use strict";
-			var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
-			n.src = "//paypal.adtag.where.com/merchant.js";
-			s.parentNode.insertBefore(n, s);
-			}(document, "script"));
-        </script>
+        <div>
+            <script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
+                "use strict";
+                var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+                n.src = "//paypal.adtag.where.com/merchant.js";
+                s.parentNode.insertBefore(n, s);
+                }(document, "script"));
+            </script>
+        </div>
     </div>
         
     <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="CRMButtonMenu addToCartSideLinkCont">

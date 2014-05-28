@@ -1079,6 +1079,10 @@ announceBar h2{
 	display:none;
 }
 
+div.productSavings{
+	text-align:left;
+}
+
 /**Add to Cart Form**/
 .addToCartButt{
 	background-image:url(images/add-to-cart-button.jpg);
