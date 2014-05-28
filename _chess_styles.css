@@ -2308,7 +2308,7 @@ sizingMethod='scale')";
 	position: relative;
 }
 
-.productBillMeLaterBanner{
+div.productBillMeLaterBanner{
 	float: right;
 	padding: 0;
 	margin-right: 55px;
@@ -2323,7 +2323,7 @@ sizingMethod='scale')";
 	text-align:center;
 }
 
-.productInfoContainer{
+div.productInfoContainer{
 	float: left;
     width: 310px;
 }
