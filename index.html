@@ -1164,6 +1164,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
+            <span class="prodItemMSRP" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{extension_thechessstore#currencymsrp --legacy; apply --append;}};"></span>
+            <span class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; extension_thechessstore#showhidearea --legacy;" style="display: inline;">
+                <span class="savingsDifference" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem --legacy; apply --append;"></span>
+                <span class="savingsPercentage" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem --legacy; apply --append;"></span>
+            </span>
+            
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix spaceAndAlignCenter"></h5>
             
             	
@@ -1194,6 +1200,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
+            <span class="prodItemMSRP" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{extension_thechessstore#currencymsrp --legacy; apply --append;}};"></span>
+            <span class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; extension_thechessstore#showhidearea --legacy;" style="display: inline;">
+                <span class="savingsDifference" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem --legacy; apply --append;"></span>
+                <span class="savingsPercentage" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem --legacy; apply --append;"></span>
+            </span>
+            
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix spaceAndAlignCenter"></h5>
             
             	
@@ -1226,6 +1238,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
+            <span class="prodItemMSRP" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{extension_thechessstore#currencymsrp --legacy; apply --append;}};"></span>
+            <span class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; extension_thechessstore#showhidearea --legacy;" style="display: inline;">
+                <span class="savingsDifference" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem --legacy; apply --append;"></span>
+                <span class="savingsPercentage" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem --legacy; apply --append;"></span>
+            </span>
+            
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix spaceAndAlignCenter"></h5>
             
             	
@@ -1254,8 +1272,14 @@ remember to NOT put the button inside the href or two events will occur onclick.
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
     
-	    <h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
+	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
+            <span class="prodItemMSRP" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;) {{extension_thechessstore#currencymsrp --legacy; apply --append;}};"></span>
+            <span class="displayNone savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; extension_thechessstore#showhidearea --legacy;" style="display: inline;">
+                <span class="savingsDifference" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem --legacy; apply --append;"></span>
+                <span class="savingsPercentage" data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem --legacy; apply --append;"></span>
+            </span>
+            
             <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
             
             	
@@ -1399,9 +1423,9 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-        <h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6
+        <h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6>
 
-	</a>
+    </a>
 </li>
 
 <li id='productListTemplateResultsFilter3' class='loadingBG searchResultsPG filterSearchResults3' >

@@ -1534,6 +1534,19 @@ width:100%;
     width: 100%;
 	text-align:center;
 }
+.prodItemMSRP{
+	clear: left;
+    float: left;
+    text-align: center;
+    text-decoration: line-through;
+    width: 100%;
+}
+.savings{
+	clear: left;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
 .catPageProdInfoBox{
 	background: rgb(147,116,73); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(147,116,73,1) 0%, rgba(158,124,78,1) 50%, rgba(135,106,66,1) 100%); /* FF3.6+ */

@@ -1144,7 +1144,7 @@ var extension_thechessstore = function(_app) {
 				if(data.value.stid[0] == '%' || data.value.asm_master) {
 					$tag.addClass('assembly');
 				}
-			},
+			},//addassemblyclass
 				
 
 			hidenonappcat : function($tag, data) {
@@ -1155,7 +1155,7 @@ var extension_thechessstore = function(_app) {
 				else{
 					_app.u.dump('Category item does not match list, ending hide check');
 				}
-			},
+			},//hidenonappcat
 			
 			
 			countriesAsOptions : function($tag,data)	{
@@ -1177,7 +1177,7 @@ var extension_thechessstore = function(_app) {
 				//setTimeout(setCountrySelector, 3000);
 //				_app.u.dump(" -> number of countries = "+L);
 				
-			},
+			},//countriesAsOptions
 			
 			priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
 					dump("$tag = ");
@@ -1241,7 +1241,82 @@ var extension_thechessstore = function(_app) {
 						//dump("Inventory is 0. Hide product")
 					}
 					
-				}
+				},//outofstockprodhide
+				
+				currencymsrp : function($tag,data)	{
+					//dump("Begin currency product list format");
+					//dump(data);
+					//dump($tag);
+					
+					var r = "<span class='msrpPrefix'>MSRP:</span> $"+data.value;
+					//dump(r);
+					var cents = r.split(".")
+					//dump(cents[1]);
+					if(cents[1] == undefined){
+						//dump ("No cents present. Add a .00")
+						r = r + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1].length === 1){
+						//dump(cents[1].length);
+						//dump ("cents only has one value. Adding a zero.")
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1] == ""){
+						//dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					//dump(r);
+					$tag.append(r);
+				}, //currencymsrp
+				
+				showhidearea : function($tag,data)	{
+					//dump("showhidearea data object = ");
+					//dump(data);
+					if(data.value == null || data.value == ""){
+						//dump("data.value = " + data.value + ". Hiding the element.");
+						$tag.hide();
+					}
+					else{
+						//dump("data.value = " + data.value + ". Showing the element.");
+						$tag.show();
+					}	
+				},//showhidearea
+				
+				priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					dump(data);
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						o = _app.u.formatMoney(msrp-price,'$',2,true)
+						o = "You save: " + o;
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceretailsavingsdifferenceprodlistitem
+				
+				priceretailsavingspercentageprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						var savings = (( msrp - price ) / msrp) * 100;
+						o = savings.toFixed(0)+'%';
+						o = "(" + o + ")";
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceretailsavingspercentageprodlistitem	
 				
 		}
 	}
