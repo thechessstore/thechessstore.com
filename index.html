@@ -1363,17 +1363,17 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 <li id='productListTemplateResults' class='loadingBG searchResultsPG searchResultsProduct' >
 	<div data-app-click="quickstart|inlineProductPreviewShow" class="pointer">
 		<div class='prodThumbContainer'>
-        <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
-		<img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=225 --height=225 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="225" width="225">
-
+            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+            <img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=225 --height=225 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="225" width="225">
 		</div>
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-		<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+		<h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6>
         
 		<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix"></h5>
-	</div>
+	
+    </div>
 	<a class="hideInMinimalMode pointer moreDetails searchResultsDetails" data-tlc="bind $seoname '.prod_name'; bind $var '.'; store_routing#seoanchor --type='product' --seo --seoname=$seoname; apply --attrib='href';">more details</a>
 </li>
 
@@ -1385,7 +1385,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+        <h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6>
 
 	</a>
 </li>
@@ -1399,7 +1399,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+        <h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6
 
 	</a>
 </li>
@@ -1413,7 +1413,7 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
 
-        	<h6 data-tlc="bind $var '.base_price';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Our Price: ';  apply --append;}};" class="hideInMinimalMode"></h6>
+        <h6 class="hideInMinimalMode" data-tlc="bind $var '.base_price'; if (is $var --notblank;) {{math --div='100'; format --currency='USD'; format --prepend='Price from: '; apply --append;}};"></h6>
 
 	</a>
 </li>
