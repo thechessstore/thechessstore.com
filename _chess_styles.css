@@ -1070,6 +1070,21 @@ announceBar h2{
 	font-size:18px;
 	line-height:inherit;
 }
+
+.productBillMeLaterBannerCont{
+}
+.productBillMeLaterBanner{
+	float: right;
+	padding: 0;
+	margin-right: 55px;
+}
+.productInfoContainer{
+	float: left;
+    width: 310px;
+}
+.productInfo{
+}
+
 .onSale{
 }
 .basePrice{

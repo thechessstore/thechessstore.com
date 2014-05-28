@@ -73,7 +73,7 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201404.aatest15",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.aatest16",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1514,7 +1514,7 @@ this will likely become more flexible in the future. ###
     <div data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" class="floatLeft clearfix prodTempDesc"></div>
 	
     <div class="productInfoContainer">
-        <div>
+        <div class="productInfo">
             <div class='priceContainer'>
                 <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
                 <div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};">
@@ -1549,20 +1549,19 @@ this will likely become more flexible in the future. ###
             
                 <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
             </form>        
-    
         </div>
     </div>
     
-    <div class="productBillMeLaterBanner">
-        <div>
-            <script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
+    <div class="productBillMeLaterBannerCont">
+        <div class="productBillMeLaterBanner">
+			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
                 "use strict";
                 var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
                 n.src = "//paypal.adtag.where.com/merchant.js";
                 s.parentNode.insertBefore(n, s);
                 }(document, "script"));
             </script>
-        </div>
+    	</div>
     </div>
         
     <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="CRMButtonMenu addToCartSideLinkCont">
