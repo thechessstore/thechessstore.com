@@ -1158,9 +1158,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
           </div>
         
             <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
-            <div class="spaceAndAlignCenter">
-                <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
-            </div>
+            <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite spaceAndAlignCenter"></span>
     
 	    	<h6 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{ format --currency='USD';  format --prepend='Price: '; apply --append;}};"></h6>        
 
@@ -1874,7 +1872,6 @@ if you change these, you should move them above this comment so that when you (o
             <form action="#" data-app-submit="store_crm|contactFormSubmit" name="contactForm" class='alignedForm'>
 			<input name="msgtype" value="feedback" type="hidden">
 			<fieldset>
-				<legend>Contact Us</legend>
 				<div id="contactFormMessaging"></div>
 				<label><span class="prompt">Email Address</span><input name="sender" required type="email" class='alignInput'></label>
 				<label><span class="prompt">Subject</span><input name="subject" required type="text" class='alignInput'></label>
