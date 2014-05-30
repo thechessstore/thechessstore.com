@@ -2185,11 +2185,22 @@ sizingMethod='scale')";
 .prodViewerContainer tbody tr td.imageContainer{
 	 padding-right: 15px;
 }
+.checkoutFormContainer span{
+	font-size: 13px;
+}
+.checkoutFormContainer label{
+}
+.checkoutFormContainer div.prodName{
+}
 .checkoutFormContainer form fieldset{
 	border: thin solid;
     float: left;
     margin-bottom: 20px;
     width: 97%;
+}
+.checkoutPlaceOrderButton{
+}
+.checkoutFormContainer button.checkoutPlaceOrderButton span{
 }
 .panelContent div textarea{
 	width:99%;
@@ -2299,7 +2310,7 @@ sizingMethod='scale')";
 	margin-bottom:2px;
 }
 .checkoutFormContainer div{
-	font-size:14px;
+	font-size:16px;
 }
 .checkoutFormContainer legend{
 	font-size:14px;

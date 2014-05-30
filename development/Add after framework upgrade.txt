@@ -31,3 +31,6 @@ Grab the old version from the file you just uploaded.....only this one is update
 becomes
 <div data-app-role="billToShipContainer">
 		<label class="billToShipAnyCB">
+
+4. Checkout Template:
+- Add class:checkoutPlaceOrderButton to checkout button so that styles can be properly applied to it.
