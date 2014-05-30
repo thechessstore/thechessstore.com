@@ -1503,10 +1503,10 @@ this will likely become more flexible in the future. ###
 			<span data-tlc="bind $var '.reviews.total'; if (is $var --notblank;) {{format --prepend=' from ' --append=' reviews'; apply --append;}};" class='floatLeft'></span>
 		</section>
 	
-	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu prodTempReview'>
+	<menu ata-tlc="bind $var '.pid'; apply --attrib='data-pid';" class='CRMButtonMenu prodTempReview'>
 
-        <a class="noTextDec" onClick="app.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
-        <a href='#' class="noTextDec" onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write a Review</a>
+        <a class="noTextDec pointer" onClick="myApp.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
+	<a class="noTextDec pointer" data-app-click="store_crm|productReviewShow">Write a Review</a>
         <a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
 
 	</menu>
@@ -1704,7 +1704,9 @@ this will likely become more flexible in the future. ###
         <div class="reviewsContainer">
         	<ul data-tlc="bind $var '.reviews.@reviews'; controller#loop --templateid='productReviewsTemplateDetail'; if (is $var --notblank;) {{apply --append;}};" class="reviewsBind listStyleNone clearfix productReviewsList" id="prodViewerReviews"></ul>
         </div>
-			<button class='ui-button-text ui-button ui-state-default ui-corner-all' data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});'>Write Review</button>
+			<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="clearfix alignRight">
+				<button class="ui-button-text ui-button ui-state-default ui-corner-all applyButton" data-app-click="store_crm|productReviewShow">Write Review</button>
+			</div>
 		</div>
 		<ul data-tlc="bind $var '.@reviews'; store_product#reviewlist  --templateid='productReviewsTemplateDetail'  --legacy;" class="listStyleNone clearfix productReviewsList" id="prodViewerReviews"></ul>
 </div>
