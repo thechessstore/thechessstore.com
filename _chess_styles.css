@@ -380,13 +380,20 @@ background: -webkit-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,
 background: -o-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* IE10+ */
 background: linear-gradient(to bottom,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
 border-style:none;
 color:#f1efee;
 border-radius:4px;
 float:left;
 margin-left: 5px;
 margin-top: 2px;
+}
+
+.freeShippingAnnouncer{
+	font-size: 18px;
+    line-height: inherit;
+    margin-bottom: 4px;
+	color: #008000;
 }
 /**************************************************************************************************************************
 /**Ratings Icon Images**/
@@ -433,7 +440,7 @@ margin-top: 2px;
 	background: -o-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */
 
 }
 .headerNavUlBar{
@@ -451,7 +458,6 @@ margin-top: 2px;
 	font-weight:600;
 	font-family: 'Neuton', serif;
 	line-height:0px;
-	margin-left:px;
 	margin-right:15px;
 	float:left;
 }
@@ -481,7 +487,7 @@ margin-top: 2px;
 	background: -o-linear-gradient(top,  rgba(188,160,88,1) 0%,rgba(210,185,122,1) 38%,rgba(223,201,143,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(188,160,88,1) 0%,rgba(210,185,122,1) 38%,rgba(223,201,143,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(188,160,88,1) 0%,rgba(210,185,122,1) 38%,rgba(223,201,143,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bca058', endColorstr='#dfc98f',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bca058', endColorstr='#dfc98f',GradientType=0 ); /* IE6-9 */
 	text-align:center;
 	line-height:10px;
 }
@@ -506,7 +512,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */		top: 20px;
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */		top: 20px;
 	float:left;
 	z-index:15;
 }
@@ -590,7 +596,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(226,219,190,1) 0%,rgba(203,190,160,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(226,219,190,1) 0%,rgba(203,190,160,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(226,219,190,1) 0%,rgba(203,190,160,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2dbbe', endColorstr='#cbbea0',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2dbbe', endColorstr='#cbbea0',GradientType=0 ); /* IE6-9 */
 	font-size:12px;
 	border:thin solid white;
 	text-decoration:none;
@@ -609,7 +615,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#856841', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#856841', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 #nav a.activeSlide{
 	background: rgb(133,104,65); /* Old browsers */
@@ -619,7 +625,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(133,104,65,1) 0%,rgba(158,124,78,1) 58%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#856841', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#856841', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 
 /**Homepage Product Categories**/
@@ -668,7 +674,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
 	width:310px;
 	text-align:center;
@@ -745,7 +751,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
 	width:310px;
 	text-align:center;
@@ -818,7 +824,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
 	width:310px;
 	text-align:center;
@@ -891,7 +897,7 @@ announceBar h2{
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
 	width:310px;
 	text-align:center;
@@ -1156,7 +1162,7 @@ background: -webkit-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,1
 background: -o-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* IE10+ */
 background: linear-gradient(to bottom,  rgba(239,235,226,1) 56%,rgba(196,189,169,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', endColorstr='#c4bda9',GradientType=0 ); /* IE6-9 */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efebe2', endColorstr='#c4bda9',GradientType=0 ); /* IE6-9 */
 
 }
 .prodTempTabCont a.prodTempTab{
@@ -1359,7 +1365,7 @@ label.break	{display:block; margin-bottom:2px;}
 	background: -o-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
 }
 
 .layeredSearch div.slider-range{
@@ -1387,7 +1393,7 @@ label.break	{display:block; margin-bottom:2px;}
 	background: -o-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
 }
 div .slider-range a:nth-of-type(1){
 	background-image:url(images/arrow_circle_green_right.png) !important;
@@ -1527,7 +1533,7 @@ width:100%;
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 	height:35px;
 	width:305px;
 	text-align:center;
@@ -1584,7 +1590,7 @@ width:100%;
 	background: -o-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(147,116,73,1) 0%,rgba(158,124,78,1) 50%,rgba(135,106,66,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#937449', endColorstr='#876a42',GradientType=0 ); /* IE6-9 */
 }
 
 button.prodListATCButton{
@@ -1698,7 +1704,7 @@ button.prodListATCButton{
 	background: -o-linear-gradient(top,  rgba(99,67,35,1) 0%,rgba(58,30,6,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(99,67,35,1) 0%,rgba(58,30,6,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(99,67,35,1) 0%,rgba(58,30,6,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#634323', endColorstr='#3a1e06',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#634323', endColorstr='#3a1e06',GradientType=0 ); /* IE6-9 */
 	color:#dbd7d3;
 	border:outset 2px;
 	width:100px;
@@ -2013,9 +2019,7 @@ button.prodListATCButton{
 	z-index:10;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/discontinued-promo-button-128x45.jpg',
-sizingMethod='scale');
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/promo_tags/discontinued-promo-button-128x45.jpg',sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/discontinued-promo-button-128x45.jpg',
@@ -2032,9 +2036,9 @@ sizingMethod='scale')";
 	z-index:7;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
-sizingMethod='scale');
+sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
@@ -2051,9 +2055,9 @@ sizingMethod='scale')";
 	z-index:9;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/sale-promo-button-128x45.jpg',
-sizingMethod='scale');
+sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/sale-promo-button-128x45.jpg',
@@ -2073,9 +2077,9 @@ sizingMethod='scale')";
 	z-index:6;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
-sizingMethod='scale');
+sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
@@ -2093,9 +2097,9 @@ sizingMethod='scale')";
 	z-index:8;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/hot-promo-button-128x45.jpg',
-sizingMethod='scale');
+sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/hot-promo-button-128x45.jpg',
@@ -2115,9 +2119,9 @@ sizingMethod='scale')";
 	z-index:5;
 	display:block;
 	
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
-sizingMethod='scale');
+sizingMethod='scale');*/
 
 -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
@@ -2167,7 +2171,7 @@ sizingMethod='scale')";
 	padding: 3px 5px;
 }
 .buttonPadding{
-	padding:3px 5 px;
+	padding:3px 5px;
 }
 .ui-slider-horizontal .ui-slider-range{
 	height: 14px;
