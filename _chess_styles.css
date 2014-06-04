@@ -2006,127 +2006,6 @@ button.prodListATCButton{
 	height:13%;
 	z-index:10;
 }
-.is_preorder{
-}
-.is_discontinued{
-	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:100%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	z-index:10;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/promo_tags/discontinued-promo-button-128x45.jpg',sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/discontinued-promo-button-128x45.jpg',
-sizingMethod='scale')";	
-}
-.is_specialorder{
-	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:100%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	z-index:7;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
-sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
-sizingMethod='scale')";	
-}
-.is_sale{
-	background-image:url(images/promo_tags/sale-promo-button-128x45.png);
-	background-repeat:no-repeat;
-	width:100%;
-	height:100%;
-	background-size:100%;
-	top:0;
-	right:0;
-	z-index:9;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/sale-promo-button-128x45.jpg',
-sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/sale-promo-button-128x45.jpg',
-sizingMethod='scale')";	
-}
-
-.is_clearance{
-}
-.is_newarrival{
-	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:100%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	z-index:6;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
-sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
-sizingMethod='scale')";
-}
-
-.is_bestseller{
-	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:100%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	z-index:8;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/hot-promo-button-128x45.jpg',
-sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/hot-promo-button-128x45.jpg',
-sizingMethod='scale')";	
-}
-.is_fresh{
-	
-}
-.is_shipfree{
-	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
-	background-repeat:no-repeat;
-	background-size:100%;
-	width:100%;
-	height:100%;
-	top:0;
-	right:0;
-	z-index:5;
-	display:block;
-	
-	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
-sizingMethod='scale');*/
-
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
-src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
-sizingMethod='scale')";	
-}
 
 /*******************************************************************************************************************************/
 /**contact us page**/
@@ -2407,6 +2286,132 @@ div.productInfoContainer{
     margin-bottom: 4px;
 	color: #008000;
 }
+
+.is_preorder{
+}
+.is_discontinued{
+	background-image:url(images/promo_tags/discontinued-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	z-index:10;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/promo_tags/discontinued-promo-button-128x45.jpg',sizingMethod='scale');*/
+/*
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/discontinued-promo-button-128x45.jpg',
+sizingMethod='scale')";	
+*/
+
+}
+.is_specialorder{
+	background-image:url(images/promo_tags/limited-edition-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	z-index:7;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
+sizingMethod='scale');*/
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
+sizingMethod='scale')";	
+}
+.is_sale{
+	background-image:url(images/promo_tags/sale-promo-button-128x45.png);
+	background-repeat:no-repeat;
+	width:100%;
+	height:100%;
+	background-size:100%;
+	top:0;
+	right:0;
+	z-index:9;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/sale-promo-button-128x45.jpg',
+sizingMethod='scale');*/
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/sale-promo-button-128x45.jpg',
+sizingMethod='scale')";	
+}
+
+.is_clearance{
+}
+.is_newarrival{
+	background-image:url(images/promo_tags/new-arrival-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	z-index:6;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
+sizingMethod='scale');*/
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
+sizingMethod='scale')";
+}
+
+.is_bestseller{
+	background-image:url(images/promo_tags/hot-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	z-index:8;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/hot-promo-button-128x45.jpg',
+sizingMethod='scale');*/
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/hot-promo-button-128x45.jpg',
+sizingMethod='scale')";	
+}
+.is_fresh{
+	
+}
+.is_shipfree{
+	background-image:url(images/promo_tags/free-shipping-promo-button-128x45.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	z-index:5;
+	display:block;
+	
+	/*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
+sizingMethod='scale');*/
+
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
+sizingMethod='scale')";	
+}
+
+
 
 
 
