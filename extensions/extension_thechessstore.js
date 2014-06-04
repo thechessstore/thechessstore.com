@@ -16,7 +16,7 @@
 
 ************************************************************** */
 
-var extension_thechessstore = function() {
+var extension_thechessstore = function(_app) {
 	var r= {
 		vars : {
 			catTemplates : {
@@ -362,7 +362,7 @@ var extension_thechessstore = function() {
 				
 				
 				
-				//4 column category template
+				//4 column category template **DO NOT ADD ANY TEMPLATES TO THIS CATEGORY UNTIL IT HAS BEEN UPDATED/TESTED. IT HAS NOT BEEN UPDATED/TESTED SINCE PRE-201404 UPDATE.**
 
 
 
@@ -372,9 +372,9 @@ var extension_thechessstore = function() {
 
 			},
 			hiddenCats : [
-        ".00012-wood-chess-sets-with-chess-boards.4-model",
-        ".00014-wood-chess-sets-with-chess-cases.4-model",
-		".00010-wood-chess-sets.4-model"
+				".00012-wood-chess-sets-with-chess-boards.4-model",
+				".00014-wood-chess-sets-with-chess-cases.4-model",
+				".00010-wood-chess-sets.4-model"
 			],
 			
 			reviewSelector : ".reviewsContainer"
@@ -383,21 +383,694 @@ var extension_thechessstore = function() {
 		callbacks : {
 			init : {
 				onSuccess : function(){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onSuccess');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.init.onSuccess');
 				},
 				onError : function() {
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.init.onError');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.init.onError');
 				}
 			},
 			startExtension : {
 				onSuccess : function (){
 					$('.contactChat div').empty();
 					$('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
-					app.u.dump("contactChat div appended successfully");
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onSuccess2');
+					_app.u.dump("contactChat div appended successfully");
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');
+					
+					//BEGIN PROJECT INIT CODE
+						//Will do an appPageGet for the description of each category.0
+						//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
+						// AND the list spec must contain a catDesc class where the description is to appear.
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$catPage,P){
+							$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+							
+							if($catList.children().length)	{
+								$catList.children().each(function(){
+									var $li = $(this);
+									
+									if($li.data('app-havesubcatdata'))	{} //already have data.
+									else if($('.catDesc',$li).length)	{
+										_app.ext.store_navcats.calls.appPageGet.init({
+											'PATH':$li.data('catsafeid'),
+											'@get':['description']
+											},
+											{'callback': function(rd){					//if there are errors, leave them alone... for now.
+											$li.data('app-havesubcatdata',true);
+											if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
+												$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
+												}
+											}
+											},'mutable')
+										}
+									else	{
+										_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+										//category description already obtained or template has no catDesc class (no description needed)
+										}
+									});
+								_app.model.dispatchThis('mutable');
+								}
+							else	{
+								//most likely, no subcats.
+								}
+								
+							//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							
+						});
+						
+						
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
+							
+							_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								
+							});
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.templates.categoryTemplate.on('depart.chessstore',function(event,$context,P){
+								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
+									_app.ext.store_filter.vars.catPageID.empty().remove();
+								}	
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+								});
+								
+								
+								
+							_app.templates.category2ProdWideTemplate.on('complete.chessstore',function(event,$context,P){
+								var $catPage = $context,
+								$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
+								
+								if($catList.children().length)	{
+									$catList.children().each(function(){
+										var $li = $(this);
+										
+										if($li.data('app-havesubcatdata'))	{} //already have data.
+										else if($('.catDesc',$li).length)	{
+											_app.ext.store_navcats.calls.appPageGet.init({
+												'PATH':$li.data('catsafeid'),
+												'@get':['description']
+												},
+												{'callback': function(rd){					//if there are errors, leave them alone... for now.
+												$li.data('app-havesubcatdata',true);
+												if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
+													$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
+													}
+												}
+												},'mutable')
+											}
+										else	{
+											_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+											//category description already obtained or template has no catDesc class (no description needed)
+											}
+										});
+									_app.model.dispatchThis('mutable');
+									}
+								else	{
+									//most likely, no subcats.
+									}
+									
+								//BEGIN HEADER HIDING FUNCTION
+								$(".headerHideShow").hide();
+								$(".headerBoxCenter").css("margin", "0");
+								$(".headerBottom").css("height", "50px");
+								$(".headerBottom").css("padding-bottom", "11px");
+								$(".headerBottom").css("padding-top", "4px");
+								$(".headerBoxCenter").css("width", "200px");
+								$(".headerBoxCenter").css("margin-top", "13px");
+								$(".headerHideShowContent").css("display", "block");
+								$(".productSearchForm").css("height", "100%");
+								$(".productSearchForm").css("margin-top", "18px");
+								
+								//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+								
+								_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
+								
+								_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+								if(_app.ext.store_filter.filterMap[P.navcat])	{
+									_app.u.dump(" -> safe id DOES have a filter.");
+							
+									var $page = $(_app.u.jqSelector('#',P.parentID));
+									_app.u.dump(" -> $page.length: "+$page.length);
+									if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+									else	{
+										$page.data('filterAdded',true)
+										var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+										$form.on('submit.filterSearch',function(event){
+											event.preventDefault()
+											_app.u.dump(" -> Filter form submitted.");
+											_app.ext.store_filter.a.execFilter($form,$page);
+											});
+								
+										if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+											_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+											}
+								
+								//make all the checkboxes auto-submit the form.
+										$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+											$form.submit();      
+											});
+										}
+									}
+									
+									
+									
+									//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+									/*$('.woodPieces:checkbox').click(function() {
+										var woodPieces = $(this);
+										// $this will contain a reference to the checkbox   
+										if (woodPieces.is(':checked')) {
+											 $(".woodType").show();
+											 $(".kingHeight").show();
+										} else {
+											$(".woodType").hide();
+											$(".kingHeight").hide();
+										}
+									});*/
+									
+									$('.resetButton', $context).click(function(){
+									$context.empty().remove();
+									showContent('category',{'navcat':P.navcat});
+									});
+							});
+							
+							
+							_app.templates.category2ProdWideTemplate.on('depart.chessstore',function(event,$context,P){
+								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
+									_app.ext.store_filter.vars.catPageID.empty().remove();
+								}	
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+							});
+							
+							
+							
+						_app.templates.categoryTemplate3PanelCat.on('complete.chessstore',function(event,$context,P){
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));
+							
+							_app.u.dump("BEGIN categoryTemplate3PanelCat onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							});
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.templates.categoryTemplate3PanelCat.on('depart.chessstore',function(event,$context,P){
+								
+								_app.ext.store_filter.vars.catPageID.empty().remove();
+								
+								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");		
+							});
+							
+							
+							_app.templates.categoryTemplate4PanelCat.on('complete.chessstore',function(event,$context,P){
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID)); 
+							
+							
+							_app.u.dump("BEGIN categoryTemplate4PanelCat onCompletes for filtering");
+							if(_app.ext.store_filter.filterMap[P.navcat])	{
+								_app.u.dump(" -> safe id DOES have a filter.");
+						
+								var $page = $(_app.u.jqSelector('#',P.parentID));
+								_app.u.dump(" -> $page.length: "+$page.length);
+								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+								else	{
+									$page.data('filterAdded',true)
+									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+									$form.on('submit.filterSearch',function(event){
+										event.preventDefault()
+										_app.u.dump(" -> Filter form submitted.");
+										_app.ext.store_filter.a.execFilter($form,$page);
+										});
+							
+									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+										}
+							
+							//make all the checkboxes auto-submit the form.
+									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+										$form.submit();      
+										});
+									}
+								}
+								
+								
+								
+								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+								/*$('.woodPieces:checkbox').click(function() {
+									var woodPieces = $(this);
+									// $this will contain a reference to the checkbox   
+									if (woodPieces.is(':checked')) {
+										 $(".woodType").show();
+										 $(".kingHeight").show();
+									} else {
+										$(".woodType").hide();
+										$(".kingHeight").hide();
+									}
+								});*/
+								
+								$('.resetButton', $context).click(function(){
+								$context.empty().remove();
+								showContent('category',{'navcat':P.navcat});
+								});
+								
+								
+							});
+							
+							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+							
+							_app.templates.categoryTemplate4PanelCat.on('depart.chessstore',function(event,$context,P){
+								
+								_app.ext.store_filter.vars.catPageID.empty().remove();
+								
+									
+							});
+							
+							
+							
+							
+						
+						
+							
+							
+						
+						//sample of an onDeparts. executed any time a user leaves this page/template type.
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P) {_app.u.dump("just left the homepage")});
+						
+						//Header dropdown menus
+						var showDropdown = function ($tag) {
+							var $dropdown = $(".dropdown", $tag);
+							var height = 0;
+							$dropdown.children().each(function(){
+								height += $(this).outerHeight(true);
+							});
+							$dropdown.stop().animate({"height":height+"px"}, 1000);
+						}
+							
+						var hideDropdown = function ($tag) {
+							$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+						}
+						
+						//Homepage Slideshow image code and carousel code
+						var homepageLoad = false;
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P){
+						
+							
+							if (homepageLoad == false){
+								//Home page slideshow
+								$("#nav").html("");
+								$('#featureImg') 
+								.after('<div id="nav">') 
+								.cycle({ 
+								fx:     'fade',  
+								timeout: 5000, 
+								pager:  '#nav' 
+							});
+							
+							
+							//Carousel horizontal sliders
+							var carousel1;
+							function foo1(){ $(".homepageCat1").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev1",
+							next : "#caroNext1"
+							});}
+							carousel1 = foo1;
+							setTimeout(carousel1, 2000);
+							
+							
+							//$("#caroNext1").delay(1500).click();
+							//$("#caroPrev1").click();
+							
+							var carousel2;
+							function foo2(){ $(".homepageCat2").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev2",
+							next : "#caroNext2"
+							});}
+							carousel2 = foo2;
+							setTimeout(carousel2, 2000);
+							
+							var carousel3;
+							function foo3(){
+							$(".homepageCat3").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev3",
+							next : "#caroNext3"
+							});}
+							carousel3 = foo3;
+							setTimeout(carousel3, 2000);
+							
+							var carousel4;
+							function foo4(){
+							$(".homepageCat4").carouFredSel({
+								width   : 980,
+								height	: 300,
+								items   : 3,
+								scroll: 1,
+								auto : false,
+							prev : "#caroPrev4",
+							next : "#caroNext4"
+							});}
+							carousel4 = foo4;
+							setTimeout(carousel4, 2000);
+							
+							//$myselection.addClass('noScriptReExecute');
+							homepageLoad = true;
+							_app.u.dump("Homepage functions loaded");
+							}
+							
+						});
+						
+						var categoryPageLoad = false;
+						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
+							
+							if(!$(this).hasClass('noScriptReExecute'))
+							{
+							var altDDUpDown = false;
+							$(".sidebarShopByCat").hide();
+							$(".sidebarShopByCatButton").click(function(){
+							  if(altDDUpDown == true)
+							  {
+								$(".sidebarShopByCat").hide();
+								$(".sidebarShopByCatIcon").html("&#9658;").text();
+								altDDUpDown = false;
+							  }
+							  else if(altDDUpDown == false)
+							  {
+								  $(".sidebarShopByCat").show();
+								  $(".sidebarShopByCatIcon").html("&#9660;").text();
+								  altDDUpDown = true;
+							  }	
+						  });
+						  
+							var altDDUpDown2 = false;
+							$(".sidebarSpecDept").hide();
+							$(".sidebarSpecDeptButton").click(function(){
+							  if(altDDUpDown2 == true)
+							  {
+								$(".sidebarSpecDept").hide();
+								$(".sidebarSpecDeptIcon").html("&#9658;").text();
+								altDDUpDown2 = false;
+							  }
+							  else if(altDDUpDown2 == false)
+							  {
+								  $(".sidebarSpecDept").show();
+								  $(".sidebarSpecDeptIcon").html("&#9660;").text();
+								  altDDUpDown2 = true;
+							  }	
+						  });
+						  
+							var altDDUpDown3 = false;
+							$(".sidebarShopByBrand").hide();
+							$(".sidebarShopByBrandButton").click(function(){
+							  if(altDDUpDown3 == true)
+							  {
+								$(".sidebarShopByBrand").hide();
+								$(".sidebarShopByBrandIcon").html("&#9658;").text();
+								altDDUpDown3 = false;
+							  }
+							  else if(altDDUpDown3 == false)
+							  {
+								  $(".sidebarShopByBrand").show();
+								  $(".sidebarShopByBrandIcon").html("&#9660;").text();
+								  altDDUpDown3 = true;
+							  }	
+						  });
+						  
+							var altDDUpDown4 = false;
+							$(".sidebarTeachAndLearn").hide();
+							$(".sidebarTeachAndLearnButton").click(function(){
+							  if(altDDUpDown4 == true)
+							  {
+								$(".sidebarTeachAndLearn").hide();
+								$(".sidebarTeachAndLearnIcon").html("&#9658;").text();
+								altDDUpDown4 = false;
+							  }
+							  else if(altDDUpDown4 == false)
+							  {
+								  $(".sidebarTeachAndLearn").show();
+								  $(".sidebarTeachAndLearnIcon").html("&#9660;").text();
+								  altDDUpDown4 = true;
+							  }	
+						  });
+						  $(this).addClass('noScriptReExecute');
+						  _app.u.dump("Sidebar functionality has ran");
+						  
+							}
+						});
+						
+						//Reviews function built to display a message if no reviews are present for this product. 
+						_app.templates.productTemplate.on('complete.chessstore',function(event,$thisProduct,P){
+							
+							_app.u.dump("Begin review message displaying function");
+							if($(".reviewsBind", $thisProduct).children().length === 0){
+								_app.u.dump("No reviews. Running existing message check");
+								if(($(".reviewsCont", $thisProduct).length === 0) || ($(".reviewsCont", $thisProduct).length === null)){
+								  _app.u.dump("No message exists. Display message");
+								  $(_app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid)).append(
+								  '<p style="text-align:center;" class="reviewsCont">'
+								  + 'Be the First to Review This Product!'
+								  + '</p>');
+								  //var p = document.getElementsByClassName("reviewsCont");
+								  //p.reviewsCont += '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid);
+								  _app.u.dump("Review message displaying for : " + '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid));
+								}
+								else{
+									_app.u.dump("Message exists. Doing nothing");
+								}
+						
+						
+								/*var noReviews = document.createElement("p");
+								var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
+								noReviews.appendChild(noreviewsMessage);
+								var findReviewSec = document.getElementsByClassName("reviewsBind");
+								document.body.insertBefore(noReviews, findReviewSec);*/
+							}
+							else
+							{
+								_app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
+								
+							}
+							
+							//BEGIN HEADER HIDING FUNCTION
+							$(".headerHideShow").hide();
+							$(".headerBoxCenter").css("margin", "0");
+							$(".headerBottom").css("height", "50px");
+							$(".headerBottom").css("padding-bottom", "11px");
+							$(".headerBottom").css("padding-top", "4px");
+							$(".headerBoxCenter").css("width", "200px");
+							$(".headerBoxCenter").css("margin-top", "13px");
+							$(".headerHideShowContent").css("display", "block");
+							$(".productSearchForm").css("height", "100%");
+							$(".productSearchForm").css("margin-top", "18px");
+							//END HEADER HIDING FUNCTION
+							
+							
+							//PRODUCT IMAGE CLICK BLOCKER
+							var $context = $(_app.u.jqSelector('#',P.parentID));
+							setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+							
+						});
+						
+						
+						_app.templates.productTemplate.on('depart.chessstore',function(event,$context,P){
+						//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+								$(".headerHideShow").show();
+								$(".headerBoxCenter").css("margin-right", "30px");
+								$(".headerBottom").css("height", "150px");
+								$(".headerBottom").css("padding", "15px");
+								$(".headerBoxCenter").css("width", "250px");
+								$(".headerBoxCenter").css("margin-top", "0px");
+								$(".headerHideShowContent").css("display", "none");
+								$(".productSearchForm").css("height", "22px");
+								$(".productSearchForm").css("margin", "0");
+						});
+						
+						_app.templates.companyTemplate.on('complete.chessstore',function(event,$context,P){
+							  $('.contactChat div').empty();
+							  $('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
+							  _app.u.dump("contactChat div appended successfully");
+						});
+						
+						
+						_app.templates.cartTemplate.on('complete.chessstore',function(event,$context,P){
+							var $context = $(_app.u.jqSelector('#',P.parentID));
+							_app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+								if(_app.model.responseHasErrors(rd)){
+									_app.u.throwMessage(rd);
+									}
+								else {
+									//_app.u.dump("here");
+									var $selectList = $('.countrySelectListContainer',$context);
+									//_app.u.dump($selectList);
+									$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
+									}
+							}},'immutable');
+							_app.model.dispatchThis('immutable');
+						});
+					//END PROJECT INIT CODE
 				},
 				onError : function (){
-					app.u.dump('BEGIN app.ext.extension_thechessstore.callbacks.startExtension.onError');
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onError');
 				}
 			}
 		},
@@ -412,15 +1085,15 @@ var extension_thechessstore = function() {
 			
 			showCartShippingChart : function(){
 				function foo(){
-				 //app.u.dump('begin showCartShippingChart function');
+				 //_app.u.dump('begin showCartShippingChart function');
 				 $(".cartShipMethods").show();
 				}
 				setTimeout(foo, 3000);
 			},
 			
 			scrollToReview : function(page){
-				//app.u.dump("scrollToReview Firing");
-				//app.u.dump(page);
+				//_app.u.dump("scrollToReview Firing");
+				//_app.u.dump(page);
 				$('html, body').animate({
 					scrollTop: $("#readReview", page).offset().top
 				}, 2000);
@@ -432,32 +1105,34 @@ var extension_thechessstore = function() {
 		u : {
 			updateCartSummary : function()	{
 				var $countrySelector = $(".countrySelector").val();
-				app.u.dump(".countrySelector value before refresh = " + $countrySelector);
-				$('#modalCartContents').replaceWith(app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
-				app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
+				_app.u.dump(".countrySelector value before refresh = " + $countrySelector);
+				$('#modalCartContents').replaceWith(_app.renderFunctions.createTemplateInstance('cartTemplate','modalCartContents'));
+				_app.calls.refreshCart.init({'callback':'translateTemplate','parentID':'modalCartContents'},'immutable');
 				
-				app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
-					if(app.model.responseHasErrors(rd)){
-						//app.u.throwMessage(rd);
+				_app.ext.cco.calls.appCheckoutDestinations.init({"callback" : function(rd){
+					if(_app.model.responseHasErrors(rd)){
+						//_app.u.throwMessage(rd);
 						}
 					else {
-						//app.u.dump("here");
-						//app.u.dump($selectList);
+						//_app.u.dump("here");
+						//_app.u.dump($selectList);
 						var $selectList = $('.countrySelectListContainer');
 						$selectList.anycontent({"datapointer":rd.datapointer, "templateID" : "countryListTemplate"});
 						}
 				}},'immutable');
-				//app.model.dispatchThis('immutable');
+				//_app.model.dispatchThis('immutable');
 				
 				function foo(){
-					app.u.dump(".countrySelector value after refresh = " + $countrySelector);
+					_app.u.dump(".countrySelector value after refresh = " + $countrySelector);
 					$('.countrySelector').val($countrySelector);
-					app.u.dump($('.countrySelector').val());
+					_app.u.dump($('.countrySelector').val());
 				}
 				setTimeout(foo, 3000);
 				
 //don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
 				},
+				
+				
 		},
 		
 		
@@ -465,45 +1140,184 @@ var extension_thechessstore = function() {
 		
 		renderFormats : {
 			//The render format for determining if a product is a component. Adds a class of assembly to these products that can be used to stylize them.
-			addAssemblyClass : function($tag, data){
+			addassemblyclass : function($tag, data){
 				if(data.value.stid[0] == '%' || data.value.asm_master) {
 					$tag.addClass('assembly');
 				}
-			},
+			},//addassemblyclass
 				
 
-			hideNonAppCat : function($tag, data) {
-				 app.u.dump('category list hiding function begins');
-				if($.inArray(data.value, app.ext.extension_thechessstore.vars.hiddenCats) != -1){
+			hidenonappcat : function($tag, data) {
+				if($.inArray(data.value.path, _app.ext.extension_thechessstore.vars.hiddenCats) != -1){
 					 $tag.hide();
-					 app.u.dump('Category item matches list item. Removing from list');
+					 _app.u.dump('Category item matches list item. Removing from list');
 				}
 				else{
-					app.u.dump('Category item does not match list, ending hide check');
+					_app.u.dump('Category item does not match list, ending hide check');
 				}
-			},
+			},//hidenonappcat
 			
 			
 			countriesAsOptions : function($tag,data)	{
-//				app.u.dump("BEGIN app.ext.cco.renderFormats.countriesAsOptions");
-//				app.u.dump(" -> Country: "+data.value);
+//				_app.u.dump("BEGIN _app.ext.cco.renderFormats.countriesAsOptions");
+//				_app.u.dump(" -> Country: "+data.value);
 				var r = '';
 				//function setCountrySelector(){
-					 var L = app.data.appCheckoutDestinations['@destinations'].length;
+					 var L = _app.data.appCheckoutDestinations['@destinations'].length;
 					 for(var i = 0; i < L; i += 1)	{
-						r += "<option value='"+app.data.appCheckoutDestinations['@destinations'][i].ISO+"' ";
-						if(data.value == app.data.appCheckoutDestinations['@destinations'][i].ISO)	{
+						r += "<option value='"+_app.data.appCheckoutDestinations['@destinations'][i].ISO+"' ";
+						if(data.value == _app.data.appCheckoutDestinations['@destinations'][i].ISO)	{
 							r += " selected='selected' ";
 							}
-						r += ">"+app.data.appCheckoutDestinations['@destinations'][i].Z+"</option>";
+						r += ">"+_app.data.appCheckoutDestinations['@destinations'][i].Z+"</option>";
 						}
 					
 					$tag.html(r);
 				//}
 				//setTimeout(setCountrySelector, 3000);
-//				app.u.dump(" -> number of countries = "+L);
+//				_app.u.dump(" -> number of countries = "+L);
 				
-				},
+			},//countriesAsOptions
+			
+			priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
+					dump("$tag = ");
+					dump($tag);
+					dump("data = ");
+					dump(data);
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						o = _app.u.formatMoney(msrp-price,'$',2,true)
+						o = "You save: " + o;
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+						}
+				}, //priceRetailSavings
+				
+				priceretailsavingspercentageprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						var savings = (( msrp - price ) / msrp) * 100;
+						o = savings.toFixed(0)+'%';
+						o = "(" + o + ")";
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceRetailSavings	
+				
+				showhidearea : function($tag,data)	{
+						if(data.value == null || data.value == ""){
+							$tag.hide();
+						}
+						else{
+							$tag.show();
+						}	
+				},//showhidearea
+				
+				outofstockprodhide : function($tag,data)	{
+					
+					pid = data.value;
+					inv = _app.ext.store_product.u.getProductInventory(pid);
+					//dump("outofstockprodhide inv =");
+					//dump(inv);
+					//dump("outofstockprodhide pid =");
+					//dump(pid);
+					if(inv >= 1){
+						//dump("Inventory is 1 or higher. Show product")
+					}
+					else{
+						$($tag).hide();
+						//dump("Inventory is 0. Hide product")
+					}
+					
+				},//outofstockprodhide
+				
+				currencymsrp : function($tag,data)	{
+					//dump("Begin currency product list format");
+					//dump(data);
+					//dump($tag);
+					
+					var r = "<span class='msrpPrefix'>MSRP:</span> $"+data.value;
+					//dump(r);
+					var cents = r.split(".")
+					//dump(cents[1]);
+					if(cents[1] == undefined){
+						//dump ("No cents present. Add a .00")
+						r = r + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1].length === 1){
+						//dump(cents[1].length);
+						//dump ("cents only has one value. Adding a zero.")
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					else if(cents[1] == ""){
+						//dump("Price value has a decimal but no cent values. Fixing this shenanigans");
+						var pricePieces = r.split(".");
+						r = pricePieces[0] + "<span class='cents'>.00</span>";
+					}
+					//dump(r);
+					$tag.append(r);
+				}, //currencymsrp
+				
+				showhidearea : function($tag,data)	{
+					//dump("showhidearea data object = ");
+					//dump(data);
+					if(data.value == null || data.value == ""){
+						//dump("data.value = " + data.value + ". Hiding the element.");
+						$tag.hide();
+					}
+					else{
+						//dump("data.value = " + data.value + ". Showing the element.");
+						$tag.show();
+					}	
+				},//showhidearea
+				
+				priceretailsavingsdifferenceprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					dump(data);
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						o = _app.u.formatMoney(msrp-price,'$',2,true)
+						o = "You save: " + o;
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceretailsavingsdifferenceprodlistitem
+				
+				priceretailsavingspercentageprodlistitem : function($tag,data)	{
+					var o; //output generated.
+					var pData = _app.data['appProductGet|'+data.value]['%attribs'];
+					//use original pdata vars for display of price/msrp. use parseInts for savings computation only.
+					var price = Number(pData['zoovy:base_price']);
+					var msrp = Number(pData['zoovy:prod_msrp']);
+					if(price > 0 && (msrp - price > 0))	{
+						var savings = (( msrp - price ) / msrp) * 100;
+						o = savings.toFixed(0)+'%';
+						o = "(" + o + ")";
+						$tag.append(o);
+						}
+					else	{
+						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
+					}
+				}, //priceretailsavingspercentageprodlistitem	
+				
 		}
 	}
 	return r;

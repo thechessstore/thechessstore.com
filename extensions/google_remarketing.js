@@ -22,7 +22,7 @@ The functions here are designed to work with 'reasonable' size lists of categori
 */
 
 
-var google_remarketing = function() {
+var google_remarketing = function(_app) {
 	var r = {
 		
 	vars : {
@@ -43,7 +43,7 @@ var google_remarketing = function() {
 		callbacks : {
 				init : {
 					onSuccess : function()	{
-		//				app.u.dump('BEGIN app.ext.store_navcats.init.onSuccess ');
+		//				_app.u.dump('BEGIN _app.ext.store_navcats.init.onSuccess ');
 						var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 						return r;
 					},
@@ -54,10 +54,10 @@ var google_remarketing = function() {
 				
 				startExtension : {
 					onSuccess : function()	{
-						if(app.ext.myRIA && app.ext.myRIA.template){
+						if(_app.ext.quickstart && _app.ext.quickstart.template){
 							
 							/*
-							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
+							_app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 								var js = document.createElement("script");
 								js.type = "text/javascript";
 								js.src = "//www.googleadservices.com/pagead/conversion.js";
@@ -68,8 +68,8 @@ var google_remarketing = function() {
 								$('.homepageCollectClub').after(js);
 							}]);
 							
-							app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
-								var $context = $(app.u.jqSelector('#',P.parentID));
+							_app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+								var $context = $(_app.u.jqSelector('#',P.parentID));
 								
 								var js = document.createElement("script");
 								js.type = "text/javascript";
@@ -81,58 +81,54 @@ var google_remarketing = function() {
 								$context.append(js);
 							}]);
 							
-							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+							_app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
+								_app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
 							}]);
 
 							*/
 							
-							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							_app.templates.homepageTemplate.on('complete.chessstore',function(event,$catPage,P){							
+								_app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
+							});
 							
-							app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {								
+							_app.templates.categoryTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+							_app.templates.categoryUnfinishedWoodTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','categoryUnfinishedWoodTemplate','onCompletes',function(P) {
+							_app.templates.category2ProdWideTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','category2ProdWideTemplate','onCompletes',function(P) {
+							_app.templates.categoryTemplate3PanelCat.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','categoryTemplate3PanelCat','onCompletes',function(P) {
+							_app.templates.categoryTemplate4PanelCat.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','categoryTemplate4PanelCat','onCompletes',function(P) {
+							_app.templates.productTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {
+							_app.templates.companyTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','companyTemplate','onCompletes',function(P) {
+							_app.templates.customerTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 							
-							app.rq.push(['templateFunction','customerTemplate','onCompletes',function(P) {
+							_app.templates.searchTemplate.on('complete.chessstore',function(event,$catPage,P){
 								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
-							
-							app.rq.push(['templateFunction','searchTemplate','onCompletes',function(P) {
-								app.u.loadScript(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.googleadservices.com/pagead/conversion.js');
-							}]);
+							});
 						} 
 						else	{
-							setTimeout(function(){app.ext.google_remarketing.callbacks.startExtension.onSuccess()},250);
+							setTimeout(function(){_app.ext.google_remarketing.callbacks.startExtension.onSuccess()},250);
 						}
 						
 					},
