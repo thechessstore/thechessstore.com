@@ -2323,9 +2323,9 @@ sizingMethod='scale')";
 src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
 sizingMethod='scale');*/
 
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/limited-edition-promo-button-128x45.jpg',
-sizingMethod='scale')";	
+sizingMethod='scale')";	*/
 }
 .is_sale{
 	background-image:url(images/promo_tags/sale-promo-button-128x45.png);
@@ -2342,10 +2342,10 @@ sizingMethod='scale')";
 src='images/promo_tags/sale-promo-button-128x45.jpg',
 sizingMethod='scale');*/
 
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/sale-promo-button-128x45.jpg',
 sizingMethod='scale')";	
-}
+}*/
 
 .is_clearance{
 }
@@ -2364,9 +2364,9 @@ sizingMethod='scale')";
 src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
 sizingMethod='scale');*/
 
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/new-arrival-promo-button-128x45.jpg',
-sizingMethod='scale')";
+sizingMethod='scale')";*/
 }
 
 .is_bestseller{
@@ -2384,9 +2384,9 @@ sizingMethod='scale')";
 src='images/promo_tags/hot-promo-button-128x45.jpg',
 sizingMethod='scale');*/
 
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/hot-promo-button-128x45.jpg',
-sizingMethod='scale')";	
+sizingMethod='scale')";	*/
 }
 .is_fresh{
 	
@@ -2406,9 +2406,9 @@ sizingMethod='scale')";
 src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
 sizingMethod='scale');*/
 
--ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+/*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
 src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
-sizingMethod='scale')";	
+sizingMethod='scale')";	*/
 }
 
 
