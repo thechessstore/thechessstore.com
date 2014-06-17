@@ -452,7 +452,7 @@ var extension_thechessstore = function(_app) {
 							}
 							if($('.headerIE8WarningCont').data('messageShown') === false)
 							{
-								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 								$('.headerIE8WarningCont').data('messageShown',true).append();
 							}
 							
@@ -640,7 +640,7 @@ var extension_thechessstore = function(_app) {
 									}
 									if($('.headerIE8WarningCont').data('messageShown') === false)
 									{
-										$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+										$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 										$('.headerIE8WarningCont').data('messageShown',true).append();
 									}
 							});
@@ -738,7 +738,7 @@ var extension_thechessstore = function(_app) {
 							}
 							if($('.headerIE8WarningCont').data('messageShown') === false)
 							{
-								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 								$('.headerIE8WarningCont').data('messageShown',true).append();
 							}
 							
@@ -825,7 +825,7 @@ var extension_thechessstore = function(_app) {
 								}
 								if($('.headerIE8WarningCont').data('messageShown') === false)
 								{
-									$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+									$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 									$('.headerIE8WarningCont').data('messageShown',true).append();
 								}
 								
@@ -859,7 +859,7 @@ var extension_thechessstore = function(_app) {
 							}
 							if($('.headerIE8WarningCont').data('messageShown') === false)
 							{
-								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 								$('.headerIE8WarningCont').data('messageShown',true).append();
 							}
 						});
@@ -1098,7 +1098,7 @@ var extension_thechessstore = function(_app) {
 							}
 							if($('.headerIE8WarningCont').data('messageShown') === false)
 							{
-								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 								$('.headerIE8WarningCont').data('messageShown',true).append();
 							}
 							
