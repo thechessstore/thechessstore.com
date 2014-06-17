@@ -837,6 +837,10 @@ each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
 <div id="categoryTemplate" class=" categoryTemplate" data-app-role='categoryPage'>
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	<div class="catBrowseSidebar">
 	
@@ -908,6 +912,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 <div id='categoryHolidayTemplate' class='categoryHolidayTemplate categoryTemplate' data-app-role='categoryPage'>
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	
     <div class="catTempCont">
@@ -925,6 +933,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 
 <div id='category2ProdWideTemplate' class='categoryTemplate' data-app-role='categoryPage'>
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	<div class="catBrowseSidebar">
 	
@@ -967,6 +979,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
     
     
     <div id="categoryUnfinishedWoodTemplate" class="categoryTemplate" data-app-role='categoryPage'>
+    	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+        <span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+        <span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	<div class="catBrowseSidebar">
 	
@@ -1011,6 +1027,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </div>
 
 <div id='categoryTemplate3PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	<div class="catBrowseSidebar">
 	
@@ -1051,6 +1071,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </div>
 
 <div id='categoryTemplate4PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
+	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+
 
 	<div class="catBrowseSidebar">
 	
@@ -1474,8 +1498,9 @@ this will likely become more flexible in the future. ###
 
 
 <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id="productTemplate" class="productPage">
-<span class="displayNone" data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='data-routing-hash';"></span>
-
+    <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:seo_title'; if(is $var --blank) {{bind $var '.%attribs.zoovy:prod_name';}}; apply --attrib='data-seo-title';"></span>
+    <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:meta_description'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_desc';}}; apply --attrib='data-seo-desc';"></span>
+	<span class="displayNone" data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='data-routing-hash';"></span>
 <ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
 
 <table class="prodViewerContainer">
