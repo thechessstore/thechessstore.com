@@ -444,6 +444,18 @@ var extension_thechessstore = function(_app) {
 							$(".productSearchForm").css("height", "100%");
 							$(".productSearchForm").css("margin-top", "18px");
 							
+							//INTERNET EXPLORER WARNING MESSAGE
+							if($('.headerIE8WarningCont').data('messageShown')){
+							}
+							else{
+								$('.headerIE8WarningCont').data('messageShown',false);
+							}
+							if($('.headerIE8WarningCont').data('messageShown') === false)
+							{
+								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').data('messageShown',true).append();
+							}
+							
 						});
 						
 						
@@ -619,6 +631,18 @@ var extension_thechessstore = function(_app) {
 									$context.empty().remove();
 									showContent('category',{'navcat':P.navcat});
 									});
+									
+									//INTERNET EXPLORER WARNING MESSAGE
+									if($('.headerIE8WarningCont').data('messageShown')){
+									}
+									else{
+										$('.headerIE8WarningCont').data('messageShown',false);
+									}
+									if($('.headerIE8WarningCont').data('messageShown') === false)
+									{
+										$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+										$('.headerIE8WarningCont').data('messageShown',true).append();
+									}
 							});
 							
 							
@@ -705,6 +729,19 @@ var extension_thechessstore = function(_app) {
 							$(".headerHideShowContent").css("display", "block");
 							$(".productSearchForm").css("height", "100%");
 							$(".productSearchForm").css("margin-top", "18px");
+							
+							//INTERNET EXPLORER WARNING MESSAGE
+							if($('.headerIE8WarningCont').data('messageShown')){
+							}
+							else{
+								$('.headerIE8WarningCont').data('messageShown',false);
+							}
+							if($('.headerIE8WarningCont').data('messageShown') === false)
+							{
+								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').data('messageShown',true).append();
+							}
+							
 							});
 							
 							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
@@ -780,6 +817,18 @@ var extension_thechessstore = function(_app) {
 								showContent('category',{'navcat':P.navcat});
 								});
 								
+								//INTERNET EXPLORER WARNING MESSAGE
+								if($('.headerIE8WarningCont').data('messageShown')){
+								}
+								else{
+									$('.headerIE8WarningCont').data('messageShown',false);
+								}
+								if($('.headerIE8WarningCont').data('messageShown') === false)
+								{
+									$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+									$('.headerIE8WarningCont').data('messageShown',true).append();
+								}
+								
 								
 							});
 							
@@ -801,7 +850,19 @@ var extension_thechessstore = function(_app) {
 							
 						
 						//sample of an onDeparts. executed any time a user leaves this page/template type.
-						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P) {_app.u.dump("just left the homepage")});
+						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P) {
+							//INTERNET EXPLORER WARNING MESSAGE
+							if($('.headerIE8WarningCont').data('messageShown')){
+							}
+							else{
+								$('.headerIE8WarningCont').data('messageShown',false);
+							}
+							if($('.headerIE8WarningCont').data('messageShown') === false)
+							{
+								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').data('messageShown',true).append();
+							}
+						});
 						
 						//Header dropdown menus
 						var showDropdown = function ($tag) {
@@ -1028,6 +1089,18 @@ var extension_thechessstore = function(_app) {
 							//PRODUCT IMAGE CLICK BLOCKER
 							var $context = $(_app.u.jqSelector('#',P.parentID));
 							setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+							
+							//INTERNET EXPLORER WARNING MESSAGE
+							if($('.headerIE8WarningCont').data('messageShown')){
+							}
+							else{
+								$('.headerIE8WarningCont').data('messageShown',false);
+							}
+							if($('.headerIE8WarningCont').data('messageShown') === false)
+							{
+								$('.headerIE8WarningCont').anymessage({'message':'We noticed you\'re using Internet Explorer 8 or lower. Please consider upgrading to version 9 and above or using Firefox, Chrome, or Safari in order to view this site correctly.'});	
+								$('.headerIE8WarningCont').data('messageShown',true).append();
+							}
 							
 						});
 						
