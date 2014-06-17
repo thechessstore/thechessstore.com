@@ -1396,6 +1396,9 @@ $('fieldset',$form).each(function(){
 	});
 
 	filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
+	
+	//REPLACE THE ABOVE LINE WITH THIS OR SOMETHING LIKE THIS WHENEVER YOU FIGURE OUT HOW TO ACCESS INVENTORY IN ELASTIC.
+	//filters.and.push({"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}});
 
 //and requires at least 2 inputs, so add a match_all.
 //if there are no filters, don't add it. the return is also used to determine if any filters are present

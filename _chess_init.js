@@ -24,8 +24,8 @@ myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram'])
 //myApp.rq.push(['extension',0,'entomologist','extensions/entomologist/extension.js']);
 //myApp.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
 
-//myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-//myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
+myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
+myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
 myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
@@ -93,6 +93,25 @@ myApp.cmr.push(['goto',function(message,$context){
 	$history.append($P);
 	$history.parent().scrollTop($history.height());
 	}]);
+	
+	
+	//MINI CART FIX
+	$('#cartTemplate').on('complete.updateMinicart',function(state,$ele,infoObj)	{
+  	var cartid = infoObj.cartid || myApp.model.fetchCartID();
+  	var $appView = $('#appView'), cart = myApp.data['cartDetail|'+cartid], itemCount = 0, subtotal = 0, total = 0;
+  	dump(" -> cart "+cartid+": "); dump(cart);
+  	if(!$.isEmptyObject(cart['@ITEMS']))	{
+  		itemCount = cart.sum.items_count || 0;
+  		subtotal = cart.sum.items_total;
+  		total = cart.sum.order_total;
+  		}
+  	else	{
+  		//cart not in memory yet. use defaults.
+  		}
+  	$('.cartItemCount',$appView).text(itemCount);
+  	$('.cartSubtotal',$appView).text(myApp.u.formatMoney(subtotal,'$',2,false));
+  	$('.cartTotal',$appView).text(myApp.u.formatMoney(total,'$',2,false));
+ });
 
 
 //gets executed from app-admin.html as part of controller init process.

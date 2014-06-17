@@ -58,16 +58,18 @@ var google_dynamicremarketing = function(_app) {
 						});
 					});
 				_app.templates.cartTemplate.on('complete.chessstore',function(event,$catPage,P){
+					var cartID = _app.model.fetchCartID();
+     				var thisCartDetail = _app.data["cartDetail|"+cartID];
 					var prods = [];
-					if(_app.data.cartDetail['@ITEMS'] && _app.data.cartDetail['@ITEMS'].length > 0){
-						for(var index in _app.data.cartDetail['@ITEMS']){
-							prods.push(_app.data.cartDetail['@ITEMS'][index].product);
+					if(thisCartDetail['@ITEMS'] && thisCartDetail['@ITEMS'].length > 0){
+						for(var index in thisCartDetail['@ITEMS']){
+							prods.push(thisCartDetail['@ITEMS'][index].product);
 							}
 						}
 					_app.ext.google_dynamicremarketing.u.trackEvent({
 						"ecomm_prodid":prods,
 						"ecomm_pagetype":"cart",
-						"ecomm_totalvalue":_app.data.cartDetail.sum.order_total
+						"ecomm_totalvalue":thisCartDetail.sum.order_total
 						});
 					});
 				

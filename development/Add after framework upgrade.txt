@@ -31,6 +31,22 @@ Grab the old version from the file you just uploaded.....only this one is update
 becomes
 <div data-app-role="billToShipContainer">
 		<label class="billToShipAnyCB">
+- Add this directly above the place order button: <div class="checkoutClickBlocker" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
+ <p class="class="checkoutClickBlockerText">Click here to re-calculate with new entries</p>
+- <section id="chkoutCartSummaryTemplate">
+becomes
+<section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
 
 4. Checkout Template:
 - Add class:checkoutPlaceOrderButton to checkout button so that styles can be properly applied to it.
+
+5. controller.js:
+ - if($input.hasClass('ui-state-error'))	{
+ 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+ 						}
+ becomes
+ if($input.hasClass('ui-state-error'))	{
+ 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+ 						$(".checkoutClickBlocker").show();
+ 						$(".checkoutClickBlockerText").show();
+ 						}
