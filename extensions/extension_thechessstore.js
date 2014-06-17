@@ -1132,6 +1132,11 @@ var extension_thechessstore = function(_app) {
 //don't set this up with a getShipping because we don't always need it.  Add it to parent functions when needed.
 				},
 				
+				checkouterrorclickblock : function() {
+					$(".checkoutClickBlocker").hide();
+					$(".checkoutClickBlockerText").hide();
+				}
+				
 				
 		},
 		

@@ -1891,6 +1891,32 @@ button.prodListATCButton{
     width: 980px;
 }
 
+.chkoutCartSummaryTemplate{
+	position:relative;
+}
+.checkoutClickBlocker{
+    background-color: #5B3C29;
+    box-shadow: 0 0 4px 0 #CC0000;
+    color: #F7D47A;
+    cursor: pointer;
+    display: none;
+    font-family: 'Maven Pro',sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 23px;
+    margin-left: 9px;
+    padding: 6px 0 0;
+    position: absolute;
+    text-align: center;
+    top: 176px;
+    width: 128px;
+    z-index: 2;
+ }
+ .checkoutClickBlockerText{
+ 	display:none;
+ 	color:#CC0000;
+ }
+
 /************************************************************************************************************************/
 /**Search Page**/
 #mainContentArea_search{
@@ -2078,6 +2104,10 @@ button.prodListATCButton{
     width: 97%;
 }
 .checkoutPlaceOrderButton{
+	height: 30px;
+    margin-top: -20px !important;
+    width: 128px;
+	margin-left: 10px;
 }
 .checkoutFormContainer button.checkoutPlaceOrderButton span{
 }

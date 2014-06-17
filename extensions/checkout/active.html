@@ -319,7 +319,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 
-<section id="chkoutCartSummaryTemplate">
+<section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
 	
 	<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 	<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
@@ -344,7 +344,9 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
-	<button class="applyButton checkoutPlaceOrderButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
+	<div class="checkoutClickBlocker" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();">Validate</div>
+    <div><p class="checkoutClickBlockerText">Click here to re-calculate with new entries</p></div>
+    <button class="applyButton checkoutPlaceOrderButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
 		Place Order
 	</button>
 
