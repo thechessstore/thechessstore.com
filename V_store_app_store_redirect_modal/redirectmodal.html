@@ -1,3 +1,7 @@
+<meta name="google-site-verification" content="nN8XwLVwMmpZKlDabgZ13e8AivtNQCRff66tzlla6D0" />
+
+
+
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -26,9 +30,7 @@
 
 //FUNCTIONS
 function handleRedirect() {
- var urlString = document.write(location.href);
- var transferCartID = urlString.split("=");
- window.location = "http://app.thechessstore.com&c=" + transferCartID[1];
+ window.location = "http://app.thechessstore.com";
  console.log("var Function was added");
 }
 function bugLater(){
@@ -40,9 +42,7 @@ function bugLater(){
 function autoRedirect(){
  localStorage.redirectToAppVar = true;
  $('.redirectToSiteApp').dialog('close');
- var urlString = document.write(location.href);
- var transferCartID = urlString.split("=");
- window.location = "http://app.thechessstore.com&c=" + transferCartID[1];
+ window.location = "http://app.thechessstore.com";
 }
 function resetRedirectPreferences(){
  localStorage.redirectToAppVar = false;
@@ -72,7 +72,7 @@ $(document).ready(function() {
   $('<div class="redirectToSiteApp"> '+
   //'<h3>Try our new site for a superior shopping experience&#63;</h3>' +
   '<button onclick="handleRedirect(); return false;">Visit New Site</button>' +
-  '<button class="bugLaterButton" onclick="bugLater()">Use This Site</button>' +
+  '<button class="bugLaterButton" onclick="bugLater()">Use Old Site</button>' +
   '<div>' +
    '<img onclick="handleRedirect(); return false;" src="http://app.thechessstore.com/images/logo.png" />' +
   '</div>' +
@@ -93,9 +93,7 @@ $(document).ready(function() {
     '</div>').appendTo('head');
     $('.autoRedirectToSiteApp').dialog({'modal':'true', 'width':400, height:270});
     function foo1(){
-	 var urlString = document.write(location.href);
-	 var transferCartID = urlString.split("=");
-     window.location = "http://app.thechessstore.com&c=" + transferCartID[1];
+     window.location = "http://app.thechessstore.com";
     }
     var autoRedirectTimer;
     redirectTimer = foo1;
@@ -105,7 +103,7 @@ $(document).ready(function() {
     console.log("One of the two storage values was true, redirect modal is not displaying.");
    }
     else{
-     $('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:350});
+     $('.redirectToSiteApp').dialog({'modal':'true', 'width':450, height:390});
      console.log("Neither storage value was true, displaying redirect modal");
      console.log("sessionStorage = " + sessionStorage.redirectToAppSessionNoCheck);
      console.log("localStorage = " + localStorage.redirectToAppVar);

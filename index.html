@@ -73,11 +73,11 @@ css files should be included before any .js file to ensure they are downloaded i
 $(document).ready(function(){
 
 	window.myApp = new initApp({
-		"release":"201404.ai",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.aj",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
-		"testURL":"http://app.thechessstore.com/", //used ONLY if protocol is file: (for testing)
+		"testURL":"http://www.thechessstore.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
 		"initComplete" : function(){
 			dump(" -> init is complete");
@@ -165,7 +165,7 @@ $(document).ready(function(){
 					</div>
 					<div class="headerBoxRight">
 						<p><a href="#!cart" title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
-						<p><a href="#!checkout" title='Checkout'>Checkout</a></p>
+						<p><a href="#!cart" title='Checkout'>Checkout</a></p>
 						<p><a href="#!customer/lists" class='headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
 
                         <p><a class="pointer headerHideShow" href="#!category/.00060-special_departments.chess-set-collectors-club">Join Collectors Club</a></p>
