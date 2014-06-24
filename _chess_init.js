@@ -49,7 +49,7 @@ myApp.rq.push(['extension',0,'extension_thechessstore','extensions/extension_the
 //myApp.rq.push(['extension',0,'google_remarketing','extensions/google_remarketing.js','startExtension']);
 //myApp.rq.push(['extension',0,'google_dynamicremarketing','extensions/partner_google_dynamicremarketing.js','startExtension']);
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
-myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
+//myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 myApp.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
 //myApp.rq.push(['extension',1,'partner_pepperjam','extensions/partner_pepperjam.js','startExtension']);
 myApp.rq.push(['extension',0,'store_account_creation','extensions/store_account_creation.js']);
