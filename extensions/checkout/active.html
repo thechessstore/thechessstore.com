@@ -344,9 +344,9 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
-	<div class="checkoutClickBlocker" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();">Validate</div>
-    <div><p class="checkoutClickBlockerText">Click here to re-calculate with new entries</p></div>
-    <button class="applyButton checkoutPlaceOrderButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
+	<div class="checkoutClickBlocker displayNone" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
+    <p class="checkoutClickBlockerText displayNone">Click here to re-calculate with new entries</p>
+    <button class="applyButton ui-state-highlight checkoutPlaceOrderButton" data-app-click="order_create|execCartOrderCreate">
 		Place Order
 	</button>
 
@@ -445,6 +445,7 @@ do NOT change the input name or id or checkout will likely break.
 	<button class="applyButton" data-text="false" data-icon-primary="ui-icon-print" data-app-click="order_create|execInvoicePrint">Print Invoice</button>
 	</div>
 	
+	<h2 data-tlc="bind $var '.order.our.orderid'; if (is $var --notblank;) {{apply --append;}};"></h2>
 	<h3 data-tlc="bind $var '.order.data.pool'; if (is $var --notblank;) {{format --prepend='Order Status: '; apply --append;}};"></h3>
 	
 		</td>

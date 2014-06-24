@@ -116,7 +116,7 @@ MagicZoomPlus.options = {
 					var imgSrc = _app.u.makeImage({'tag':0,'w':$tag.attr('width'),'h':$tag.attr('height'),'name':data.value,'b':bgcolor});
 //					_app.u.dump('IMGSRC => '+imgSrc);
 					$tag.attr('src',imgSrc);
-					$tag.wrap("<a href='"+_app.u.makeImage({'tag':0,'name':data.value,'b':bgcolor})+"' rev='"+_app.u.makeImage({'tag':0,'w':340,'h':340,'name':data.value,'b':bgcolor})+"' class='MagicThumb Selector MagicThumb-swap' rel='hint: false;' />")
+					$tag.wrap("<a href='"+_app.u.makeImage({'tag':0,'name':data.value,'b':bgcolor})+"' rev='"+_app.u.makeImage({'tag':0,'w':350,'h':350,'name':data.value,'b':bgcolor})+"' class='MagicThumb Selector MagicThumb-swap' rel='hint: false;' />")
 					// makes shit blow up: rel='zoom-id:bigAssImage_href; selectors-change:mouseover;'
 					}
 				else	{
@@ -136,7 +136,7 @@ MagicZoomPlus.options = {
 					imgName = pdata['zoovy:prod_image'+i];
 //					_app.u.dump(" -> "+i+": "+imgName);
 					if(_app.u.isSet(imgName)) {
-						imgs += "<li><a class='MagicThumb-swap' rel='zoom-id: prodBigImage_href_"+data.value+"; hint: false;' rev='"+_app.u.makeImage({'tag':0,'w':340,'h':340,'name':imgName,'b':'ffffff'})+"' href='"+_app.u.makeImage({'tag':0,'w':'','h':'','name':imgName,'b':'ffffff'})+"'><img src='"+_app.u.makeImage({'tag':0,'w':100,'h':100,'name':imgName,'b':'ffffff'})+"' \/><\/a><\/li>";
+						imgs += "<li><a class='MagicThumb-swap' rel='zoom-id: prodBigImage_href_"+data.value+"; hint: false;' rev='"+_app.u.makeImage({'tag':0,'w':380,'h':380,'name':imgName,'b':'ffffff'})+"' href='"+_app.u.makeImage({'tag':0,'w':'','h':'','name':imgName,'b':'ffffff'})+"'><img src='"+_app.u.makeImage({'tag':0,'w':50,'h':50,'name':imgName,'b':'ffffff'})+"' \/><\/a><\/li>";
 						}
 					}
 				$tag.append(imgs);

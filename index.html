@@ -19,6 +19,28 @@
 
 
 <script type="text/javascript">
+var myCreole, baseURL;
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Replace the UA number below with the UA property to send tracking info to.
+ga('create', 'UA-1506564-2', 'auto');
+ga('require','linker');
+ga('require','ecommerce', 'ecommerce.js');
+ga('set', {
+	// Replace name below
+	'appName' : 'thechessstore.com',
+	'appID' : 'ZMVC',
+	'appVersion' : '201405'
+	});
+ga('send','pageview');
+ga('send','screenview');
+
+/*
+<script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-1506564-2']);
 _gaq.push(['_trackPageview']);
@@ -33,6 +55,7 @@ var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 
 var myCreole, baseURL;
+*/
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
@@ -72,13 +95,16 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript">
 $(document).ready(function(){
 
+	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
+	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
-		"release":"201404.ajtest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.ajtest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
 		"testURL":"http://www.thechessstore.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
+		"analyticsPointer" : "ga",
 		"initComplete" : function(){
 			dump(" -> init is complete");
 			myApp.u.loadScript('_chess_init.js',function(){
@@ -90,6 +116,7 @@ $(document).ready(function(){
 		});
 	myApp.vars.initComplete();
 	myCreole = new Parse.Simple.Creole();
+		}
 	});
 </script>
 

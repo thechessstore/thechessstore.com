@@ -480,7 +480,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 				es.type = 'product';
 				es.mode = 'elastic-search';
 				es.size = 250;
-				//es.sort = [{'prod_name.raw':'asc'}] //here for testing. prod_name is tokenized, so the .raw field must be used for sorting.
+//				es.sort = [{'prod_name.raw':'asc'}] //here for testing. prod_name is tokenized, so the .raw field must be used for sorting.
 				return es;
 				},
 			
@@ -491,13 +491,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 					query.type = 'product';
 					query.mode = 'elastic-search';
 					query.size = 250;
-					query.query =  {
-						"filtered" : {
-						  "query" : {"query_string" : obj},
-						  "filter" : {"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}}
-						  }
-					};
-						
+					query.query =  {"query_string" : obj};
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In store_search.u.buildElasticSimpleQuery, obj.query was empty. ',gMessage:true});
