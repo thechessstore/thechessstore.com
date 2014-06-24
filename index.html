@@ -866,7 +866,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id="categoryTemplate" class=" categoryTemplate" data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -1203,7 +1203,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
+<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" >
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
