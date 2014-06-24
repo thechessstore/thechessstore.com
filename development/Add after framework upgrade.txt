@@ -50,3 +50,5 @@ becomes
  						$(".checkoutClickBlocker").show();
  						$(".checkoutClickBlockerText").show();
  						}
+
+6. Diffmerge the old app-seo, store_seo, store_routing from the last version with this version to ensure all seo routing is carried over. 
