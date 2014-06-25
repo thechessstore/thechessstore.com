@@ -1303,10 +1303,13 @@ var extension_thechessstore = function(_app) {
 						}	
 				},//showhidearea
 				
-				outofstockprodhide : function($tag,data)	{
-					
+				outofstockprodhide : function($tag,data)	{					
 					pid = data.value;
-					inv = _app.ext.store_product.u.getProductInventory(pid);
+					pidData = _app.data['appProductGet|'+pid];
+					//dump("outofstockprodhide pidData =");
+					//dump(pidData);
+					pid = data.value;
+					inv = _app.ext.store_product.u.getProductInventory(pidData);
 					//dump("outofstockprodhide inv =");
 					//dump(inv);
 					//dump("outofstockprodhide pid =");
@@ -1320,7 +1323,7 @@ var extension_thechessstore = function(_app) {
 					}
 					
 				},//outofstockprodhide
-				
+								
 				currencymsrp : function($tag,data)	{
 					//dump("Begin currency product list format");
 					//dump(data);

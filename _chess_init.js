@@ -19,18 +19,21 @@ myApp.rq.push(['extension',0,'store_search','extensions/store_search.js']);
 myApp.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 myApp.rq.push(['extension',0,'cart_message','extensions/cart_message/extension.js']);
 myApp.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
+myApp.rq.push(['extension',0,'store_tracking','extensions/store_tracking.js']);
 myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram']);
 
 //myApp.rq.push(['extension',0,'entomologist','extensions/entomologist/extension.js']);
 //myApp.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
 
-myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
+// 201405 - Deprecated for Universal Analytics
+//myApp.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
 myApp.rq.push(['extension',1,'tools_ab_testing','extensions/tools_ab_testing.js']);
 myApp.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //myApp.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //myApp.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //myApp.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
 myApp.rq.push(['extension',0,'magictoolbox_mzp','extensions/partner_magictoolbox_mzp.js','startExtension']); // (not working yet - ticket in to MTB)
+myApp.rq.push(['extension',0,'seo_robots','extensions/seo_robots.js']);
 
 
 myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jquery.showloading-v1.0.jt.js']); //used pretty early in process..
@@ -45,9 +48,9 @@ myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/jsonpath.0.8.0.js']); //
 myApp.rq.push(['extension',0,'store_filter','extensions/_thechessstore.js']);
 myApp.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
 //myApp.rq.push(['extension',0,'google_remarketing','extensions/google_remarketing.js','startExtension']);
-myApp.rq.push(['extension',0,'google_dynamicremarketing','extensions/partner_google_dynamicremarketing.js','startExtension']);
+//myApp.rq.push(['extension',0,'google_dynamicremarketing','extensions/partner_google_dynamicremarketing.js','startExtension']);
 myApp.rq.push(['extension',0,'prodlist_infinite','extensions/prodlist_infinite.js']);
-myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
+//myApp.rq.push(['extension',1,'google_adwords','extensions/partner_google_adwords.js','startExtension']);
 myApp.rq.push(['extension',1,'partner_linkconnector','extensions/partner_linkconnector.js','startExtension']);
 //myApp.rq.push(['extension',1,'partner_pepperjam','extensions/partner_pepperjam.js','startExtension']);
 myApp.rq.push(['extension',0,'store_account_creation','extensions/store_account_creation.js']);
@@ -151,29 +154,53 @@ myApp.u.showProgress = function(progress)	{
 //Any code that needs to be executed after the app init has occured can go here.
 //will pass in the page info object. (pageType, templateID, pid/navcat/show and more)
 myApp.u.appInitComplete = function()	{
-	myApp.u.dump("Executing myAppIsLoaded code...");
+//	myApp.u.dump("Executing myAppIsLoaded code...");
 	
 	myApp.ext.order_create.checkoutCompletes.push(function(vars,$checkout){
 		dump(" -> begin checkoutCOmpletes code: "); dump(vars);
 		
-		var cartContentsAsLinks = myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order);
-		dump(" -> cartContentsAsLinks: "+cartContentsAsLinks);
-		
+		var cartContentsAsLinks = encodeURIComponent(myApp.ext.cco.u.cartContentsAsLinks(myApp.data[vars.datapointer].order));
+	
 //append this to 
 		$("[data-app-role='thirdPartyContainer']",$checkout).append("<h2>What next?</h2><div class='ocm ocmFacebookComment pointer zlink marginBottom checkoutSprite  '></div><div class='ocm ocmTwitterComment pointer zlink marginBottom checkoutSprit ' ></div><div class='ocm ocmContinue pointer zlink marginBottom checkoutSprite'></div>");
 		$('.ocmTwitterComment',$checkout).click(function(){
 			window.open('http://twitter.com/home?status='+cartContentsAsLinks,'twitter');
-			_gaq.push(['_trackEvent','Checkout','User Event','Tweeted about order']);
+			window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','Tweeted about order');
 			});
 		//the fb code only works if an appID is set, so don't show banner if not present.				
 		if(myApp.u.thisNestedExists("zGlobals.thirdParty.facebook.appId") && typeof FB == 'object')	{
 			$('.ocmFacebookComment',$checkout).click(function(){
 				myApp.ext.quickstart.thirdParty.fb.postToWall(cartContentsAsLinks);
 				_gaq.push(['_trackEvent','Checkout','User Event','FB message about order']);
+				window[myApp.vars.analyticsPointer]('send', 'event','Checkout','User Event','FB message about order');
 				});
 			}
 		else	{$('.ocmFacebookComment').hide()}
 		});
+	
+	//Cart Messaging Responses.
+	myApp.cmr.push(['chat.join',function(message){
+		if(message.FROM == 'ADMIN')	{
+			var $ui = myApp.ext.quickstart.a.showBuyerCMUI();
+			$("[data-app-role='messageInput']",$ui).show();
+			$("[data-app-role='messageHistory']",$ui).append("<p class='chat_join'>"+message.FROM+" has joined the chat.<\/p>");
+			$('.show4ActiveChat',$ui).show();
+			$('.hide4ActiveChat',$ui).hide();
+			}
+		}]);
+
+	myApp.cmr.push(['goto',function(message,$context){
+		var $history = $("[data-app-role='messageHistory']",$context);
+		$P = $("<P>")
+			.addClass('chat_post')
+			.append("<span class='from'>"+message.FROM+"<\/span> has sent over a "+(message.vars.pageType || "")+" link for you within this store. <span class='lookLikeLink'>Click here<\/span> to view.")
+			.on('click',function(){
+				showContent(myApp.ext.quickstart.u.whatAmIFor(message.vars),message.vars);
+				});
+		$history.append($P);
+		$history.parent().scrollTop($history.height());
+		}]);
+
 	}
 
 
@@ -194,6 +221,9 @@ myApp.router.appendInit({
 		g = g || {};
 		if(g.uriParams.seoRequest){
 			showContent(g.uriParams.pageType, g.uriParams);
+			}
+		else if (g.uriParams.marketplace){
+			showContent("product",{"pid":g.uriParams.product});
 			}
 		else if(document.location.hash)	{	
 			myApp.u.dump('triggering handleHash');

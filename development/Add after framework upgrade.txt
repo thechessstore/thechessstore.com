@@ -31,8 +31,8 @@ Grab the old version from the file you just uploaded.....only this one is update
 becomes
 <div data-app-role="billToShipContainer">
 		<label class="billToShipAnyCB">
-- Add this directly above the place order button: <div class="checkoutClickBlocker" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
- <p class="class="checkoutClickBlockerText">Click here to re-calculate with new entries</p>
+- Add this directly above the place order button: <div class="checkoutClickBlocker displayNone" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
+    <p class="checkoutClickBlockerText displayNone">Click here to re-calculate with new entries</p>
 - <section id="chkoutCartSummaryTemplate">
 becomes
 <section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
@@ -50,3 +50,5 @@ becomes
  						$(".checkoutClickBlocker").show();
  						$(".checkoutClickBlockerText").show();
  						}
+
+6. Diffmerge the old app-seo, store_seo, store_routing from the last version with this version to ensure all seo routing is carried over. 

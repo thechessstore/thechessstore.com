@@ -19,6 +19,28 @@
 
 
 <script type="text/javascript">
+var myCreole, baseURL;
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Replace the UA number below with the UA property to send tracking info to.
+ga('create', 'UA-1506564-2', 'auto');
+ga('require','linker');
+ga('require','ecommerce', 'ecommerce.js');
+ga('set', {
+	// Replace name below
+	'appName' : 'thechessstore.com',
+	'appID' : 'ZMVC',
+	'appVersion' : '201405'
+	});
+ga('send','pageview');
+ga('send','screenview');
+
+/*
+<script type="text/javascript">
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-1506564-2']);
 _gaq.push(['_trackPageview']);
@@ -33,6 +55,7 @@ var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 
 var myCreole, baseURL;
+*/
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
@@ -64,6 +87,9 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="controller.js"></script>
 <script src="model.js"></script>
 
+<!--CUSTOM SCRIPTS GO HERE-->
+<script data-apptimize="embed" type="text/javascript" src="extensions/seo_robots.js"></script>
+
 <!-- ### TODO -> test how the load process goes w/ these in init. if includes is moved, move the new Parse  -->
 <script src="resources/jquery.ui.anyplugins.js"></script>
 <script type="text/javascript" src="includes.js"></script><!-- contains some polyfills and should be loaded early -->
@@ -72,13 +98,16 @@ css files should be included before any .js file to ensure they are downloaded i
 <script type="text/javascript">
 $(document).ready(function(){
 
+	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
+	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
-		"release":"201404.aj",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201404.ajtest7",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
 		"testURL":"http://www.thechessstore.com/", //used ONLY if protocol is file: (for testing)
 		"addjQueryPointer" : true,
+		"analyticsPointer" : "ga",
 		"initComplete" : function(){
 			dump(" -> init is complete");
 			myApp.u.loadScript('_chess_init.js',function(){
@@ -90,7 +119,37 @@ $(document).ready(function(){
 		});
 	myApp.vars.initComplete();
 	myCreole = new Parse.Simple.Creole();
+		}
 	});
+</script>
+
+<script data-apptimize="minify" type="text/javascript">
+ var _robots = {
+ 	hello : function(botStr){
+ 		_robots._robotGreeting = botStr || true;
+ 		console.log("Bot saying hello: "+botStr);
+ 		return "1.0";
+ 		},
+ 	next : function(){
+ 		//This implementation of _robots.next returns a function that simply blocks with a '100' until the app has been fully instantiated
+ 		_robots.status = function(){
+ 			if(typeof myApp !== 'undefined' && 
+ 				typeof myApp.ext !== 'undefined' && 
+ 				typeof myApp.ext.quickstart !== 'undefined' && 
+ 				typeof myApp.ext.quickstart.vars !== 'undefined' &&
+ 				myApp.ext.quickstart.vars.showContentFinished && myApp.ext.quickstart.vars.showContentCompleteFired){
+ 				return 204;
+ 				}
+ 			else{
+ 				return 100;
+ 				}
+ 			}
+ 		},
+ 	ready : function(){return false;},
+ 	goodbye : function(){
+ 		console.log("Bot saying goodbye: "+botStr);
+ 		}
+ 	}
 </script>
 
 
@@ -839,7 +898,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id="categoryTemplate" class=" categoryTemplate" data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -853,7 +912,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
@@ -914,12 +973,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryHolidayTemplate' class='categoryHolidayTemplate categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
         
@@ -935,7 +994,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='category2ProdWideTemplate' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -949,7 +1008,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
@@ -981,7 +1040,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div id="categoryUnfinishedWoodTemplate" class="categoryTemplate" data-app-role='categoryPage'>
     	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
         <span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-        <span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+        <!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -995,7 +1054,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
@@ -1029,7 +1088,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate3PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -1043,7 +1102,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
@@ -1073,7 +1132,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate4PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+	<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 
 
 	<div class="catBrowseSidebar">
@@ -1087,7 +1146,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     </div>
 	
     <div class="catTempCont">
-		<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>
+		<!--<span class="displayNone" data-tlc="bind $navcat '.navcat'; bind $seo '.pretty'; bind $hash ''; store_routing#categorylink --navcat=$navcat --seo=$seo; apply --attrib='data-routing-hash';"></span>-->
 	
 		<ul data-tlc="bind $var '.path'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy;" class="breadcrumb clearfix noPadOrMargin fluidList"></ul>
 
@@ -1176,7 +1235,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
+<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" >
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     

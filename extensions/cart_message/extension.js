@@ -41,7 +41,7 @@ var cart_message = function(_app) {
 					
 					var addCMResponse = function(id,func){
 						//allow but notify if an existing response is overwritten.
-						if(_app.cmr[i][0]){
+						if(_app.cmr[i] && _app.cmr[i][0]){
 							_app.u.dump("Cart Messaging Response "+_app.cmr[i][0]+" is being overwritten","warn");
 							}
 						_app.ext.cart_message.cmResponse[id] = func;
@@ -62,7 +62,7 @@ var cart_message = function(_app) {
 				onError : function()	{
 	//errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 	//you may or may not need it.
-					_app.u.dump('BEGIN admin_orders.callbacks.init.onError');
+					_app.u.dump('BEGIN cart_message.callbacks.init.onError');
 					}
 				}, //init
 	
@@ -159,7 +159,8 @@ some defaults are present, but they can be overwritten by the app easily enough.
 					$("[data-app-role='messageHistory']",$context).append("<p class='chat_join'>"+message.FROM+" has joined the chat.<\/p>");
 					},
 				'cart.itemAppend' : function(opts,$context)	{
-					$("[data-app-role='messageInput']",$context).show();
+//** 201405 -> the correct behavior would be to override this default if you want a 'show' executed, not the opposite.
+//					$("[data-app-role='messageInput']",$context).show();
 					$("[data-app-role='messageHistory']",$context).append("<p class='cart_item_append'>"+opts.FROM+" has added item "+opts.sku+" to the cart.<\/p>");
 					},
 				'chat.post' : function(message,$context)	{

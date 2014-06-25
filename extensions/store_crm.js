@@ -410,7 +410,8 @@ This is used to get add an array of skus, most likely for a product list.
 									$form.anymessage({'message':rd});
 									}
 								else	{
-									$form.anymessage(_app.u.successMsgObject("Thank you, you are now subscribed."));
+//* 201404 -> to customize the 'success' message, add a hidden input w/ name of 'message' and set the value to what you want displayed.
+									$form.anymessage(_app.u.successMsgObject(sfo.message || "Thank you, you are now subscribed."));
 									}
 								}
 							};
@@ -520,7 +521,7 @@ This is used to get add an array of skus, most likely for a product list.
 // ** 201403 -> need to pass in a blank dataset so translation occurs. required for country dropdown.
 					$editor.tlc({'templateid':(vars.addressType == 'ship') ? 'chkoutAddressShipTemplate' : 'chkoutAddressBillTemplate','dataset':{}});
 //the address id should be at the bottom of the form, not the top. isn't that important or required.
-					$editor.append("<input type='text' maxlength='6' data-minlength='6' name='shortcut' placeholder='address id (6 characters)' \/>");
+					$editor.append("<input type='text' maxlength='6' data-minlength='6' name='shortcut' placeholder='address id (6 characters)' \/> <span class='hint'>A shortcut to identify this address (ex: office, myhome, etc)");
 					$editor.wrapInner('<form \/>'); //needs this for serializeJSON later.
 
 //if the placeholder attribute on an input is not supported (thx IE8), then add labels.
@@ -561,9 +562,9 @@ This is used to get add an array of skus, most likely for a product list.
 								
 								if(_app.u.validateForm($form))	{
 									$form.showLoading('Adding Address');
-									var serializedForm = $form.serializeJSON();
+									var sfo = $form.serializeJSON();
 //save and then refresh the page to show updated info.
-									_app.model.addDispatchToQ({
+									_app.model.addDispatchToQ($.extend({},sfo,{
 										'_cmd':'buyerAddressAddUpdate',
 										'_tag':	{
 											'callback':function(rd){
@@ -572,7 +573,7 @@ This is used to get add an array of skus, most likely for a product list.
 													$form.anymessage({'message':rd});
 													}
 												else if(typeof onSuccessCallback === 'function')	{
-													onSuccessCallback(rd,serializedForm);
+													onSuccessCallback(rd,sfo);
 													$editor.dialog('close');
 													}
 												else	{
@@ -581,7 +582,7 @@ This is used to get add an array of skus, most likely for a product list.
 													}
 												}
 											}
-										},'mutable');
+										}),'mutable');
 									_app.model.dispatchThis('mutable');
 //dump data in memory and local storage. get new copy up updated address list for display.
 									_app.model.destroy('buyerAddressList');
@@ -672,9 +673,7 @@ This is used to get add an array of skus, most likely for a product list.
 						},'immutable');
 					_app.model.destroy("buyerProductListDetail|"+listid); //destroy the list in memory so the next time we visit the list page, a new copy is fetched.
 					_app.model.dispatchThis('immutable');
-					if(_gaq)	{
-						_gaq.push(['_trackEvent','Manage buyer list','User Event','item removed',pid]);
-						}
+					window[_app.vars.analyticsPointer]('send','event','Manage buyer list','User Event','item removed');
 					}
 				else	{
 					$('#globalMessaging').anymessage({"message":"In store_crm.e.productByerListRemoveExec, either unable to ascertain pid ["+pid+"] and/or buyerlistid ["+listid+"].","gMessage":true});
@@ -685,8 +684,8 @@ This is used to get add an array of skus, most likely for a product list.
 			//add this as submit action on the form.
 			productReviewSubmit : function($ele,p)	{
 				p.preventDefault();
-				var $form = $ele.closest('form'); //this way, $ele can be a button within the form or a onSubmit action on the form itself.
-				if(_app.u.validateForm($ele))	{
+				var $form = $ele.closest('form'); //this way, $ele can be a button within the form or an onSubmit action on the form itself.
+				if(_app.u.validateForm($form))	{
 					var sfo = $form.serializeJSON();
 					if(sfo.pid)	{
 						sfo._cmd = "appReviewAdd";
