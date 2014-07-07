@@ -88,7 +88,6 @@ _app.router.appendHash({'type':'match','route':'modal/product/{{pid}}*','callbac
 				r = true;
 
 				return r;
-
 				},
 			onError : function()	{
 				_app.u.dump('BEGIN store_routing.callbacks.init.onError');
@@ -210,6 +209,8 @@ optional params:
 					
 					case 'category':
 						r = true;
+						//dump("args.seo = ");
+						//dump(args.seo);
 						var seo = args.seo || data.value.pretty;
 						data.globals.binds[data.globals.focusBind] = _app.ext.store_routing.u.categoryAnchor(data.value.path, seo);
 						break;
@@ -256,6 +257,8 @@ optional params:
 					}
 				},
 			cleanURIComponent : function(str){
+				//dump("str = ")
+				//dump(str);
 				var component = str.replace(/^\s+|\s+$/g, '');
 				//component = component.replace(' ', '-');
 				component = component.replace(/[^a-zA-Z0-9]+/g, '-');
@@ -265,8 +268,6 @@ optional params:
 				return "#!product/"+pid+"/"+(seo ? _app.ext.store_routing.u.cleanURIComponent(seo) : '');
 				},
 			categoryAnchor : function(path,seo)	{
-				dump("seo = ");
-				dump(seo);
 				return "#!category/"+path+"/"+((seo) ? _app.ext.store_routing.u.cleanURIComponent(seo) : '');
 				},
 			searchAnchor : function(type,value)	{

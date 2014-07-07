@@ -11,7 +11,7 @@ myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.t
 myApp.rq.push(['extension',0,'order_create','extensions/checkout/extension.js']);
 myApp.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 
-myApp.rq.push(['extension',0,'store_routing','extensions/store_routing.js']);
+myApp.rq.push(['extension',0,'store_routing','extensions/store_routing.js', 'attachEventHandlers']);
 
 myApp.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 myApp.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -68,34 +68,6 @@ myApp.u.loadScript(myApp.vars.baseURL+'resources/peg-0.8.0.js',function(){
 	myApp.model.getGrammar(myApp.vars.baseURL+"resources/pegjs-grammar-20140203.pegjs");
 	}); // ### TODO -> callback on RQ.push wasn't getting executed. investigate.
 
-//Cart Messaging Responses.
-
-myApp.cmr.push(['chat.join',function(message){
-	if(message.FROM == 'ADMIN')	{
-		var $ui = myApp.ext.quickstart.a.showBuyerCMUI();
-		$("[data-app-role='messageInput']",$ui).show();
-		$("[data-app-role='messageHistory']",$ui).append("<p class='chat_join'>"+message.FROM+" has joined the chat.<\/p>");
-		$('.show4ActiveChat',$ui).show();
-		$('.hide4ActiveChat',$ui).hide();
-		}
-	}]);
-
-//the default behavior for an itemAppend is to show the chat portion of the dialog. that's an undesired behavior from the buyer perspective (chat only works if admin is actively listening).
-myApp.cmr.push(['cart.itemAppend',function(message,$context)	{
-	$("[data-app-role='messageHistory']",$context).append("<p class='cart_item_append'>"+message.FROM+" has added item "+message.sku+" to the cart.<\/p>");
-	}]);
-
-myApp.cmr.push(['goto',function(message,$context){
-	var $history = $("[data-app-role='messageHistory']",$context);
-	$P = $("<P>")
-		.addClass('chat_post')
-		.append("<span class='from'>"+message.FROM+"<\/span> has sent over a "+(message.vars.pageType || "")+" link for you within this store. <span class='lookLikeLink'>Click here<\/span> to view.")
-		.on('click',function(){
-			showContent(myApp.ext.quickstart.u.whatAmIFor(message.vars),message.vars);
-			});
-	$history.append($P);
-	$history.parent().scrollTop($history.height());
-	}]);
 	
 	
 	//MINI CART FIX
@@ -177,7 +149,7 @@ myApp.u.appInitComplete = function()	{
 			}
 		else	{$('.ocmFacebookComment').hide()}
 		});
-	
+
 	//Cart Messaging Responses.
 	myApp.cmr.push(['chat.join',function(message){
 		if(message.FROM == 'ADMIN')	{
@@ -188,7 +160,12 @@ myApp.u.appInitComplete = function()	{
 			$('.hide4ActiveChat',$ui).hide();
 			}
 		}]);
-
+	
+	//the default behavior for an itemAppend is to show the chat portion of the dialog. that's an undesired behavior from the buyer perspective (chat only works if admin is actively listening).
+	myApp.cmr.push(['cart.itemAppend',function(message,$context)	{
+		$("[data-app-role='messageHistory']",$context).append("<p class='cart_item_append'>"+message.FROM+" has added item "+message.sku+" to the cart.<\/p>");
+		}]);
+	
 	myApp.cmr.push(['goto',function(message,$context){
 		var $history = $("[data-app-role='messageHistory']",$context);
 		$P = $("<P>")
