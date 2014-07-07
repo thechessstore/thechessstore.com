@@ -1798,7 +1798,8 @@ this will likely become more flexible in the future. ###
 				<button class="ui-button-text ui-button ui-state-default ui-corner-all applyButton" data-app-click="store_crm|productReviewShow">Write Review</button>
 			</div>
 		</div>
-		<ul data-tlc="bind $var '.@reviews'; store_product#reviewlist  --templateid='productReviewsTemplateDetail'  --legacy;" class="listStyleNone clearfix productReviewsList" id="prodViewerReviews"></ul>
+		
+		<ul data-tlc="bind $var '.reviews.@reviews'; controller#loop --templateid='productReviewsTemplateDetail'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone clearfix productReviewsList"></ul>
 </div>
 
 
