@@ -199,7 +199,7 @@ var seo_robots = function(_app) {
 									}
 								}
 								else{
-									dump (p.id + "is having an issue.");
+									dump (p.id + "is having an issue. Check myApp > data > appSEOFetch > @objects > item#" + i + "For offending item.");
 									dump("i = " + i);
 									dump("p = ");
 									dump(p);
