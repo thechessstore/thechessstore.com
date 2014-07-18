@@ -67,8 +67,8 @@ var quickstart = function(_app) {
 		"sotw" : {}, //state of the world. set to most recent page info object.
 		"hotw" : new Array(15), //history of the world. contains 15 most recent sotw objects.
 		"showContentFinished" : false,
- 		"showContentCompleteFired" : false,
- 		"cachedPageCount" : 20,
+		"showContentCompleteFired" : false,
+		"cachedPageCount" : 20,
 		"session" : {
 			"recentSearches" : [],
 			"recentlyViewedItems" : [],
@@ -376,7 +376,7 @@ document.write = function(v){
 					delete tagObj.datapointer; //delete this so tlc doesn't do an unnecessary extend (data is already merged)
 					tagObj.verb = 'translate';
 //					dump(" -> tagObj: "); dump(tagObj);
-					_app.ext.quickstart.u.updateDOMTitle((tagObj.navcat == '.' ? 'Home' : tagObj.dataset.pretty));
+
 					if(tagObj.lists && tagObj.lists.length)	{
 						var L = tagObj.lists.length;
 						for(var i = 0; i < L; i += 1)	{
@@ -393,7 +393,6 @@ document.write = function(v){
 // the bulk of the product translation has already occured by now (attribs, reviews and session) via callbacks.showProd.
 // product lists are being handled through 'buildProductList'.
 					var pData = _app.data['appProductGet|'+tagObj.pid] //shortcut.
-					_app.ext.quickstart.u.updateDOMTitle(pData['%attribs']['zoovy:prod_seo_title'] || pData['%attribs']['zoovy:prod_name']);
 					if(pData && pData['%attribs'] && pData['%attribs']['zoovy:grp_type'] == 'CHILD')	{
 						if(pData['%attribs']['zoovy:grp_parent'] && _app.data['appProductGet|'+pData['%attribs']['zoovy:grp_parent']])	{
 							dump(" -> this is a child product and the parent prod is available. Fetch child data for siblings.");
@@ -521,37 +520,22 @@ need to be customized on a per-ria basis.
 
 // * 201403 -> infoObj now passed into pageTransition.
 		pageTransition : function($o,$n, infoObj, callback)	{
+			$n.removeClass('displayNone').show();
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-//$o MAY be a jquery instance but have no length, so check both.
-			if($o instanceof jQuery && $o.length)	{
-/*
-*** 201403 -> move the scroll to top into the page transition for 2 reasons:
-1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
-2. Puts control of this into custom page transitions.
-*/
-
-				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
-					//new page content loading. scroll to top.
-					$('html, body').animate({scrollTop : 0},'fast',function(){
-						$o.fadeOut(100, function(){$n.fadeIn(100); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
-						})
-					} 
-				else	{
-					$o.fadeOut(100, function(){$n.fadeIn(100); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);}); //fade out old, fade in new.
-					}
+			
+			if(infoObj.performJumpToTop){
+				$('html, body').animate({scrollTop : 0}, 400);
 				}
-			else if($n instanceof jQuery)	{
-				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
-				$('html, body').animate({scrollTop : 0},'fast',function(){
-					$n.fadeIn(1000);
-					callback();
- 					setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;},100);
-					});
+			
+			if($o.length)	{
+				//dump(" -> got here.  n.is(':visible'): "+$n.is(':visible'));
+				$o.addClass('post'); 
+				setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);}, 600); //fade out old, fade in new.
 				}
 			else	{
-				//hhmm  not sure how or why we got here.
-				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
-				_app.ext.quickstart.vars.showContentFinished = true;
+				$n.addClass('active')
+				callback();
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			}, //pageTransition
 
@@ -928,8 +912,8 @@ fallback is to just output the value.
 // -> unshift is used in the case of 'recent' so that the 0 spot always holds the most recent and also so the length can be maintained (kept to a reasonable #).
 // infoObj.back can be set to 0 to skip a URI update (will skip both hash state and popstate.) 
 			showContent : function(pageType,infoObj)	{
-				_app.ext.quickstart.vars.showContentFinsihed = false;
- 				_app.ext.quickstart.vars.showContentCompleteFired = false;
+				_app.ext.quickstart.vars.showContentFinished = false;
+				_app.ext.quickstart.vars.showContentCompleteFired = false;
 //				dump("BEGIN showContent ["+pageType+"]."); dump(infoObj);
 				infoObj = infoObj || {}; //could be empty for a cart or checkout
 /*
@@ -991,7 +975,32 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						infoObj.navcat = zGlobals.appSettings.rootcat;
 						$new = _app.ext.quickstart.u.showPage(infoObj);
 						break;
-
+					case 'static':
+						infoObj.pageType = 'static';
+						var parentID = infoObj.templateID+"_"+(infoObj.id || "");
+						var $parent = $(_app.u.jqSelector('#',parentID));
+						if($parent.length > 0){
+							infoObj.state = 'init';
+							_app.renderFunctions.handleTemplateEvents($parent,infoObj);
+							}
+						else {
+							$parent = new tlc().getTemplateInstance(infoObj.templateID);
+							$parent.attr('id', parentID);
+							infoObj.state = 'init';
+							_app.renderFunctions.handleTemplateEvents($parent,infoObj);
+							if(infoObj.dataset){
+								dump(infoObj);
+								infoObj.verb = 'translate';
+								$parent.tlc(infoObj);
+								}
+							}
+						$new = $parent;
+						$new.data('templateid',infoObj.templateid);
+						$new.data('pageid',infoObj.id);
+						$('#mainContentArea').append($new);
+						infoObj.state = 'complete';
+						_app.renderFunctions.handleTemplateEvents($new,infoObj);
+						break;
 					case 'category':
 //add item to recently viewed list IF it is not already the most recent in the list.				
 //Originally, used: 						if($.inArray(infoObj.navcat,_app.ext.quickstart.vars.session.recentCategories) < 0)
@@ -1130,6 +1139,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					}
 				else	{
 					dump("WARNING! in showContent and no parentID is set for the element being translated.");
+					_app.ext.quickstart.vars.showContentFinished = true;
 					}
 
 //NOT POSTING THIS MESSAGE AS ASYNC BEHAVIOR IS NOT CURRENTLY QUANTIFIABLE					
@@ -1522,10 +1532,7 @@ $target.tlc({
 					}
 				},
 
-			updateDOMTitle : function(title)	{
-				title = (typeof title === "string") ? title : ""; //better blank than 'undefined' or 'object'.
-				document.title = title;
-				},
+
 
 //used in checkout to populate username: so either login or bill/email will work.
 //never use this to populate the value of an email form field because it may not be an email address.
@@ -1599,6 +1606,7 @@ $target.tlc({
 //				if(infoObj.pageType == 'cart' && infoObj.show != 'inline'){r = false; dump('transition suppressed: showing modal cart.');}
 				if(infoObj.pageType == 'category' && $old.data('templateid') == 'categoryTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading same category.");}
 				else if(infoObj.pageType == 'category' && $old.data('templateid') == 'homepageTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading homepage.");}
+				else if(infoObj.pageType == 'static' && $old.data('templateid') == infoObj.templateid && $old.data('pageid') == infoObj.id){r = false; dump("transition suppressed: same filter page "+infoObj.id);}
 				else if(infoObj.pageType == 'product' && $old.data('templateid') == 'productTemplate' && $old.data('pid') == infoObj.pid){r = false; dump("transition suppressed: reloading same product.");}
 				else if($old.data('templateid') == 'companyTemplate' && infoObj.pageType == 'company')	{r = false; dump("transition suppressed: changing company articles.");}
 				else if($old.data('templateid') == 'customerTemplate' && infoObj.pageType == 'customer')	{r = false; dump("transition suppressed: changing customer articles.");}
@@ -2145,7 +2153,6 @@ effects the display of the nav buttons only. should be run just after the handle
 				infoObj.templateID = 'companyTemplate';
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_company';
-				_app.ext.quickstart.u.updateDOMTitle("Company - "+infoObj.show);
 				var $mcac = $('#mainContentArea_company');
 				
 				if($mcac.length)	{
@@ -2206,31 +2213,36 @@ effects the display of the nav buttons only. should be run just after the handle
 					
 //If raw elastic has been provided, use that.  Otherwise build a query.
 				if(infoObj.elasticsearch){
-					_app.ext.quickstart.u.updateDOMTitle("Search - advanced");
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
 					}
 				else if(infoObj.tag)	{
-					_app.ext.quickstart.u.updateDOMTitle("Search - tag: "+infoObj.tag);
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
-							 {"term":{"tags":decodeURIComponent(infoObj.tag)}},
-							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
+							 {"term":{"tags":infoObj.tag}},
 							 ]
 						  }});
 					}
 				else if (infoObj.KEYWORDS) {
-					_app.ext.quickstart.u.updateDOMTitle("Search - keywords: "+infoObj.KEYWORDS);
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
-					   "filter":{
-						  "and" : [
-							 {"query":{"query_string":{"query":decodeURIComponent(infoObj.KEYWORDS), "fields":["prod_name^5","pid","prod_desc"]}}},
-							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
-							 ]
-						  }});
+						"query":{
+							"function_score" : {										
+								"query" : {
+									"query_string":{"query":infoObj.KEYWORDS}	
+									},
+								"functions" : [
+									{
+										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
+										"script_score" : {"script":"10"}
+										}
+									],
+								"boost_mode" : "sum",
+								}
+							}
+						});
 					}
 				else	{
-					_app.ext.quickstart.u.updateDOMTitle("Search - error!");
+					
 					}
 //				dump(elasticsearch);
 /*
@@ -2358,7 +2370,6 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 				infoObj.state = 'init';
 				infoObj.parentID = 'mainContentArea_customer'; //used for templateFunctions
 				infoObj.templateID = 'customerTemplate';
-				_app.ext.quickstart.u.updateDOMTitle("Customer - "+infoObj.show);
 				var $customer = $('#'+infoObj.parentID);
 //only create instance once.
 				if($customer.length)	{

@@ -2376,6 +2376,7 @@ sizingMethod='scale');*/
 src='images/promo_tags/sale-promo-button-128x45.jpg',
 sizingMethod='scale')";	
 }*/
+}
 
 .is_clearance{
 }
@@ -2451,6 +2452,8 @@ sizingMethod='scale')";	*/
 
 /**********************************************************************************************************************************/
 /****CART TEMPLATE****/
+
+/*
 @media screen and (max-width: 630px) and (max-height: 320px){
 .ui-dialog{
 	top: 10px !important;
@@ -2490,5 +2493,7 @@ sizingMethod='scale')";	*/
 #modalCart{
 	height: 175px !important;
 }
+
 }
+*/
 
