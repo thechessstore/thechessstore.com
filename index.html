@@ -102,7 +102,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201405.antest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.antest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1575,7 +1575,7 @@ this will likely become more flexible in the future. ###
     </div>
 
     <div class="productPageThumbContainer">
-        <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="prodThumbs"></div>
+        <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="prodThumbs">
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
 			<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
 			<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
