@@ -1570,23 +1570,13 @@ this will likely become more flexible in the future. ###
         <div class="prodImageClickBlocker"></div>
         <div class='promoTag2 tagsContainer' data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#tags --legacy;" class="tagsContainer"></div>
         <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="pointer clearfix">
-            <img data-tlc="bind $var '.'; magictoolbox_mzp#magiczoomplus  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="prodBigImage" alt="" rel="selectors-change: mouseover" height="340" width="340" data-apptimize="embed" />
+            <img data-tlc="bind $var '.'; magictoolbox_mzp#magiczoomplus  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="prodBigImage" alt="" rel="selectors-change: mouseover" height="340" width="340" data-apptimize="embed">
         </div>
     </div>
 
     <div class="productPageThumbContainer">
-        <div data-tlc="bind $var '.pid'; apply --attrib='data-pid'; " class="prodThumbs"></div>
-            <img data-tlc="bind $var '.%attribs.zoovy:prod_image2'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image3'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image4'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image5'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image6'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image7'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image8'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<img data-tlc="bind $var '.%attribs.zoovy:prod_image9'; magictoolbox_mzp#magicthumb  --legacy;" data-legacy-useparentdata="true" src="blank.gif" class="pointer" alt="" height="100" width="100" data-apptimize="embed">
-			<!--
-			<ul data-tlc="bind $var '.pid'; magictoolbox_mzp#productimages  --legacy;" class="prodPageThumbList"></ul>  
-			-->			
+        <div>
+            <ul data-tlc="bind $var '.pid'; magictoolbox_mzp#productimages  --legacy;" class="prodPageThumbList"></ul>    
         </div>
         <a href="#" class="prodPageCarPrev sprite displayNone"><span>prev</span></a>
         <a href="#" class="prodPageCarNext sprite displayNone"><span>next</span></a>
