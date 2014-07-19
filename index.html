@@ -102,7 +102,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201405.antest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.ao",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1868,6 +1868,16 @@ this will likely become more flexible in the future. ###
 
 
 </div><!-- productTemplateQuickView -->
+
+
+
+
+
+<!--**CUSTOM TEMPLATES**-->
+<div id='paypalModalTemplate'>
+ <p class="paypalModalInto">Paying with PayPal:</p>
+ <p>In order to continue processing this order with PayPal, please immediately proceed to and click the place order button after selecting the PayPal option in payment choices. This will take you to the PayPal website so that you can complete the transaction. Once you have finished with PayPal, you will be returned to our checkout to complete and place your order.</p>
+</div>
 
 
 

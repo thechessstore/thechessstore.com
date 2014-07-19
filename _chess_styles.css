@@ -1916,6 +1916,19 @@ button.prodListATCButton{
  	display:none;
  	color:#CC0000;
  }
+ 
+ .paypalModalInto{
+	 font-size: 1.6em;
+ }
+ 
+ .checkoutPaypalNoticeBold{
+	font-size: 1.8em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+ }
+ .checkoutPaypalNotice{
+	font-size: 1.4em;
+ }
 
 /************************************************************************************************************************/
 /**Search Page**/
