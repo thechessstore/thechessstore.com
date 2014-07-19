@@ -1521,6 +1521,11 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 				}, //addTriggerPayMethodUpdate
 			
 			shipOrPayMethodSelectExec : function($ele,p)	{
+				
+				if($ele.val() == "PAYPALEC"){
+					$('#paypalModalTemplate').dialog({'modal':'true', 'title':'', dialogClass: 'dlgfixed', position: 'center', 'dialogClass' : 'checkoutPaypalModal'});
+				}
+				
 				p.preventDefault();
 				var obj = {};
 				obj[$ele.attr('name')] = $ele.val();

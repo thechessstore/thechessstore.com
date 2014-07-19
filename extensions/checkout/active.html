@@ -9,7 +9,10 @@ item list and summary are separate just to give more control over location.
 -->
 <div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
 
-	<form action="#">
+	<p class="checkoutPaypalNoticeBold">PayPal Notice:</p>
+    <p class="checkoutPaypalNotice">If you are planning to pay via PayPal, please immediately proceed to the payment section and select PayPal - Express Checkout.</p>
+	
+    <form action="#">
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
 	<input data-tlc="bind $var '.ship.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/shortcut" type="hidden">
 	<input data-tlc="bind $var '.cart.cartid'; if(is $var --notblank;) {{apply --select=$var;}}; " name="_cartid" type="hidden">
@@ -70,7 +73,7 @@ item list and summary are separate just to give more control over location.
 	
 	<fieldset data-app-role="chkoutMethodsPay" class="marginBottom">
 		<legend class="headerPadding">Payment Choices</legend>
-		<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='chkoutMethodsPayTemplate'; apply --append;" class="panelContent"></div>
+		<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='chkoutMethodsPayTemplate'; apply --append;" class="panelContent checkoutPaymentSection"></div>
 	</fieldset>
 
 

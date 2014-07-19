@@ -38,6 +38,11 @@ becomes
 <section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
 
 4. Checkout Template:
+- Add
+<p class="checkoutPaypalNoticeBold">PayPal Notice:</p>
+<p class="checkoutPaypalNotice">If you are planning to pay via PayPal, please immediately proceed to the payment section and select PayPal - Express Checkout.</p>
+below
+<div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
 - Add class:checkoutPlaceOrderButton to checkout button so that styles can be properly applied to it.
 
 5. controller.js:
@@ -52,3 +57,10 @@ becomes
  						}
 
 6. Diffmerge the old app-seo, store_seo, store_routing from the last version with this version to ensure all seo routing is carried over. 
+
+7. extension.js(in checkout folder):
+- Add
+if($ele.val() == "PAYPALEC"){
+					$('#paypalModalTemplate').dialog({'modal':'true', 'title':'', dialogClass: 'dlgfixed', position: 'center', 'dialogClass' : 'checkoutPaypalModal'});
+				}
+to the beginning of the shipOrPayMethodSelectExec function.
