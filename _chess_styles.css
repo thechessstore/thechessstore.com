@@ -150,13 +150,14 @@ fieldset {
 
 .containerAppView {
   background-image: url("images/background.png");
-  overflow:hidden; }
-
+}
 .page {
   width: 1000px;
   min-width: 1000px;
   margin: 0 auto;
-  background: white; }
+  background: white; 
+  overflow:hidden;
+  }
 
 .pageShrink {
   width: 100%;
