@@ -445,10 +445,9 @@ margin-top: 2px;
 	background: -ms-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
 	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */
-	overflow: hidden;
 }
 .headerNavUlBar{
-	width:100%;
+	width:965px;
 	margin-left:35px;
 	margin-right:25px;
 	margin-top:15px;
