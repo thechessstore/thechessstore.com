@@ -150,14 +150,18 @@ fieldset {
 
 .containerAppView {
   background-image: url("images/background.png");
-  overflow:hidden; }
-
+}
 .page {
   width: 1000px;
   min-width: 1000px;
   margin: 0 auto;
-  background: white; }
-
+  background: white; 
+  position: relative;
+}
+.content{
+	overflow: hidden;
+    width: 100%;
+}
 .pageShrink {
   width: 100%;
   max-width: 1000px; }
@@ -441,10 +445,9 @@ margin-top: 2px;
 	background: -ms-linear-gradient(top,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(252,251,248,1) 46%,rgba(233,224,201,1) 95%,rgba(221,209,178,1) 100%); /* W3C */
 	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfbf8', endColorstr='#ddd1b2',GradientType=0 ); /* IE6-9 */
-
 }
 .headerNavUlBar{
-	width:100%;
+	width:965px;
 	margin-left:35px;
 	margin-right:25px;
 	margin-top:15px;
@@ -566,9 +569,11 @@ announceBar h2{
 /**Feature Image**/
 
 .homepageBannerImg{
-	height:250px;
+	height:275px;
 	clear:both;
 	width:1000px;
+	overflow:hidden;
+	float: left;
 }
 #featureImg{
 	height:250px;
@@ -579,13 +584,12 @@ announceBar h2{
 	width:1000px;
 }
 #nav{
-	float:right;
-	width:100%;
-	clear:both;
-	position:relative;
-	bottom:-5px;
-	left: 865px;
-	z-index:1;
+	bottom: -5px;
+    clear: both;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 #nav a{
 	color:#ffffff;
@@ -702,6 +706,7 @@ announceBar h2{
 	height:300px;
 	width:1000px;
 	margin-left:10px;
+	overflow:hidden;
 }
 
 .carouselCont1 div.caroufredsel_wrapper{
@@ -713,15 +718,15 @@ announceBar h2{
 }
 #caroPrev1{
 	position:absolute;
-	bottom:130px;
-	left:-35px;
+	top: 725px;
+	left:0;
 	z-index:1;
 }
 #caroNext1{
-	position:absolute;
-	bottom:130px;
-	right:-15px;
-	z-index:1;
+	position: absolute;
+    right: 0;
+    top: 725px;
+    z-index: 1;
 }
 .clearfix {
     float:none;
@@ -779,6 +784,7 @@ announceBar h2{
 	height:300px;
 	width:1000px;
 	margin-left:10px;
+	overflow:hidden;
 }
 
 .carouselCont2 div.caroufredsel_wrapper{
@@ -790,15 +796,15 @@ announceBar h2{
 }
 #caroPrev2{
 	position:absolute;
-	bottom:130px;
-	left:-35px;
+	top: 1055px;
+	left:0;
 	z-index:1;
 }
 #caroNext2{
-	position:absolute;
-	bottom:130px;
-	right:-15px;
-	z-index:1;
+	position: absolute;
+    right: 0;
+    top: 1055px;
+    z-index: 1;
 }
 /**Carousel Cat 3 Files**/
 .homepageCat3{	
@@ -852,6 +858,7 @@ announceBar h2{
 	height:300px;
 	width:1000px;
 	margin-left:10px;
+	overflow:hidden;
 }
 
 .carouselCont3 div.caroufredsel_wrapper{
@@ -863,15 +870,15 @@ announceBar h2{
 }
 #caroPrev3{
 	position:absolute;
-	bottom:130px;
-	left:-35px;
+	top:1395px;
+	left:0;
 	z-index:1;
 }
 #caroNext3{
-	position:absolute;
-	bottom:130px;
-	right:-15px;
-	z-index:1;
+	position: absolute;
+    right: 0;
+    top: 1395px;
+    z-index: 1;
 }
 /**Carousel Cat 4 Files**/
 .homepageCat4{	
@@ -925,6 +932,7 @@ announceBar h2{
 	height:300px;
 	width:1000px;
 	margin-left:10px;
+	overflow:hidden;
 }
 
 .carouselCont4 div.caroufredsel_wrapper{
@@ -936,14 +944,14 @@ announceBar h2{
 }
 #caroPrev4{
 	position:absolute;
-	bottom:130px;
-	left:-35px;
+	top:1730px;
+	left:0;
 	z-index:1;
 }
 #caroNext4{
 	position:absolute;
-	bottom:130px;
-	right:-15px;
+	top:1730px;
+	right:0;
 	z-index:1;
 }
 
