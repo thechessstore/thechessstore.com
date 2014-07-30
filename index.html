@@ -102,7 +102,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201405.attest2",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201405.bb",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1237,7 +1237,7 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the href or two events will occur onclick.
 -->
-<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" >
+<li id="productListTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;" >
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1274,7 +1274,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
+<li id="productList2WideTemplate" class="loadingBG catListTempCatPage floatLeft productListTemplate twoColListItem twoColWideListItem" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
@@ -1311,7 +1311,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
 </li>
 
 
-<li id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
+<li id="productListTemplate3Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate3Panel" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -1347,7 +1347,7 @@ remember to NOT put the button inside the href or two events will occur onclick.
     </form>	
 </li>
 
-<li id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" onmouseover="$('.quickView',$(this)).show();" onmouseout="$('.quickView').hide();" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
+<li id="productListTemplate4Panel" class="loadingBG catListTempCatPage floatLeft productListTemplate4Panel" data-tlc="bind $var '.pid'; extension_thechessstore#outofstockprodhide --legacy; apply --append;">
 	
      <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
@@ -2236,7 +2236,8 @@ subscribeListsArticle is used for authenticated buyers.
                                         <span class="field mname">Middle Initial</span> <input name='middlename' type='text' size='3' class='textfmname' />
                                         <b>Last Name</b> <input name='lastname' type='text' size='30' placeholder='Last Name' required='required' class='textflast'/></div>
                                         <!--<div class="passwordInput"><b>Password</b><input name="password" size="30" placeholder="Password" required /></div>-->
-                                        <div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
+                                        <!--
+										<div class="fieldM"><span class="field">Address</span> <input name='address1' type='text' size='30' placeholder='Address' class='textfadd' required='required' /> 
                                         <input name='address2' type='text' size='30' placeholder='Address (Line 2)' class='textfadd1'/></div>
                                         <div class="fieldM stateFix"><span class="field">City</span> <input name='city' type='text' size='30' placeholder='City' required='required' class='textfcity'/>         
                                                 <div class='selectWrapperState'>
@@ -2305,7 +2306,8 @@ subscribeListsArticle is used for authenticated buyers.
                                                         </select>
                                                 </div>
                                         </div>
-                                        <div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
+                                        -->
+										<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <!--<b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/>--> </div>
                                         <div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
                                         <!--<fieldset class='marginBottom'>
                                                 <legend>About Your Business</legend>
