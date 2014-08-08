@@ -577,7 +577,11 @@ it has no inventory AND inventory matters to merchant
 	//					_app.u.dump(" -> item HAS variations. inv = "+inv);
 						}
 					}
+<<<<<<< HEAD
+				else	{dump("!$.isEmptyObject(prodData) check failed returning false instead of inventory number");} //cant get inventory without a product record.
+=======
 				else	{} //cant get inventory without a product record.
+>>>>>>> upstream/master
 				return inv;
 				}, //getProductInventory
 

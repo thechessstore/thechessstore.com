@@ -78,10 +78,13 @@ function controller(_app)	{
 			_app.u.dump = function(){};
 			}
 		
+<<<<<<< HEAD
+=======
 		if (_app.u.getParameterByName('apidomain')) {
 			// ?apidomain=www.domain.com will set jqurl to an alternate source (ex: testing)
 			_app.vars.jqurl = "https://"+_app.u.getParameterByName('apidomain')+":9000/jsonapi/";
 			}
+>>>>>>> upstream/master
 
 		//needs to be after the 'flush' above, or there's no way to flush the cart/session.
 		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
@@ -271,15 +274,6 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				if(obj && obj.pid)	{
 					if(typeof obj.pid === 'string')	{obj.pid = obj.pid.toUpperCase();} //will error if obj.pid is a number.
 					
-//get a product record.
-//required params: obj.pid.
-//optional params: obj.withInventory and obj.withVariations
-		appProductGet : {
-			init : function(obj,_tag,Q)	{
-				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
-				if(obj && obj.pid)	{
-					if(typeof obj.pid === 'string')	{obj.pid = obj.pid.toUpperCase();} //will error if obj.pid is a number.
-					
 					_tag = _tag || {};
 					_tag.datapointer = "appProductGet|"+obj.pid;
 //The fetchData will put the data into memory if present, so safe to check _app.data... after here.
@@ -352,7 +346,11 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				_app.u.dump("Attempting to log in");
 				obj._cmd = 'authAdminLogin';
 				obj.authid = obj.password;
+<<<<<<< HEAD
+				obj.authtype = 'password';
+=======
 				obj.authtype = obj.authtype || 'password';
+>>>>>>> upstream/master
 // ** 201402 -> md5 is no longer used for login. 
 /*				if(obj.authtype == 'md5')	{
 					_app.vars.userid = obj.userid.toLowerCase();	 // important!
@@ -578,11 +576,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 					}
 				else	{
 					$('#globalMessage').anymessage({'message':rd});
-				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
-					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
-					}
-				}
-			}, //translateSelector
 					}
 				}
 			}, //translateSelector
@@ -982,7 +975,11 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
+<<<<<<< HEAD
+					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
+=======
 					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
+>>>>>>> upstream/master
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
@@ -2100,8 +2097,15 @@ VALIDATION
 
 					
 					if($input.hasClass('ui-state-error'))	{
+<<<<<<< HEAD
+ 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+ 						$(".checkoutClickBlocker").show();
+ 						$(".checkoutClickBlockerText").show();
+ 						}
+=======
 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
 						}
+>>>>>>> upstream/master
 					
 					});
 
@@ -2131,8 +2135,6 @@ VALIDATION
 				}
 			else	{
 				$('#globalMessaging').anymessage({'message':'Object passed into admin.u.validateForm is empty or not a jquery object','gMessage':true});
-				}
-//			_app.u.dump(" -> r in validateForm: "+r);
 				}
 //			_app.u.dump(" -> r in validateForm: "+r);
 			return r;
@@ -2546,6 +2548,14 @@ name Mod 10 or Modulus 10. */
 //In addition, it allows a developer to easily turn off features by setting the value to false.
 		updatejQuerySupport : function()	{
 			if(jQuery && typeof jQuery.support == 'object')	{
+<<<<<<< HEAD
+
+				jQuery.support.speechRecognition = ('webkitSpeechRecognition' in window) || ('speechRecognition' in window);
+				jQuery.support.onpopstate = ('onpopstate' in window);
+				jQuery.support.onhashchange = ('onhashchange' in window);
+				jQuery.support.WebSocket = ('WebSocket' in window);
+=======
+>>>>>>> upstream/master
 
 				jQuery.support.speechRecognition = ('webkitSpeechRecognition' in window) || ('speechRecognition' in window);
 				jQuery.support.onpopstate = ('onpopstate' in window);
@@ -2579,6 +2589,34 @@ name Mod 10 or Modulus 10. */
 				var test = document.createElement('input')
 				if('placeholder' in test) {jQuery.support.placeholder = true};
 
+<<<<<<< HEAD
+//If certain privacy settings are set in a browser, even detecting if localStorage is available causes a NS_ERROR_NOT_AVAIL.
+//So we first test to make sure the test doesn't cause an error. thanks ff.
+				try{
+					window.localStorage;
+					window.localStorage.setItem('test','test');
+					if(window.localStorage.getItem('test') == 'test')	{
+						jQuery.support.localStorage = true;
+						}
+					}
+				catch(e){jQuery.support.localStorage = false;}
+				
+				try{
+					window.sessionStorage;
+					window.sessionStorage.setItem('test','test');
+					if(window.sessionStorage.getItem('test') == 'test')	{
+						jQuery.support.sessionStorage = true;
+						}
+					}
+				catch(e){jQuery.support.sessionStorage = false;}
+
+//update jQuery.support with whether or not placeholder is supported.
+				jQuery.support.placeholder = false;
+				var test = document.createElement('input')
+				if('placeholder' in test) {jQuery.support.placeholder = true};
+
+=======
+>>>>>>> upstream/master
 				}
 			}
 
@@ -2776,18 +2814,12 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 				value = bindRules['defaultValue']
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
-	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
-				}
-			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
-				value = bindRules['defaultValue']
-//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
-				}
 			}
+		}
 
 
 
 	if(bindRules.hideZero == 'false') {bindRules.hideZero = false} //passed as string. treat as boolean.
-	else	{bindRules.hideZero = true}
 	else	{bindRules.hideZero = true}
 // SANITY - value should be set by here. If not, likely this is a null value or isn't properly formatted.
 //	_app.u.dump(" -> value: "+value);
@@ -2997,6 +3029,12 @@ return $r;
 
 							}
 						$ele.trigger(infoObj.state,[$ele,infoObj]);
+<<<<<<< HEAD
+						if(infoObj.state == 'complete'){
+							_app.ext.quickstart.vars.showContentCompleteFired = true;
+							}
+=======
+>>>>>>> upstream/master
 						}
 					else	{
 						$ele.anymessage({'message':'_app.templateFunctions.handleTemplateEvents, infoObj.state ['+infoObj.state+'] is not valid. Only init, complete and depart are acceptable values.','gMessage':true});
@@ -3006,9 +3044,6 @@ return $r;
 					$ele.anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, infoObj.state not set.','gMessage':true});
 					}
 				else	{
-					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
-					}
-				} //handleTemplateEvents 
 					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
 					}
 				} //handleTemplateEvents 

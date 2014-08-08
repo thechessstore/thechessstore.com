@@ -5,8 +5,9 @@
 #col4:  goto modifier
 
 # remove legacy cart and session variables from uri
-~path	/c=*/(.*?)				 /$1			set=path
-~path	/s=*/(.*?)				/$1			set=path
+~path#rewrite	/c=.*/	/
+~path#rewrite	/c=.*/(.*?)	/$1
+~path#rewrite	/s=.*/(.*?)	/$1
 
 #TheChessStore.com's custom pages
 
@@ -24,3 +25,6 @@
 =path	/privacy.cgis	/#!company/privacy
 #redirect homepage
 =uri	http://www.thechessstore.com/	http://www.thechessstore.com/#!home
+
+#redirect cart
+~path	/cart\.cgis	/#!home

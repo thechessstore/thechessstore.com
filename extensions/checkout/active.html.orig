@@ -9,10 +9,14 @@ item list and summary are separate just to give more control over location.
 -->
 <div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
 
+<<<<<<< HEAD
 	<h4 class="checkoutPaypalNoticeBold">PayPal Notice:</h4>
     <h5 class="checkoutPaypalNotice">If you are planning to pay via PayPal, please immediately proceed to the payment section and select PayPal - Express Checkout.</h5>
 	
+    <form action="#">
+=======
 	<form action="#">
+>>>>>>> upstream/master
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
 	<input data-tlc="bind $var '.ship.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/shortcut" type="hidden">
 	<input data-tlc="bind $var '.cart.cartid'; if(is $var --notblank;) {{apply --select=$var;}}; " name="_cartid" type="hidden">
@@ -46,7 +50,11 @@ item list and summary are separate just to give more control over location.
 		<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='chkoutAddressBillTemplate'; apply --append;" class="panelContent" data-app-role="addressNew"></div><!-- for new customers -->
 		
 		<div data-app-role="billToShipContainer">
+<<<<<<< HEAD
 		<label class="billToShipAnyCB">
+=======
+		<label>
+>>>>>>> upstream/master
 		<input data-tlc="bind $var '.want.bill_to_ship'; if(is $var --notblank;) {{apply --select=$var;}}; " name="want/bill_to_ship" checked="checked" class="applyAnycb" data-app-change="order_create|tagAsBillToShip" type="checkbox">
 		ship to billing address
 		</label>
@@ -73,7 +81,11 @@ item list and summary are separate just to give more control over location.
 	
 	<fieldset data-app-role="chkoutMethodsPay" class="marginBottom">
 		<legend class="headerPadding">Payment Choices</legend>
+<<<<<<< HEAD
 		<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='chkoutMethodsPayTemplate'; apply --append;" class="panelContent checkoutPaymentSection"></div>
+=======
+		<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='chkoutMethodsPayTemplate'; apply --append;" class="panelContent"></div>
+>>>>>>> upstream/master
 	</fieldset>
 
 
@@ -158,7 +170,11 @@ because the panel is shared, the events (which aren't desired in the editor) are
 	<!-- postal not required for international. don't add it. -->
 	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
 
+<<<<<<< HEAD
+	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required><option value=''>Please choose</option></select></div>
+=======
 	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required="required"><option value=''>Please choose</option></select></div>
+>>>>>>> upstream/master
 
 	<div><input data-tlc="bind $var '.bill.phone';  if(is $var --blank;){{bind $var '.bill/phone';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/phone" placeholder="phone number" required value="" type="tel"> <span class="hint zhint">in case of billing/delivery problems</span></div>
 
@@ -322,7 +338,11 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 
+<<<<<<< HEAD
 <section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
+=======
+<section id="chkoutCartSummaryTemplate">
+>>>>>>> upstream/master
 	
 	<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 	<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
@@ -347,6 +367,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
+<<<<<<< HEAD
 	<div class="checkoutClickBlocker displayNone" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
     <p class="checkoutClickBlockerText displayNone">Click here to re-calculate with new entries</p>
     <div>
@@ -354,6 +375,11 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
             Place Order
         </button>
     </div>
+=======
+	<button class="applyButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
+		Place Order
+	</button>
+>>>>>>> upstream/master
 
 
 
@@ -579,4 +605,8 @@ If this gets recycled, test in order history after making changes.
 
 
 	</tr>
+<<<<<<< HEAD
 </tbody></table>
+=======
+</tbody></table>
+>>>>>>> upstream/master
