@@ -2262,9 +2262,11 @@ elasticsearch.size = 50;
 				infoObj.trigger = '';
 				infoObj.state = 'init'; //needed for handleTemplateEvents.
 				
+				infoObj.cartid = _app.model.fetchCartID();
+				
 //only create instance once.
 				var $cart = $('#mainContentArea_cart');
-				if($cart.length)	{
+				if($cart.length && $cart.data('cartid') == infoObj.cartid)	{
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					//the cart has already been rendered.
 					infoObj.trigger = 'refresh';
@@ -2272,7 +2274,6 @@ elasticsearch.size = 50;
 					}
 				else	{
 					infoObj.trigger = 'fetch';
-					infoObj.cartid = _app.model.fetchCartID();
 					$cart = _app.ext.cco.a.getCartAsJqObj(infoObj);
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					$cart.hide().on('complete',function(){
