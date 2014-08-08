@@ -271,15 +271,6 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				if(obj && obj.pid)	{
 					if(typeof obj.pid === 'string')	{obj.pid = obj.pid.toUpperCase();} //will error if obj.pid is a number.
 					
-//get a product record.
-//required params: obj.pid.
-//optional params: obj.withInventory and obj.withVariations
-		appProductGet : {
-			init : function(obj,_tag,Q)	{
-				var r = 0; //will return 1 if a request is needed. if zero is returned, all data needed was in local.
-				if(obj && obj.pid)	{
-					if(typeof obj.pid === 'string')	{obj.pid = obj.pid.toUpperCase();} //will error if obj.pid is a number.
-					
 					_tag = _tag || {};
 					_tag.datapointer = "appProductGet|"+obj.pid;
 //The fetchData will put the data into memory if present, so safe to check _app.data... after here.
@@ -578,11 +569,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 					}
 				else	{
 					$('#globalMessage').anymessage({'message':rd});
-				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
-					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
-					}
-				}
-			}, //translateSelector
 					}
 				}
 			}, //translateSelector
@@ -2133,8 +2119,6 @@ VALIDATION
 				$('#globalMessaging').anymessage({'message':'Object passed into admin.u.validateForm is empty or not a jquery object','gMessage':true});
 				}
 //			_app.u.dump(" -> r in validateForm: "+r);
-				}
-//			_app.u.dump(" -> r in validateForm: "+r);
 			return r;
 			},
 //accepts an array of 'rules'
@@ -2149,6 +2133,7 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
+
 							}
 						}
 					else	{
@@ -2776,18 +2761,12 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 				value = bindRules['defaultValue']
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
-	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
-				}
-			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
-				value = bindRules['defaultValue']
-//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
-				}
 			}
+		}
 
 
 
 	if(bindRules.hideZero == 'false') {bindRules.hideZero = false} //passed as string. treat as boolean.
-	else	{bindRules.hideZero = true}
 	else	{bindRules.hideZero = true}
 // SANITY - value should be set by here. If not, likely this is a null value or isn't properly formatted.
 //	_app.u.dump(" -> value: "+value);
@@ -3006,9 +2985,6 @@ return $r;
 					$ele.anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, infoObj.state not set.','gMessage':true});
 					}
 				else	{
-					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
-					}
-				} //handleTemplateEvents 
 					$('#globalMessaging').anymessage({'message':'In _app.templateFunctions.handleTemplateEvents, $ele is not a valid jQuery instance','gMessage':true});
 					}
 				} //handleTemplateEvents 
