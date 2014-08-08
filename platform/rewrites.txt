@@ -17,6 +17,8 @@
 ~path	/category/([^/]*)	/#!category/$1
 ~path	/product/([^/]*)	/#!product/$1
 
+#redirect old cart pages
+
 #redirect company pages
 =path	/about_us.cgis	/#!company/about
 =path	/contact_us.cgis	/#!company/contact
@@ -25,6 +27,3 @@
 =path	/privacy.cgis	/#!company/privacy
 #redirect homepage
 =uri	http://www.thechessstore.com/	http://www.thechessstore.com/#!home
-
-#redirect cart
-~path	/cart\.cgis	/#!home
