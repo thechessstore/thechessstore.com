@@ -158,7 +158,7 @@ because the panel is shared, the events (which aren't desired in the editor) are
 	<!-- postal not required for international. don't add it. -->
 	<div><input data-tlc="bind $var '.bill.postal'; if(is $var --blank;){{bind $var '.bill/postal';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/postal" placeholder="zip/postal code" required size="14" value="" maxlength="10" type="text"></div>
 
-	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required="required"><option value=''>Please choose</option></select></div>
+	<div class="billCountry" data-app-role="billCountry"><select data-tlc="bind $var '.'; cco#countriesasoptions  --shiptype='bill' --legacy;" data-legacy-useparentdata="true" name="bill/countrycode" placeholder="country" required><option value=''>Please choose</option></select></div>
 
 	<div><input data-tlc="bind $var '.bill.phone';  if(is $var --blank;){{bind $var '.bill/phone';}}; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/phone" placeholder="phone number" required value="" type="tel"> <span class="hint zhint">in case of billing/delivery problems</span></div>
 
@@ -244,12 +244,7 @@ do NOT change any div id's or messaging will not work properly.
 
 <div id="chkoutMethodsPayTemplate">
 
-	<div class="giftCardContainer" data-app-role="giftcardContainer">
-	<label for="giftcardCode">Gift Certificate Code:</label>
-	<input name="giftcard" size="16" data-input-keyup="trigger-button-id" data-input-format="alphanumeric" data-trigger-button-id="execGiftcardAdd" type="text">
-	<button class="applyButton" data-app-click="order_create|execGiftcardAdd" data-button-id="execGiftcardAdd">add</button> 
-	<p data-app-role="giftcardHint" class="zhint hint displayNone">if you wish to combine gift cards with another payment method, enter them here</p>
-	</div>
+	
 
 	<div data-app-role="paymentQContainer" class="marginBottom">
 		<ul data-tlc="bind $var '.@PAYMENTQ'; controller#loop --templateid='cartPaymentQTemplate'; if (is $var --notblank;) {{apply --append;}};" class="noPadOrMargin listStyleNone"></ul>
@@ -336,7 +331,13 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 	<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
 
-	<div class="couponEntryContainer clearfix marginBottom" data-app-role="couponContainer">
+	<div class="giftCardContainer" data-app-role="giftcardContainer">
+        <label for="giftcardCode">Gift Certificate Code:</label>
+        <input name="giftcard" size="16" data-input-keyup="trigger-button-id" data-input-format="alphanumeric" data-trigger-button-id="execGiftcardAdd" type="text">
+        <button class="applyButton" data-app-click="order_create|execGiftcardAdd" data-button-id="execGiftcardAdd">add</button> 
+        <p data-app-role="giftcardHint" class="zhint hint displayNone">if you wish to combine gift cards with another payment method, enter them here</p>
+	</div>
+    <div class="couponEntryContainer clearfix marginBottom" data-app-role="couponContainer">
 		<label for="coupon">Coupon/Promo Code:</label>
 		<input name="coupon" size="8" data-input-keyup="trigger-button-id" data-trigger-button-id="execCouponAdd" data-input-format="alphanumeric" type="text">
 		<button class="applyButton" data-app-click="order_create|execCouponAdd" data-button-id="execCouponAdd">add</button>
