@@ -376,7 +376,7 @@ document.write = function(v){
 					delete tagObj.datapointer; //delete this so tlc doesn't do an unnecessary extend (data is already merged)
 					tagObj.verb = 'translate';
 //					dump(" -> tagObj: "); dump(tagObj);
-					_app.ext.quickstart.u.updateDOMTitle((tagObj.navcat == '.' ? 'Home' : tagObj.dataset.pretty));
+
 					if(tagObj.lists && tagObj.lists.length)	{
 						var L = tagObj.lists.length;
 						for(var i = 0; i < L; i += 1)	{
@@ -393,7 +393,6 @@ document.write = function(v){
 // the bulk of the product translation has already occured by now (attribs, reviews and session) via callbacks.showProd.
 // product lists are being handled through 'buildProductList'.
 					var pData = _app.data['appProductGet|'+tagObj.pid] //shortcut.
-					_app.ext.quickstart.u.updateDOMTitle(pData['%attribs']['zoovy:prod_seo_title'] || pData['%attribs']['zoovy:prod_name']);
 					if(pData && pData['%attribs'] && pData['%attribs']['zoovy:grp_type'] == 'CHILD')	{
 						if(pData['%attribs']['zoovy:grp_parent'] && _app.data['appProductGet|'+pData['%attribs']['zoovy:grp_parent']])	{
 							dump(" -> this is a child product and the parent prod is available. Fetch child data for siblings.");
@@ -547,8 +546,9 @@ need to be customized on a per-ria basis.
 					});
 				}
 			else	{
-				//hhmm  not sure how or why we got here.
-				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
+				$n.addClass('active')
+				callback();
+				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			}, //pageTransition
 
@@ -1108,7 +1108,16 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					_app.ext.quickstart.vars.showContentFinished = true;
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
-					_app.ext.quickstart.pageTransition($old,$new,infoObj);
+					var callback = function(){
+ 						var $hiddenpages = $("#mainContentArea > :hidden");
+ 						var L = $hiddenpages.length;
+ 						dump(L);
+ 						dump(L - _app.ext.quickstart.vars.cachedPageCount);
+ 						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
+ 							$($hiddenpages.get(i)).intervaledEmpty().remove();
+ 							}
+ 						};
+ 					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
 					}
 				else if($new instanceof jQuery)	{
 //no page transition specified. hide old content, show new. fancy schmancy.
@@ -2677,8 +2686,8 @@ buyer to 'take with them' as they move between  pages.
 						}					else if(myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]){
              			myApp.u.dump("category list template option selected");
               			infoObj.templateID = myApp.ext.extension_thechessstore.vars.catTemplates[catSafeID]
-						}
-					else	{
+            		}
+          			else{
               			myApp.u.dump("category default template option selected");
               			infoObj.templateID = 'categoryTemplate'
 					}
