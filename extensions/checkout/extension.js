@@ -2200,12 +2200,12 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						$label = $input.closest('label'),
 						$fieldset = $input.closest('fieldset'),
 						$pmc = $input.closest("[data-app-role='paymentMethodContainer']"), //payment method container. an li or div or row. who knows.
-						cartID = $input.closest("[data-app-role='checkout']").data('cartid');
+						cartID =  _app.model.fetchCartID();
 	
 	//handle the previously selected payment method.
 					$('.ui-state-active',$fieldset).removeClass('ui-state-active ui-corner-top ui-corner-all');
 					$("[data-app-role='supplementalPaymentInputsContainer']",$fieldset).empty().remove(); //must be removed so form inputs are not present.
-					
+
 					var $supplementalOutput = _app.ext.cco.u.getSupplementalPaymentInputs($input.val(),_app.ext.order_create.vars[cartID].payment);
 					if($supplementalOutput)	{
 						$label.addClass("ui-state-active ui-corner-top");
