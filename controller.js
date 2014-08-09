@@ -78,6 +78,10 @@ function controller(_app)	{
 			_app.u.dump = function(){};
 			}
 		
+		if (_app.u.getParameterByName('apidomain')) {
+			// ?apidomain=www.domain.com will set jqurl to an alternate source (ex: testing)
+			_app.vars.jqurl = "https://"+_app.u.getParameterByName('apidomain')+":9000/jsonapi/";
+			}
 
 		//needs to be after the 'flush' above, or there's no way to flush the cart/session.
 		_app.vars.carts = _app.model.dpsGet('app','carts'); //get existing carts. Does NOT create one if none exists. that's app-specific behavior. Don't default to a blank array either. fetchCartID checks memory first.
@@ -339,7 +343,7 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 				_app.u.dump("Attempting to log in");
 				obj._cmd = 'authAdminLogin';
 				obj.authid = obj.password;
-				obj.authtype = 'password';
+				obj.authtype = obj.authtype || 'password';
 // ** 201402 -> md5 is no longer used for login. 
 /*				if(obj.authtype == 'md5')	{
 					_app.vars.userid = obj.userid.toLowerCase();	 // important!
@@ -964,7 +968,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
-					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
+					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
@@ -2082,10 +2086,8 @@ VALIDATION
 
 					
 					if($input.hasClass('ui-state-error'))	{
- 						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
- 						$(".checkoutClickBlocker").show();
- 						$(".checkoutClickBlockerText").show();
- 						}
+						_app.u.dump(" -> "+$input.attr('name')+" did not validate. ishidden: "+$input.is(':hidden'));
+						}
 					
 					});
 
@@ -2131,6 +2133,7 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
+
 							}
 						}
 					else	{
@@ -2973,9 +2976,6 @@ return $r;
 
 							}
 						$ele.trigger(infoObj.state,[$ele,infoObj]);
-						if(infoObj.state == 'complete'){
-							_app.ext.quickstart.vars.showContentCompleteFired = true;
-							}
 						}
 					else	{
 						$ele.anymessage({'message':'_app.templateFunctions.handleTemplateEvents, infoObj.state ['+infoObj.state+'] is not valid. Only init, complete and depart are acceptable values.','gMessage':true});

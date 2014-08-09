@@ -238,7 +238,11 @@
 </ul>
 	
 	<div class='buttonset alignRight'>
+<<<<<<< HEAD
+	<button data-app-event="admin|processForm">Create Partition</button>
+=======
 	<button data-app-click="admin|submitForm" data-app-role='savebutton' class='applyButton'>Create Partition</button>
+>>>>>>> upstream/master
 	</div>
 	
 </form>
@@ -2974,18 +2978,26 @@ no 'min'. apparently, a negative tax amount is valid. (used when a X% is blanket
 <div id='notificationPageTemplate' data-app-role='notificationsContainer'>
 
 	<section class='slimLeftNav' data-app-role='slimLeftNav'>
+<<<<<<< HEAD
+		<div class='accordion marginBottom'>
+
+=======
 		<span class="lookLikeLink" data-app-click='admin_config|notificationAddNew'>Add new</span>
 		<div class='accordion marginBottom'>
+>>>>>>> upstream/master
 			<h2>App</h2>
 			<div>
 				<ul data-app-role="notifications_APP" class='noPadOrMargin listStyleNone'></ul>
 			</div>
 	
+<<<<<<< HEAD
+=======
 			<h2>Enquiry</h2>
 			<div>
 				<ul data-app-role="notifications_ENQUIRY" class='noPadOrMargin listStyleNone'></ul>
 			</div>
 	
+>>>>>>> upstream/master
 			<h2>Market</h2>
 			<div>
 				<ul data-app-role="notifications_MARKET" class='noPadOrMargin listStyleNone'></ul>
@@ -3058,6 +3070,9 @@ no 'min'. apparently, a negative tax amount is valid. (used when a X% is blanket
 
 	<div class='buttonset marginBottom'>
 	<h1>Notifications</h1>
+<<<<<<< HEAD
+	<button class='floatRight applyButton' data-app-click='admin|submitForm' data-skipvalidation='true' >Save Changes</button><!-- skip validation cuz we're only using the data-table -->
+=======
 	<button class='floatRight applyButton' data-app-click='admin|submitForm' data-skipvalidation='true' >Remove Selected Notifications</button><!-- skip validation cuz we're only using the data-table -->
 	</div>
 
@@ -3100,6 +3115,7 @@ no 'min'. apparently, a negative tax amount is valid. (used when a X% is blanket
 	<div class='buttonset marginBottom'>
 	<h1>Notifications</h1>
 	<button class='floatRight applyButton' data-app-click='admin|submitForm' data-skipvalidation='true' >Save New Notifications</button><!-- skip validation cuz we're only using the data-table -->
+>>>>>>> upstream/master
 	</div>
 
 	<fieldset class='borderNone' data-table-role='container'>
@@ -3129,14 +3145,79 @@ Put these into fieldsets, all hidden.
 Show only the fieldset that matches the high level event type (customer, product,etc).
 -->
 
+<<<<<<< HEAD
+			<fieldset class='displayNone marginBottom' data-app-role="verb_APP">
+				<b>Enquiries</b><br>
+				<label><input type='radio' name='event' required='required' value="ENQUIRY">Enquiry <span class='toolTip' title="Triggered by enquiry based events.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ENQUIRY.ORDER">Order Enquiry <span class='toolTip' title="Triggered through website 'contact us' with a confirmed order id.">?</span></label>
+			</fieldset>
+			
+			
+			<fieldset class='displayNone marginBottom' data-app-role="verb_MARKET">
+				
+			</fieldset>
+
+			<fieldset class='displayNone marginBottom' data-app-role="verb_PRODUCT">
+				
+			</fieldset>
+			
+			<fieldset class='displayNone marginBottom' data-app-role="verb_ORDER">
+				<b>Order</b><br>
+				<label><input type='radio' name='event' required='required' value="ORDER.CREATE">Order Created <span class='toolTip' title="A new order is placed.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.SHIP">Order Shipped <span class='toolTip' title="A new order flagged as shipped.">?</span></label>
+				<!--
+				<label><input type='radio' name='event' required='required' value="ORDER.ITEM.CANCEL">Order Item Cancelled <span class='toolTip' title="Triggered when an item in the order is cancelled.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.ITEM.BACKORDER">Order Item Backorder <span class='toolTip' title="The order is cancelled.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.MOVE.RECENT">Order Status: Recent <span class='toolTip' title="The order status is changed/set to RECENT.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.MOVE.APPROVED">Order Status: Approved <span class='toolTip' title="The order status is changed/set to APPROVED.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.MOVE.PENDING">Order Status: Pending <span class='toolTip' title="The order status is changed/set to PENDING.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.MOVE.BACKORDER">Order Status: Backorder <span class='toolTip' title="The order status is changed/set to BACKORDER.">?</span></label>
+				<label><input type='radio' name='event' required='required' value="ORDER.MOVE.CANCEL">Order Status: Cancel <span class='toolTip' title="The order status is changed/set to BACKORDER.">?</span></label>
+				-->
+			</fieldset>
+			
+			<fieldset class='displayNone marginBottom' data-app-role="verb_CUSTOMER">
+				<b>Customer</b><br>
+				<label><input type='radio' name='event' required='required' value="CUSTOMER.NEW">Customer Created <span class='toolTip' title="Customer Account initialized">?</span></label>
+				<label><input type='radio' name='event' required='required' value="CUSTOMER.ORDER.CANCEL">Customer Order Cancel <span class='toolTip' title="Triggered when a customer cancels an order.">?</span></label>
+			</fieldset>
+
+			<fieldset class='displayNone marginBottom' data-app-role="verb_SUPPLIER">
+				
+			</fieldset>
+			
+			<fieldset class='displayNone marginBottom' data-app-role="verb_INVENTORY">
+				<b>Inventory</b><br>
+				<label><input type='radio' name='event' required='required' value="INVENTORY.NAVCAT.SHOW">Show on Website</label>
+				<label><input type='radio' name='event' required='required' value="INVENTORY.NAVCAT.HIDE">Hide from Website</label>
+				<label><input type='radio' name='event' required='required' value="INVENTORY.NAVCAT.FAIL">Website Change Failure</label>
+			</fieldset>
+
+			<fieldset class='displayNone marginBottom' data-app-role="verb_API">
+				<label><input type='radio' name='event' required='required' value="API.SUPPLIER">Supplier API Error</label>
+			</fieldset>
+
+			<fieldset class='displayNone marginBottom' data-app-role="verb_ERROR">
+				<b>Errors and Alerts</b><br>
+				<label><input type='radio' name='event' required='required' value="ERROR.SYNDICATION">Syndication Failure</label>
+			</fieldset>
+
+			<fieldset class='displayNone marginBottom' data-app-role="verb_ALERT">
+				<label><input type='radio' name='event' required='required' value="ALERT.SYNDICATION">Syndication Alert/Warning</label>
+			</fieldset>
+=======
+>>>>>>> upstream/master
 
 <!-- the following inputs will appear for all notification types -->
 			<fieldset>
 			<label>
+<<<<<<< HEAD
+=======
 				<span>Event</span>
 				<input type="text" name="event"/>
 			</label>
 			<label>
+>>>>>>> upstream/master
 				<span>Method</span>
 				<select name='verb' required='required' data-panel-selector=".notificationMethodPanel" data-input-change='show-panel'>
 	<!--				<option>everything</option> -->
@@ -3177,11 +3258,20 @@ Show only the fieldset that matches the high level event type (customer, product
 	
 </form>
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/master
 </div>
 
 
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> upstream/master
 <table>
 <tr id='notificationsListTemplate'>
 	<td data-bind="var: notification(event); format:text;"></td>
@@ -3510,7 +3600,11 @@ The header and buttons don't get reset, so the tlc must take this into account (
 		<input data-tlc="bind $var '.~password'; if(is $var --notblank;) {{apply --select=$var;}}; " size='40'  data-minlength="20" max="40" name="~password" type="text">
 		<button class="applyButton" data-app-click="admin_config|buildGUID" data-input-name="~password">Generate Password</button>
 	</div>
+<<<<<<< HEAD
+	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugin/shipstation.xml'; apply --append;}};"></div>
+=======
 	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.'	--append='/jsonapi/plugin/shipworks.xml'; apply --append;}};"></div>
+>>>>>>> upstream/master
 </fieldset>
 
 <fieldset id="pluginTemplate_shipstation.com">
@@ -3530,10 +3624,14 @@ The header and buttons don't get reset, so the tlc must take this into account (
 		<input data-tlc="bind $var '.~password'; if(is $var --notblank;) {{apply --select=$var;}}; " size='40'  data-minlength="20" max="40" name="~password" type="text">
 		<button class="applyButton" data-app-click="admin_config|buildGUID"data-input-name="~password">Generate Password</button>
 	</div>
+<<<<<<< HEAD
+	
+=======
 	<label>
 		<input data-tlc="bind $var '.notify_complete'; if(is $var --notblank;) {{apply --select=$var;}}; " name="notify_complete" class="applyAnycb" type="checkbox">
 		Move Order to COMPLETE when Tracking Notification is received.
 	</label>	
+>>>>>>> upstream/master
 	<div data-tlc="bind $var '.domain'; if(is $var --notblank;){{format --prepend='https://www.' --append='/jsonapi/plugins/shipstation.xml'; apply --append;}};"></div>
 
 </fieldset>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" />
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="/../../model.js"></script>
+<script type="text/javascript" src="/../../controller.js"></script>
+<script type="text/javascript" src="/../../includes.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+function testRewrites()	{
+	var URLString = $("#urlText").val();
+	var testResults = $(".urlInput").data.("appseorewritedebug|"+URLString);
+	$("#TestResults").val(testResults);
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+<h1>Rewrites URL tester</h1>
+<p>Please enter the URL of the site you would like tested:</p>
+
+<button onClick="testRewrites()">Test Rewrites</button><br /><!--
+<p>
+Things to know.  <ol>
+	<li>No uppercase in renderformats</li>
+	<li>no underscores in render formats</li>
+</ol>
+</p>-->
+<fieldset>
+	<legend>Your Databind Templates</legend>
+	<textarea id='urlText'></textarea>
+</fieldset>
+
+<fieldset>
+	<legend>Updated for TLC</legend>
+	<textarea id='TestResults'></textarea>
+</fieldset>
+
+</body>
+</html>

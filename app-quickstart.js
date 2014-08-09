@@ -519,18 +519,31 @@ need to be customized on a per-ria basis.
 			}, //wiki
 
 // * 201403 -> infoObj now passed into pageTransition.
-		pageTransition : function($o,$n, infoObj, callback)	{
-			$n.removeClass('displayNone').show();
+		pageTransition : function($o,$n, infoObj)	{
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
-			
-			if(infoObj.performJumpToTop){
-				$('html, body').animate({scrollTop : 0}, 400);
+//$o MAY be a jquery instance but have no length, so check both.
+			if($o instanceof jQuery && $o.length)	{
+/*
+*** 201403 -> move the scroll to top into the page transition for 2 reasons:
+1. allows the animations to be performed sequentially, which will be less jittery than running two at the same time
+2. Puts control of this into custom page transitions.
+*/
+
+				if(infoObj.performJumpToTop && $(window).scrollTop() > 0)	{ // >0 scrolltop check should be on window, it'll work in ff AND chrome (body or html won't).
+					//new page content loading. scroll to top.
+					$('html, body').animate({scrollTop : 0},'fast',function(){
+						$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+						})
+					} 
+				else	{
+					$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+					}
 				}
-			
-			if($o.length)	{
-				//dump(" -> got here.  n.is(':visible'): "+$n.is(':visible'));
-				$o.addClass('post'); 
-				setTimeout(function(){$n.addClass('active'); $o.removeClass('post active').hide(); callback(); setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);}, 600); //fade out old, fade in new.
+			else if($n instanceof jQuery)	{
+				dump(" -> $o is not properly defined.  jquery: "+($o instanceof jQuery)+" and length: "+$o.length);
+				$('html, body').animate({scrollTop : 0},'fast',function(){
+					$n.fadeIn(1000);
+					});
 				}
 			else	{
 				$n.addClass('active')
@@ -975,32 +988,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 						infoObj.navcat = zGlobals.appSettings.rootcat;
 						$new = _app.ext.quickstart.u.showPage(infoObj);
 						break;
-					case 'static':
-						infoObj.pageType = 'static';
-						var parentID = infoObj.templateID+"_"+(infoObj.id || "");
-						var $parent = $(_app.u.jqSelector('#',parentID));
-						if($parent.length > 0){
-							infoObj.state = 'init';
-							_app.renderFunctions.handleTemplateEvents($parent,infoObj);
-							}
-						else {
-							$parent = new tlc().getTemplateInstance(infoObj.templateID);
-							$parent.attr('id', parentID);
-							infoObj.state = 'init';
-							_app.renderFunctions.handleTemplateEvents($parent,infoObj);
-							if(infoObj.dataset){
-								dump(infoObj);
-								infoObj.verb = 'translate';
-								$parent.tlc(infoObj);
-								}
-							}
-						$new = $parent;
-						$new.data('templateid',infoObj.templateid);
-						$new.data('pageid',infoObj.id);
-						$('#mainContentArea').append($new);
-						infoObj.state = 'complete';
-						_app.renderFunctions.handleTemplateEvents($new,infoObj);
-						break;
+
 					case 'category':
 //add item to recently viewed list IF it is not already the most recent in the list.				
 //Originally, used: 						if($.inArray(infoObj.navcat,_app.ext.quickstart.vars.session.recentCategories) < 0)
@@ -1606,7 +1594,6 @@ $target.tlc({
 //				if(infoObj.pageType == 'cart' && infoObj.show != 'inline'){r = false; dump('transition suppressed: showing modal cart.');}
 				if(infoObj.pageType == 'category' && $old.data('templateid') == 'categoryTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading same category.");}
 				else if(infoObj.pageType == 'category' && $old.data('templateid') == 'homepageTemplate' && $old.data('catsafeid') == infoObj.navcat){r = false; dump("transition suppressed: reloading homepage.");}
-				else if(infoObj.pageType == 'static' && $old.data('templateid') == infoObj.templateid && $old.data('pageid') == infoObj.id){r = false; dump("transition suppressed: same filter page "+infoObj.id);}
 				else if(infoObj.pageType == 'product' && $old.data('templateid') == 'productTemplate' && $old.data('pid') == infoObj.pid){r = false; dump("transition suppressed: reloading same product.");}
 				else if($old.data('templateid') == 'companyTemplate' && infoObj.pageType == 'company')	{r = false; dump("transition suppressed: changing company articles.");}
 				else if($old.data('templateid') == 'customerTemplate' && infoObj.pageType == 'customer')	{r = false; dump("transition suppressed: changing customer articles.");}
@@ -2219,27 +2206,19 @@ effects the display of the nav buttons only. should be run just after the handle
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
 					   "filter":{
 						  "and" : [
-							 {"term":{"tags":infoObj.tag}},
+							 {"term":{"tags":decodeURIComponent(infoObj.tag)}},
+							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
 							 ]
 						  }});
 					}
 				else if (infoObj.KEYWORDS) {
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
-						"query":{
-							"function_score" : {										
-								"query" : {
-									"query_string":{"query":infoObj.KEYWORDS}	
-									},
-								"functions" : [
-									{
-										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
-										"script_score" : {"script":"10"}
-										}
-									],
-								"boost_mode" : "sum",
-								}
-							}
-						});
+					   "filter":{
+						  "and" : [
+							 {"query":{"query_string":{"query":decodeURIComponent(infoObj.KEYWORDS), "fields":["prod_name^5","pid","prod_desc"]}}},
+							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
+							 ]
+						  }});
 					}
 				else	{
 					
@@ -2283,9 +2262,11 @@ elasticsearch.size = 50;
 				infoObj.trigger = '';
 				infoObj.state = 'init'; //needed for handleTemplateEvents.
 				
+				infoObj.cartid = _app.model.fetchCartID();
+				
 //only create instance once.
 				var $cart = $('#mainContentArea_cart');
-				if($cart.length)	{
+				if($cart.length && $cart.data('cartid') == infoObj.cartid)	{
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					//the cart has already been rendered.
 					infoObj.trigger = 'refresh';
@@ -2293,7 +2274,6 @@ elasticsearch.size = 50;
 					}
 				else	{
 					infoObj.trigger = 'fetch';
-					infoObj.cartid = _app.model.fetchCartID();
 					$cart = _app.ext.cco.a.getCartAsJqObj(infoObj);
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					$cart.hide().on('complete',function(){
