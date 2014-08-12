@@ -18,6 +18,7 @@
 ~path	/product/([^/]*)	/#!product/$1
 
 #redirect old cart pages
+~path /cart\.cgis /#!home
 
 #redirect company pages
 =path	/about_us.cgis	/#!company/about
