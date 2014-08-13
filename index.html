@@ -1640,7 +1640,7 @@ this will likely become more flexible in the future. ###
             
             <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
             <div data-app-role="timeInTransit" class="displayNone"></div>
-            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; if(is $var --notblank;) {{ apply --show; }}; " class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
+            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; extension_thechessstore#freeshippingindicator  --legacy; apply --append;" class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
             
     
             <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
