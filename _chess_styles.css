@@ -1937,6 +1937,9 @@ button.prodListATCButton{
  .checkoutPaypalNotice{
 	font-size: 1.4em;
  }
+ 
+.applyButton span.ui-button-text{
+}
 
 /************************************************************************************************************************/
 /**Search Page**/
@@ -2141,7 +2144,6 @@ button.prodListATCButton{
 }
 .checkoutFormContainer form button span{
 	margin-top: -3px;
-	padding: 4px 10px !important;
 }
 .placeOrderButton{
 	height: 40px !important;
