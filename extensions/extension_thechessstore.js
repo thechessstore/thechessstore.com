@@ -1397,8 +1397,21 @@ var extension_thechessstore = function(_app) {
 					else	{
 						$tag.hide(); //if msrp > price, don't show savings because it'll be negative.
 					}
-				}, //priceretailsavingspercentageprodlistitem	
+				}, //priceretailsavingspercentageprodlistitem
 				
+					
+				freeshippingindicator : function($tag,data)	{
+					//dump("data.value = ");
+					//dump(data.value);
+					if(data.value == "1"){
+						//dump("data.value = "+ data.value+ ". Showing free shipping.");
+						$tag.show();
+					}
+					else{
+						//dump("data.val does not = 1. Keep indicator hidden.");
+						$tag.hide();
+					}
+				} //freeshippingindicator
 		}
 	}
 	return r;

@@ -102,7 +102,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201408.aatest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.ag",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -1640,7 +1640,7 @@ this will likely become more flexible in the future. ###
             
             <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
             <div data-app-role="timeInTransit" class="displayNone"></div>
-            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; if(is $var --notblank;) {{ apply --show; }}; " class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
+            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; extension_thechessstore#freeshippingindicator  --legacy; apply --append;" class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
             
     
             <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
@@ -1878,7 +1878,7 @@ this will likely become more flexible in the future. ###
 <!--**CUSTOM TEMPLATES**-->
 <div id='paypalModalTemplate'>
  <p class="paypalModalInto">Paying with PayPal:</p>
- <p>In order to continue processing this order with PayPal, please immediately proceed to and click the place order button after selecting the PayPal option in payment choices. This will take you to the PayPal website so that you can complete the transaction. Once you have finished with PayPal, you will be returned to our checkout to complete and place your order.</p>
+ <p>Scroll to the bottom of the checkout page and click Place Order. This will take you to PayPal for payment information. After you are done in PayPal you will be returned to our checkout page to complete the order.</p>
 </div>
 
 

@@ -968,7 +968,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
-					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
+					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
