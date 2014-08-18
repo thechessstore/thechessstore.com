@@ -968,7 +968,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
-					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
+					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
@@ -2133,7 +2133,6 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
-
 							}
 						}
 					else	{
@@ -2146,6 +2145,7 @@ VALIDATION
 				}
 			return r;
 			},
+
 
 
 
@@ -2761,8 +2761,13 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 				value = bindRules['defaultValue']
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
+	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
+				}
+			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
+				value = bindRules['defaultValue']
+//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
+				}
 			}
-		}
 
 
 

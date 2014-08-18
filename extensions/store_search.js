@@ -30,7 +30,8 @@ var store_search = function(_app) {
 	vars : {
 //a list of the templates used by this extension.
 //if this is a custom extension and you are loading system extensions (prodlist, etc), then load ALL templates you'll need here.
-		"ajaxRequest" : {}
+		"ajaxRequest" : {},
+		"universalFilters":[]
 		},
 
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
@@ -48,20 +49,41 @@ or instead of P.filter, you may have
 P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_SALE'}}  ] } };
 */
 		appPublicProductSearch : {
-			init : function(P,tagObj,Q)	{
+			init : function(obj,tagObj,Q)	{
 //				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
-				if(_app.vars.debug == 'search')	{
-					dump(JSON.stringify(P));
+				var universalFilters = $.extend(true, [], _app.ext.store_search.vars.universalFilters);
+				if(universalFilters.length){
+					if(obj.filter){
+						var tmp = obj.filter;
+						obj.filter = {
+							"and" : universalFilters
+							}
+						obj.filter.and.push(tmp);
+						}
+					else if(obj.query){
+						var tmp = obj.query;
+						obj.query = {
+							"filtered" : {
+								"query" : tmp,
+								"filter" : {
+									"and" : universalFilters
+									}
+								}
+							}
+						}
+					else{
+						//This is not going to end well, but let's let Elastic tell you that.
+						}
 					}
 				this.dispatch(P,tagObj,Q)
 				return 1;
 				},
-			dispatch : function(P,tagObj,Q)	{
-				P['_cmd'] = "appPublicSearch";
-				P.type = 'product';
-				P['_tag'] = tagObj;
-//				_app.u.dump(P);
-				_app.model.addDispatchToQ(P,Q);
+			dispatch : function(obj,tagObj,Q)	{
+				obj['_cmd'] = "appPublicSearch";
+				obj.type = 'product';
+				obj['_tag'] = tagObj;
+//				_app.u.dump(obj);
+				_app.model.addDispatchToQ(obj,Q);
 				}
 			}, //appPublicSearch
 
@@ -69,9 +91,29 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 // to get a good handle on what datapointers should look like.
 		appPublicSearch : {
 			init : function(obj,tagObj,Q)	{
-//				_app.u.dump("BEGIN _app.ext.store_search.calls.appPublicSearch");
-				if(_app.vars.debug == 'search')	{
-					dump(JSON.stringify(obj));
+				var universalFilters = $.extend(true, [], _app.ext.store_search.vars.universalFilters);
+				if(universalFilters.length){
+					if(obj.filter){
+						var tmp = obj.filter;
+						obj.filter = {
+							"and" : universalFilters
+							}
+						obj.filter.and.push(tmp);
+						}
+					else if(obj.query){
+						var tmp = obj.query;
+						obj.query = {
+							"filtered" : {
+								"query" : tmp,
+								"filter" : {
+									"and" : universalFilters
+									}
+								}
+							}
+						}
+					else{
+						//This is not going to end well, but let's let Elastic tell you that.
+						}
 					}
 				this.dispatch(obj,tagObj,Q)
 				return 1;
@@ -154,6 +196,40 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							delete _tag.status; //the status would already be 'requesting' or 'completed', which means this request wouldn't run.
 					
 							var $header = _app.ext.store_search.u.buildResultsHeader($list,_rtag.datapointer), //# of results and keyword display.
+//							$sortMenu = _app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
+							$pageMenu = _app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
+							$multipage = _app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
+							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
+							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
+							
+//							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
+							$parent.find(".resultsHeader").remove(); //make sure headers don't stack when using pagination. // ### TODO -> test this.
+							$header.prependTo($parent);
+//pageMenu will be false if there are no pages. If there's no pagination, no further output is needed.
+							if($pageMenu)	{
+	
+								$menuContainer.append($pageMenu);
+								$menuContainer.appendTo($controlsContainer);
+								$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
+								
+								
+								$controlsContainer.prependTo($parent);
+//add to DOM prior to running menu. helps it to not barf.
+								$pageMenu.menu();
+//								$sortMenu.menu();
+								}
+						if(_app.ext.admin)	{
+							$list.hideLoading();
+							_app.u.handleAppEvents($parent);
+							}
+						else	{
+							//no error gets thrown here. it is an acceptable use case to display search results w/ no multipage functionality.
+							}
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list ['+typeof _rtag.list+'] was not defined, not a jquery object ['+(_rtag.list instanceof jQuery)+'] or does not exist ['+_rtag.list.length+'].',gMessage:true});
+					_app.u.dump("handleElasticResults _rtag.list: "); _app.u.dump(_rtag.list);
 //							$sortMenu = _app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
 							$pageMenu = _app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
 							$multipage = _app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
@@ -458,7 +534,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 			getElasticResultsAsJQObject : function(P)	{
 //				_app.u.dump("BEGIN store_search.u.getElasticResultsAsJQObject ["+P.datapointer+"]")
 				var pid;//recycled shortcut to product id.
-				var L = _app.data[P.datapointer]['_count'];
+				var L = _app.data[P.datapointer]['_count'] || _app.data[P.datapointer].hits.hits.length;
 				var $r = $("<ul />"); //when this was a blank jquery object, it didn't work. so instead, we append all content to this imaginary list, then just return the children.
 //				_app.u.dump(" -> parentID: "+P.parentID); //resultsProductListContainer
 //				_app.u.dump(" -> L: "+L);
@@ -480,7 +556,7 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 				es.type = 'product';
 				es.mode = 'elastic-search';
 				es.size = 250;
-//				es.sort = [{'prod_name.raw':'asc'}] //here for testing. prod_name is tokenized, so the .raw field must be used for sorting.
+				
 				return es;
 				},
 			

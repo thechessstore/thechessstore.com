@@ -1,0 +1,20 @@
+User-agent: *
+<<<<<<< HEAD
+Robot-version: 2.0.0
+Crawl-delay: 2
+Request-rate: 360/1m
+=======
+Allow: /
+>>>>>>> upstream/master
+
+User-agent: 008
+Disallow: /
+
+User-agent: aranhabot
+<<<<<<< HEAD
+Crawl-delay: 60
+Disallow: /media/
+=======
+Disallow: /media/
+
+>>>>>>> upstream/master
