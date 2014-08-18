@@ -63,8 +63,8 @@ var magicToolBox_mzp = function(_app) {
 			startExtension : {
 				onSuccess : function(){
 					_app.u.dump("BEGIN magictoolbox.callbacks.startExtension");
-					_app.rq.push(['css',0,'examples/magictoolbox/magiczoomplus.css','mzpStylesheet']);
-					_app.rq.push(['script',0,'examples/magictoolbox/magiczoomplus.js',function(){
+					_app.rq.push(['css',0,'magiczoomplus-commercial/magiczoomplus/magiczoomplus.css','mzpStylesheet']);
+					_app.rq.push(['script',0,'magiczoomplus-commercial/magiczoomplus/magiczoomplus.js',function(){
 						MagicZoomPlus.start();
 						_app.rq.push(['templateFunction','productTemplate','onCompletes',function(P) {_app.u.dump("Refreshing MZP."); setTimeout(function(){MagicZoomPlus.refresh();},2000)}]);
 						}]);
