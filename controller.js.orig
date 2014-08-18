@@ -968,7 +968,11 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
+<<<<<<< HEAD
+					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
+=======
 					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
+>>>>>>> upstream/master
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
@@ -1767,6 +1771,7 @@ AUTHENTICATION/USER
 					}
 				return newArray;
 				},
+<<<<<<< HEAD
 
 //pass an object in as first param and an array as the second.
 //This will return a NEW object, removing any keys from 'obj' that are not declared in 'whitelist'.
@@ -1795,6 +1800,36 @@ AUTHENTICATION/USER
 					}
 				return r;
 				},
+=======
+
+//pass an object in as first param and an array as the second.
+//This will return a NEW object, removing any keys from 'obj' that are not declared in 'whitelist'.
+			getWhitelistedObject : function(obj,whitelist)	{
+				var r = {};
+				for(index in obj)	{
+// SANITY -> indexOf not supported for searching arrays in IE8
+					if($.inArray(index, whitelist) >= 0)	{
+						r[index] = obj[index];
+						}
+					else	{} //not in whitelist
+					}
+				return r;
+				},
+
+//pass an object in as first param and an array as the second.
+//This will return a NEW object, removing any keys from 'obj' that ARE declared in 'blacklist'
+			getBlacklistedObject : function(obj,blacklist)	{
+				var r = $.extend({},obj);
+				for(index in obj)	{
+// SANITY -> indexOf not supported for searching arrays in IE8
+					if($.inArray(index, blacklist) >= 0)	{
+						delete r[index];
+						}
+					else	{} //is not in blacklist
+					}
+				return r;
+				},
+>>>>>>> upstream/master
 
 
 
@@ -2133,6 +2168,10 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/master
 							}
 						}
 					else	{
@@ -2145,7 +2184,6 @@ VALIDATION
 				}
 			return r;
 			},
-
 
 
 
@@ -2761,13 +2799,8 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 				value = bindRules['defaultValue']
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
-	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
-				}
-			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
-				value = bindRules['defaultValue']
-//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
-				}
 			}
+		}
 
 
 

@@ -546,8 +546,8 @@ need to be customized on a per-ria basis.
 					});
 				}
 			else	{
-				$n.addClass('active')
-				callback();
+				//hhmm  not sure how or why we got here.
+				dump("WARNING! in pageTransition, neither $o nor $n were instances of jQuery.  how odd.",'warn');
 				setTimeout(function(){_app.ext.quickstart.vars.showContentFinished = true;}, 600);
 				}
 			}, //pageTransition
@@ -1108,16 +1108,7 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 					_app.ext.quickstart.vars.showContentFinished = true;
 					}
 				else if(typeof _app.ext.quickstart.pageTransition == 'function')	{
-					var callback = function(){
- 						var $hiddenpages = $("#mainContentArea > :hidden");
- 						var L = $hiddenpages.length;
- 						dump(L);
- 						dump(L - _app.ext.quickstart.vars.cachedPageCount);
- 						for(var i = 0; i < L - _app.ext.quickstart.vars.cachedPageCount; i++){
- 							$($hiddenpages.get(i)).intervaledEmpty().remove();
- 							}
- 						};
- 					_app.ext.quickstart.pageTransition($old,$new,infoObj, callback);
+					_app.ext.quickstart.pageTransition($old,$new,infoObj);
 					}
 				else if($new instanceof jQuery)	{
 //no page transition specified. hide old content, show new. fancy schmancy.
@@ -1520,7 +1511,10 @@ $target.tlc({
 					}
 				},
 
-
+			updateDOMTitle : function(title)	{
+				title = (typeof title === "string") ? title : ""; //better blank than 'undefined' or 'object'.
+				document.title = title;
+				},
 
 //used in checkout to populate username: so either login or bill/email will work.
 //never use this to populate the value of an email form field because it may not be an email address.
@@ -2213,12 +2207,21 @@ effects the display of the nav buttons only. should be run just after the handle
 					}
 				else if (infoObj.KEYWORDS) {
 					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
-					   "filter":{
-						  "and" : [
-							 {"query":{"query_string":{"query":decodeURIComponent(infoObj.KEYWORDS), "fields":["prod_name^5","pid","prod_desc"]}}},
-							 {"has_child":{"type":"sku","query": {"range":{"available":{"gte":1}}}}} //only return item w/ inventory
-							 ]
-						  }});
+						"query":{
+							"function_score" : {										
+								"query" : {
+									"query_string":{"query":infoObj.KEYWORDS}	
+									},
+								"functions" : [
+									{
+										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
+										"script_score" : {"script":"10"}
+										}
+									],
+								"boost_mode" : "sum",
+								}
+							}
+						});
 					}
 				else	{
 					
@@ -2262,10 +2265,10 @@ elasticsearch.size = 50;
 				infoObj.trigger = '';
 				infoObj.state = 'init'; //needed for handleTemplateEvents.
 				
-				infoObj.cartid = _app.model.fetchCartID();
-				
 //only create instance once.
+				infoObj.cartid = _app.model.fetchCartID();
 				var $cart = $('#mainContentArea_cart');
+				
 				if($cart.length && $cart.data('cartid') == infoObj.cartid)	{
 					_app.renderFunctions.handleTemplateEvents($cart,infoObj);
 					//the cart has already been rendered.
@@ -3053,14 +3056,10 @@ else	{
 
 			productAdd2Cart : function($ele,p)	{
 				p.preventDefault();
-				//the buildCartItemAppendObj needs a _cartid param in the form.
-				if($("input[name='_cartid']",$ele).length)	{}
-				else	{
-					$ele.append("<input type='hidden' name='_cartid' value='"+_app.model.fetchCartID()+"' \/>");
-					}
-
+				
 				var cartObj = _app.ext.store_product.u.buildCartItemAppendObj($ele);
 				if(cartObj)	{
+					cartObj["_cartid"] = _app.model.fetchCartID();
 					_app.ext.cco.calls.cartItemAppend.init(cartObj,{},'immutable');
 					_app.model.destroy('cartDetail|'+cartObj._cartid);
 					_app.calls.cartDetail.init(cartObj._cartid,{'callback':function(rd){
@@ -3128,7 +3127,7 @@ else	{
 					});
 				return false;
 				}, //showBuyerAddressUpdate
-
+			
 			showBuyerAddressAdd : function($ele,p)	{
 				p.preventDefault();
 				_app.ext.store_crm.u.showAddressAddModal({
@@ -3139,7 +3138,19 @@ else	{
 					});
 				return false;
 				}, //showBuyerAddressAdd
-
+			
+			showBuyerAddressRemove : function($ele, p){
+				p.preventDefault();
+				_app.ext.store_crm.u.showAddressRemoveModal({
+					"addressID" : $ele.closest("address").data('_id'),
+					'addressType' : $ele.closest("[data-app-addresstype]").data('app-addresstype')
+					},function(){
+					$('#mainContentArea_customer').empty().remove(); //kill so it gets regenerated. this a good idea?
+					showContent('customer',{'show':'myaccount'});
+					});
+				return false;
+				},
+			
 			quickviewShow : function($ele,p)	{
 				p.preventDefault();
 				var PID = $ele.data('pid') || $ele.closest('[data-pid]').attr('data-pid');

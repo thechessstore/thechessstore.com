@@ -209,17 +209,20 @@ _app.ext.order_create.u.handlePanel($context,'chkoutMethodsPay',['empty','transl
 						$(document.body).showLoading({'message':'Order '+_app.data[_rtag.datapointer].orderid+' Created. Verifying payment...'});
 						}
 					
+					/*
+					Handled in the callback for checkout, after the order has been processed
 					if(_rtag.attempt === 1)	{
 						if(_app.data[_rtag.datapointer]['previous-cartid'])	{
 							dump(" -> removing the cartID from the session.");
 							//first attempt. To get here, the 'cart' has been received by the API and is in memory and being processed. Pull the cart out of memory.
-							//_app.model.removeCartFromSession(_app.data[_rtag.datapointer]['previous-cartid']);
+							_app.model.removeCartFromSession(_app.data[_rtag.datapointer]['previous-cartid']);
 							}
-						}
+						} 
+					*/
 //Continue polling till order is finished.
 					setTimeout(function(){
-						var cartid = _app.data[_rtag.datapointer]['status-cartid'];
- 						_app.model.addDispatchToQ({"_cmd":"cartOrderStatus","_cartid":cartid,"_tag":{"datapointer":"cartOrderStatus|"+cartid,"parentID":_rtag.parentID,"attempt" :(_rtag.attempt+1), "callback":"cartOrderStatus","extension":"order_create"}},"mutable");
+						var cartid = _app.data[_rtag.datapointer]['status-cartid']
+						_app.model.addDispatchToQ({"_cmd":"cartOrderStatus","_cartid":cartid,"_tag":{"datapointer":"cartOrderStatus|"+cartid,"parentID":_rtag.parentID,"attempt" :(_rtag.attempt+1), "callback":"cartOrderStatus","extension":"order_create"}},"mutable");
 						dump(" -------------> timeout triggered. dispatch cartOrderStatus. attempt: "+_rtag.attempt);
 						_app.model.dispatchThis("mutable");
 						},2000);
@@ -1745,7 +1748,7 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 							'_cmd':'cartOrderCreate',
 							'@PAYMENTS' : payments,
 							'async' : 1,
-							'_tag':{'datapointer':'cartOrderCreate|'+cartid,'callback':'cartOrderStatus','extension':'order_create','parentID':$checkout.attr('id'), 'previous-cartid':cartid},
+							'_tag':{'datapointer':'cartOrderCreate|'+cartid,'callback':'cartOrderStatus','extension':'order_create','parentID':$checkout.attr('id')},
 							'iama':_app.vars.passInDispatchV, 
 							'domain' : (_app.vars.thisSessionIsAdmin ? 'www.'+_app.vars.domain : '')
 							},'immutable');
@@ -2200,12 +2203,12 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 						$label = $input.closest('label'),
 						$fieldset = $input.closest('fieldset'),
 						$pmc = $input.closest("[data-app-role='paymentMethodContainer']"), //payment method container. an li or div or row. who knows.
-						cartID =  _app.model.fetchCartID();
+						cartID = $input.closest("[data-app-role='checkout']").data('cartid');
 	
 	//handle the previously selected payment method.
 					$('.ui-state-active',$fieldset).removeClass('ui-state-active ui-corner-top ui-corner-all');
 					$("[data-app-role='supplementalPaymentInputsContainer']",$fieldset).empty().remove(); //must be removed so form inputs are not present.
-
+					
 					var $supplementalOutput = _app.ext.cco.u.getSupplementalPaymentInputs($input.val(),_app.ext.order_create.vars[cartID].payment);
 					if($supplementalOutput)	{
 						$label.addClass("ui-state-active ui-corner-top");

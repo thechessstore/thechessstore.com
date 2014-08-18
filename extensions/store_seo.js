@@ -119,6 +119,7 @@ var store_seo = function(_app) {
 						//Use Default Title
 						break;
 					case "category" :
+						break;
 					case "product" :
 						//Grab from the titles and descriptions on the page
 						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
