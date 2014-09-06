@@ -173,7 +173,7 @@ fieldset {
   color: #837978; }
 
 #appPreView {
-  width: auto; }
+  width: auto; display:none !important; }
 
 .appPreViewContainer {
   position: relative;
