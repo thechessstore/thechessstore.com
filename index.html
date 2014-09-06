@@ -1562,7 +1562,7 @@ this will likely become more flexible in the future. ###
     <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:seo_title'; if(is $var --blank) {{bind $var '.%attribs.zoovy:prod_name';}}; apply --attrib='data-seo-title';"></span>
     <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:meta_description'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_desc';}}; apply --attrib='data-seo-desc';"></span>
 	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
-<ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
+	<ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
 
 <table class="prodViewerContainer">
 <tr>
@@ -1595,91 +1595,92 @@ this will likely become more flexible in the future. ###
     </div>
 
 	</td>
-
 	<td class="prodSummaryContainer marginBottom no_underline">
-	<h1 class="prodTempName" data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;"></h1>
-    
-    <section class="marginBottom clearfix">
-			<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite floatLeft marginRight"></span>
-			<span data-tlc="bind $var '.reviews.total'; if (is $var --notblank;) {{format --prepend=' from ' --append=' reviews'; apply --append;}};" class='floatLeft'></span>
-		</section>
-	
-	<menu ata-tlc="bind $var '.pid'; apply --attrib='data-pid';" class='CRMButtonMenu prodTempReview'>
+		<div vocab="http://schema.org/" typeof="Product">
+			<h1 class="prodTempName" data-tlc="bind $var '.%attribs.zoovy:prod_name'; apply --append;" property="name"></h1>
+			
+			<section class="marginBottom clearfix">
+					<span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite floatLeft marginRight"></span>
+					<span data-tlc="bind $var '.reviews.total'; if (is $var --notblank;) {{format --prepend=' from ' --append=' reviews'; apply --append;}};" class='floatLeft'></span>
+				</section>
+			
+			<menu ata-tlc="bind $var '.pid'; apply --attrib='data-pid';" class='CRMButtonMenu prodTempReview'>
 
-        <a class="noTextDec pointer" onClick="myApp.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
-	<a class="noTextDec pointer" data-app-click="store_crm|productReviewShow">Write a Review</a>
-        <a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
+				<a class="noTextDec pointer" onClick="myApp.ext.extension_thechessstore.a.scrollToReview($(this).parent().parent().parent().parent().parent().parent());">Read the Reviews</a>
+			<a class="noTextDec pointer" data-app-click="store_crm|productReviewShow">Write a Review</a>
+				<a href="javascript:window.print()" class="noTextDec" onClick=''>Print</a>
 
-	</menu>
-    
-    <div data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" class="floatLeft clearfix prodTempDesc"></div>
-	
-    <div class="productInfoContainer">
-        <div class="productInfo">
-            <div class='priceContainer'>
-                <h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
-                <div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};">
-                    <h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice"></h4>
-                </div>
-                
-                <div class="displayNone productSavings savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{apply --show;}};">	
-                   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
-                   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
-                   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
-                </div>
-                
-            </div>
-            
-            <h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
-            <h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
-            
-            
-            <table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
-                <tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hideSummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
-            </table>
-            
-            <div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
-            <div data-app-role="timeInTransit" class="displayNone"></div>
-            <div data-tlc="bind $var '.%attribs.user:app_shipfree'; extension_thechessstore#freeshippingindicator  --legacy; apply --append;" class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
-            
-    
-            <form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
-            
-                <fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
-                <fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color">Quantity: </fieldset>
-            
-                <div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
-            </form>        
-        </div>
-    </div>
-    
-    <div class="productBillMeLaterBannerCont">
-        <div class="productBillMeLaterBanner">
-			<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
-                "use strict";
-                var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
-                n.src = "//paypal.adtag.where.com/merchant.js";
-                s.parentNode.insertBefore(n, s);
-                }(document, "script"));
-            </script>
-    	</div>
-    </div>
-        
-    <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="CRMButtonMenu addToCartSideLinkCont">
-        <a href="#" class="wishListLink" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
-        
-        <div class="socialLinks"></div>
-        <a class="referFriendLink pointer" onclick="javascript:window.location='mailto:?subject=Check out what thechessstore.com has&body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>
-    </div>
-    
-    <p class="alignLeft floatLeft productQuestionBar" style="width:100%;">Questions? Click here for <a class="pointer" style="color: #D35120;" href="#!company/contact">online</a> help or call 1-888-810-2437</p>
-	
+			</menu>
+			
+			<div data-tlc="bind $var '.%attribs.zoovy:prod_desc'; if (is $var --notblank;) {{render --wiki='quickstart'; apply --append;}};" class="floatLeft clearfix prodTempDesc" property="description"></div>
+			
+			<div class="productInfoContainer">
+				<div class="productInfo">
+					<div class='priceContainer' property="offers"  typeof="Offer">
+						<h5 data-tlc="bind $var '.%attribs.zoovy:prod_msrp';  if (is $var --notblank;) {{format --currency='USD'; format --prepend='Regular Price: ';  apply --append;}};" class="prodMSRP lineThrough clear"></h5>
+						<div data-tlc="bind $var '.%attribs.is:sale'; if(is $var --notblank;) {{ apply --class='onSale'; }}; if (is $var --notblank;) {{apply --add --class='onSale'; apply --append;}};" >
+							<h4 data-tlc="bind $var '.%attribs.zoovy:base_price'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Sale Price: '; apply --append;}};" class="basePrice" property="price"></h4>
+						</div>
+						
+						<div class="displayNone productSavings savings" data-tlc="bind $var '.%attribs.zoovy:prod_msrp'; if (is $var --notblank;)  {{apply --show;}};">	
+						   <div data-tlc="bind $var '.pid'; quickstart#priceretailsavingsdifference  --currencysign='$' --hidezero='true' --legacy;" class="savings"></div>
+						   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingsdifferenceprodlistitem  --legacy; apply --append;" class="savingsDifference"></span>
+						   <span data-tlc="bind $var '.pid'; extension_thechessstore#priceretailsavingspercentageprodlistitem  --legacy; apply --append;" class="savingsPercentage"></span>
+						</div>
+						
+					</div>
+					
+					<h5 data-tlc="bind $var '.pid'; if (is $var --notblank;) {{format --prepend='Item: '; apply --append;}};" class="stid clearfix prodTempDescH5Color"></h5>
+					<h5 class="prodTempDescH5Color displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{ apply --show; }}; ">Mfr: <a href='#' data-tlc="bind $var '.%attribs.zoovy:prod_mfg'; if(is $var --notblank;) {{apply --append; format --prepend='#!search/keywords/'; apply --attrib='href';}};"></a></h5>
+					
+					
+					<table class="marginBottom fullWidth gridTable" data-app-role="childrenSiblingsContainer">
+						<tbody data-tlc="bind $var '.%attribs.zoovy:grp_children'; store_prodlist#productlist  --hideSummary='true' --withInventory='1' --withVariations='1' --templateid='productListTemplateChildren'  --legacy; apply --append;"></tbody>
+					</table>
+					
+					<div data-tlc="bind $var '.%attribs.zoovy:ship_latency'; if (is $var --notblank;) {{ format --prepend='Normally ships in '; format --append=' day(s)'; apply --append;}};" class="latency shipLatency marginBottom"></div>
+					<div data-app-role="timeInTransit" class="displayNone"></div>
+					<div data-tlc="bind $var '.%attribs.user:app_shipfree'; extension_thechessstore#freeshippingindicator  --legacy; apply --append;" class="freeShippingAnnouncer displayNone">Free Shipping Today</div>
+					
+			
+					<form data-tlc="bind $var '.pid'; store_product#atcform  --legacy; apply --append;" class="prodViewerAddToCartForm clearfix marginBottom" action="#" data-app-submit="quickstart|productAdd2Cart" data-show="inline">
+					
+						<fieldset data-tlc="bind $var '.pid'; store_product#atcvariations  --legacy; apply --append;" class="borderNone"></fieldset>
+						<fieldset data-tlc="bind $var '.'; store_product#atcquantityinput  --defaultvalue='1' --legacy;" class="borderNone prodTempDescH5Color">Quantity: </fieldset>
+					
+						<div class='marginBottom'><input data-tlc="bind $var '.pid'; store_product#addtocartbutton  --legacy;" value="" class="applyButton addtocartbutton addToCartButt displayNone" type="submit" /></div>
+					</form>        
+				</div>
+			</div>
+			
+			<div class="productBillMeLaterBannerCont">
+				<div class="productBillMeLaterBanner">
+					<script type="text/javascript" data-pp-pubid="ac64527121" data-pp-placementtype="250x250"> (function (d, t) {
+						"use strict";
+						var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
+						n.src = "//paypal.adtag.where.com/merchant.js";
+						s.parentNode.insertBefore(n, s);
+						}(document, "script"));
+					</script>
+				</div>
+			</div>
+				
+			<div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" class="CRMButtonMenu addToCartSideLinkCont">
+				<a href="#" class="wishListLink" data-app-click="quickstart|productAdd2List" data-listid="wishlist">Add to Wishlist</a>
+				
+				<div class="socialLinks"></div>
+				<a class="referFriendLink pointer" onclick="javascript:window.location='mailto:?subject=Check out what thechessstore.com has&body=I thought you might be interested in this: ' + window.location;">Tell a friend</a>
+			</div>
+			
+			<p class="alignLeft floatLeft productQuestionBar" style="width:100%;">Questions? Click here for <a class="pointer" style="color: #D35120;" href="#!company/contact">online</a> help or call 1-888-810-2437</p>
+			
 
-	<div data-tlc="bind $var '.%attribs.zoovy:qty_price'; if(is $var --notblank) {{apply --add --class='marginBottom'}}; store_product#quantitydiscounts  --legacy;"></div>
+			<div data-tlc="bind $var '.%attribs.zoovy:qty_price'; if(is $var --notblank) {{apply --add --class='marginBottom'}}; store_product#quantitydiscounts  --legacy;"></div>
 
 
 
-	<span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
+			<span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
+		</div>
 	</td>
 </tr>
 <tr>
@@ -1812,7 +1813,7 @@ this will likely become more flexible in the future. ###
 		
 		<ul data-tlc="bind $var '.reviews.@reviews'; controller#loop --templateid='productReviewsTemplateDetail'; if (is $var --notblank;) {{apply --append;}};" class="listStyleNone clearfix productReviewsList"></ul>
 </div>
-
+</div>
 
 </div><!-- productTemplate -->
 
