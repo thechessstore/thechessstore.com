@@ -103,7 +103,6 @@ css files should be included before any .js file to ensure they are downloaded i
 <script data-apptimize="embed" type="text/javascript" src="app-quickstart.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/partner_magictoolbox_mzp.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/_thechessstore.js"></script>
-<script data-apptimize="embed" type="text/javascript" src="extensions/extension_thechessstore.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/prodlist_infinite.js"></script>
 <script data-apptimize="embed" type="text/javascript" src="extensions/store_account_creation.js"></script>
 
@@ -120,7 +119,7 @@ $(document).ready(function(){
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
 		"_robotHasGreeted" : false,
-		"release":"201408.ajtest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201408.aktest1",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required

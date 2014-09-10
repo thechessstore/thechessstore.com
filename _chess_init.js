@@ -42,7 +42,7 @@ myApp.rq.push(['script',0,myApp.vars.baseURL+'resources/tlc.js']); //in zero pas
 //CUSTOM EXTENSIONS/SCRIPTS
 
 myApp.rq.push(['extension',0,'store_filter','']);
-myApp.rq.push(['extension',0,'extension_thechessstore','','startExtension']);
+myApp.rq.push(['extension',0,'extension_thechessstore','extensions/extension_thechessstore.js','startExtension']);
 //myApp.rq.push(['extension',0,'google_remarketing','extensions/google_remarketing.js','startExtension']);
 //myApp.rq.push(['extension',0,'google_dynamicremarketing','extensions/partner_google_dynamicremarketing.js','startExtension']);
 myApp.rq.push(['extension',0,'prodlist_infinite','']);
