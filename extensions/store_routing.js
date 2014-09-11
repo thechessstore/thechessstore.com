@@ -209,7 +209,8 @@ optional params:
 					
 					case 'category':
 						r = true;
-						data.globals.binds[data.globals.focusBind] = _app.ext.store_routing.u.categoryAnchor(data.value.path, (args.seo ? data.value.pretty : ''));
+						var seo = args.seo || data.value.pretty;
+						data.globals.binds[data.globals.focusBind] = _app.ext.store_routing.u.categoryAnchor(data.value.path, seo);
 						break;
 					
 					default:
