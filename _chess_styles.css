@@ -173,7 +173,7 @@ fieldset {
   color: #837978; }
 
 #appPreView {
-  width: auto; }
+  width: auto; display:none !important; }
 
 .appPreViewContainer {
   position: relative;
@@ -2465,6 +2465,43 @@ src='images/promo_tags/free-shipping-promo-button-128x45.jpg',
 sizingMethod='scale')";	*/
 }
 
+
+
+/**********************************************************************************************************************************/
+/****CART TEMPLATE****/
+.pageNotFoundTemplate{
+}
+.pageNotFoundTemplate h1{
+	text-align: center;
+}
+.pageNotFoundTemplate p{
+	text-align: center;
+}
+div.pageNotFoundTemplate .productSearchForm{
+	float: none;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 305px;
+}
+div.pageNotFoundTemplate .productSearchKeyword{
+	width: 225px;
+}
+div.pageNotFoundTemplate .searchButton{
+	background: rgb(164,134,114); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(164,134,114,1) 0%, rgba(119,80,50,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(164,134,114,1)), color-stop(100%,rgba(119,80,50,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(164,134,114,1) 0%,rgba(119,80,50,1) 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a48672', endColorstr='#775032',GradientType=0 ); /* IE6-9 */
+	border-style:none;
+	color:#f1efee;
+	border-radius:4px;
+	margin-left: 5px;
+	margin-top: 2px;
+}
 
 
 

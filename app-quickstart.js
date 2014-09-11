@@ -43,6 +43,7 @@ var quickstart = function(_app) {
 			'category2ProdWideTemplate',
 			'categoryTemplate3PanelCat',
 			'categoryTemplate4PanelCat',
+			'paypalModalTemplate',
 			
 //the list of templates that, in most cases, are left alone. Also in the same order as appTemplates
 			'breadcrumbTemplate',
