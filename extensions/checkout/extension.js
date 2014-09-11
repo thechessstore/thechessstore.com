@@ -1528,7 +1528,8 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 			shipOrPayMethodSelectExec : function($ele,p)	{
 				
 				if($ele.val() == "PAYPALEC"){
-					$('#paypalModalTemplate').dialog({'modal':'true', 'title':'', dialogClass: 'dlgfixed', position: 'center', 'dialogClass' : 'checkoutPaypalModal'});
+					dump("paypal selected. Firing modal.");
+					$('#paypalModalTemplate').dialog({'modal':'true', 'title':'checkoutPaypalModal', dialogClass: 'dlgfixed', position: 'center', 'dialogClass' : 'checkoutPaypalModal'});
 				}
 				
 				p.preventDefault();

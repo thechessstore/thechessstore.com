@@ -1170,7 +1170,7 @@ var extension_thechessstore = function(_app) {
 				$('html, body').animate({
 					scrollTop: $("#readReview", page).offset().top
 				}, 2000);
-			}
+			},
 			
 		},
 		
@@ -1411,7 +1411,12 @@ var extension_thechessstore = function(_app) {
 						//dump("data.val does not = 1. Keep indicator hidden.");
 						$tag.hide();
 					}
-				} //freeshippingindicator
+				}, //freeshippingindicator
+				
+				
+				dumpCheck : function($tag,data){
+					dump("This " + $tag + " event has fired.");
+				}
 		}
 	}
 	return r;
