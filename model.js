@@ -896,7 +896,27 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 							responseData['errid'] = "MVC-M-100";
 							responseData['errtype'] = "missing"; 
 							responseData['errmsg'] = "could not find product "+responseData.pid+". Product may no longer exist. ";
-/*CHESS STORE*/				//setTimeout(function(){myApp.ext.quickstart.a.showContent('404')}, 1000);
+							
+//THIS FEATURES CHECKS TO SEE IF THE SKU IS THE MAIN PRODUCT OF A PRODUCT PAGE AND REDIRECTS TO THE 404 PAGE RATHER THAN LETTING THE USER GO TO AN EMPTY PRODUCT PAGE FOR A NON-EXISTENT PRODUCT.		
+/*CHESS STORE*/								var productSku = window.location.toString();
+/*CHESS STORE*/								productSku = productSku.split("#!product/");
+/*CHESS STORE*/								productSku = productSku[1];
+/*CHESS STORE*/								productSku = productSku.split("/");
+/*CHESS STORE*/								productSku = productSku[0];
+/*CHESS STORE*/								productSku = productSku.toUpperCase();
+/*CHESS STORE*/								//dump("responseData.pid = ");
+/*CHESS STORE*/								//dump(responseData.pid);
+/*CHESS STORE*/								//dump("productSku = " + productSku);
+/*CHESS STORE*/								if(productSku == responseData.pid)
+/*CHESS STORE*/								{
+/*CHESS STORE*/									dump("This product does not exist. Sending the user to the 404 template.");
+/*CHESS STORE*/									setTimeout(function(){myApp.ext.quickstart.a.showContent('404')}, 1000);
+/*CHESS STORE*/								}
+/*CHESS STORE*/								else{
+/*CHESS STORE*/									dump("Non-existent product exists but is not the product in the product page. Re-direct to 404 page will not occur. It is recommended that the owner of this app remove this product from its association with this product/category.");
+/*CHESS STORE*/								}
+//END 404 REDIRECT FEATURE
+							
 							} //db:id will not be set if invalid sku was passed.
 						break;
 //most of the time, a successful response w/out errors is taken as a success. however, due to the nature of appCartCreate, we verify we have what we need.
