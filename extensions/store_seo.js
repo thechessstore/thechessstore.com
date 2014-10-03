@@ -146,11 +146,11 @@ var store_seo = function(_app) {
 /*CHESS STORE*/ if(baseTitle.match(/!/g) != null){
 /*CHESS STORE*/ 	var invalidCharCount = baseTitle.match(/!/g).length;
 /*CHESS STORE*/ 	dump("invalidCharCount = " + invalidCharCount);
+/*CHESS STORE*/ 	if(invalidCharCount > 0){
+/*CHESS STORE*/			baseTitle = baseTitle.replace(/!/g, "");
+/*CHESS STORE*/			dump("baseTitle now = " + baseTitle);
+/*CHESS STORE*/		}
 /*CHESS STORE*/ }
-/*CHESS STORE*/ if(invalidCharCount > 0){
-/*CHESS STORE*/		baseTitle = baseTitle.replace(/!/g, "");
-/*CHESS STORE*/		dump("baseTitle now = " + baseTitle);
-/*CHESS STORE*/	}
 				
 				document.title = _app.ext.store_seo.vars.titlePrefix + baseTitle + _app.ext.store_seo.vars.titlePostfix;
 				$('meta[name=description]').attr('content', desc);
