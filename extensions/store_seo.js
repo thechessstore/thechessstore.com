@@ -117,9 +117,7 @@ var store_seo = function(_app) {
 				switch(infoObj.pageType){
 					case "homepage" :
 						//Use Default Title
-						break;
 					case "category" :
-						break;
 					case "product" :
 						//Grab from the titles and descriptions on the page
 						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
@@ -143,6 +141,16 @@ var store_seo = function(_app) {
 				if(!baseTitle){
 					baseTitle = _app.ext.store_seo.vars.defaultTitle;
 					}
+				
+/*CHESS STORE*/	dump("baseTitle = " + baseTitle);
+/*CHESS STORE*/ if(baseTitle.match(/!/g) != null){
+/*CHESS STORE*/ 	var invalidCharCount = baseTitle.match(/!/g).length;
+/*CHESS STORE*/ 	dump("invalidCharCount = " + invalidCharCount);
+/*CHESS STORE*/ }
+/*CHESS STORE*/ if(invalidCharCount > 0){
+/*CHESS STORE*/		baseTitle = baseTitle.replace(/!/g, "");
+/*CHESS STORE*/		dump("baseTitle now = " + baseTitle);
+/*CHESS STORE*/	}
 				
 				document.title = _app.ext.store_seo.vars.titlePrefix + baseTitle + _app.ext.store_seo.vars.titlePostfix;
 				$('meta[name=description]').attr('content', desc);

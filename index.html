@@ -5,6 +5,7 @@
 
 <!-- do not populate or add meta data, the SEO layer will add it -->
 <title>Chess store</title><!-- this will get populated by the SEO layer -->
+<meta name="description" content="Shop here for the Best Chess Sets, boards, clocks, supplies,and more!">
 
 <!-- used for optional social media extensions -->
 <meta property="og:type" content="" id='ogType' />
@@ -16,7 +17,6 @@
 
 <base href='' /><!-- leave blank so it works for a local file. updated to / if protocol is not file: -->
 
-<meta name="description" content="">
 
 
 <!-- <script data-apptimize="minify" type="text/javascript"> -->
@@ -919,7 +919,6 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
 	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
 
-
 	<div class="catBrowseSidebar">
 	
 	
@@ -1056,7 +1055,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     
     
     <div id="categoryUnfinishedWoodTemplate" class="categoryTemplate" data-app-role='categoryPage'>
-    	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
+        <span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
         <span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
         <span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
 
@@ -1575,9 +1574,9 @@ this will likely become more flexible in the future. ###
 
 
 <div data-tlc="bind $var '.pid'; apply --attrib='data-pid';" id="productTemplate" class="productPage">
-    <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:seo_title'; if(is $var --blank) {{bind $var '.%attribs.zoovy:prod_name';}}; apply --attrib='data-seo-title';"></span>
-    <span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:meta_description'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_desc';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+    <span class="displayNone" data-tlc="store_routing#seoanchor --seo='1' apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:prod_seo_title'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_name';}}; apply --attrib='data-seo-title';"></span>
+	<span class="displayNone" data-tlc="bind $var '.%attribs.zoovy:meta_desc'; if(is $var --blank;){{bind $var '.%attribs.zoovy:prod_desc';}}; apply --attrib='data-seo-desc';"></span>
 	<ul data-tlc="bind $var '.recentCategories.0'; store_navcats#breadcrumb  --templateid='breadcrumbTemplate'  --legacy; apply --append;" class="clearfix noPadOrMargin fluidList breadcrumb"></ul>
 
 <div vocab="http://schema.org/" typeof="Product">
