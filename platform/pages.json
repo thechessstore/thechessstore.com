@@ -2369,7 +2369,10 @@
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&"
    },
    ".00012-wood-chess-sets-with-chess-boards.4-model.26-deluxe-rosewood.20-new-exclusive" : {},
-   ".00031-natural-wood-chess-boards.28-mission-craft-walnut-boards" : {},
+   ".00031-natural-wood-chess-boards.28-mission-craft-walnut-boards" : {
+      "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
+      "description" : "Our South American Walnut and Maple Mission Craft Solid Wood Chess Boards are simplistically beautiful and profoundly designed. They are nothing less than a fine piece of handcrafted furniture and is the perfect surface for both playing and displaying your treasured chess sets.\nHand made ONE at a time in the U.S.A.!"
+   },
    ".00010-wood-chess-sets.4-model.0026-royal-staunton" : {
       "meta_description" : "The king's unique finial and oversize collars gives this chess set a special look, 2 sizes and 5 wood combinations.",
       "page_title" : "Royal Staunton Wood Chess Sets",
@@ -4646,7 +4649,7 @@
    ".00012-wood-chess-sets-with-chess-boards.4-model.14-macassar-box.08-parker" : {},
    ".sales.the_chess_store_halloween_sale" : {
       "prodlist_custom" : "&SORTBY=PRICE&FORMAT=CUSTOM&SRC=&ALTERNATE=0&SHOWSKU=&SHOWQUANTITY=0&",
-      "description" : "Get spooktacular savings with our Halloween sale on specially priced handpicked items!  Choose from chess sets, chess boards, packages and accessories."
+      "description" : "Shop spooktacular savings with our Halloween sale on specially priced handpicked items!  Choose from chess sets, chess boards, packages and accessories."
    },
    ".00054-travel-chess-sets.wood_non-magnetic_folding_chess_sets" : {
       "meta_description" : "Medium size folding cases with 1.75\" squares matched with our premium quality Staunton chess sets. These travel sets are perfect for taking on trips.",
