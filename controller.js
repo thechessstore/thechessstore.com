@@ -106,6 +106,8 @@ function controller(_app)	{
 _app.templates holds a copy of each of the templates declared in an extension but defined in the view. The template is stored in memory for speed.
 */
 		_app.templates = {};
+		_app.templateFiles = [];
+		_app.templateEvents = [];
 
 //queues are arrays, not objects, because order matters here. the model.js file outlines what each of these is used for.
 		_app.q = {mutable : new Array(), passive: new Array(), immutable : new Array()};
@@ -193,10 +195,73 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 		setVars('username');
 
 		_app.vars.username = _app.vars.username.toLowerCase();
-		
 		}, //handleAdminVars
-
-
+	extend : function(extObj){
+		_app.ext[extObj.namespace] = [extObj.filename];
+		
+	couple : function(extension, coupler, args){
+		if(_app.ext[extension]){
+			if(_app.ext[extension] instanceof Array){
+				//The extension has not yet been loaded, store it in the Array for later processing
+				_app.ext[extension].push([coupler, args]);
+				}
+			else if(_app.ext[extension].couplers && _app.ext[extension].couplers[coupler]){
+				//The extension is loaded and has the coupler we are looking for
+				_app.ext[extension].couplers[coupler](args);
+				}
+			else {
+				//The extension is loaded but that coupler (or any couplers) are not present
+				}
+			}
+		else {
+			//This extension has not been declared, and so we can't couple to it
+			}
+		},
+		
+	require : function(required, callback){
+		callback = callback || function(){};
+		if(required.length <= 0){callback();}
+		if(typeof required === "string"){
+			required = [required];
+			}
+		
+		function loadCallback(){
+			var breaker = false;
+			for(var i in required){
+				var req = required[i];
+				if((req.indexOf(".html") >= 0 && $.inArray(req, _app.templateFiles) < 0) || _app.ext[req] instanceof Array){
+					//dump(req+" not loaded yet");
+					breaker = true;
+					break;
+					}
+				}
+			
+			if(!breaker){
+				callback();
+				//Prevents any future loadCallbacks from executing the callback twice
+				callback = function(){};
+				}
+		
+		for(var i in required){
+			var req = required[i];
+			if(req.indexOf(".html") >= 0){
+				_app.model.fetchNLoadTemplates(req, loadCallback);
+				}
+			else {
+				var ext = _app.ext[req];
+				if(!ext){
+					dump("ERROR: EXTENSION "+req+" REQUIRED BUT NOT DECLARED");
+					//callback will never be called
+					}
+				else if(ext instanceof Array){
+					_app.model.fetchExtension({"namespace":req, "filename":_app.ext[req][0]}, loadCallback); 
+					}
+				else{
+					loadCallback();
+					}
+				}
+			}
+		},
 					// //////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\		
 
 
@@ -279,6 +344,25 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 						this.dispatch(obj,_tag,Q)
 						}
 //if variations or options are requested, check to see if they've been retrieved before proceeding.
+					else if((obj.withVariations && _app.data[_tag.datapointer]['@variations'] === undefined) || (obj.withInventory && _app.data[_tag.datapointer]['@inventory'] === undefined))	{
+						r = 1;
+						this.dispatch(obj,_tag,Q);
+						}
+//if the product record is in memory BUT the inventory is zero, go get updated record in case it's back in stock.
+					else if(_app.ext.store_product && (_app.ext.store_product.u.getProductInventory(_app.data[_tag.datapointer]) === 0))	{
+						r = 1;
+						this.dispatch(obj,_tag,Q);
+						}
+					else 	{
+						_app.u.handleCallback(_tag);
+						}
+					if(obj.withInventory)	{obj.inventory=1}
+					}
+				else	{
+					_app.u.throwGMessage("In calls.appProductGet, required parameter pid was not passed");
+					_app.u.dump(obj);
+					}
+				return r;
 					else if((obj.withVariations && _app.data[_tag.datapointer]['@variations'] === undefined) || (obj.withInventory && _app.data[_tag.datapointer]['@inventory'] === undefined))	{
 						r = 1;
 						this.dispatch(obj,_tag,Q);
@@ -569,6 +653,11 @@ _app.u.throwMessage(responseData); is the default error handler.
 					}
 				else	{
 					$('#globalMessage').anymessage({'message':rd});
+				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
+					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
+					}
+				}
+			}, //translateSelector
 					}
 				}
 			}, //translateSelector
@@ -596,6 +685,46 @@ _app.u.throwMessage(responseData); is the default error handler.
 //anycontent will disable hideLoading and loadingBG classes.
 //to maintain flexibility, pass all anycontent params in thru _tag
 					$target.anycontent(_rtag);
+
+					_app.u.handleCommonPlugins($target);
+					_app.u.handleButtons($target);
+					
+					
+// use either delegated events OR app events, not both.
+//avoid using this. ### FUTURE -> get rid of these. the delegation should occur in the function that calls this. more control that way and things like dialogs being appendedTo a parent can be handled more easily.
+					if(_rtag.addEventDelegation)	{
+						_app.u.addEventDelegation($target);
+						}
+					else if(_rtag.skipAppEvents)	{}
+					else	{
+						_app.u.handleAppEvents($target);
+						}
+
+					if(_rtag.applyEditTrackingToInputs)	{
+						_app.ext.admin.u.applyEditTrackingToInputs($target); //applies 'edited' class when a field is updated. unlocks 'save' button.
+						}
+					if(_rtag.handleFormConditionalDelegation)	{
+						_app.ext.admin.u.handleFormConditionalDelegation($('form',$target)); //enables some form conditional logic 'presets' (ex: data-panel show/hide feature)
+						}
+//allows for the callback to perform a lot of the common handling, but to append a little extra functionality at the end of a success.
+					if(typeof _rtag.onComplete == 'function')	{
+						_rtag.onComplete(_rtag);
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In admin.callbacks.anycontent, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
+					}
+				
+				},
+			onError : function(rd)	{
+				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
+					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
+					}
+				else	{
+					$('#globalMessage').anymessage({'message':rd});
+					}
+				}
+			}, //translateSelector
 
 					_app.u.handleCommonPlugins($target);
 					_app.u.handleButtons($target);
@@ -935,54 +1064,79 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 					//what to do here?
 					}
 		//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
-				if (window.addEventListener) {
-					dump(" -> addEventListener is supported and added for hash change.");
-					window.addEventListener("hashchange", _app.router.handleHashChange, false);
-					$(document.body).data('isRouted',true);
-					}
-				//IE 8
-				else if(window.attachEvent)	{
-					//A little black magic here for IE8 due to a hash related bug in the browser.
-					//make sure a hash is set.  Then set the hash to itself (yes, i know, but that part is key). Then wait a short period and add the hashChange event.
-					window.location.hash = window.location.hash || '#!home'; //solve an issue w/ the hash change reloading the page.
-					window.location.hash = window.location.hash;
-					setTimeout(function(){
-						window.attachEvent("onhashchange", _app.router.handleHashChange);
-						},1000);
-					$(document.body).data('isRouted',true);
-					}
-				else	{
-					$("#globalMessaging").anymessage({"message":"Browser doesn't support addEventListener OR attachEvent.","gMessage":true});
+				$('body').on('click.router','a[href], area[href]',function(event){
+					var a = event.currentTarget;
+					if(document.location.protocol == "file:"){
+						a = document.createElement('a');
+						var href = $(this).attr('href');
+						if(href.indexOf('/') != 0){href = "/"+href;}
+						a.href = "http://www.domain.com"+href;
+						}
+					var path = a.pathname;
+					var search = a.search;
+					var hash = a.hash;
+					console.log($(this).attr('href'));
+					console.log($(this).attr('href').indexOf('#'));
+					if($(this).attr('href').indexOf('#') == 0){
+						//This is an internal hash link, href="#.*"
+						event.preventDefault();
+						}
+					else if(_app.router.handleURIChange(path, search, hash)){
+						event.preventDefault();
+						}
+					else {
+						event.currentTarget.target = "_blank";
+						}
+					});
+				
+				window.onpopstate = function(event){
+					_app.router.handleURIChange(event.state);
 					}
 				
 				}
 			},
-	
-		handleHashChange : function()	{
-			//_ignoreHashChange set to true to disable the router.  be careful.
-			if(location.hash.indexOf('#!') == 0  && !_app.vars.ignoreHashChange)	{
-				// ### TODO -> test this with hash params set by navigateTo. may need to uri encode what is after the hash.
-// *** 201403 use .href.split instead of .hash for routing- Firefox automatically decodes the hash string, which breaks any URIComponent encoded characters, like "%2F" -> "/" -mc
-// http://stackoverflow.com/questions/4835784/firefox-automatically-decoding-encoded-parameter-in-url-does-not-happen-in-ie
-				var routeObj = _app.router._getRouteObj(location.href.split('#!')[1],'hash'); //if we decide to strip trailing slash, use .replace(/\/$/, "")
-				if(routeObj)	{
-					routeObj.hash = location.hash;
-					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
-					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
-					_app.router._executeCallback(routeObj);
+		
+		handleURIChange : function(uri, search, hash, skipPush, forcedParams){
+			console.log('handleURIChange');
+			var routeObj = _app.router._getRouteObj(uri, 'hash');
+			if(routeObj) {
+				routeObj.params = routeObj.params || {};
+				if(forcedParams){
+					$.extend(routeObj.params, forcedParams);
 					}
-				else	{
-					_app.u.dump(" -> Uh Oh! no valid route found for "+location.hash);
-					if(typeof _app.router.aliases['404'] == 'function')	{
-						_app.router._executeCallback({'callback':'404','hash':location.hash});
+				if(search){
+					routeObj.searchParams = _app.u.kvp2Array(search.substr(1));
+					}
+				if(hash){
+					routeObj.urihash = hash;
+					}
+				routeObj.value = uri +""+ (search || "") +""+ (hash || "");
+				if(!skipPush){
+					try{
+						window.history.pushState(routeObj.value, "", routeObj.value);
+						}
+					catch(e){
+						//dump(e);
 						}
 					}
+				_app.router._executeCallback(routeObj);
+				return true;
 				}
-			else	{
-				if(_app.vars.ignoreHashChange)	{_app.u.dump(" -> ignoreHashChange is true. Router is disabled.")}
-				else	{_app.u.dump(" -> not a hashbang")}
-				//is not a hashbang. do nothing.
+			else {
+				dump('no route found for '+uri, 'error');
 				}
+			return false;
+			},
+		handleURIString : function(uriStr, skipPush, forcedParams){
+			var a = document.createElement('a');
+			a.href = "http://www.domain.com"+uriStr;
+			var path = a.pathname;
+			var search = a.search;
+			var hash = a.hash;
+			console.log(path);
+			console.log(search);
+			console.log(hash);
+			this.handleURIChange(path,search,hash,skipPush,forcedParams);
 			}
 		},
 
@@ -1041,7 +1195,8 @@ Some utilities for loading external files, such as .js, .css or even extensions.
 */
 
 		loadScript : function(url, callback, params){
-//			dump("load script: "+url+" and typeof callback: "+(typeof callback));
+			dump("load script: "+url+" and typeof callback: "+(typeof callback));
+			callback = callback || function(){};
 			if(url)	{
 				var script = document.createElement("script");
 				script.type = "text/javascript";
@@ -1049,13 +1204,19 @@ Some utilities for loading external files, such as .js, .css or even extensions.
 					script.onreadystatechange = function(){
 						if (script.readyState == "loaded" || script.readyState == "complete"){
 							script.onreadystatechange = null;
+							//clean up after ourselves!  This is so that the document can be transplanted and re-instantiated
+							document.getElementsByTagName("head")[0].removeChild(script);
 							if(typeof callback == 'function')	{callback(params);}
 							}
 						};
 					}
 				else {
 					if(typeof callback == 'function')	{
-						script.onload = function(){callback(params)}
+						script.onload = function(){
+							//clean up after ourselves!  This is so that the document can be transplanted and re-instantiated
+							document.getElementsByTagName("head")[0].removeChild(script);
+							callback(params)
+							}
 						}
 					}
 			//append release to the end of included files to reduce likelyhood of caching.
@@ -1176,14 +1337,12 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		// because the model will execute it for all extensions once the controller is initiated.
 		// so instead, a generic callback function is added to track if the extension is done loading.
 		// which is why the extension is added to the extension Q (above).
-/*CHESSSTORE*/		if(_app.rq[i][3]){
-						dump('--LOADSCRIPT'); dump(_app.rq[i][3]); dump(_app.rq[i]);
+					if(_app.rq[i][3]){
 						_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
-					}
+						}
 					else {
 						callback(_app.rq[i]);
-					}
-/*CHESSSTORE*/		//_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+						}
 					_app.rq.splice(i, 1); //remove from old array to avoid dupes.
 					}
 				else	{
@@ -1193,6 +1352,32 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		//	_app.u.dump("numIncludes: "+numIncludes);
 //			app.u.initMVC(0);
 			return numIncludes;
+//			app.u.initMVC(0);
+			return numIncludes;
+			},
+
+//Run at initComplete. loads all pass zero files and executes their callbacks (if any). then loads resources set for pass > 0
+		loadResources : function()	{
+			var rObj = {
+				'passZeroResourcesLength' : _app.u.handleRQ(0),
+				'passZeroResourcesLoaded' : 0,
+				'passZeroTimeout' : null
+				}; //what is returned.
+			function resourcesAreLoaded(){
+				rObj.passZeroResourcesLoaded = _app.u.numberOfLoadedResourcesFromPass(0); //this should NOT be in the else or it won't get updated once the resources are done.
+				if(_app.u.numberOfLoadedResourcesFromPass(0) == _app.vars.rq.length)	{
+					_app.vars.rq = null; //this is the tmp array used by handleRQ and numberOfResourcesFromPass. Should be cleared for next pass.
+					_app.model.addExtensions(_app.vars.extensions);
+					_app.u.handleRQ(1); //this will empty the RQ.
+					_app.rq.push = _app.u.loadResourceFile; //reassign push function to auto-add the resource.
+					}
+				else	{
+//					_app.u.dump(" -> _app.u.numberOfLoadedResourcesFromPass(0,0): "+_app.u.numberOfLoadedResourcesFromPass(0,0));
+					rObj.passZeroTimeout = setTimeout(function(){resourcesAreLoaded();},250);
+					}
+				}
+			resourcesAreLoaded();
+			return rObj;
 			},
 
 //Run at initComplete. loads all pass zero files and executes their callbacks (if any). then loads resources set for pass > 0
@@ -1430,6 +1615,8 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 								'hitType' : 		'event',
 								'eventCategory' :	AEF[0],
 								'eventAction' :		AEF[1],
+								'eventLabel' :		"label",
+								'eventValue' :		1
 								};
 							if($CT.attr('data-ga-label')){
 								eventObj.eventLabel = $CT.attr('data-ga-label');
@@ -1937,6 +2124,7 @@ VALIDATION
 				if (!regex.test(key)) {
 					event.preventDefault();
 					r = false;
+					}
 					}
 				}
 			return r;
@@ -2532,8 +2720,6 @@ name Mod 10 or Modulus 10. */
 
 
 
-
-
 //By saving these to the $.support object, a quick lookup method is available.
 //In addition, it allows a developer to easily turn off features by setting the value to false.
 		updatejQuerySupport : function()	{
@@ -2571,6 +2757,21 @@ name Mod 10 or Modulus 10. */
 				var test = document.createElement('input')
 				if('placeholder' in test) {jQuery.support.placeholder = true};
 
+				}
+			},
+		bindTemplateEvent : function(filterFunc, event, handler){
+			if(typeof filterFunc === "string"){
+				var str = filterFunc;
+				filterFunc = function(tmpID){ return tmpID === str;}
+				}
+			_app.templateEvents.push({
+				"filterFunc" : filterFunc,
+				"event" : event,
+				"handler" : handler
+			for(var i in _app.templates){
+				if(filterFunc(i)){
+					_app.templates[i].on(event, handler);
+					}
 				}
 			}
 
@@ -2621,7 +2822,7 @@ Then we'll be in a better place to use data() instead of attr().
 //			_app.u.dump(eleAttr);
 
 //If a template ID is specified but does not exist, try to make one. added 2012-06-12
-			if(templateID && !_app.templates[templateID])	{
+			if(templateID && !(_app.templates[templateID] instanceof jQuery))	{
 				var tmp = $('#'+templateID);
 				if(tmp.length > 0)	{
 					_app.model.makeTemplate(tmp,templateID);
@@ -2692,7 +2893,7 @@ most likely, this will be expanded to support setting other data- attributes. ##
 //creates a copy of the template.
 			var r;
 //if a templateID is passed, but no template exists, try to create one.
-			if(templateID && !_app.templates[templateID])	{
+			if(templateID && !(_app.templates[templateID] instanceof jQuery))	{
 				var tmp = $('#'+templateID);
 				if(tmp.length > 0)	{
 					_app.u.dump("WARNING! template ["+templateID+"] did not exist. Matching element found in DOM and used to create template.");
@@ -2775,6 +2976,7 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
 			}
+		}
 
 
 
@@ -2962,10 +3164,12 @@ return $r;
 //			_app.u.dump('END parseDataBind');
 			return rule;
 			},
-
-
+			
 //infoObj.state = onCompletes or onInits. later, more states may be supported.
 			handleTemplateEvents : function($ele,infoObj)	{
+				// dump("handleTemplateEvents");
+				// dump($ele);
+				// dump(infoObj);
 				infoObj = infoObj || {};
 				if($ele instanceof jQuery && infoObj.state)	{
 					if($.inArray(infoObj.state,['init','complete','depart']) >= 0)	{
@@ -3390,8 +3594,9 @@ $tmp.empty().remove();
 			else if($input.val().length <= 2)	{$err.append('The CVV/CID # must be at least three digits');}
 			else	{r = true;}
 			return r;
+		
 			}
 		
 		}
-	}
 	};
+};

@@ -144,14 +144,14 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 //the callback is auto-executed as part of the extensions loading process.
 		init : {
 			onSuccess : function()	{
-//				_app.u.dump('BEGIN _app.ext.store_navcats.init.onSuccess ');
+//				_app.u.dump('BEGIN _app.ext.store_search.init.onSuccess ');
 				var r = true; //return false if extension won't load for some reason (account config, dependencies, etc).
 				return r;
 				},
 			onError : function()	{
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
-				_app.u.dump('BEGIN _app.ext.store_navcats.callbacks.init.onError');
+				_app.u.dump('BEGIN _app.ext.store_search.callbacks.init.onError');
 				}
 			},
 
@@ -222,7 +222,50 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						else	{
 							//no error gets thrown here. it is an acceptable use case to display search results w/ no multipage functionality.
 							}
+						if(_app.ext.admin)	{
+							$list.hideLoading();
+							_app.u.handleAppEvents($parent);
+							}
+	
+						var EQ = $list.data('elastic-query'); //Elastic Query
+						if(EQ)	{
+							var _tag = $.extend(true,{},_rtag); //create a copy so original is not modified.
+							delete _tag.pipeUUID;
+							delete _tag.status; //the status would already be 'requesting' or 'completed', which means this request wouldn't run.
+					
+							var $header = _app.ext.store_search.u.buildResultsHeader($list,_rtag.datapointer), //# of results and keyword display.
+//							$sortMenu = _app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
+							$pageMenu = _app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
+							$multipage = _app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
+							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
+							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
+							
+//							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
+							$parent.find(".resultsHeader").remove(); //make sure headers don't stack when using pagination. // ### TODO -> test this.
+							$header.prependTo($parent);
+//pageMenu will be false if there are no pages. If there's no pagination, no further output is needed.
+							if($pageMenu)	{
+	
+								$menuContainer.append($pageMenu);
+								$menuContainer.appendTo($controlsContainer);
+								$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
+								
+								
+								$controlsContainer.prependTo($parent);
+//add to DOM prior to running menu. helps it to not barf.
+								$pageMenu.menu();
+//								$sortMenu.menu();
+								}
+							}
+						else	{
+							//no error gets thrown here. it is an acceptable use case to display search results w/ no multipage functionality.
+							}
 						}
+						if(_rtag.deferred){_rtag.deferred.resolve();}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list ['+typeof _rtag.list+'] was not defined, not a jquery object ['+(_rtag.list instanceof jQuery)+'] or does not exist ['+_rtag.list.length+'].',gMessage:true});
+					_app.u.dump("handleElasticResults _rtag.list: "); _app.u.dump(_rtag.list);
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list ['+typeof _rtag.list+'] was not defined, not a jquery object ['+(_rtag.list instanceof jQuery)+'] or does not exist ['+_rtag.list.length+'].',gMessage:true});
@@ -242,7 +285,73 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 
 
 		u : {
-		
+			showSearch : function($container, infoObj){
+				infoObj.templateID = 'searchTemplate';
+				
+				var $page = new tlc().getTemplateInstance(infoObj.templateID);
+				$container.append($page);
+				
+				infoObj.state = 'init';
+				_app.renderFunctions.handleTemplateEvents($page,infoObj);
+				
+				var elasticsearch = {};
+
+//add item to recently viewed list IF it is not already in the list.
+				if($.inArray(infoObj.KEYWORDS,_app.ext.quickstart.vars.session.recentSearches) < 0)	{
+					_app.ext.quickstart.vars.session.recentSearches.unshift(infoObj.KEYWORDS);
+					}
+					
+//If raw elastic has been provided, use that.  Otherwise build a query.
+				if(infoObj.elasticsearch){
+					elasticsearch = _app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
+					}
+				else if(infoObj.tag)	{
+					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
+					   "filter":{
+						  "and" : [
+							 {"term":{"tags":infoObj.tag}},
+							 ]
+						  }});
+					}
+				else if (infoObj.KEYWORDS) {
+					elasticsearch = _app.ext.store_search.u.buildElasticRaw({
+						"query":{
+							"function_score" : {										
+								"query" : {
+									"query_string":{"query":infoObj.KEYWORDS}	
+									},
+								"functions" : [
+									{
+										"filter" : {"query" : {"query_string":{"query":'"'+infoObj.KEYWORDS+'"'}}},
+										"script_score" : {
+											"script":"constant",
+											"params":{"constant":10}
+											},
+										}
+									],
+								"boost_mode" : "sum",
+								}
+							}
+						});
+					}
+				else	{
+					//404
+					}
+
+				elasticsearch.size = 50;
+
+				
+				//Used to build relative path
+				infoObj.elasticsearch = $.extend(true, {}, elasticsearch);
+				
+				var $list = $('[data-app-role="resultsContainer"]', $page);
+				_app.ext.store_search.u.updateDataOnListElement($list,elasticsearch,1);
+				_app.ext.store_search.calls.appPublicSearch.init(elasticsearch,$.extend(true,{},infoObj,{'callback':'handleInfiniteElasticResults', 'emptyList':true,'datapointer':"appPublicSearch|"+JSON.stringify(elasticsearch),'extension':'prodlist_infinite','templateID':'productListTemplateResults','list':$list}));
+				_app.model.dispatchThis();
+				infoObj.state = 'complete'; //needed for handleTemplateEvents.
+				_app.renderFunctions.handleTemplateEvents($page,infoObj);
+				},
+				
 //!!! The header and pagination handling all relies on a query->query_string->query type object.  With more complex elastic searches we must add handling
 
 
@@ -339,6 +448,90 @@ _app.u.dump(" -> pageInFocus: "+pageInFocus);
 						query.from = (newPage - 1) * EQ.size; //page is passed in, which starts at 1. but elastic starts at 0.
 						_app.ext.store_search.u.updateDataOnListElement($list,query,newPage);
 						_app.ext.store_search.calls.appPublicSearch.init(query,_tag);
+						_app.model.dispatchThis();
+						}
+					else	{
+						$('#globalMessaging').anymessage({'message':'In store_search.u.changePage, $list set but missing data(elastic-query).','gMessage':true});
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In store_search.u.changePage, $list or newPage not specified','gMessage':true});
+					}
+				},
+
+			buildPagination : function($list,_tag)	{
+				var $pagination = false; //what is returned. Either an unordered list of pages or false if an error occured.
+				if($list && _tag)	{
+					var EQ = $list.data('elastic-query'); //Elastic Query
+					if(EQ)	{
+						var pageInFocus = $list.data('page-in-focus') || 1, //start at 1, not zero, so page 1 = 1
+						data = _app.data[_tag.datapointer],
+						totalPageCount = Math.ceil(data.hits.total / EQ.size) //total # of pages for this list.
+						
+						if(totalPageCount <= 1)	{
+							//if there is only 1 page or something went wrong, don't show pagination.
+//							_app.u.dump(" -> no pagination for results. totalPageCount: "+totalPageCount);
+							}
+						else	{
+							$pagination = $("<ul \/>").addClass('pagination resultsMenu');
+							$pagination.addClass('hideInMinimalMode').append($("<li \/>").html("<a href='#'>Page "+pageInFocus+" of "+totalPageCount+"<\/a>"));
+							var $pages = $("<ul \/>");
+							for(var i = 1; i <= totalPageCount; i+= 1)	{
+								$("<li \/>").html("<a href='#' data-page='"+i+"'>Page "+i+"<\/a>").appendTo($pages);
+								}
+							$("li:first",$pagination).append($pages);
+							$("a",$pages).each(function(){
+								$(this).on('click',function(event){
+									event.preventDefault();
+									_app.ext.store_search.u.changePage($list,$(this).data('page'),_tag);
+									})
+								});
+							}
+						}
+					else	{
+						$('#globalMessaging').anymessage({'message':'In store_search.u.buildPagination, $list set but missing data(elastic-query).','gMessage':true});
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In store_search.u.buildPagination, either $list ['+typeof $list+'] or _tag ['+typeof _tag+'] not passed','gMessage':true});
+					}
+				return $pagination;
+				}, //buildPagination
+
+			buildSortMenu : function($list,_tag){
+				var $sort = $("<ul \/>").addClass('sortMethods resultsMenu'),
+				$ul = $("<ul \/>"),
+				EQ = $list.data('elastic-query'); //Elastic Query
+				
+				$sort.addClass('hideInMinimalMode').append($("<li \/>").append("<a href='#'>sort by</a>"));
+				
+				$("<li \/>").html("<a href='#'>Relevance</a>").appendTo($ul);
+				$("<li \/>").html("<a href='#'>Alphabetical (a to z)</a>").appendTo($ul);
+				$("<li \/>").html("<a href='#'>Price (low to high)</a>").appendTo($ul);
+				
+				$("li:first",$sort).append($ul); //adds ul of sorts to the li w/ the sort by prompt.
+				
+				//add click events to the href's
+				$("a",$ul).each(function(){
+
+					$(this).on('click',function(event){
+						event.preventDefault();
+						_app.u.dump(" -> change sort order");
+					
+						var query = _app.ext.store_search.u.buildElasticSimpleQuery(EQ.query.query_string);
+						query.size = EQ.size; //use original size, not what's returned in buildSimple...
+						query.from = 0;
+						query.sort = [{'base_price':{'order':'asc'}}];
+						
+						_app.ext.store_search.u.updateDataOnListElement($list,query,1);
+
+						_app.ext.store_search.calls.appPublicSearch.init(query,_tag);
+						_app.model.dispatchThis();
+						});
+					})
+				
+				return $sort;
+				}, //buildSortMenu
 						_app.model.dispatchThis();
 						}
 					else	{
@@ -550,11 +743,33 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 				var r = _app.ext.store_search.calls.appPublicSearch.init(qObj,_tag);
 				_app.model.dispatchThis();
 				return r;
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In store_search.u.buildElasticSimpleQuery, obj.query was empty. ',gMessage:true});
+					query = false;
+					}
+				return query;
+				},
+
+//This is used by quickstart for simple tag and keyword searches as well as by analyzer and admin interface (product editor and probably finder).
+			handleElasticSimpleQuery : function(keywords,_tag)	{
+				var qObj = this.buildElasticSimpleQuery({'query':keywords});
+				_tag = _tag || {};
+				_tag.datapointer = "appPublicSearch|"+keywords;
+				var r = _app.ext.store_search.calls.appPublicSearch.init(qObj,_tag);
+				_app.model.dispatchThis();
+				return r;
 				}
 				
-			} //util
+			}, //util
 
-
+		couplers : {
+			addUniversalFilter : function(args){
+				if(args.filter){
+					_app.ext.store_search.vars.universalFilters.push(args.filter);
+					}
+				}
+			}
 		
 		} //r object.
 	return r;

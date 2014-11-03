@@ -441,6 +441,44 @@ $display.appendTo($tag);
 
 
 		u : {
+			//CALLED FROM PAGE HANDLER
+			//all requires should be handled by calling function
+			showProd : function($container, infoObj){
+				var pid = infoObj.pid;
+				if(!pid)	{
+					$('#globalMessaging').anymessage({'message':"Uh Oh. It seems an app error occured. Error: no product id. see console for details.",'gMessage':true});
+					dump("quickstart.u.showProd had no infoObj.pid, which is required. infoObj follows:",'error'); dump(infoObj);
+					}
+				else	{
+					infoObj.templateID = infoObj.templateID || 'productTemplate';
+					var $product = new tlc().getTemplateInstance(infoObj.templateID);
+					infoObj.state = 'init';
+					_app.renderFunctions.handleTemplateEvents($container,infoObj); //init event triggered.
+					//$product.attr('id',infoObj.parentID).data('pid',pid);
+					$container.append($product);//hidden by default for page transitions
+					_app.u.handleCommonPlugins($product);
+					
+					var nd = 0; //Number of Dispatches.
+
+//need to obtain the breadcrumb info pretty early in the process as well.
+//the breadcrumb renderformat handles most of the heavy lifting, so datapointers are not necessary for callback. Just getting them into memory here.
+					if(_app.ext.quickstart.vars.session.recentCategories.length > 0)	{
+						nd += _app.ext.store_navcats.u.addQueries4BreadcrumbToQ(_app.ext.quickstart.vars.session.recentCategories[0]).length;
+						}
+					$.extend(infoObj, {'callback':'showProd','extension':'quickstart','jqObj':$product,'templateID':'productTemplate'});
+					dump('InfoObj after extend follows:');
+					dump(infoObj);
+					nd += _app.ext.store_product.calls.appReviewsList.init(pid);  //store_product... appProductGet DOES get reviews. store_navcats...getProd does not.
+					//if a dispatch is going to occur, might as well get updated product info.
+					if(nd)	{
+						_app.model.destroy('appProductGet|'+pid);
+						}
+					_app.ext.store_product.calls.appProductGet.init(pid,infoObj);
+					_app.model.dispatchThis();
+					
+					}
+				},
+				
 /*
 A product is NOT purchaseable if:
 it has no price. ### SANITY 0 IS a valid price. blank is not.
@@ -520,6 +558,27 @@ it has no inventory AND inventory matters to merchant
 				else	{
 					_app.u.dump("WARNING! in store_product.u.buildVariationLookup, variations was empty.");
 					}
+				return r;
+				},
+
+//pass variation lookup table into this. The thought there is that building the lookup table could be expensive, so better to do it once
+//someplace else then, potentially a lot of times when this function is called within a loop.
+			inventoryID2Pretty : function(ID,VLT)	{
+				var r = ""; //set to blank or undefined will be prepended to value.
+				if(ID && VLT)	{
+					var splitID = ID.split(':'),
+					L = splitID.length;
+					for(var i = 1; i < L; i += 1)	{
+//						_app.u.dump(" -> splitID[i].substr(0,2): "+splitID[i].substr(0,2)); 
+						r += VLT[splitID[i].substr(0,2)][splitID[i].substr(2,2)]+" ";
+						}
+					}
+				else	{
+					_app.u.dump("In store_product.u.inventoryID2Pretty, ID or VLT not defined");
+					r = false;
+					}
+				return r;
+				},
 				return r;
 				},
 
@@ -772,9 +831,11 @@ NOTES
 //						_app.u.dump(" -> have a valid cart object"); _app.u.dump(cartObj);
 						if(cartObj)	{
 							r = true;
-							_app.ext.cco.calls.cartItemAppend.init(cartObj,_tag || {},'immutable');
-							_app.model.dispatchThis('immutable');
-							cartMessagePush(cartObj._cartid,'cart.itemAppend',_app.u.getWhitelistedObject(cartObj,['sku','pid','qty','quantity','%variations']));
+							_app.require('cco',function(){
+								_app.ext.cco.calls.cartItemAppend.init(cartObj,_tag || {},'immutable');
+								_app.model.dispatchThis('immutable');
+								//cartMessagePush(cartObj._cartid,'cart.itemAppend',_app.u.getWhitelistedObject(cartObj,['sku','pid','qty','quantity','%variations']));
+								});
 							}
 						}
 					else	{
@@ -796,14 +857,16 @@ NOTES
 //					_app.u.dump(" -> $forms.length: "+$forms.length);
 					_tag = _tag || {};
 					if($forms.length)	{
-						$forms.each(function(){
+						_app.require(['cco'], function(){
+							$forms.each(function(){
 
-							var cartObj = _app.ext.store_product.u.buildCartItemAppendObj($(this)); //handles error display.
-							if(cartObj)	{
-								_app.ext.cco.calls.cartItemAppend.init(cartObj,_tag,'immutable');
-								}
+								var cartObj = _app.ext.store_product.u.buildCartItemAppendObj($(this)); //handles error display.
+								if(cartObj)	{
+									_app.ext.cco.calls.cartItemAppend.init(cartObj,_tag,'immutable');
+									}
+								});
+							_app.model.dispatchThis('immutable');
 							});
-						_app.model.dispatchThis('immutable');
 						}
 					else	{
 						$('#globalMessaging').anymessage({'message':'handleAddToCart requires $FP to contain at least 1 form.','gMessage':true});

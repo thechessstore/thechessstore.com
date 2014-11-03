@@ -106,6 +106,11 @@ function controller(_app)	{
 _app.templates holds a copy of each of the templates declared in an extension but defined in the view. The template is stored in memory for speed.
 */
 		_app.templates = {};
+<<<<<<< HEAD
+=======
+		_app.templateFiles = [];
+		_app.templateEvents = [];
+>>>>>>> upstream/201410
 
 //queues are arrays, not objects, because order matters here. the model.js file outlines what each of these is used for.
 		_app.q = {mutable : new Array(), passive: new Array(), immutable : new Array()};
@@ -193,10 +198,84 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 		setVars('username');
 
 		_app.vars.username = _app.vars.username.toLowerCase();
+<<<<<<< HEAD
 		
 		}, //handleAdminVars
 
 
+=======
+		
+		}, //handleAdminVars
+		
+	extend : function(extObj){
+		_app.ext[extObj.namespace] = [extObj.filename];
+		},
+		
+	couple : function(extension, coupler, args){
+		if(_app.ext[extension]){
+			if(_app.ext[extension] instanceof Array){
+				//The extension has not yet been loaded, store it in the Array for later processing
+				_app.ext[extension].push([coupler, args]);
+				}
+			else if(_app.ext[extension].couplers && _app.ext[extension].couplers[coupler]){
+				//The extension is loaded and has the coupler we are looking for
+				_app.ext[extension].couplers[coupler](args);
+				}
+			else {
+				//The extension is loaded but that coupler (or any couplers) are not present
+				}
+			}
+		else {
+			//This extension has not been declared, and so we can't couple to it
+			}
+		},
+		
+	require : function(required, callback){
+		callback = callback || function(){};
+		if(required.length <= 0){callback();}
+		if(typeof required === "string"){
+			required = [required];
+			}
+		
+		function loadCallback(){
+			var breaker = false;
+			for(var i in required){
+				var req = required[i];
+				if((req.indexOf(".html") >= 0 && $.inArray(req, _app.templateFiles) < 0) || _app.ext[req] instanceof Array){
+					//dump(req+" not loaded yet");
+					breaker = true;
+					break;
+					}
+				}
+			
+			if(!breaker){
+				callback();
+				//Prevents any future loadCallbacks from executing the callback twice
+				callback = function(){};
+				}
+			}
+		
+		for(var i in required){
+			var req = required[i];
+			if(req.indexOf(".html") >= 0){
+				_app.model.fetchNLoadTemplates(req, loadCallback);
+				}
+			else {
+				var ext = _app.ext[req];
+				if(!ext){
+					dump("ERROR: EXTENSION "+req+" REQUIRED BUT NOT DECLARED");
+					//callback will never be called
+					}
+				else if(ext instanceof Array){
+					_app.model.fetchExtension({"namespace":req, "filename":_app.ext[req][0]}, loadCallback); 
+					}
+				else{
+					loadCallback();
+					}
+				}
+			}
+		},
+>>>>>>> upstream/201410
 					// //////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ \\		
 
 
@@ -558,6 +637,7 @@ _app.u.throwMessage(responseData); is the default error handler.
 					if(typeof _rtag.onComplete == 'function')	{
 						_rtag.onComplete(_rtag);
 						}
+<<<<<<< HEAD
 					}
 				else	{
 					$('#globalMessaging').anymessage({'message':'In admin.callbacks.tlc, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
@@ -568,6 +648,18 @@ _app.u.throwMessage(responseData); is the default error handler.
 					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
 					}
 				else	{
+=======
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In admin.callbacks.tlc, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
+					}
+				},
+			onError : function(rd)	{
+				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
+					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
+					}
+				else	{
+>>>>>>> upstream/201410
 					$('#globalMessage').anymessage({'message':rd});
 					}
 				}
@@ -935,6 +1027,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 					//what to do here?
 					}
 		//this would get added at end of INIT. that way, init can modify the hash as needed w/out impacting.
+<<<<<<< HEAD
 				if (window.addEventListener) {
 					dump(" -> addEventListener is supported and added for hash change.");
 					window.addEventListener("hashchange", _app.router.handleHashChange, false);
@@ -953,10 +1046,40 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 					}
 				else	{
 					$("#globalMessaging").anymessage({"message":"Browser doesn't support addEventListener OR attachEvent.","gMessage":true});
+=======
+				$('body').on('click.router','a[href], area[href]',function(event){
+					var a = event.currentTarget;
+					if(document.location.protocol == "file:"){
+						a = document.createElement('a');
+						var href = $(this).attr('href');
+						if(href.indexOf('/') != 0){href = "/"+href;}
+						a.href = "http://www.domain.com"+href;
+						}
+					var path = a.pathname;
+					var search = a.search;
+					var hash = a.hash;
+					console.log($(this).attr('href'));
+					console.log($(this).attr('href').indexOf('#'));
+					if($(this).attr('href').indexOf('#') == 0){
+						//This is an internal hash link, href="#.*"
+						event.preventDefault();
+						}
+					else if(_app.router.handleURIChange(path, search, hash)){
+						event.preventDefault();
+						}
+					else {
+						event.currentTarget.target = "_blank";
+						}
+					});
+				
+				window.onpopstate = function(event){
+					_app.router.handleURIChange(event.state);
+>>>>>>> upstream/201410
 					}
 				
 				}
 			},
+<<<<<<< HEAD
 	
 		handleHashChange : function()	{
 			//_ignoreHashChange set to true to disable the router.  be careful.
@@ -968,11 +1091,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				if(routeObj)	{
 					routeObj.hash = location.hash;
 					routeObj.hashParams = (location.hash.indexOf('?') >= 0 ? _app.u.kvp2Array(location.hash.split("?")[1]) : {});
-<<<<<<< HEAD
-					window[_app.vars.analyticsPointer]('send', 'pageview', {'screenName' : routeObj.hash} );
-=======
 					window[_app.vars.analyticsPointer]('send', 'screenview', {'screenName' : routeObj.hash} );
->>>>>>> upstream/master
 					_app.router._executeCallback(routeObj);
 					}
 				else	{
@@ -987,6 +1106,50 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				else	{_app.u.dump(" -> not a hashbang")}
 				//is not a hashbang. do nothing.
 				}
+=======
+		
+		handleURIChange : function(uri, search, hash, skipPush, forcedParams){
+			console.log('handleURIChange');
+			var routeObj = _app.router._getRouteObj(uri, 'hash');
+			if(routeObj) {
+				routeObj.params = routeObj.params || {};
+				if(forcedParams){
+					$.extend(routeObj.params, forcedParams);
+					}
+				if(search){
+					routeObj.searchParams = _app.u.kvp2Array(search.substr(1));
+					}
+				if(hash){
+					routeObj.urihash = hash;
+					}
+				routeObj.value = uri +""+ (search || "") +""+ (hash || "");
+				if(!skipPush){
+					try{
+						window.history.pushState(routeObj.value, "", routeObj.value);
+						}
+					catch(e){
+						//dump(e);
+						}
+					}
+				_app.router._executeCallback(routeObj);
+				return true;
+				}
+			else {
+				dump('no route found for '+uri, 'error');
+				}
+			return false;
+			},
+		handleURIString : function(uriStr, skipPush, forcedParams){
+			var a = document.createElement('a');
+			a.href = "http://www.domain.com"+uriStr;
+			var path = a.pathname;
+			var search = a.search;
+			var hash = a.hash;
+			console.log(path);
+			console.log(search);
+			console.log(hash);
+			this.handleURIChange(path,search,hash,skipPush,forcedParams);
+>>>>>>> upstream/201410
 			}
 		},
 
@@ -1045,7 +1208,12 @@ Some utilities for loading external files, such as .js, .css or even extensions.
 */
 
 		loadScript : function(url, callback, params){
+<<<<<<< HEAD
 //			dump("load script: "+url+" and typeof callback: "+(typeof callback));
+=======
+			dump("load script: "+url+" and typeof callback: "+(typeof callback));
+			callback = callback || function(){};
+>>>>>>> upstream/201410
 			if(url)	{
 				var script = document.createElement("script");
 				script.type = "text/javascript";
@@ -1053,13 +1221,26 @@ Some utilities for loading external files, such as .js, .css or even extensions.
 					script.onreadystatechange = function(){
 						if (script.readyState == "loaded" || script.readyState == "complete"){
 							script.onreadystatechange = null;
+<<<<<<< HEAD
+=======
+							//clean up after ourselves!  This is so that the document can be transplanted and re-instantiated
+							document.getElementsByTagName("head")[0].removeChild(script);
+>>>>>>> upstream/201410
 							if(typeof callback == 'function')	{callback(params);}
 							}
 						};
 					}
 				else {
 					if(typeof callback == 'function')	{
+<<<<<<< HEAD
 						script.onload = function(){callback(params)}
+=======
+						script.onload = function(){
+							//clean up after ourselves!  This is so that the document can be transplanted and re-instantiated
+							document.getElementsByTagName("head")[0].removeChild(script);
+							callback(params)
+							}
+>>>>>>> upstream/201410
 						}
 					}
 			//append release to the end of included files to reduce likelyhood of caching.
@@ -1180,7 +1361,23 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		// because the model will execute it for all extensions once the controller is initiated.
 		// so instead, a generic callback function is added to track if the extension is done loading.
 		// which is why the extension is added to the extension Q (above).
-					_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+<<<<<<< HEAD
+/*CHESSSTORE*/		if(_app.rq[i][3]){
+						dump('--LOADSCRIPT'); dump(_app.rq[i][3]); dump(_app.rq[i]);
+						_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+					}
+					else {
+						callback(_app.rq[i]);
+					}
+/*CHESSSTORE*/		//_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+=======
+					if(_app.rq[i][3]){
+						_app.u.loadScript(_app.rq[i][3],callback,(_app.rq[i]));
+						}
+					else {
+						callback(_app.rq[i]);
+						}
+>>>>>>> upstream/201410
 					_app.rq.splice(i, 1); //remove from old array to avoid dupes.
 					}
 				else	{
@@ -1427,6 +1624,11 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 								'hitType' : 		'event',
 								'eventCategory' :	AEF[0],
 								'eventAction' :		AEF[1],
+<<<<<<< HEAD
+=======
+								'eventLabel' :		"label",
+								'eventValue' :		1
+>>>>>>> upstream/201410
 								};
 							if($CT.attr('data-ga-label')){
 								eventObj.eventLabel = $CT.attr('data-ga-label');
@@ -1771,7 +1973,6 @@ AUTHENTICATION/USER
 					}
 				return newArray;
 				},
-<<<<<<< HEAD
 
 //pass an object in as first param and an array as the second.
 //This will return a NEW object, removing any keys from 'obj' that are not declared in 'whitelist'.
@@ -1800,36 +2001,6 @@ AUTHENTICATION/USER
 					}
 				return r;
 				},
-=======
-
-//pass an object in as first param and an array as the second.
-//This will return a NEW object, removing any keys from 'obj' that are not declared in 'whitelist'.
-			getWhitelistedObject : function(obj,whitelist)	{
-				var r = {};
-				for(index in obj)	{
-// SANITY -> indexOf not supported for searching arrays in IE8
-					if($.inArray(index, whitelist) >= 0)	{
-						r[index] = obj[index];
-						}
-					else	{} //not in whitelist
-					}
-				return r;
-				},
-
-//pass an object in as first param and an array as the second.
-//This will return a NEW object, removing any keys from 'obj' that ARE declared in 'blacklist'
-			getBlacklistedObject : function(obj,blacklist)	{
-				var r = $.extend({},obj);
-				for(index in obj)	{
-// SANITY -> indexOf not supported for searching arrays in IE8
-					if($.inArray(index, blacklist) >= 0)	{
-						delete r[index];
-						}
-					else	{} //is not in blacklist
-					}
-				return r;
-				},
->>>>>>> upstream/master
 
 
 
@@ -2168,10 +2339,6 @@ VALIDATION
 						if(_app.formatRules[rules[i]]($input,$span))	{_app.u.dump("passed rule validation")}
 						else	{
 							r = false;
-<<<<<<< HEAD
-
-=======
->>>>>>> upstream/master
 							}
 						}
 					else	{
@@ -2190,6 +2357,10 @@ VALIDATION
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> upstream/201410
 //used frequently to throw errors or debugging info at the console.
 //called within the throwError function too
 		dump : function(msg,type)	{
@@ -2603,6 +2774,25 @@ name Mod 10 or Modulus 10. */
 				if('placeholder' in test) {jQuery.support.placeholder = true};
 
 				}
+<<<<<<< HEAD
+=======
+			},
+		bindTemplateEvent : function(filterFunc, event, handler){
+			if(typeof filterFunc === "string"){
+				var str = filterFunc;
+				filterFunc = function(tmpID){ return tmpID === str;}
+				}
+			_app.templateEvents.push({
+				"filterFunc" : filterFunc,
+				"event" : event,
+				"handler" : handler
+				});
+			for(var i in _app.templates){
+				if(filterFunc(i)){
+					_app.templates[i].on(event, handler);
+					}
+				}
+>>>>>>> upstream/201410
 			}
 
 		}, //util
@@ -2652,7 +2842,11 @@ Then we'll be in a better place to use data() instead of attr().
 //			_app.u.dump(eleAttr);
 
 //If a template ID is specified but does not exist, try to make one. added 2012-06-12
+<<<<<<< HEAD
 			if(templateID && !_app.templates[templateID])	{
+=======
+			if(templateID && !(_app.templates[templateID] instanceof jQuery))	{
+>>>>>>> upstream/201410
 				var tmp = $('#'+templateID);
 				if(tmp.length > 0)	{
 					_app.model.makeTemplate(tmp,templateID);
@@ -2723,7 +2917,11 @@ most likely, this will be expanded to support setting other data- attributes. ##
 //creates a copy of the template.
 			var r;
 //if a templateID is passed, but no template exists, try to create one.
+<<<<<<< HEAD
 			if(templateID && !_app.templates[templateID])	{
+=======
+			if(templateID && !(_app.templates[templateID] instanceof jQuery))	{
+>>>>>>> upstream/201410
 				var tmp = $('#'+templateID);
 				if(tmp.length > 0)	{
 					_app.u.dump("WARNING! template ["+templateID+"] did not exist. Matching element found in DOM and used to create template.");
@@ -2799,8 +2997,18 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 				value = bindRules['defaultValue']
 //				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
 				}
+<<<<<<< HEAD
+	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
+				}
+			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
+				value = bindRules['defaultValue']
+//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
+				}
+			}
+=======
 			}
 		}
+>>>>>>> upstream/201410
 
 
 
@@ -2988,10 +3196,19 @@ return $r;
 //			_app.u.dump('END parseDataBind');
 			return rule;
 			},
+<<<<<<< HEAD
 
 
 //infoObj.state = onCompletes or onInits. later, more states may be supported.
 			handleTemplateEvents : function($ele,infoObj)	{
+=======
+			
+//infoObj.state = onCompletes or onInits. later, more states may be supported.
+			handleTemplateEvents : function($ele,infoObj)	{
+				// dump("handleTemplateEvents");
+				// dump($ele);
+				// dump(infoObj);
+>>>>>>> upstream/201410
 				infoObj = infoObj || {};
 				if($ele instanceof jQuery && infoObj.state)	{
 					if($.inArray(infoObj.state,['init','complete','depart']) >= 0)	{
@@ -3399,11 +3616,19 @@ $tmp.empty().remove();
 			}
 			
 		}, //renderFormats
+<<<<<<< HEAD
 
 //These rules should return true if the value is validated or false if not.
 //If the value does not validate, $err should be APPENDED to w/ a consise message for why it failed.  ex: CC number did not validate.
 	formatRules : {
 
+=======
+
+//These rules should return true if the value is validated or false if not.
+//If the value does not validate, $err should be APPENDED to w/ a consise message for why it failed.  ex: CC number did not validate.
+	formatRules : {
+
+>>>>>>> upstream/201410
 		'CC' : function($input,$err)	{
 			var r = _app.u.isValidCC($input.val());
 			if(!r)	{$err.append('The credit card # provided is not valid')}
@@ -3419,5 +3644,10 @@ $tmp.empty().remove();
 			}
 		
 		}
+<<<<<<< HEAD
 	}
 	};
+=======
+	};
+};
+>>>>>>> upstream/201410
