@@ -579,27 +579,6 @@ it has no inventory AND inventory matters to merchant
 					}
 				return r;
 				},
-				return r;
-				},
-
-//pass variation lookup table into this. The thought there is that building the lookup table could be expensive, so better to do it once
-//someplace else then, potentially a lot of times when this function is called within a loop.
-			inventoryID2Pretty : function(ID,VLT)	{
-				var r = ""; //set to blank or undefined will be prepended to value.
-				if(ID && VLT)	{
-					var splitID = ID.split(':'),
-					L = splitID.length;
-					for(var i = 1; i < L; i += 1)	{
-//						_app.u.dump(" -> splitID[i].substr(0,2): "+splitID[i].substr(0,2)); 
-						r += VLT[splitID[i].substr(0,2)][splitID[i].substr(2,2)]+" ";
-						}
-					}
-				else	{
-					_app.u.dump("In store_product.u.inventoryID2Pretty, ID or VLT not defined");
-					r = false;
-					}
-				return r;
-				},
 
 //fairly straightforward way of getting a list of csv and doing nothing with it.
 //or, a followup 'ping' could be added to perform an action once this data is obtained.

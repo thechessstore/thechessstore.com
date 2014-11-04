@@ -903,8 +903,8 @@ var extension_thechessstore = function(_app) {
 								items   : 3,
 								scroll: 1,
 								auto : false,
-							prev : "#caroPrev1",
-							next : "#caroNext1"
+							prev : ".caroPrev1",
+							next : ".caroNext1"
 							});}
 							carousel1 = foo1;
 							setTimeout(carousel1, 2000);
@@ -920,8 +920,8 @@ var extension_thechessstore = function(_app) {
 								items   : 3,
 								scroll: 1,
 								auto : false,
-							prev : "#caroPrev2",
-							next : "#caroNext2"
+							prev : ".caroPrev2",
+							next : ".caroNext2"
 							});}
 							carousel2 = foo2;
 							setTimeout(carousel2, 2000);
@@ -934,8 +934,8 @@ var extension_thechessstore = function(_app) {
 								items   : 3,
 								scroll: 1,
 								auto : false,
-							prev : "#caroPrev3",
-							next : "#caroNext3"
+							prev : ".caroPrev3",
+							next : ".caroNext3"
 							});}
 							carousel3 = foo3;
 							setTimeout(carousel3, 2000);
@@ -948,8 +948,8 @@ var extension_thechessstore = function(_app) {
 								items   : 3,
 								scroll: 1,
 								auto : false,
-							prev : "#caroPrev4",
-							next : "#caroNext4"
+							prev : ".caroPrev4",
+							next : ".caroNext4"
 							});}
 							carousel4 = foo4;
 							setTimeout(carousel4, 2000);

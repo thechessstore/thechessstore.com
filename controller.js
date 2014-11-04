@@ -195,9 +195,12 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 		setVars('username');
 
 		_app.vars.username = _app.vars.username.toLowerCase();
+		
 		}, //handleAdminVars
+		
 	extend : function(extObj){
 		_app.ext[extObj.namespace] = [extObj.filename];
+		},
 		
 	couple : function(extension, coupler, args){
 		if(_app.ext[extension]){
@@ -241,6 +244,7 @@ _app.templates holds a copy of each of the templates declared in an extension bu
 				//Prevents any future loadCallbacks from executing the callback twice
 				callback = function(){};
 				}
+			}
 		
 		for(var i in required){
 			var req = required[i];
@@ -344,25 +348,6 @@ If the data is not there, or there's no data to be retrieved (a Set, for instanc
 						this.dispatch(obj,_tag,Q)
 						}
 //if variations or options are requested, check to see if they've been retrieved before proceeding.
-					else if((obj.withVariations && _app.data[_tag.datapointer]['@variations'] === undefined) || (obj.withInventory && _app.data[_tag.datapointer]['@inventory'] === undefined))	{
-						r = 1;
-						this.dispatch(obj,_tag,Q);
-						}
-//if the product record is in memory BUT the inventory is zero, go get updated record in case it's back in stock.
-					else if(_app.ext.store_product && (_app.ext.store_product.u.getProductInventory(_app.data[_tag.datapointer]) === 0))	{
-						r = 1;
-						this.dispatch(obj,_tag,Q);
-						}
-					else 	{
-						_app.u.handleCallback(_tag);
-						}
-					if(obj.withInventory)	{obj.inventory=1}
-					}
-				else	{
-					_app.u.throwGMessage("In calls.appProductGet, required parameter pid was not passed");
-					_app.u.dump(obj);
-					}
-				return r;
 					else if((obj.withVariations && _app.data[_tag.datapointer]['@variations'] === undefined) || (obj.withInventory && _app.data[_tag.datapointer]['@inventory'] === undefined))	{
 						r = 1;
 						this.dispatch(obj,_tag,Q);
@@ -653,11 +638,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 					}
 				else	{
 					$('#globalMessage').anymessage({'message':rd});
-				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
-					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
-					}
-				}
-			}, //translateSelector
 					}
 				}
 			}, //translateSelector
@@ -685,46 +665,6 @@ _app.u.throwMessage(responseData); is the default error handler.
 //anycontent will disable hideLoading and loadingBG classes.
 //to maintain flexibility, pass all anycontent params in thru _tag
 					$target.anycontent(_rtag);
-
-					_app.u.handleCommonPlugins($target);
-					_app.u.handleButtons($target);
-					
-					
-// use either delegated events OR app events, not both.
-//avoid using this. ### FUTURE -> get rid of these. the delegation should occur in the function that calls this. more control that way and things like dialogs being appendedTo a parent can be handled more easily.
-					if(_rtag.addEventDelegation)	{
-						_app.u.addEventDelegation($target);
-						}
-					else if(_rtag.skipAppEvents)	{}
-					else	{
-						_app.u.handleAppEvents($target);
-						}
-
-					if(_rtag.applyEditTrackingToInputs)	{
-						_app.ext.admin.u.applyEditTrackingToInputs($target); //applies 'edited' class when a field is updated. unlocks 'save' button.
-						}
-					if(_rtag.handleFormConditionalDelegation)	{
-						_app.ext.admin.u.handleFormConditionalDelegation($('form',$target)); //enables some form conditional logic 'presets' (ex: data-panel show/hide feature)
-						}
-//allows for the callback to perform a lot of the common handling, but to append a little extra functionality at the end of a success.
-					if(typeof _rtag.onComplete == 'function')	{
-						_rtag.onComplete(_rtag);
-						}
-					}
-				else	{
-					$('#globalMessaging').anymessage({'message':'In admin.callbacks.anycontent, jqOjb not set or not an object ['+typeof _rtag.jqObj+'].','gMessage':true});
-					}
-				
-				},
-			onError : function(rd)	{
-				if(rd._rtag && rd._rtag.jqObj && typeof rd._rtag.jqObj == 'object'){
-					rd._rtag.jqObj.hideLoading().anymessage({'message':rd});
-					}
-				else	{
-					$('#globalMessage').anymessage({'message':rd});
-					}
-				}
-			}, //translateSelector
 
 					_app.u.handleCommonPlugins($target);
 					_app.u.handleButtons($target);
@@ -1352,32 +1292,6 @@ will load everything in the RQ will a pass <= [pass]. so pass of 10 loads everyt
 		//	_app.u.dump("numIncludes: "+numIncludes);
 //			app.u.initMVC(0);
 			return numIncludes;
-//			app.u.initMVC(0);
-			return numIncludes;
-			},
-
-//Run at initComplete. loads all pass zero files and executes their callbacks (if any). then loads resources set for pass > 0
-		loadResources : function()	{
-			var rObj = {
-				'passZeroResourcesLength' : _app.u.handleRQ(0),
-				'passZeroResourcesLoaded' : 0,
-				'passZeroTimeout' : null
-				}; //what is returned.
-			function resourcesAreLoaded(){
-				rObj.passZeroResourcesLoaded = _app.u.numberOfLoadedResourcesFromPass(0); //this should NOT be in the else or it won't get updated once the resources are done.
-				if(_app.u.numberOfLoadedResourcesFromPass(0) == _app.vars.rq.length)	{
-					_app.vars.rq = null; //this is the tmp array used by handleRQ and numberOfResourcesFromPass. Should be cleared for next pass.
-					_app.model.addExtensions(_app.vars.extensions);
-					_app.u.handleRQ(1); //this will empty the RQ.
-					_app.rq.push = _app.u.loadResourceFile; //reassign push function to auto-add the resource.
-					}
-				else	{
-//					_app.u.dump(" -> _app.u.numberOfLoadedResourcesFromPass(0,0): "+_app.u.numberOfLoadedResourcesFromPass(0,0));
-					rObj.passZeroTimeout = setTimeout(function(){resourcesAreLoaded();},250);
-					}
-				}
-			resourcesAreLoaded();
-			return rObj;
 			},
 
 //Run at initComplete. loads all pass zero files and executes their callbacks (if any). then loads resources set for pass > 0
@@ -2125,7 +2039,6 @@ VALIDATION
 					event.preventDefault();
 					r = false;
 					}
-					}
 				}
 			return r;
 			},
@@ -2340,7 +2253,6 @@ VALIDATION
 				}
 			return r;
 			},
-
 
 
 
@@ -2720,6 +2632,8 @@ name Mod 10 or Modulus 10. */
 
 
 
+
+
 //By saving these to the $.support object, a quick lookup method is available.
 //In addition, it allows a developer to easily turn off features by setting the value to false.
 		updatejQuerySupport : function()	{
@@ -2768,6 +2682,7 @@ name Mod 10 or Modulus 10. */
 				"filterFunc" : filterFunc,
 				"event" : event,
 				"handler" : handler
+				});
 			for(var i in _app.templates){
 				if(filterFunc(i)){
 					_app.templates[i].on(event, handler);
@@ -2963,12 +2878,6 @@ $r.find('[data-bind]').addBack('[data-bind]').each(function()	{
 
 			if(!_app.u.isSet(value) && bindRules.defaultVar)	{
 				value = _app.renderFunctions.getAttributeValue(bindRules['defaultVar'],data);
-	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
-				}
-			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
-				value = bindRules['defaultValue']
-//				_app.u.dump(' -> used defaultValue ("'+bindRules.defaultValue+'") because var had no value.');
-				}
 	//					_app.u.dump(' -> used defaultVar because var had no value. new value = '+value);
 				}
 			if(!_app.u.isSet(value) && bindRules.defaultValue)	{
@@ -3594,7 +3503,6 @@ $tmp.empty().remove();
 			else if($input.val().length <= 2)	{$err.append('The CVV/CID # must be at least three digits');}
 			else	{r = true;}
 			return r;
-		
 			}
 		
 		}

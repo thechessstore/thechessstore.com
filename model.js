@@ -582,7 +582,6 @@ QID is the dispatchQ ID (either passive, mutable or immutable. required for the 
 						this.writeToMemoryAndLocal(responseData['@rcmds'][i]);
 						
 						executeResponseHandler(responseData['@rcmds'][i]);
-
 						}
 					}
 //a solo successful request.
@@ -749,6 +748,7 @@ QID is the dispatchQ ID (either passive, mutable or immutable. required for the 
 //likewise, if there's an error in the response, no point saving this locally. 
 			if(!$.isEmptyObject(responseData['_rtag']) && _app.u.isSet(responseData['_rtag']['datapointer']) && status != 'error' && status != 'missing')	{
 				datapointer = responseData['_rtag']['datapointer'];
+
 //on a ping, it is possible a datapointer may be set but we DO NOT want to write the pings response over that data, so we ignore pings.
 //an appPageGet request needs the requested data to extend the original page object. (in case two separate request come in for different attributes for the same category.	
 				if(responseData['_rcmd'] == 'ping' || responseData['_rcmd'] == 'appPageGet')	{
@@ -916,27 +916,6 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 							responseData['errid'] = "MVC-M-100";
 							responseData['errtype'] = "missing"; 
 							responseData['errmsg'] = "could not find product "+responseData.pid+". Product may no longer exist. ";
-							
-//THIS FEATURES CHECKS TO SEE IF THE SKU IS THE MAIN PRODUCT OF A PRODUCT PAGE AND REDIRECTS TO THE 404 PAGE RATHER THAN LETTING THE USER GO TO AN EMPTY PRODUCT PAGE FOR A NON-EXISTENT PRODUCT.		
-/*CHESS STORE*/								var productSku = window.location.toString();
-/*CHESS STORE*/								productSku = productSku.split("#!product/");
-/*CHESS STORE*/								productSku = productSku[1];
-/*CHESS STORE*/								productSku = productSku.split("/");
-/*CHESS STORE*/								productSku = productSku[0];
-/*CHESS STORE*/								productSku = productSku.toUpperCase();
-/*CHESS STORE*/								//dump("responseData.pid = ");
-/*CHESS STORE*/								//dump(responseData.pid);
-/*CHESS STORE*/								//dump("productSku = " + productSku);
-/*CHESS STORE*/								if(productSku == responseData.pid)
-/*CHESS STORE*/								{
-/*CHESS STORE*/									dump("This product does not exist. Sending the user to the 404 template.");
-/*CHESS STORE*/									setTimeout(function(){myApp.ext.quickstart.a.showContent('404')}, 1000);
-/*CHESS STORE*/								}
-/*CHESS STORE*/								else{
-/*CHESS STORE*/									dump("Non-existent product exists but is not the product in the product page. Re-direct to 404 page will not occur. It is recommended that the owner of this app remove this product from its association with this product/category.");
-/*CHESS STORE*/								}
-//END 404 REDIRECT FEATURE
-							
 							} //db:id will not be set if invalid sku was passed.
 						break;
 //most of the time, a successful response w/out errors is taken as a success. however, due to the nature of appCartCreate, we verify we have what we need.
@@ -969,9 +948,6 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 						if(Number(responseData['errid']) > 0 && responseData.errtype != 'warn') {r = true;} //warnings do not constitute errors.
 						else if(Number(responseData['_msgs']) > 0)	{
 							var errorTypes = new Array("youerr","fileerr","apperr","apierr","iseerr","cfgerr");
-							//the _msg format index starts at one, not zero.
-							for(var i = 1, L = Number(responseData['_msgs']); i <= L; i += 1)	{
-								if($.inArray(responseData['_msg_'+i+'_type'],errorTypes) >= 0)	{
 							//the _msg format index starts at one, not zero.
 							for(var i = 1, L = Number(responseData['_msgs']); i <= L; i += 1)	{
 								if($.inArray(responseData['_msg_'+i+'_type'],errorTypes) >= 0)	{
@@ -1259,7 +1235,7 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 //				_app.u.dump(' -> valid extension object containing '+extObj.length+' extensions');
 				var L = extObj.length;
 				r = L; //return the size of the extension object 
-				for(var i = 0; i < L; i += 1) { dump(extObj[i].namespace);
+				for(var i = 0; i < L; i += 1) {
 //					_app.u.dump(" -> i: "+i);
 //namespace and filename are required for any extension.
 					if(!extObj[i].namespace)	{
@@ -1394,11 +1370,6 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 					});
 				_app.templateFiles.push(templateURL);
 				callback();
-				if(templateContainerID == 'remoteTemplates_admin')	{
-					templateContainerID += '_'+templateURL.split('/').splice(-1,1);
-					templateContainerID = templateContainerID.replace('.html','');
-					}
-	//				_app.u.dump(templateErrors);
 				});
 			return ajaxRequest;
 			}, //fetchNLoadTemplates 
@@ -1453,11 +1424,6 @@ will return false if datapointer isn't in _app.data or local (or if it's too old
 					//else	{
 	//				//			_app.u.dump("WARNING: extension "+namespace+" did not define any templates. This 'may' valid, as some extensions may have no templates.");
 					//	}
-
-						}
-					else	{
-					initPassed = false;
-					errors += "window."+namespace+" does not exist, probably a mismatch between namespace declared in extension and init."
 
 					}
 				else	{
@@ -1824,15 +1790,6 @@ A note about cookies:
 			_app.u.dump(" -> DELETED cookie "+c_name);
 			},
 
-			myDate.setTime(myDate.getTime()+(1*24*60*60*1000));
-			document.cookie = c_name +"=" + value + ";expires=" + myDate + ";domain="+document.domain+";path=/";
-			},
-//deleting a cookie seems to cause lots of issues w/ iOS and some other mobile devices (where admin login is concerned, particularly. 
-//test before earlier.
-		deleteCookie : function(c_name)	{
-			document.cookie = c_name+ "=; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/";
-			_app.u.dump(" -> DELETED cookie "+c_name);
-			},
 
 
 //Device Persistent Settings (DPS) Get  ### here for search purposes:   preferences settings localstorage
@@ -1856,7 +1813,6 @@ A note about cookies:
 //					_app.u.dump(" ^^ value for DPS Get: "); _app.u.dump(r);
 					}
 //				_app.u.dump("DPS returned: "); _app.u.dump(r);
-				return r;
 				return r;
 				},
 
