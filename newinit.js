@@ -10,12 +10,12 @@ _app.u.loadScript(configURI,function(){
 	_app.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	_app.vars.jqurl = (document.location.protocol === 'file:') ? _app.vars.testURL+'jsonapi/' : '/jsonapi/';
 	
-	var startupRequires = ['quickstart','extension_thechessstore', 'store_filter','cco','store_product','order_create']
+	var startupRequires = ['quickstart','extension_thechessstore','cco','store_product','order_create']
 	
 	_app.require(startupRequires, function(){
-		_app.ext.extension_thechessstore.u.loadSuppressionList(function(){
-			_app.ext.extension_thechessstore.u.suppress($('#appView'));
-			});
+		//_app.ext.extension_thechessstore.u.loadSuppressionList(function(){
+			//_app.ext.extension_thechessstore.u.suppress($('#appView'));
+			//});
 		_app.ext.quickstart.callbacks.startMyProgram.onSuccess();
 		
 		//will destroy and reinitialize the header and homepage main banner carousels on screen resize. 
@@ -369,6 +369,11 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.routing', function(
 		$canonical.attr('href', canonical);
 		}
 	});
+_app.extend({
+	"namespace" : "extension_thechessstore",
+	"filename" : "extensions/extension_thechessstore.js"
+	});
+	
 	
 _app.extend({
 	"namespace" : "store_tracking",
@@ -453,19 +458,123 @@ _app.u.bindTemplateEvent(function(){return true;}, 'depart.scrollrestore', funct
 
 _app.extend({
 	"namespace" : "extension_thechessstore",
-	"filename" : "extensions/_extension_thechessstore.js"
+	"filename" : "extensions/extension_thechessstore.js"
 	});
-_app.u.bindTemplateEvent(function(){return true;}, 'complete.suppress', function(event, $context, infoObj){_app.ext.extension_thechessstore.u.suppress($context);});
+_app.u.bindTemplateEvent(function(){return true;}, 'complete.suppress', function(event, $context, infoObj){
+	});
 _app.extend({
 	"namespace" : "store_filter",
 	"filename" : "extensions/_store_filter.js"
 	});
 	
-_app.u.bindTemplateEvent('homepageTemplate', 'complete.extension_thechessstore',function(event,$context,infoObj) {
-	$(".mobileSlideMenu.standardNav").addClass("hideOnHome");
+_app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(event,$context,infoObj) {
+		//INTERNET EXPLORER WARNING MESSAGE
+		if($('.headerIE8WarningCont').data('messageShown')){
+		}
+		else{
+			$('.headerIE8WarningCont').data('messageShown',false);
+		}
+		if($('.headerIE8WarningCont').data('messageShown') === false)
+		{
+			$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
+			$('.headerIE8WarningCont').data('messageShown',true).append();
+		}
+	
+	
+		//Header dropdown menus
+		var showDropdown = function ($tag) {
+			var $dropdown = $(".dropdown", $tag);
+			var height = 0;
+			$dropdown.children().each(function(){
+				height += $(this).outerHeight(true);
+			});
+			$dropdown.stop().animate({"height":height+"px"}, 1000);
+		}
+			
+		var hideDropdown = function ($tag) {
+			$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+		}
+		
+		//Homepage Slideshow image code and carousel code
+		var homepageLoad = false;
+		
+			if (homepageLoad == false){
+				//Home page slideshow
+				$("#nav").html("");
+				$('.featureImg') 
+				.after('<div id="nav">') 
+				.cycle({ 
+					fx:     'fade',  
+					timeout: 5000, 
+					pager:  '#nav' 
+				});
+		
+		
+				//Carousel horizontal sliders
+				var carousel1;
+				function foo1(){ $(".homepageCat1").carouFredSel({
+					width   : 980,
+					height	: 300,
+					items   : 3,
+					scroll: 1,
+					auto : false,
+					prev : ".caroPrev1",
+					next : ".caroNext1"
+				});}
+				carousel1 = foo1;
+				setTimeout(carousel1, 1000);
+		
+		
+				//$("#caroNext1").delay(1500).click();
+				//$("#caroPrev1").click();
+				
+				var carousel2;
+				function foo2(){ $(".homepageCat2").carouFredSel({
+					width   : 980,
+					height	: 300,
+					items   : 3,
+					scroll: 1,
+					auto : false,
+				prev : ".caroPrev2",
+				next : ".caroNext2"
+				});}
+				carousel2 = foo2;
+				setTimeout(carousel2, 1000);
+		
+				var carousel3;
+				function foo3(){
+				$(".homepageCat3").carouFredSel({
+					width   : 980,
+					height	: 300,
+					items   : 3,
+					scroll: 1,
+					auto : false,
+				prev : ".caroPrev3",
+				next : ".caroNext3"
+				});}
+				carousel3 = foo3;
+				setTimeout(carousel3, 1000);
+				
+				var carousel4;
+				function foo4(){
+				$(".homepageCat4").carouFredSel({
+					width   : 980,
+					height	: 300,
+					items   : 3,
+					scroll: 1,
+					auto : false,
+				prev : ".caroPrev4",
+				next : ".caroNext4"
+				});}
+				carousel4 = foo4;
+				setTimeout(carousel4, 1000);
+				
+				//$myselection.addClass('noScriptReExecute');
+				homepageLoad = true;
+				_app.u.dump("Homepage functions loaded");
+			};
 	});
-_app.u.bindTemplateEvent('homepageTemplate', 'depart.extension_thechessstore',function(event,$context,infoObj) {
-	$(".mobileSlideMenu.standardNav").removeClass("hideOnHome");
+_app.u.bindTemplateEvent('homepageTemplate', 'depart.homepagedepart',function(event,$context,infoObj) {
 	});
 	
 _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, $context, infoObj){
