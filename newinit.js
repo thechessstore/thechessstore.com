@@ -596,6 +596,129 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, 
 			}
 		}
 	});
+_app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(event,$context,infoObj) {
+	$catList = $("ul[data-app-role='subcategoryList']",$context); // don't use .categoryList  add a new, specific class.
+							
+	if($catList.children().length)	{
+		$catList.children().each(function(){
+			var $li = $(this);
+			
+			if($li.data('app-havesubcatdata'))	{} //already have data.
+			else if($('.catDesc',$li).length)	{
+				_app.ext.store_navcats.calls.appPageGet.init({
+					'PATH':$li.data('catsafeid'),
+					'@get':['description']
+					},
+					{'callback': function(rd){					//if there are errors, leave them alone... for now.
+					$li.data('app-havesubcatdata',true);
+					if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
+						$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
+						}
+					}
+					},'mutable')
+				}
+			else	{
+				_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
+				//category description already obtained or template has no catDesc class (no description needed)
+				}
+			});
+		_app.model.dispatchThis('mutable');
+		}
+	else	{
+		//most likely, no subcats.
+		}
+		
+	//BEGIN HEADER HIDING FUNCTION
+	$(".headerHideShow").hide();
+	$(".headerBoxCenter").css("margin", "0");
+	$(".headerBottom").css("height", "50px");
+	$(".headerBottom").css("padding-bottom", "11px");
+	$(".headerBottom").css("padding-top", "4px");
+	$(".headerBoxCenter").css("width", "200px");
+	$(".headerBoxCenter").css("margin-top", "13px");
+	$(".headerHideShowContent").css("display", "block");
+	$(".productSearchForm").css("height", "100%");
+	$(".productSearchForm").css("margin-top", "18px");
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+	
+	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
+	
+	_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
+	
+	_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(_app.ext.store_filter.filterMap[P.navcat])	{
+		_app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(_app.u.jqSelector('#',P.parentID));
+		_app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				_app.u.dump(" -> Filter form submitted.");
+				_app.ext.store_filter.a.execFilter($form,$page);
+				});
+	
+			if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+				_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+				}
+	
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		
+		
+		//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
+		/*$('.woodPieces:checkbox').click(function() {
+			var woodPieces = $(this);
+			// $this will contain a reference to the checkbox   
+			if (woodPieces.is(':checked')) {
+				 $(".woodType").show();
+				 $(".kingHeight").show();
+			} else {
+				$(".woodType").hide();
+				$(".kingHeight").hide();
+			}
+		});*/
+		
+		$('.resetButton', $context).click(function(){
+		$context.empty().remove();
+		showContent('category',{'navcat':P.navcat});
+		});								
+});
+_app.u.bindTemplateEvent('categoryTemplate', 'depart.categorydepart',function(event,$context,infoObj) {
+	if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
+		_app.ext.store_filter.vars.catPageID.empty().remove();
+	}	
+	
+	//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+	$(".headerHideShow").show();
+	$(".headerBoxCenter").css("margin-right", "30px");
+	$(".headerBottom").css("height", "150px");
+	$(".headerBottom").css("padding", "15px");
+	$(".headerBoxCenter").css("width", "250px");
+	$(".headerBoxCenter").css("margin-top", "0px");
+	$(".headerHideShowContent").css("display", "none");
+	$(".productSearchForm").css("height", "22px");
+	$(".productSearchForm").css("margin", "0");
+});
 
 _app.u.bindTemplateEvent('productTemplate', 'complete.extension_thechessstore', function(event, $context, infoObj){
 	});
@@ -925,7 +1048,7 @@ _app.couple('quickstart','addPageHandler',{
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','extension_thechessstore'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
@@ -937,12 +1060,13 @@ _app.couple('quickstart','addPageHandler',{
 			}
 		_app.require(require,function(){
 			if(infoObj.templateID){}
-			//else if(infoObj.templateID = _app.ext.store_swc.u.fetchTemplateForPage(infoObj.navcat)){}
+			else if(infoObj.templateID = _app.ext.extension_thechessstore.u.fetchTemplateForPage(infoObj.navcat)){dump("Alternate template used : "+ infoObj.templateID);}
 			else{infoObj.templateID = 'categoryTemplate';}
-			if(infoObj.templateID = 'categoryTemplate'){
-				infoObj.prodRenderedDeferred = $.Deferred();
-				infoObj.defPipeline.addDeferred(infoObj.prodRenderedDeferred);
-				}
+			
+			//currently this is expected to be resolved by the prodlist_infinite tlc format.  Probably a bad idea.
+			infoObj.prodRenderedDeferred = $.Deferred();
+			infoObj.defPipeline.addDeferred(infoObj.prodRenderedDeferred);
+
 			_app.ext.store_navcats.u.showPage($container, infoObj);
 			});
 						
