@@ -464,7 +464,7 @@ _app.u.bindTemplateEvent(function(){return true;}, 'complete.suppress', function
 	});
 _app.extend({
 	"namespace" : "store_filter",
-	"filename" : "extensions/_store_filter.js"
+	"filename" : "extensions/store_filter.js"
 	});
 	
 _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(event,$context,infoObj) {
@@ -522,7 +522,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 					next : ".caroNext1"
 				});}
 				carousel1 = foo1;
-				setTimeout(carousel1, 1000);
+				setTimeout(carousel1, 100);
 		
 		
 				//$("#caroNext1").delay(1500).click();
@@ -539,7 +539,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 				next : ".caroNext2"
 				});}
 				carousel2 = foo2;
-				setTimeout(carousel2, 1000);
+				setTimeout(carousel2, 100);
 		
 				var carousel3;
 				function foo3(){
@@ -553,7 +553,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 				next : ".caroNext3"
 				});}
 				carousel3 = foo3;
-				setTimeout(carousel3, 1000);
+				setTimeout(carousel3, 100);
 				
 				var carousel4;
 				function foo4(){
@@ -567,7 +567,7 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 				next : ".caroNext4"
 				});}
 				carousel4 = foo4;
-				setTimeout(carousel4, 1000);
+				setTimeout(carousel4, 100);
 				
 				//$myselection.addClass('noScriptReExecute');
 				homepageLoad = true;
@@ -654,26 +654,26 @@ _app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(ev
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
-	_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
+	_app.ext.store_filter.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
 	
 	_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
-	if(_app.ext.store_filter.filterMap[P.navcat])	{
+	if(_app.ext.store_filter.filterMap[infoObj.navcat])	{
 		_app.u.dump(" -> safe id DOES have a filter.");
 
-		var $page = $(_app.u.jqSelector('#',P.parentID));
+		var $page = $(_app.u.jqSelector('#',infoObj.parentID));
 		_app.u.dump(" -> $page.length: "+$page.length);
 		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 		else	{
 			$page.data('filterAdded',true)
-			var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			var $form = $("[name='"+_app.ext.store_filter.filterMap[infoObj.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
 			$form.on('submit.filterSearch',function(event){
 				event.preventDefault()
 				_app.u.dump(" -> Filter form submitted.");
 				_app.ext.store_filter.a.execFilter($form,$page);
 				});
 	
-			if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-				_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+			if(typeof _app.ext.store_filter.filterMap[infoObj.navcat].exec == 'function')	{
+				_app.ext.store_filter.filterMap[infoObj.navcat].exec($form,infoObj)
 				}
 	
 	//make all the checkboxes auto-submit the form.
@@ -967,6 +967,7 @@ _app.router.addAlias('root', function(routeObj){
 	});
 });
 
+/*
 function createPagesRootFilter(root){
 	_app.router.appendHash({'type':'exact','route':'/'+root+'/','pagefilter':root,'callback':'root'});
 	_app.router.appendHash({'type':'match','route':'/'+root+'/{{id}}/','pagefilter':root,'callback':'filter'});
@@ -987,6 +988,7 @@ createPagesPromoFilter('promo');
 createPagesRootFilter('');
 
 createPagesSubcatSubfilter('');	
+*/
 	
 //SEARCH APPENDS
 _app.router.appendHash({'type':'match','route':'/search/promo/{{PATH}}*','callback':'promo'});					
@@ -1048,7 +1050,7 @@ _app.couple('quickstart','addPageHandler',{
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','extension_thechessstore'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','extension_thechessstore','store_filter'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
