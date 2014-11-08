@@ -1382,34 +1382,34 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 			
 			buildElasticFilters : function($form)	{
 
-var filters = {
-	"and" : [] //push on to this the values from each fieldset.
-	}//query
-
-
-$('fieldset',$form).each(function(){
-	var $fieldset = $(this),
-	filter = _app.ext.store_filter.getElasticFilter[$fieldset.attr('data-filtertype')]($fieldset);
-	if(filter)	{
-		filters.and.push(filter);
-		}
-	});
-
-	filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
-	
-	//REPLACE THE ABOVE LINE WITH THIS OR SOMETHING LIKE THIS WHENEVER YOU FIGURE OUT HOW TO ACCESS INVENTORY IN ELASTIC.
-	//filters.and.push({"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}});
-
-//and requires at least 2 inputs, so add a match_all.
-//if there are no filters, don't add it. the return is also used to determine if any filters are present
-// * doesn't do anything. added by clinton. removed by JT.
- 	if(filters.and.length == 1)	{
-		filters.and.push({match_all:{}})
- 		}
-
-return filters;				
+				var filters = {
+					"and" : [] //push on to this the values from each fieldset.
+					}//query
 				
-				},
+				
+				$('fieldset',$form).each(function(){
+					var $fieldset = $(this),
+					filter = _app.ext.store_filter.getElasticFilter[$fieldset.attr('data-filtertype')]($fieldset);
+					if(filter)	{
+						filters.and.push(filter);
+						}
+					});
+				
+					filters.and.push({'not':{'term':{'prod_outofstock':'1'}}});
+					
+					//REPLACE THE ABOVE LINE WITH THIS OR SOMETHING LIKE THIS WHENEVER YOU FIGURE OUT HOW TO ACCESS INVENTORY IN ELASTIC.
+					//filters.and.push({"has_child":{"type":"sku","query":{"range":{"available":{"gte":1}}}}});
+				
+				//and requires at least 2 inputs, so add a match_all.
+				//if there are no filters, don't add it. the return is also used to determine if any filters are present
+				// * doesn't do anything. added by clinton. removed by JT.
+					if(filters.and.length == 1)	{
+						filters.and.push({match_all:{}})
+						}
+				
+				return filters;				
+				
+			},
 
 //pass in a jquery object or series of objects for form inputs (ex: $('input:hidden')) and a single term or a terms object will be returned.
 //false is returned in nothing is checked/selected.

@@ -617,6 +617,1623 @@ var _robots = {
 
 </div>
 
+
+<!--
+#################################
+
+LAYERED SEARCH FILTERS
+
+put all filters into the appFilters container.
+
+#################################
+-->
+
+<div id='appFilters' class='displayNone'>
+
+<!--****CHESS PIECES FILTERED SEARCH FORMS****-->
+<!--**Wood Chess Pieces-->
+<form action='#' name='woodChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled" class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="wood" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+	<label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+25' />4.25"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+	<label class='break'><input type='checkbox' value='KH+4+5' />4.5"</label>
+	<label class='break'><input type='checkbox' value='KH+4+75' />4.75"</label>
+	<label class='break'><input type='checkbox' value='KH+5' />5"</label>
+    <label class='break'><input type='checkbox' value='KH+6' />6"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Wood Type</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='boxwood' />Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebonizedboxwood' />Ebonized Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='goldenrosewood' />Golden Rosewood</label>
+    <label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='redsandalwood' />Red Sandalwood</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Model Type</legend>
+    <label class='break'><input type='checkbox' value='bohemia' />Bohemia</label>
+    <label class='break'><input type='checkbox' value='bridledstallion' />Bridled Stallion</label>
+    <label class='break'><input type='checkbox' value='british' />British</label>
+    <label class='break'><input type='checkbox' value='columbianknight' />Columbian Knight</label>
+    <label class='break'><input type='checkbox' value='cambridge' />Cambridge</label>
+    <label class='break'><input type='checkbox' value='cyrus' />Cyrus</label>
+    <label class='break'><input type='checkbox' value='deluxeoldclub' />Deluxe Old Club</label>
+    <label class='break'><input type='checkbox' value='fierceknight' />Fierce Knight</label>
+    <label class='break'><input type='checkbox' value='frenchlardy' />French Lardy</label>
+    <label class='break'><input type='checkbox' value='germanknight' />German Knight</label>
+    <label class='break'><input type='checkbox' value='grande' />Grande</label>
+    <label class='break'><input type='checkbox' value='hadrian' />Hadrian</label> 
+    <label class='break'><input type='checkbox' value='hampshire' />Hampshire</label>
+    <label class='break'><input type='checkbox' value='khansstallion' />Khans Stallion</label>
+    <label class='break'><input type='checkbox' value='kohinoor' />Kohinoor</label>
+    <label class='break'><input type='checkbox' value='newexclusive' />New Exclusive</label>
+    <label class='break'><input type='checkbox' value='gotham' />Gotham</label>
+    <label class='break'><input type='checkbox' value='yugoslavia' />Yugoslavia</label>
+    <label class='break'><input type='checkbox' value='players' />Players</label>
+    <label class='break'><input type='checkbox' value='parker' />Parker</label>
+    <label class='break'><input type='checkbox' value='patton' />Patton</label>
+    <label class='break'><input type='checkbox' value='pershing' />Pershing</label>
+    <label class='break'><input type='checkbox' value='philidor' />Philidor</label>
+    <label class='break'><input type='checkbox' value='kingsguard' />Kings Guard</label>
+    <label class='break'><input type='checkbox' value='royal' />Royal</label>
+    <label class='break'><input type='checkbox' value='sheffield' />Sheffield</label>
+    <label class='break'><input type='checkbox' value='stgeorge' />St George</label>
+    <label class='break'><input type='checkbox' value='stjohn' />St John</label>
+    <label class='break'><input type='checkbox' value='sultan' />Sultan</label>
+    <label class='break'><input type='checkbox' value='wellington' />Wellington</label>
+    <label class='break'><input type='checkbox' value='wingfield' />Wingfield</label>
+    </fieldset>
+<!--<fieldset data-elastic-key="prod_material" data-filtertype="checkboxes">
+	<legend>Material</legend>
+	<label class='break'><input class="woodPieces" type='checkbox' value='wood' />Wood</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='marble' />Marble</label>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='theme' />Theme</label>
+    <label class='break'><input type='checkbox' value='unfinished' />Unfinished Wood</label>
+    <label class='break'><input type='checkbox' value='jaques' />Jaques</label>
+    <label class='break'><input type='checkbox' value='bone' />Bone</label>
+    <label class='break'><input type='checkbox' value='unique' />Unique</label>  
+</fieldset>-->
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Metal Chess Pieces**-->
+<form action='#' name='metalChessPiecesForm' id='completeMetalChessPiecesForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Chess Set Type</legend>
+    <label class='break'><input type='checkbox' value='staunton' />Staunton</label>
+    <label class='break'><input type='checkbox' value='theme' />Theme</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+1' />1"</label>
+    <label class='break'><input type='checkbox' value='KH+1+25' />1.25"</label>
+    <label class='break'><input type='checkbox' value='KH+1+875' />1.875"</label>
+    <label class='break'><input type='checkbox' value='KH+2' />2"</label>
+    <label class='break'><input type='checkbox' value='KH+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='KH+2+5' />2.5"</label>
+    <label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+25' />4.25"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+5' />4.5"</label>
+    <label class='break'><input type='checkbox' value='KH+4+75' />4.75"</label>
+    <label class='break'><input type='checkbox' value='KH+5' />5"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Metal</legend>
+    <label class='break'><input type='checkbox' value='antiquebluecopper' />Antique Blue Copper</label>
+    <label class='break'><input type='checkbox' value='antiquegreencopper' />Antique Green Copper</label>
+    <label class='break'><input type='checkbox' value='brass' />Brass</label>
+    <label class='break'><input type='checkbox' value='copper' />Copper</label>
+    <label class='break'><input type='checkbox' value='gold' />Gold</label>
+    <label class='break'><input type='checkbox' value='nickel' />Nickel</label>
+    <label class='break'><input type='checkbox' value='painted' />Painted</label>
+    <label class='break'><input type='checkbox' value='pewter' />Pewter</label>
+    <label class='break'><input type='checkbox' value='silver' />Silver</label>
+    <label class='break'><input type='checkbox' value='zinc' />Zinc</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Marble/Onyx Chess Pieces**
+<form action='#' name='marbleChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="marble" />
+</fieldset>
+<p>Marble chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--Plastic Chess Pieces**-->
+<form action='#' name='plasticChessPiecesForm' id='completePlasticChessPiecesForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="plastic" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+   <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Theme Chess Pieces**-->
+<form action='#' name='themeChessPiecesForm' id='completeThemeChessPiecesForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hiddenOr">
+	<input type='hidden' name="prod_material" value="theme" />
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<fieldset data-elastic-key="prod_design_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_design_type" value="theme" />
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Theme</legend>
+    <label class='break'><input type='checkbox' value='american' />American</label>
+    <label class='break'><input type='checkbox' value='battlesandwars' />Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='asianoriental' />Asian Oriental</label>
+    <label class='break'><input type='checkbox' value='european' />European</label>
+    <label class='break'><input type='checkbox' value='egyptian' />Egyptian</label>
+    <label class='break'><input type='checkbox' value='fictionalcharacters' />Fictional Characters</label>
+    <label class='break'><input type='checkbox' value='greekandroman' />Greek & Roman</label>
+    <label class='break'><input type='checkbox' value='allotherthemes' />All Other Themes</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='crushedstone' />Crushed Stone</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='polystone' />Polystone</label>
+</fieldset>
+<fieldset class="manuName" data-elastic-key="prod_mfg" data-filtertype="checkboxes">
+	<legend>Manufacturer</legend>
+    <label class='break'><input type='checkbox' value='italfama' />Italfama</label>
+    <label class='break'><input type='checkbox' value='manopoulos' />Manopoulos</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--Unfinished Wood Chess Pieces**
+<form action='#' name='unfinishedChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="unfinished" />
+</fieldset>
+<p>Unfinished wood chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--Jaques of London Chess Pieces**
+<form action='#' name='jaquesChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="jaques" />
+</fieldset>
+<p>Jaques of London chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--Artisan Bone Chess Pieces**
+<form action='#' name='boneChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="bone" />
+</fieldset>
+<p>Artisan Bone chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--Unique Chess Pieces**
+<form action='#' name='uniqueChessPiecesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesspieces" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="unique" />
+</fieldset>
+<p>Unique chess pieces form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+
+<!--****CHESS SETS FILTERED SEARCH FORMS****-->
+<!--**Wood Chess Sets with Boards-->
+<form action='#' name='woodWithBoardChessSetsForm' id='completeWoodWithBoardChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="woodwithboard" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+        <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+
+    <label class='break'><input type='checkbox' value='KH+4+25' />4.25"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+5' />4.5"</label>
+    <label class='break'><input type='checkbox' value='KH+4+75' />4.75"</label>
+    <label class='break'><input type='checkbox' value='KH+5' />5"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Wood</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='boxwood' />Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebonizedboxwood' />Ebonized Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='goldenrosewood' />Golden Rosewood</label>
+    <label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='redsandalwood' />Red Sandalwood</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Chess Board Wood</legend>
+    <label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='budrosewood' />Bud Rosewood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='elmroot' />Elm Root</label>
+    <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
+    <label class='break'><input type='checkbox' value='maple' />Maple</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+    <label class='break'><input type='checkbox' value='walnut' />Walnut</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Chess Set Model</legend>
+    <label class='break'><input type='checkbox' value='bohemia' />Bohemia</label>
+    <label class='break'><input type='checkbox' value='bridledstallion' />Bridled Stallion</label>
+    <label class='break'><input type='checkbox' value='british' />British</label>
+    <label class='break'><input type='checkbox' value='columbianknight' />Columbian Knight</label>
+     <label class='break'><input type='checkbox' value='cyrus' />Cyrus</label>
+    <label class='break'><input type='checkbox' value='deluxeoldclub' />Deluxe Old Club</label>
+    <label class='break'><input type='checkbox' value='fierceknight' />Fierce Knight</label>
+    <label class='break'><input type='checkbox' value='frenchlardy' />French Lardy</label>
+    <label class='break'><input type='checkbox' value='germanknight' />German Knight</label>
+    <label class='break'><input type='checkbox' value='grande' />Grande</label>
+    <label class='break'><input type='checkbox' value='hadrian' />Hadrian</label>
+    <label class='break'><input type='checkbox' value='kingsguard' />King's Guard</label>
+    <label class='break'><input type='checkbox' value='khansstallion' />Khan's Stallion</label>
+    <label class='break'><input type='checkbox' value='newexclusive' />New Exclusive</label>
+    <label class='break'><input type='checkbox' value='parker' />Parker</label>
+    <label class='break'><input type='checkbox' value='patton' />Patton</label>
+    <label class='break'><input type='checkbox' value='pershing' />Pershing</label>
+    <label class='break'><input type='checkbox' value='players' />Players</label>
+    <label class='break'><input type='checkbox' value='royal' />Royal</label>
+    <label class='break'><input type='checkbox' value='stjohn' />St. John</label>
+    <label class='break'><input type='checkbox' value='wellington' />Wellington</label>
+    <label class='break'><input type='checkbox' value='wingfield' />Wingfield</label>
+    <label class='break'><input type='checkbox' value='yugoslavia' />Yugoslavia</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Wood Chess Sets with Cases-->
+<form action='#' name='woodWithCasesChessSetsForm' id='completeWoodWithCasesChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="woodwithcase" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Wood</legend>
+    <label class='break'><input type='checkbox' value='boxwood' />Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebonizedboxwood' />Ebonized Boxwood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='goldenrosewood' />Golden Rosewood</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Case Type</legend>
+    <label class='break'><input type='checkbox' value='drawers' />Drawers</label>
+    <label class='break'><input type='checkbox' value='lifttop' />Lift Top</label>
+    <label class='break'><input type='checkbox' value='folding' />Folding</label>
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Chess Set Model</legend>
+    <label class='break'><input type='checkbox' value='british' />British</label>
+    <label class='break'><input type='checkbox' value='deluxeoldclub' />Deluxe Old Club</label>
+    <label class='break'><input type='checkbox' value='fierceknight' />Fierce Knight</label>
+    <label class='break'><input type='checkbox' value='frenchlardy' />French Lardy</label>
+    <label class='break'><input type='checkbox' value='germanknight' />German Knight</label>
+    <label class='break'><input type='checkbox' value='grande' />Grande</label>
+    <label class='break'><input type='checkbox' value='kingsguard' />King's Guard</label>
+    <label class='break'><input type='checkbox' value='khansstallion' />Khan's Stallion</label>
+    <label class='break'><input type='checkbox' value='newexclusive' />New Exclusive</label>
+    <label class='break'><input type='checkbox' value='parker' />Parker</label>
+    <label class='break'><input type='checkbox' value='players' />Players</label>
+    <label class='break'><input type='checkbox' value='royal' />Royal</label>
+    <label class='break'><input type='checkbox' value='wingfield' />Wingfield</label>
+    <label class='break'><input type='checkbox' value='yugoslavia' />Yugoslavia</label>
+</fieldset>   
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Metal Chess Sets-->
+<form action='#' name='metalChessSetsForm' id='completeMetalChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Chess Set Type</legend>
+    <label class='break'><input type='checkbox' value='staunton' />Staunton</label>
+    <label class='break'><input type='checkbox' value='theme' />Theme</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+1' />1"</label>
+    <label class='break'><input type='checkbox' value='KH+1+25' />1.25"</label>
+    <label class='break'><input type='checkbox' value='KH+1+875' />1.875"</label>
+    <label class='break'><input type='checkbox' value='KH+2' />2"</label>
+    <label class='break'><input type='checkbox' value='KH+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='KH+2+5' />2.5"</label>
+    <label class='break'><input type='checkbox' value='KH+2+75' />2.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3' />3"</label>
+    <label class='break'><input type='checkbox' value='KH+3+25' />3.25"</label>
+    <label class='break'><input type='checkbox' value='KH+3+5' />3.5"</label>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+25' />4.25"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+5' />4.5"</label>
+    <label class='break'><input type='checkbox' value='KH+4+75' />4.75"</label>
+    <label class='break'><input type='checkbox' value='KH+5' />5"</label>
+
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Metal Type</legend>
+    <label class='break'><input type='checkbox' value='antiquebluecopper' />Antique Blue Copper</label>
+    <label class='break'><input type='checkbox' value='antiquegreencopper' />Antique Green Copper</label>
+    <label class='break'><input type='checkbox' value='brass' />Brass</label>
+    <label class='break'><input type='checkbox' value='copper' />Copper</label>
+    <label class='break'><input type='checkbox' value='gold' />Gold</label>
+    <label class='break'><input type='checkbox' value='nickel' />Nickel</label>
+    <label class='break'><input type='checkbox' value='painted' />Painted</label>
+    <label class='break'><input type='checkbox' value='pewter' />Pewter</label>
+    <label class='break'><input type='checkbox' value='silver' />Silver</label>
+    <label class='break'><input type='checkbox' value='zinc' />Zinc</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Marble/Onyx Chess Sets
+<form action='#' name='marbleChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="marble" />
+</fieldset>
+<p>Marble chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Plastic Chess Sets-->
+<form action='#' name='plasticChessSetsForm' id='completePlasticChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="plastic" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Board and Bag Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Theme Chess Sets-->
+<form action='#' name='themeChessSetsForm' id='completeThemeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hiddenOr">
+	<input type='hidden' name="prod_material" value="theme" />
+
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<fieldset data-elastic-key="prod_design_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_design_type" value="theme" />
+</fieldset>
+<fieldset class="modelType" data-elastic-key="prod_model_type" data-filtertype="checkboxes">
+	<legend>Theme</legend>
+    <label class='break'><input type='checkbox' value='american' />American</label>
+    <label class='break'><input type='checkbox' value='battlesandwars' />Battles & Wars</label>
+    <label class='break'><input type='checkbox' value='asianoriental' />Asian Oriental</label>
+    <label class='break'><input type='checkbox' value='european' />European</label>
+    <label class='break'><input type='checkbox' value='egyptian' />Egyptian</label>
+    <label class='break'><input type='checkbox' value='fictionalcharacters' />Fictional Characters</label>
+    <label class='break'><input type='checkbox' value='greekandroman' />Greek & Roman</label>
+    <label class='break'><input type='checkbox' value='allotherthemes' />All Other Themes</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='crushedstone' />Crushed Stone</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='polystone' />Polystone</label>
+</fieldset>
+<fieldset class="manuName" data-elastic-key="prod_manufacturer" data-filtertype="checkboxes">
+	<legend>Manufacturer</legend>
+    <label class='break'><input type='checkbox' value='italfama' />Italfama</label>
+    <label class='break'><input type='checkbox' value='manopoulos' />Manopoulos</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Travel Chess Sets-->
+<form action='#' name='travelChessSetsForm' id='completeTravelChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="travel" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='bookstyle' />Book Style</label>
+    <label class='break'><input type='checkbox' value='drawer' />Drawer</label>
+    <label class='break'><input type='checkbox' value='folding' />Folding</label>
+    <label class='break'><input type='checkbox' value='octagon' />Octagon</label>
+    <label class='break'><input type='checkbox' value='magnetic' />Magnetic</label>
+    <label class='break'><input type='checkbox' value='round' />Round</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='wood' />Wood</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_set_size" data-filtertype="checkboxes">
+	<legend>Size</legend>
+	<label class='break'><input type='checkbox' value='OS+small' />Small</label>
+	<label class='break'><input type='checkbox' value='OS+medium' />Medium</label>
+	<label class='break'><input type='checkbox' value='OS+large' />Large</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Garden Chess Sets
+<form action='#' name='gardenChessSetsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chesssets" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="garden" />
+</fieldset>
+<p>Garden chess sets form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+
+<!--****CHESS BOARDS FILTERED SEARCH FORMS****-->
+<!--**natural Wood Chess Boards-->
+<form action='#' name='natWoodChessBoardsForm' id='completeNatWoodChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="naturalwood" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>Square Size</legend>
+	<label class='break'><input type='checkbox' value='SS+1' />1"</label>
+    <label class='break'><input type='checkbox' value='SS+1+375' />1.375"</label>
+    <label class='break'><input type='checkbox' value='SS+1+5' />1.5"</label>
+    <label class='break'><input type='checkbox' value='SS+1+75' />1.75"</label>
+    <label class='break'><input type='checkbox' value='SS+2' />2"</label>
+    <label class='break'><input type='checkbox' value='SS+2+125' />2.125"</label>
+    <label class='break'><input type='checkbox' value='SS+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='SS+2+375' />2.375"</label>
+    <label class='break'><input type='checkbox' value='SS+2+5' />2.5"</label>
+    <label class='break'><input type='checkbox' value='SS+2+75' />2.75"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Wood Type</legend>
+    <label class='break'><input type='checkbox' value='africanpadauk' />African Padauk</label>
+    <label class='break'><input type='checkbox' value='budrosewood' />Bud Rosewood</label>
+    <label class='break'><input type='checkbox' value='ebony' />Ebony</label>
+    <label class='break'><input type='checkbox' value='elmroot' />Elmroot</label>
+    <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
+    <label class='break'><input type='checkbox' value='maple' />Maple</label>
+    <label class='break'><input type='checkbox' value='palisander' />Palisander</label>
+    <label class='break'><input type='checkbox' value='rosewood' />Rosewood</label>
+    <label class='break'><input type='checkbox' value='teak' />Teak</label>
+    <label class='break'><input type='checkbox' value='walnut' />Walnut</label>
+</fieldset>
+<fieldset class="manuName" data-elastic-key="prod_manufacturer" data-filtertype="checkboxes">
+	<legend>Manufacturer</legend>
+    <label class='break'><input type='checkbox' value='rechapadosferrer' />Rechapados Ferrer</label>
+    <label class='break'><input type='checkbox' value='italfama' />Italfama</label>
+    <label class='break'><input type='checkbox' value='thechessstore' />The Chess Store</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Stained Wood Chess Boards-->
+<form action='#' name='stainWoodChessBoardsForm' id='completeStainWoodChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="stainedwood" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>Square Size</legend>
+	<label class='break'><input type='checkbox' value='SS+1' />1"</label>
+    <label class='break'><input type='checkbox' value='SS+1+5' />1.5"</label>
+    <label class='break'><input type='checkbox' value='SS+1+75' />1.75"</label>
+    <label class='break'><input type='checkbox' value='SS+2' />2"</label>
+    <label class='break'><input type='checkbox' value='SS+2+125' />2.125"</label>
+    <label class='break'><input type='checkbox' value='SS+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='SS+2+375' />2.375"</label>
+    <label class='break'><input type='checkbox' value='SS+2+5' />2.5"</label>
+    <label class='break'><input type='checkbox' value='SS+2+75' />2.75"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Wood Type</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='gray' />Gray</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="manuName" data-elastic-key="prod_manufacturer" data-filtertype="checkboxes">
+	<legend>Manufacturer</legend>
+    <label class='break'><input type='checkbox' value='rechapadosferrer' />Rechapados Ferrer</label>
+    <label class='break'><input type='checkbox' value='italfama' />Italfama</label>
+    <label class='break'><input type='checkbox' value='thechessstore' />The Chess Store</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Vinyl Chess Boards-->
+<form action='#' name='vinylChessBoardsForm' id='completeVinylChessBoardsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="vinyl" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Chess Board Type</legend>
+    <label class='break'><input type='checkbox' value='floppy' />Floppy</label>
+    <label class='break'><input type='checkbox' value='folding' />Folding</label>
+    <label class='break'><input type='checkbox' value='rollup' />Rollup</label>
+    <label class='break'><input type='checkbox' value='silicon' />Silicon</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>Square Size</legend>
+    <label class='break'><input type='checkbox' value='SS+2' />2"</label>
+    <label class='break'><input type='checkbox' value='SS+2+125' />2.125"</label>
+    <label class='break'><input type='checkbox' value='SS+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='SS+2+375' />2.375"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Cases
+<form action='#' name='chessCasesForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="cases" />
+</fieldset>
+<p>Chess Cases form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Metal Chess Boards
+<form action='#' name='metalChessBoardsForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="chessboards" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="metal" />
+</fieldset>
+<p>Metal Chess Boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+
+<!--****CHESS ACCESSORIES FILTERED SEARCH FORMS****-->
+
+<!--**Chess Clocks-->
+<form action='#' name='chessClocksForm' id='completeChessClocksForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clocks" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Clock Type</legend>
+    <label class='break'><input type='checkbox' value='analog' />Analog</label>
+    <label class='break'><input type='checkbox' value='digital' />Digital</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='wood' />Wood</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+    <label class='break'><input type='checkbox' value='natural' />Natural</label>
+    <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Boxes-->
+<form action='#' name='chessBoxesForm' id='completeChessBoxesForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="boxes" />
+</fieldset>
+<p>Chess Boxes form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+
+<!--****CHESS CLUB AND TOURNAMENT SUPPLIES****-->
+<!--**Plastic Chess Pieces-->
+<form action='#' name='clubPlasticPiecesForm' id='completeClubPlasticPiecesForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubplasticpieces" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='ivory' />Ivory</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Vinyl Chess Boards-->
+<form action='#' name='clubVinylForm' id='completeClubVinylForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubvinyl" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='floppy' />Floppy</label>
+    <label class='break'><input type='checkbox' value='folding' />Folding</label>
+    <label class='break'><input type='checkbox' value='rollup' />Rollup</label>
+    <label class='break'><input type='checkbox' value='silicon' />Silicon</label>
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>Square Size</legend>
+    <label class='break'><input type='checkbox' value='SS+2' />2"</label>
+    <label class='break'><input type='checkbox' value='SS+2+125' />2.125"</label>
+    <label class='break'><input type='checkbox' value='SS+2+25' />2.25"</label>
+    <label class='break'><input type='checkbox' value='SS+2+375' />2.375"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Bags-->
+<form action='#' name='clubBagsForm' id='completeClubBagsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubbags" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='piecesonly' />Pieces Only</label>
+    <label class='break'><input type='checkbox' value='sleevestyle' />Sleeve Style</label>
+    <label class='break'><input type='checkbox' value='smalltournament' />Small Tournament</label>
+    <label class='break'><input type='checkbox' value='largetournament' />Large Tournament</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Plastic Chess Pieces with Rollup Boards-->
+<form action='#' name='clubRollupBoardForm' id='completeClubRollupBoardForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubrollupboard" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Chess Board Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Tournament Chess Sets-->
+<form action='#' name='clubChessSetsForm' id='completeclubChessSetsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubchesssets" />
+</fieldset>
+<fieldset class="kingHeight" data-elastic-key="prod_size" data-filtertype="checkboxes">
+	<legend>King Height</legend>
+    <label class='break'><input type='checkbox' value='KH+3+75' />3.75"</label>
+    <label class='break'><input type='checkbox' value='KH+3+875' />3.875"</label>
+    <label class='break'><input type='checkbox' value='KH+4' />4"</label>
+    <label class='break'><input type='checkbox' value='KH+4+125' />4.125"</label>
+    <label class='break'><input type='checkbox' value='KH+4+4' />4.4"</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Chess Piece Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='burgundy' />Burgundy</label>
+    <label class='break'><input type='checkbox' value='camel' />Camel</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Chess Board Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Tournament Chess Clocks-->
+<form action='#' name='clubClocksForm' id='completeClubClocksForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="clubclocks" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Clock Type</legend>
+    <label class='break'><input type='checkbox' value='analog' />Analog</label>
+    <label class='break'><input type='checkbox' value='digital' />Digital</label>
+</fieldset>
+<fieldset class="matType2" data-elastic-key="prod_mat_attrib_2" data-filtertype="checkboxes">
+	<legend>Material</legend>
+    <label class='break'><input type='checkbox' value='plastic' />Plastic</label>
+    <label class='break'><input type='checkbox' value='metal' />Metal</label>
+    <label class='break'><input type='checkbox' value='wood' />Wood</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+    <label class='break'><input type='checkbox' value='white' />White</label>
+    <label class='break'><input type='checkbox' value='natural' />Natural</label>
+    <label class='break'><input type='checkbox' value='mahogany' />Mahogany</label>
+</fieldset>
+<button class="resetButton"> Reset</button>
+
+</form>
+
+
+<!--****ACCESSORIES****-->
+<!--**Chess Bags-->
+<form action='#' name='chessBagsForm' id='completeChessBagsForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="chessbags" />
+</fieldset>
+<fieldset class="designType" data-elastic-key="prod_design_type" data-filtertype="checkboxes">
+	<legend>Type</legend>
+    <label class='break'><input type='checkbox' value='piecesonly' />Pieces Only</label>
+    <label class='break'><input type='checkbox' value='sleevestyle' />Sleeve Style</label>
+    <label class='break'><input type='checkbox' value='smalltournament' />Small Tournament</label>
+    <label class='break'><input type='checkbox' value='largetournament' />Large Tournament</label>
+</fieldset>
+<fieldset class="woodType" data-elastic-key="prod_mat_attrib_1" data-filtertype="checkboxes">
+	<legend>Color</legend>
+    <label class='break'><input type='checkbox' value='black' />Black</label>
+    <label class='break'><input type='checkbox' value='blue' />Blue</label>
+    <label class='break'><input type='checkbox' value='brown' />Brown</label>
+    <label class='break'><input type='checkbox' value='green' />Green</label>
+    <label class='break'><input type='checkbox' value='red' />Red</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess DVDs-->
+<form action='#' name='chessDvdForm' id='completeChessDvdForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="dvd" />
+</fieldset>
+<fieldset class="prodSubject" data-elastic-key="prod_subject" data-filtertype="checkboxes">
+	<legend>Subject</legend>
+    <label class='break'><input type='checkbox' value='openings' />Openings</label>
+    <label class='break'><input type='checkbox' value='middlegame' />Middle Game</label>
+    <label class='break'><input type='checkbox' value='endgame' />End Game</label>
+    <label class='break'><input type='checkbox' value='strategy' />Strategy</label>
+    <label class='break'><input type='checkbox' value='tactics' />Tactics</label>
+    <label class='break'><input type='checkbox' value='biography' />Biography</label>
+    <label class='break'><input type='checkbox' value='beginner' />Beginner</label>
+</fieldset>
+<fieldset class="prodStrategy" data-elastic-key="prod_strategy" data-filtertype="checkboxes">
+	<legend>Strategy</legend>
+    <label class='break'><input type='checkbox' value='alekhinesdefense' />Alekhine's Defense</label>
+    <label class='break'><input type='checkbox' value='benkogambit' />Benko Gambit</label>
+    <label class='break'><input type='checkbox' value='budapestgambit' />Budapest Gambit</label>
+    <label class='break'><input type='checkbox' value='carokhan' />Caro-Khan</label>
+    <label class='break'><input type='checkbox' value='catalan' />Catalan</label>
+    <label class='break'><input type='checkbox' value='dutchDefense' />Dutch Defense</label>
+    <label class='break'><input type='checkbox' value='englishopening' />English Opening</label>
+    <label class='break'><input type='checkbox' value='frenchdefense' />French Defense</label>
+    <label class='break'><input type='checkbox' value='grunfelddefense' />Grunfeld Defense</label>
+    <label class='break'><input type='checkbox' value='kingsgambit' />King's Gambit</label>
+    <label class='break'><input type='checkbox' value='modernbenoni' />Modern Benoni</label>
+    <label class='break'><input type='checkbox' value='moderndefense' />Modern Defense</label>
+    <label class='break'><input type='checkbox' value='nimzoindian' />Nimzo Indian</label>
+    <label class='break'><input type='checkbox' value='petroffsdefense' />Petroff's Defense</label>
+    <label class='break'><input type='checkbox' value='queensgambit' />Queen's Gambit</label>
+    <label class='break'><input type='checkbox' value='queensindian' />Queen's Indian</label>
+    <label class='break'><input type='checkbox' value='queenspawn' />Queen's Pawn</label>
+    <label class='break'><input type='checkbox' value='retiopening' />Reti Opening</label>
+    <label class='break'><input type='checkbox' value='ruylopez' />Ruy Lopez</label>
+    <label class='break'><input type='checkbox' value='scandinavian' />Scandinavian</label>
+    <label class='break'><input type='checkbox' value='scotchgame' />Scotch Game</label>
+    <label class='break'><input type='checkbox' value='siciliandefense' />Sicilian Defense</label>
+    <label class='break'><input type='checkbox' value='slavdefense' />Slav Defense</label>
+    <label class='break'><input type='checkbox' value='viennagame' />Vienna Game</label>
+</fieldset>
+<fieldset class="prodPublisher" data-elastic-key="prod_publisher" data-filtertype="checkboxes">
+	<legend>Publisher</legend>
+    <label class='break'><input type='checkbox' value='chesslecture' />Chess Lecture</label>
+    <label class='break'><input type='checkbox' value='chessondvd' />Chess on DVD</label>
+    <label class='break'><input type='checkbox' value='chessbase' />Chessbase</label>
+    <label class='break'><input type='checkbox' value='other' />Other</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Books-->
+<form action='#' name='chessBookForm' id='completeChessBookForm' class='layeredSearch' data-loadstemplate="productListTemplateResultsFilter3">
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="book" />
+</fieldset>
+<fieldset class="prodSubject" data-elastic-key="prod_subject" data-filtertype="checkboxes">
+	<legend>Subject</legend>
+    <label class='break'><input type='checkbox' value='openings' />Openings</label>
+    <label class='break'><input type='checkbox' value='middlegame' />Middle Game</label>
+    <label class='break'><input type='checkbox' value='endgame' />End Game</label>
+    <label class='break'><input type='checkbox' value='strategy' />Strategy</label>
+    <label class='break'><input type='checkbox' value='tactics' />Tactics</label>
+    <label class='break'><input type='checkbox' value='puzzles' />Puzzles</label>
+    <label class='break'><input type='checkbox' value='biography' />Biography</label>
+    <label class='break'><input type='checkbox' value='beginner' />Beginner</label>
+</fieldset>
+<fieldset class="prodStrategy" data-elastic-key="prod_strategy" data-filtertype="checkboxes">
+	<legend>Strategy</legend>
+    <label class='break'><input type='checkbox' value='alekhinesdefense' />Alekhine's Defense</label>
+    <label class='break'><input type='checkbox' value='benkogambit' />Benko Gambit</label>
+    <label class='break'><input type='checkbox' value='budapestgambit' />Budapest Gambit</label>
+    <label class='break'><input type='checkbox' value='carokhan' />Caro-Khan</label>
+    <label class='break'><input type='checkbox' value='catalan' />Catalan</label>
+    <label class='break'><input type='checkbox' value='dutchDefense' />Dutch Defense</label>
+    <label class='break'><input type='checkbox' value='englishopening' />English Opening</label>
+    <label class='break'><input type='checkbox' value='frenchdefense' />French Defense</label>
+    <label class='break'><input type='checkbox' value='grunfelddefense' />Grunfeld Defense</label>
+    <label class='break'><input type='checkbox' value='kingsgambit' />King's Gambit</label>
+    <label class='break'><input type='checkbox' value='modernbenoni' />Modern Benoni</label>
+    <label class='break'><input type='checkbox' value='moderndefense' />Modern Defense</label>
+    <label class='break'><input type='checkbox' value='nimzoindian' />Nimzo Indian</label>
+    <label class='break'><input type='checkbox' value='petroffsdefense' />Petroff's Defense</label>
+    <label class='break'><input type='checkbox' value='queensgambit' />Queen's Gambit</label>
+    <label class='break'><input type='checkbox' value='queensindian' />Queen's Indian</label>
+    <label class='break'><input type='checkbox' value='queenspawn' />Queen's Pawn</label>
+    <label class='break'><input type='checkbox' value='retiopening' />Reti Opening</label>
+    <label class='break'><input type='checkbox' value='ruylopez' />Ruy Lopez</label>
+    <label class='break'><input type='checkbox' value='scandinavian' />Scandinavian</label>
+    <label class='break'><input type='checkbox' value='scotchgame' />Scotch Game</label>
+    <label class='break'><input type='checkbox' value='siciliandefense' />Sicilian Defense</label>
+    <label class='break'><input type='checkbox' value='slavdefense' />Slav Defense</label>
+    <label class='break'><input type='checkbox' value='viennagame' />Vienna Game</label>
+</fieldset>
+<fieldset class="prodPublisher" data-elastic-key="prod_publisher" data-filtertype="checkboxes">
+	<legend>Publisher</legend>
+    <label class='break'><input type='checkbox' value='gambit' />Gambit</label>
+    <label class='break'><input type='checkbox' value='everymanchess' />Everyman Chess</label>
+    <label class='break'><input type='checkbox' value='firesidelibrary' />Fireside Library</label>
+</fieldset>
+
+<button class="resetButton"> Reset</button>
+
+</form>
+
+<!--**Chess Software
+<form action='#' name='chessSoftwareForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="software" />
+</fieldset>
+<p>Chess Software form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Chess Scorebooks
+<form action='#' name='chessScorebookForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="scorebook" />
+</fieldset>
+<p>Chess Scorebooks form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Chess Tables
+<form action='#' name='chessTableForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="table" />
+</fieldset>
+<p>Chess Tables form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Chess Demo boards
+<form action='#' name='chessDemoForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="demo" />
+</fieldset>
+<p>Chess Demo boards form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+<!--**Chess Potpourri
+<form action='#' name='chessPotpourriForm' id='completeChessSetsForm' class='layeredSearch'>
+
+<br />
+<button class="resetButton"> Reset</button>
+
+<fieldset data-elastic-key="base_price" data-filtertype="slider">
+	<legend>Price</legend>
+	<input type="text" disabled="disabled"  class='sliderValue' />
+	<div class="slider-range"></div>
+</fieldset>
+
+<fieldset data-elastic-key="prod_type" data-filtertype="hidden">
+	<input type='hidden' name="prod_type" value="accessories" />
+</fieldset>
+<fieldset data-elastic-key="prod_material" data-filtertype="hidden">
+	<input type='hidden' name="prod_material" value="potpourri" />
+</fieldset>
+<p>Chess Potpourri form. Work in progress.</p>
+<button class="resetButton"> Reset</button>
+
+</form>-->
+
+
+</div>
+
+
+
+
 <script type="text/pegjs" id="pegjs">
 dataTLC
  = grammar+

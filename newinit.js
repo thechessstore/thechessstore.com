@@ -40,11 +40,7 @@ _app.u.loadScript(configURI,function(){
 		});
 		
 		$.extend(handlePogs.prototype,_app.ext.extension_thechessstore.variations);
-		
-		//_app.ext.extension_thechessstore.u.runHeaderCarousel();
-		//_app.ext.extension_thechessstore.u.swipeMobileNav($(".mobileSlideMenu"));
-		//_app.ext.extension_thechessstore.u.runFooterCarousel();
-		
+				
 		//make sure minicart stays up to date. 
 		//I know why you're doing this, but let's find a framework fix soon -mc
 		_app.ext.extension_thechessstore.vars.mcSetInterval = setInterval(function(){
@@ -654,13 +650,13 @@ _app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(ev
 	
 	//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
 	
-	_app.ext.store_filter.catPageID = $(_app.u.jqSelector('#',infoObj.parentID));  
+	_app.ext.store_filter.catPageID = $(_app.u.jqSelector('#',infoObj.navcat));  
 	
 	_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
 	if(_app.ext.store_filter.filterMap[infoObj.navcat])	{
 		_app.u.dump(" -> safe id DOES have a filter.");
 
-		var $page = $(_app.u.jqSelector('#',infoObj.parentID));
+		var $page = $context;
 		_app.u.dump(" -> $page.length: "+$page.length);
 		if($page.data('filterAdded'))	{} //filter is already added, don't add again.
 		else	{
@@ -1050,7 +1046,7 @@ _app.couple('quickstart','addPageHandler',{
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "category",
-	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','extension_thechessstore','store_filter'],
+	"require" : ['store_navcats','store_prodlist','prodlist_infinite','templates.html','store_routing','extension_thechessstore','store_filter','store_search'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
