@@ -592,7 +592,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, 
 			}
 		}
 	});
-_app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(event,$context,infoObj) {
+_app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(event,$thisProduct,P) {
 	$catList = $("ul[data-app-role='subcategoryList']",$context); // don't use .categoryList  add a new, specific class.
 							
 	if($catList.children().length)	{
@@ -716,10 +716,79 @@ _app.u.bindTemplateEvent('categoryTemplate', 'depart.categorydepart',function(ev
 	$(".productSearchForm").css("margin", "0");
 });
 
-_app.u.bindTemplateEvent('productTemplate', 'complete.extension_thechessstore', function(event, $context, infoObj){
-	});
+_app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(event, $context, infoObj){
+	_app.u.dump("Begin review message displaying function");
+	if($(".reviewsBind", $thisProduct).children().length === 0){
+		_app.u.dump("No reviews. Running existing message check");
+		if(($(".reviewsCont", $thisProduct).length === 0) || ($(".reviewsCont", $thisProduct).length === null)){
+		  _app.u.dump("No message exists. Display message");
+		  $(_app.ext.extension_thechessstore.vars.reviewSelector, '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid)).append(
+		  '<p style="text-align:center;" class="reviewsCont">'
+		  + 'Be the First to Review This Product!'
+		  + '</p>');
+		  //var p = document.getElementsByClassName("reviewsCont");
+		  //p.reviewsCont += '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid);
+		  _app.u.dump("Review message displaying for : " + '#productTemplate_'+_app.u.makeSafeHTMLId(P.pid));
+		}
+		else{
+			_app.u.dump("Message exists. Doing nothing");
+		}
+
+
+		/*var noReviews = document.createElement("p");
+		var noReviewsMessage = document.createTextNode("Be the First to Review This Product!");
+		noReviews.appendChild(noreviewsMessage);
+		var findReviewSec = document.getElementsByClassName("reviewsBind");
+		document.body.insertBefore(noReviews, findReviewSec);*/
+	}
+	else
+	{
+		_app.u.dump("Reviews exist. function aborted. Reviews length amount: " + $(".reviewsBind").children.length);
+		
+	}
+	
+	//BEGIN HEADER HIDING FUNCTION
+	$(".headerHideShow").hide();
+	$(".headerBoxCenter").css("margin", "0");
+	$(".headerBottom").css("height", "50px");
+	$(".headerBottom").css("padding-bottom", "11px");
+	$(".headerBottom").css("padding-top", "4px");
+	$(".headerBoxCenter").css("width", "200px");
+	$(".headerBoxCenter").css("margin-top", "13px");
+	$(".headerHideShowContent").css("display", "block");
+	$(".productSearchForm").css("height", "100%");
+	$(".productSearchForm").css("margin-top", "18px");
+	//END HEADER HIDING FUNCTION
+	
+	
+	//PRODUCT IMAGE CLICK BLOCKER
+	var $context = $(_app.u.jqSelector('#',P.parentID));
+	setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+	
+	//INTERNET EXPLORER WARNING MESSAGE
+	if($('.headerIE8WarningCont').data('messageShown')){
+	}
+	else{
+		$('.headerIE8WarningCont').data('messageShown',false);
+	}
+	if($('.headerIE8WarningCont').data('messageShown') === false)
+	{
+		$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
+		$('.headerIE8WarningCont').data('messageShown',true).append();
+	}
+});
 _app.u.bindTemplateEvent('productTemplate', 'depart.extension_thechessstore', function(event, $context, infoObj){
-	});
+	//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
+	$(".headerHideShow").show();
+	$(".headerBoxCenter").css("margin-right", "30px");
+	$(".headerBottom").css("height", "150px");
+	$(".headerBottom").css("padding", "15px");
+	$(".headerBoxCenter").css("width", "250px");
+	$(".headerBoxCenter").css("margin-top", "0px");
+	$(".headerHideShowContent").css("display", "none");
+	$(".productSearchForm").css("height", "22px");
+	$(".productSearchForm").css("margin", "0");
+});
 	
 					
 
@@ -1100,6 +1169,7 @@ _app.extend({
 	"namespace" : "store_product",
 	"filename" : "extensions/store_product.js"
 	});
+	
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
