@@ -716,7 +716,7 @@ _app.u.bindTemplateEvent('categoryTemplate', 'depart.categorydepart',function(ev
 	$(".productSearchForm").css("margin", "0");
 });
 
-_app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(event, $context, infoObj){
+_app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(event,$thisProduct,P){
 	_app.u.dump("Begin review message displaying function");
 	if($(".reviewsBind", $thisProduct).children().length === 0){
 		_app.u.dump("No reviews. Running existing message check");
