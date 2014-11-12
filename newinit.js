@@ -717,10 +717,6 @@ _app.u.bindTemplateEvent('categoryTemplate', 'depart.categorydepart',function(ev
 });
 
 
-_app.extend({
-	"namespace" : "magic_zoom",
-	"filename" : "extensions/partner_magictoolbox_mzp.js"
-	});
 
 _app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(event,$thisProduct,P){
 	_app.u.dump("Begin review message displaying function");
@@ -1181,7 +1177,7 @@ _app.extend({
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist', 'tools_zoom','magictoolbox_mzp'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist','magictoolbox_mzp'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);

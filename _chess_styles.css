@@ -1275,6 +1275,10 @@ background: linear-gradient(to bottom,  rgba(239,235,226,1) 56%,rgba(196,189,169
 .productQuantDiscountText ul{
 	margin-left: 13px;
 }
+
+.reviewsContainer {
+    padding: 10px;
+}
 /********************************************************************************************************************************/
 /**Category Template1**/
 /**Category template header**/
