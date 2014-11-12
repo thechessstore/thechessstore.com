@@ -592,7 +592,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.invcheck',function(event, 
 			}
 		}
 	});
-_app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(event,$thisProduct,P) {
+_app.u.bindTemplateEvent('categoryTemplate', 'complete.categoryinit',function(event,$context,infoObj) {
 	$catList = $("ul[data-app-role='subcategoryList']",$context); // don't use .categoryList  add a new, specific class.
 							
 	if($catList.children().length)	{
