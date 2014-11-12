@@ -716,6 +716,12 @@ _app.u.bindTemplateEvent('categoryTemplate', 'depart.categorydepart',function(ev
 	$(".productSearchForm").css("margin", "0");
 });
 
+
+_app.extend({
+	"namespace" : "magic_zoom",
+	"filename" : "extensions/partner_magictoolbox_mzp.js"
+	});
+
 _app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(event,$thisProduct,P){
 	_app.u.dump("Begin review message displaying function");
 	if($(".reviewsBind", $thisProduct).children().length === 0){
@@ -762,8 +768,7 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(eve
 	
 	
 	//PRODUCT IMAGE CLICK BLOCKER
-	var $context = $(_app.u.jqSelector('#',P.parentID));
-	setTimeout(function(){$(".prodImageClickBlocker", $context).hide();}, 5000);
+	setTimeout(function(){$(".prodImageClickBlocker", $thisProduct).hide();}, 4000);
 	
 	//INTERNET EXPLORER WARNING MESSAGE
 	if($('.headerIE8WarningCont').data('messageShown')){
@@ -1169,11 +1174,14 @@ _app.extend({
 	"namespace" : "store_product",
 	"filename" : "extensions/store_product.js"
 	});
-	
+_app.extend({
+	"namespace" : "magictoolbox_mzp",
+	"filename" : "extensions/partner_magictoolbox_mzp.js"
+	});	
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist', 'tools_zoom'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist', 'tools_zoom','magictoolbox_mzp'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
