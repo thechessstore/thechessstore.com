@@ -930,8 +930,10 @@ SANITY -> if you change the height and width of this image, change the .minimalM
 <li id='productListTemplateResults' class='loadingBG searchResultsPG searchResultsProduct' >
 	<div data-app-click="quickstart|inlineProductPreviewShow" class="pointer">
 		<div class='prodThumbContainer'>
-            <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
-            <img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=225 --height=225 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="225" width="225">
+        	<a data-tlc="bind $seoname '.prod_name'; bind $var '.'; store_routing#seoanchor --type='product' --seo --seoname=$seoname; apply --attrib='href';">
+                <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
+                <img data-tlc="bind $var '.images.0'; apply --img --media=$var --width=225 --height=225 --bgcolor='#ffffff' --replace;" src="blank.gif" class="prodThumb" alt="" height="225" width="225">
+            </a>
 		</div>
 
 		<h5 data-tlc="bind $var '.prod_name'; if (is $var --notblank;) {{apply --append;}};" class="hideInMinimalMode"></h5>
@@ -1399,25 +1401,33 @@ if you change these, you should move them above this comment so that when you (o
 
 
 
-<div id="companyTemplate" class="clearfix">
 
-	<div class="sideline">
+	<!--<div class="sideline">
 <nav id="companyNav">
 <ul class="listStyleNone noPadOrMargin">
 <!-- these are generated via javascript, based on the quickstart.pages object. -->
-</ul>
+<!--</ul>
 </nav>
 	</div>
+    -->
+<ul id="companySidelineTemplate" class="contentBG listStyleNone noPadOrMargin">
+	<li><a href="/about_us/">About The Chess Store</a></li>
+	<li><a href="/contact_us/">Contact Us</a></li>
+	<li><a href="/frequently_asked_questions/">Frequently Asked Questions</a></li>
+    <li><a href="/privacy_policy/">Payment Policy</a></li>
+	<li><a href="/privacy_policy/">Privacy Statement</a></li>
+	<!-- <li><a href="/payment_policy/">Payment Policy</a></li> -->
+	<li><a href="/return_policy/">RETURN POLICY</a></li>
+	<li><a href="/shipping_policy/">SHIPPING INFORMATION</a></li>
+</ul>
 
-	<div class="mainColumn">
-<!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
-		<div id='aboutArticle' class='textContentArea article'>
-			<h1>About The Chess Store</h1>
-			<div>
-            			<h3>The Chess Store</h3>
-            			<p>Established in 1999, The Chess Store, Inc. is the world's leading chess retailer specializing in fine Staunton wood chess sets along with thousands of other chess products. Our exclusive chess set designs, large selection of high quality products, unmatched value, and excellent customer service are our trademark. We are continuously developing new and exciting products to promote the game of chess and meet the needs of chess players around the world. Our office and warehouse facilities are located in Hillsboro, Oregon, just a few miles outside of Portland.</p>
-			</div>
-		</div>
+<div id='aboutUsTemplate' class='textContentArea article'>
+    <h1>About The Chess Store</h1>
+    <div>
+                <h3>The Chess Store</h3>
+                <p>Established in 1999, The Chess Store, Inc. is the world's leading chess retailer specializing in fine Staunton wood chess sets along with thousands of other chess products. Our exclusive chess set designs, large selection of high quality products, unmatched value, and excellent customer service are our trademark. We are continuously developing new and exciting products to promote the game of chess and meet the needs of chess players around the world. Our office and warehouse facilities are located in Hillsboro, Oregon, just a few miles outside of Portland.</p>
+    </div>
+</div>
 	
 	
 		<div id="contactArticle" class="displayNone textContentArea">
@@ -1610,9 +1620,7 @@ if you change these, you should move them above this comment so that when you (o
             </div>
 	</div>
     </div>
-  </div>
 
-</div><!-- /companyTemplate -->
 
 
 
@@ -1877,7 +1885,7 @@ subscribeListsArticle is used for authenticated buyers.
 
 	<div class="previewListContainer">
 		<!-- productListTemplateResults gets loaded into here -->
-		<ul id="resultsProductListContainer" class="listStyleNone fluidList noPadOrMargin productList"></ul>
+		<ul data-app-role="resultsContainer" class="listStyleNone fluidList noPadOrMargin productList"></ul>
 	</div>
 
 </div>

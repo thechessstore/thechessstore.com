@@ -1979,6 +1979,11 @@ button.prodListATCButton{
 	clear:both;
 }
 
+.productList li, .categoryList li{
+	height: 390px;
+    width: 225px;
+}
+
 /*.checkoutFormContainer legend{
 	float:left;
 	clear:both;
