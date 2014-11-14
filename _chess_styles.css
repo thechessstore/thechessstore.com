@@ -2095,6 +2095,16 @@ button.prodListATCButton{
 #returnArticle{padding-left:25px;}
 #shippingArticle{padding-left:25px;}
 
+.sideline{
+}
+.companyPageContentCont{
+	margin-left: 10px;
+    width: 77%;
+}
+.article h1{
+	margin-left:10px;
+}
+
 
 
 /*******************************************************************************************************************************/
