@@ -1,7 +1,7 @@
 /*
 
 
-   Magic Zoom Plus v4.0.33
+   Magic Zoom Plus v4.0.33 
    Copyright 2013 Magic Toolbox
    Buy a license: www.magictoolbox.com/magiczoomplus/
    License agreement: http://www.magictoolbox.com/license/

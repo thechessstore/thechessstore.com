@@ -69,7 +69,14 @@ var store_seo = function(_app) {
 			onSuccess : function()	{
 				var r = false; 
 				
-				
+				_app.templates.homepageTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.categoryTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.productTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.companyTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.customerTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.checkoutTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.cartTemplate.on('complete',		function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
+				_app.templates.searchTemplate.on('complete',	function(event,$context,infoObj){_app.ext.store_seo.u.generateMeta(infoObj);});
 				
 				r = true;
 
@@ -117,13 +124,8 @@ var store_seo = function(_app) {
 				switch(infoObj.pageType){
 					case "homepage" :
 						//Use Default Title
-						break;
 					case "category" :
-						break;
 					case "product" :
-						//Grab from the titles and descriptions on the page
-						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
-						desc = $('[data-seo-desc]', $context).attr('data-seo-desc') || '';
 						break;
 					case "company" :
 						break;
@@ -136,15 +138,13 @@ var store_seo = function(_app) {
 					case "search" :
 						break;
 					default :
-						baseTitle = $('[data-seo-title]', $context).attr('data-seo-title') || '';
-						desc = $('[data-seo-desc]', $context).attr('data-seo-desc') || '';
 						break;
 					}
 				if(!baseTitle){
 					baseTitle = _app.ext.store_seo.vars.defaultTitle;
 					}
 				
-				document.title = _app.ext.store_seo.vars.titlePrefix + baseTitle + _app.ext.store_seo.vars.titlePostfix;
+				document.title = _app.ext.store_seo.vars.titlePrefix + title + _app.ext.store_seo.vars.titlePostfix;
 				$('meta[name=description]').attr('content', desc);
 				}
 			}, //u [utilities]

@@ -18,7 +18,6 @@
 
 var extension_thechessstore = function(_app) {
 	var r= {
-		vars : {
 			catTemplates : {
 				//Jeff, Here is where you input the categories and which templates they will load with. The syntax looks like this:
 				//".00012-wood-chess-sets-with-chess-boards.4-model" : "categoryTemplate2"
@@ -364,20 +363,15 @@ var extension_thechessstore = function(_app) {
 				
 				//4 column category template **DO NOT ADD ANY TEMPLATES TO THIS CATEGORY UNTIL IT HAS BEEN UPDATED/TESTED. IT HAS NOT BEEN UPDATED/TESTED SINCE PRE-201404 UPDATE.**
 
-
-
-
-
-
-
 			},
-			hiddenCats : [
-				".00012-wood-chess-sets-with-chess-boards.4-model",
-				".00014-wood-chess-sets-with-chess-cases.4-model",
-				".00010-wood-chess-sets.4-model"
-			],
+			vars : {
+				hiddenCats : [
+					".00012-wood-chess-sets-with-chess-boards.4-model",
+					".00014-wood-chess-sets-with-chess-cases.4-model",
+					".00010-wood-chess-sets.4-model"
+				],
 			
-			reviewSelector : ".reviewsContainer"
+				reviewSelector : ".reviewsContainer"
 		},
 		
 		callbacks : {
@@ -394,147 +388,7 @@ var extension_thechessstore = function(_app) {
 					$('.contactChat div').empty();
 					$('.contactChat div').html('<div id="ciLKQX" style="z-index:100;position:absolute"></div><div id="scLKQX" style="display:inline"></div><div id="sdLKQX" style="display:none"></div><script type="text/javascript">var seLKQX=document.createElement("script");seLKQX.type="text/javascript";var seLKQXs=(location.protocol.indexOf("https")==0?"https":"http")+"://image.providesupport.com/js/1i767mafw092k12e0iz16ztfbo/safe-standard.js?ps_h=LKQX&ps_t="+new Date().getTime();setTimeout("seLKQX.src=seLKQXs;document.getElementById(\'sdLKQX\').appendChild(seLKQX)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?messenger=1i767mafw092k12e0iz16ztfbo">Live Chat</a></div></noscript>');
 					_app.u.dump("contactChat div appended successfully");
-					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');
-					
-					//BEGIN PROJECT INIT CODE
-						//Will do an appPageGet for the description of each category.0
-						//requires a ul in the category template w/ data-app-role='subcategoryList' to be set.
-						// AND the list spec must contain a catDesc class where the description is to appear.
-						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$catPage,P){
-							$catList = $("ul[data-app-role='subcategoryList']",$catPage); // don't use .categoryList  add a new, specific class.
-							
-							if($catList.children().length)	{
-								$catList.children().each(function(){
-									var $li = $(this);
-									
-									if($li.data('app-havesubcatdata'))	{} //already have data.
-									else if($('.catDesc',$li).length)	{
-										_app.ext.store_navcats.calls.appPageGet.init({
-											'PATH':$li.data('catsafeid'),
-											'@get':['description']
-											},
-											{'callback': function(rd){					//if there are errors, leave them alone... for now.
-											$li.data('app-havesubcatdata',true);
-											if(_app.data[rd.datapointer] && _app.data[rd.datapointer]['%page'])	{
-												$('.catDesc',$li).append(_app.data[rd.datapointer]['%page'].description);
-												}
-											}
-											},'mutable')
-										}
-									else	{
-										_app.u.dump(" -> is NOT retrieving category description for "+$li.data('catsafeid'));
-										//category description already obtained or template has no catDesc class (no description needed)
-										}
-									});
-								_app.model.dispatchThis('mutable');
-								}
-							else	{
-								//most likely, no subcats.
-								}
-								
-							//BEGIN HEADER HIDING FUNCTION
-							$(".headerHideShow").hide();
-							$(".headerBoxCenter").css("margin", "0");
-							$(".headerBottom").css("height", "50px");
-							$(".headerBottom").css("padding-bottom", "11px");
-							$(".headerBottom").css("padding-top", "4px");
-							$(".headerBoxCenter").css("width", "200px");
-							$(".headerBoxCenter").css("margin-top", "13px");
-							$(".headerHideShowContent").css("display", "block");
-							$(".productSearchForm").css("height", "100%");
-							$(".productSearchForm").css("margin-top", "18px");
-							
-							//INTERNET EXPLORER WARNING MESSAGE
-							if($('.headerIE8WarningCont').data('messageShown')){
-							}
-							else{
-								$('.headerIE8WarningCont').data('messageShown',false);
-							}
-							if($('.headerIE8WarningCont').data('messageShown') === false)
-							{
-								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
-								$('.headerIE8WarningCont').data('messageShown',true).append();
-							}
-							
-						});
-						
-						
-						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
-							
-							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
-							
-							_app.ext.store_filter.vars.catPageID = $(_app.u.jqSelector('#',P.parentID));  
-							
-							_app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
-							if(_app.ext.store_filter.filterMap[P.navcat])	{
-								_app.u.dump(" -> safe id DOES have a filter.");
-						
-								var $page = $(_app.u.jqSelector('#',P.parentID));
-								_app.u.dump(" -> $page.length: "+$page.length);
-								if($page.data('filterAdded'))	{} //filter is already added, don't add again.
-								else	{
-									$page.data('filterAdded',true)
-									var $form = $("[name='"+_app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
-									$form.on('submit.filterSearch',function(event){
-										event.preventDefault()
-										_app.u.dump(" -> Filter form submitted.");
-										_app.ext.store_filter.a.execFilter($form,$page);
-										});
-							
-									if(typeof _app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
-										_app.ext.store_filter.filterMap[P.navcat].exec($form,P)
-										}
-							
-							//make all the checkboxes auto-submit the form.
-									$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
-										$form.submit();      
-										});
-									}
-								}
-								
-								
-								
-								//selector function for filtered search that displays appropriate wood menu options when wood is selected.	
-								/*$('.woodPieces:checkbox').click(function() {
-									var woodPieces = $(this);
-									// $this will contain a reference to the checkbox   
-									if (woodPieces.is(':checked')) {
-										 $(".woodType").show();
-										 $(".kingHeight").show();
-									} else {
-										$(".woodType").hide();
-										$(".kingHeight").hide();
-									}
-								});*/
-								
-								$('.resetButton', $context).click(function(){
-								$context.empty().remove();
-								showContent('category',{'navcat':P.navcat});
-								});
-								
-								
-							});
-							
-							//**COMMENT TO REMOVE AUTO-RESETTING WHEN LEAVING CAT PAGE FOR FILTERED SEARCH**
-							
-							_app.templates.categoryTemplate.on('depart.chessstore',function(event,$context,P){
-								if(_app.ext.store_filter.vars.catPageID.empty && typeof _app.ext.store_filter.vars.catPageID.empty === 'function'){
-									_app.ext.store_filter.vars.catPageID.empty().remove();
-								}	
-								
-								//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
-								$(".headerHideShow").show();
-								$(".headerBoxCenter").css("margin-right", "30px");
-								$(".headerBottom").css("height", "150px");
-								$(".headerBottom").css("padding", "15px");
-								$(".headerBoxCenter").css("width", "250px");
-								$(".headerBoxCenter").css("margin-top", "0px");
-								$(".headerHideShowContent").css("display", "none");
-								$(".productSearchForm").css("height", "22px");
-								$(".productSearchForm").css("margin", "0");
-								});
-								
-								
+					_app.u.dump('BEGIN _app.ext.extension_thechessstore.callbacks.startExtension.onSuccess');								
 								
 							_app.templates.category2ProdWideTemplate.on('complete.chessstore',function(event,$context,P){
 								var $catPage = $context,
@@ -849,117 +703,13 @@ var extension_thechessstore = function(_app) {
 							
 							
 						
-						//sample of an onDeparts. executed any time a user leaves this page/template type.
-						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P) {
-							//INTERNET EXPLORER WARNING MESSAGE
-							if($('.headerIE8WarningCont').data('messageShown')){
-							}
-							else{
-								$('.headerIE8WarningCont').data('messageShown',false);
-							}
-							if($('.headerIE8WarningCont').data('messageShown') === false)
-							{
-								$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
-								$('.headerIE8WarningCont').data('messageShown',true).append();
-							}
-						});
-						
-						//Header dropdown menus
-						var showDropdown = function ($tag) {
-							var $dropdown = $(".dropdown", $tag);
-							var height = 0;
-							$dropdown.children().each(function(){
-								height += $(this).outerHeight(true);
-							});
-							$dropdown.stop().animate({"height":height+"px"}, 1000);
-						}
-							
-						var hideDropdown = function ($tag) {
-							$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
-						}
-						
-						//Homepage Slideshow image code and carousel code
-						var homepageLoad = false;
-						_app.templates.homepageTemplate.on('complete.chessstore',function(event,$context,P){
 						
 							
-							if (homepageLoad == false){
-								//Home page slideshow
-								$("#nav").html("");
-								$('#featureImg') 
-								.after('<div id="nav">') 
-								.cycle({ 
-								fx:     'fade',  
-								timeout: 5000, 
-								pager:  '#nav' 
-							});
+						
+						
 							
 							
-							//Carousel horizontal sliders
-							var carousel1;
-							function foo1(){ $(".homepageCat1").carouFredSel({
-								width   : 980,
-								height	: 300,
-								items   : 3,
-								scroll: 1,
-								auto : false,
-							prev : "#caroPrev1",
-							next : "#caroNext1"
-							});}
-							carousel1 = foo1;
-							setTimeout(carousel1, 2000);
 							
-							
-							//$("#caroNext1").delay(1500).click();
-							//$("#caroPrev1").click();
-							
-							var carousel2;
-							function foo2(){ $(".homepageCat2").carouFredSel({
-								width   : 980,
-								height	: 300,
-								items   : 3,
-								scroll: 1,
-								auto : false,
-							prev : "#caroPrev2",
-							next : "#caroNext2"
-							});}
-							carousel2 = foo2;
-							setTimeout(carousel2, 2000);
-							
-							var carousel3;
-							function foo3(){
-							$(".homepageCat3").carouFredSel({
-								width   : 980,
-								height	: 300,
-								items   : 3,
-								scroll: 1,
-								auto : false,
-							prev : "#caroPrev3",
-							next : "#caroNext3"
-							});}
-							carousel3 = foo3;
-							setTimeout(carousel3, 2000);
-							
-							var carousel4;
-							function foo4(){
-							$(".homepageCat4").carouFredSel({
-								width   : 980,
-								height	: 300,
-								items   : 3,
-								scroll: 1,
-								auto : false,
-							prev : "#caroPrev4",
-							next : "#caroNext4"
-							});}
-							carousel4 = foo4;
-							setTimeout(carousel4, 2000);
-							
-							//$myselection.addClass('noScriptReExecute');
-							homepageLoad = true;
-							_app.u.dump("Homepage functions loaded");
-							}
-							
-						});
 						
 						var categoryPageLoad = false;
 						_app.templates.categoryTemplate.on('complete.chessstore',function(event,$context,P){
@@ -1170,7 +920,7 @@ var extension_thechessstore = function(_app) {
 				$('html, body').animate({
 					scrollTop: $("#readReview", page).offset().top
 				}, 2000);
-			}
+			},
 			
 		},
 		
@@ -1208,8 +958,22 @@ var extension_thechessstore = function(_app) {
 				checkouterrorclickblock : function() {
 					$(".checkoutClickBlocker").hide();
 					$(".checkoutClickBlockerText").hide();
-				}
+				},
 				
+				fetchTemplateForPage : function(navcat){
+				var r = false;
+				if(_app.ext.extension_thechessstore.catTemplates[navcat]){
+					r = _app.ext.extension_thechessstore.catTemplates[navcat];
+					}
+				else if((/\.mlb\.[^.]+\.[^.]+/).test(navcat)){
+					r = 'categoryTemplatePlayer';
+					}
+				else if(navcat.indexOf('.aa.')==0){
+					r = 'categoryTemplateHTML';
+					}
+				
+				return r;
+				},
 				
 		},
 		
@@ -1411,7 +1175,12 @@ var extension_thechessstore = function(_app) {
 						//dump("data.val does not = 1. Keep indicator hidden.");
 						$tag.hide();
 					}
-				} //freeshippingindicator
+				}, //freeshippingindicator
+				
+				
+				dumpCheck : function($tag,data){
+					dump("This " + $tag + " event has fired.");
+				}
 		}
 	}
 	return r;
