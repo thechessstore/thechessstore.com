@@ -296,6 +296,15 @@ _app.router.appendHash({'type':'exact','route':'/change_password/','callback':fu
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});
+_app.router.appendHash({'type':'exact','route':'/create_account/','callback':function(routeObj){
+	$.extend(routeObj.params,{
+		'pageType':'static',
+		'login' : true,
+		'templateID':'createaccountTemplate',
+		'require':['cco','templates.html']
+		});
+	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
+	}});
 _app.router.appendHash({'type':'exact','route':'/orders/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
