@@ -264,15 +264,15 @@ _app.router.appendHash({'type':'exact','route':'/shipping_policy/','callback':fu
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});
-_app.router.appendHash({'type':'exact','route':'/store_locations/','callback':function(routeObj){
-	$.extend(routeObj.params,{
-		'pageType':'static',
-		'templateID':'locationTemplate',
-		'require':['templates.html']
-		});
-	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
-	}});
-
+_app.router.appendHash({'type':'exact','route':'/subscribe/','callback':function(routeObj){
+$.extend(routeObj.params,{
+	'pageType':'static',
+	'login' : true,
+	'templateID':'subscribeTemplate',
+	'require':['cco','templates.html']
+	});
+_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
+}});	
 _app.router.appendHash({'type':'exact','route':'/my_account/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
@@ -296,11 +296,11 @@ _app.router.appendHash({'type':'exact','route':'/change_password/','callback':fu
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});
-_app.router.appendHash({'type':'exact','route':'/my_order_history/','callback':function(routeObj){
+_app.router.appendHash({'type':'exact','route':'/orders/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
 		'login' : true,
-		'templateID':'orderHistoryTemplate',
+		'templateID':'ordersTemplate',
 		'require':['templates.html']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
@@ -314,11 +314,11 @@ _app.u.bindTemplateEvent('changePasswordTemplate','complete.customer',function(e
 		}},"mutable");
 	_app.model.dispatchThis();							
 	});
-_app.router.appendHash({'type':'exact','route':'/my_wishlist/','callback':function(routeObj){
+_app.router.appendHash({'type':'exact','route':'/wishlist/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
 		'login' : true,
-		'templateID':'customerListsTemplate',
+		'templateID':'wishlistTemplate',
 		'require':['templates.html']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);

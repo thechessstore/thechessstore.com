@@ -1659,11 +1659,11 @@ if you change these, you should move them above this comment so that when you (o
 <div id="customerSidelineTemplate" class="clearfix smallButton">
     <nav id="customerNav">
         <ul class="listStyleNone noPadOrMargin">
-            <li><a href='/subscribe/'>Newsletter Subscription</a></li>
-            <li><a href="/my_account/">My Account</a></li>
-            <li><a href="/change_password/">Change Password</a></li>
-            <li><a href="/orders/">Order History</a></li>
-            <li><a href="/wishlist/">Manage Lists</a></li>
+            <!--<li><a rel="nofollow" href='/subscribe/'>Newsletter Subscription</a></li>-->
+            <li><a rel="nofollow" href="/my_account/">My Account</a></li>
+            <li><a rel="nofollow" href="/change_password/">Change Password</a></li>
+            <li><a rel="nofollow" href="/orders/">Order History</a></li>
+            <li><a rel="nofollow" href="/wishlist/">Manage Lists</a></li>
             <!--<li class="hideIfLoggedOut"><a href="/customer/logout">Log Out</a></li>-->
         </ul>
     </nav>
@@ -2269,7 +2269,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 <address id="billAddressTemplate" class="ui-widget ui-widget-content ui-corner-all marginBottom ">
 	<button data-app-click="quickstart|showBuyerAddressUpdate" class="floatRight applyButton">edit</button>
-	<button data-app-click="quickstart|showBuyerAddressRemove" class="floatRight applyButton">remove</button>
+	<!--<button data-app-click="quickstart|showBuyerAddressRemove" class="floatRight applyButton">remove</button>-->
 	<div class="addressFullname">
 		<span data-tlc="bind $var '.bill/firstname'; if (is $var --notblank;) {{apply --append;}};" title="first name"></span>
 		<span data-tlc="bind $var '.bill/lastname'; if (is $var --notblank;) {{apply --append;}};" title="last name"></span>
