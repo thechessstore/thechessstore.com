@@ -557,6 +557,7 @@ This is used to get add an array of skus, most likely for a product list.
 							'cancel' : function(event){
 								event.preventDefault();
 								$(this).dialog('close');
+								_app.router.handleURIChange('/my_account/');
 								},
 							'save' : function(event,ui) {
 								event.preventDefault();
@@ -592,11 +593,12 @@ This is used to get add an array of skus, most likely for a product list.
 									_app.model.dispatchThis('immutable');
 									}
 								else	{} //errors handled in validateForm
-								
 								}
 							},
-						close : function(event, ui) {$(this).dialog('destroy').remove()}
+						close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
 						});
+						_app.router.handleURIChange('/my_account/');
+
 
 					}
 				else	{
@@ -651,8 +653,7 @@ This is used to get add an array of skus, most likely for a product list.
 														$editor.dialog('close');
 														}
 													}
-												}
-										
+												}										
 //save and then refresh the page to show updated info.
 										_app.model.addDispatchToQ(sfo,'immutable');
 //dump data in memory and local storage. get new copy up updated address list for display.
@@ -661,16 +662,15 @@ This is used to get add an array of skus, most likely for a product list.
 										_app.model.dispatchThis('immutable');
 										}
 									else	{} //errors handled in validateForm
-									
 									}
 								},
-							close : function(event, ui) {$(this).dialog('destroy').remove()}
+							close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
+
 							});
 //* 201342 -> used in checkout (or potentailly any editor) to immediately highlight any invalid fields (useful in 'edit' as opposed to 'create' address)
 							if(vars.validateForm)	{
 								_app.u.validateForm($editor);
 								}
-
 						
 						}
 					else	{
