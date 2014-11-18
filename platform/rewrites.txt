@@ -1,32 +1,50 @@
-#sample platform/rewrites.txt
-#col1:    [~=]uri|url|path|query
-#col2:     if match
-#col3:  goto
-#col4:  goto modifier
+[
 
-# remove legacy cart and session variables from uri
-~path#rewrite	/c=.*/(.*?)	/$1	http=410
-~path#rewrite	/s=.*/(.*?)	/$1	set=path
+// rewrite legacy vstore cart and session id's out of path
+{ "type":"path", "if":"/c=.*?/(.*)", "then#redirect":"/$1" },
+{ "type":"path", "if":"/s=.*?/(.*)", "then#redirect":"/$1" },
+// LEGACY VSTORE: about_us.cgis, privacy.cgis
+{ "type":"path", "if":"/.*\\.cgis", "then#sendfile":"/index.html" },
 
-#TheChessStore.com's custom pages
+// if a file is explicitly requested, send it.
+{ "type":"path", "if":"/(.*\\.html)", "then#sendfile":"/$1", "apptimize":true },
+{ "type":"path", "if":"/(.*\\.css)", "then#sendfile":"/$1", "apptimize":true },
+{ "type":"path", "if":"/(.*)", "then#sendfile":"/$1" },
+
+// check rendered files.
+
+{ "type":"path", "if":"/product/([a-zA-Z0-9\\-\\_]+)/.*", "then#sendfile":"/product/$1.html" },
+{ "type":"path", "if":"/product/[a-zA-Z0-9\\-\\_]+(/.*)?", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/category/([a-zA-Z0-9\\.\\_\\-]+)/.*", "then#sendfile":"/category/$1.html" },
+{ "type":"path", "if":"/category/[a-zA-Z0-9\\.\\_\\-]+(/.*)?", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/search/.*?/.*", "then#sendfile":"/index.html", "apptimize":false },
+
+// sendfile known urls
+{ "type":"path", "if":"/about_us/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/privacy_policy/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/frequently_asked_questions/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/contact_us/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/shipping_policy/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/return_policy/", "then#sendfile":"/index.html", "apptimize":"false" },
+{ "type":"path", "if":"/my_account/", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/change_password/", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/orders/", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/wishlist/", "then#sendfile":"/index.html", "apptimize":false },
+{ "type":"path", "if":"/checkout/", "then#sendfile":"/index.html", "apptimize":"false" },
+
+// redirct search pages
+{ "type":"path", "if":"/ItemSearch--search-(.*?).*", "then#redirect":"/search/keywords/$1" },
+
+// redirct product pages
+{ "type":"path", "if":"/Item--i-(.*?)", "then#redirect":"/product/$1" },
+
+// CATEGORY HANDLER
+{ "type":"path", "if":"/category/[a-zA-Z0-9\\.\\_\\-]+(/.*)?", "then#sendfile":"/index.html", "apptimize":false },
 
 
 
-# redirect all product and category urls
-~path	^.*?/product/(.*?)/.*$	/#!product/$1
-~path	^.*?/category/(.*?)/.*$	/#!category/$1
+// TheChessStore.com's custom pages
 
-~path	/category/([^/]*)	/#!category/$1
-~path	/product/([^/]*)	/#!product/$1
 
-#redirect old cart pages
-~path	/cart\.cgis	/#!home
 
-#redirect company pages
-=path	/about_us.cgis	/#!company/about
-=path	/contact_us.cgis	/#!company/contact
-=path	/returns.cgis#faq	/#!company/faq
-=path	/returns.cgis	/#!company/return
-=path	/privacy.cgis	/#!company/privacy
-#redirect homepage
-=uri	http://www.thechessstore.com/	http://www.thechessstore.com/#!home
+]
