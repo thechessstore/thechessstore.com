@@ -1657,13 +1657,13 @@ if you change these, you should move them above this comment so that when you (o
 
 
 <div id="customerSidelineTemplate" class="clearfix smallButton">
-    <nav id="customerNav">
+    <nav>
         <ul class="listStyleNone noPadOrMargin">
             <!--<li><a rel="nofollow" href='/subscribe/'>Newsletter Subscription</a></li>-->
             <li><a rel="nofollow" href="/my_account/">My Account</a></li>
             <li><a rel="nofollow" href="/change_password/">Change Password</a></li>
-            <li><a rel="nofollow" href="/orders/">Order History</a></li>
-            <li><a rel="nofollow" href="/wishlist/">Manage Lists</a></li>
+            <li><a rel="nofollow" href="/my_order_history/">Order History</a></li>
+            <li><a rel="nofollow" href="/my_wishlist/">Manage Lists</a></li>
             <!--<li class="hideIfLoggedOut"><a href="/customer/logout">Log Out</a></li>-->
         </ul>
     </nav>
@@ -1675,33 +1675,27 @@ if you change these, you should move them above this comment so that when you (o
 newsletterArticle is intended for buyers who are not logged in or do not have an account.
 -->
 <div id="newsletterTemplate" class=" textContentArea">
-    <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont mainColumn">
-        <h1>Subscribe to our Newsletter and Save!</h1>
-        <form action="#" name="subscribeFrm" data-app-submit="quickstart|subscribeSubmit" class='alignedForm'>
-            <fieldset class="userInfo borderNone">
-                <label>
-                <input placeholder="email address" maxlength="50" size="30" required name="email" value="" type="email" data-tlc="bind $var '.customer.login'; if(is $var --notblank;) {{apply --select=$var;}};">
-                </label>
-            </fieldset>
-            <fieldset data-tlc="apply --empty; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
-            <input class="applyButton" value="Subscribe" type="submit">
-        </form>
-    </div>
+    <div class="sideline" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
+	<div class="mainColumn customerPageContentCont">
+		<div class="textContentArea">
+			<h1>Subscribe to our Newsletter and Save!</h1>
+			<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='subscribeFormTemplate'; apply --append;"></div>
+		</div>
+	</div>
 </div>
 <!--
 subscribeListsArticle is used for authenticated buyers.
 -->
 <div id="subscribeTemplate" class=" textContentArea">
-    <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont mainColumn">
-        <h1>Manage your Subscriptions</h1>
-        <form action="#" name="subscribeFrm" data-app-submit="store_crm|buyerUpdate" class='alignedForm' onSubmit="return false">
-            <!-- buyer is logged in. Don't need email/name inputs -->
-            <fieldset data-update-verb='tags' data-tlc="apply --empty; bind $tags '.%info.@tags'; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
-            <input class="applyButton" value="Subscribe" type="submit">
-        </form>
-    </div>
+    <div class="sideline" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
+	<div class="mainColumn customerPageContentCont">
+		<div class="textContentArea">
+			<h1>Manage your Subscriptions</h1>
+			<form action="#" name="subscribeFrm">
+				<fieldset data-tlc="bind $var '.@lists'; store_crm#subscribecheckboxes  --legacy; apply --append;" class="borderNone subscriberLists"></fieldset>
+			</form>
+		</div>
+	</div>
 </div>
             
 <div id='createaccountTemplate' class=" textContentArea">
@@ -1843,7 +1837,7 @@ subscribeListsArticle is used for authenticated buyers.
     </div>
 </div>
 
-<div id="ordersTemplate" class=" textContentArea">
+<div id="orderHistoryTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
     <div class="customerPageContentCont mainColumn">
         <h1>Order History</h1>
@@ -1874,7 +1868,7 @@ subscribeListsArticle is used for authenticated buyers.
     </div>
 </div>
 
-<div id="wishlistTemplate" class=" textContentArea">
+<div id="customerListsTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
     <div class="customerPageContentCont mainColumn">
         <h1>List Manager</h1>
@@ -1891,15 +1885,7 @@ subscribeListsArticle is used for authenticated buyers.
 	</div>
 </div>
 
-<ul>
 
-<li id='subscriberListItemTemplate'>
-	<label data-tlc="bind $var '.EXEC_SUMMARY'; apply --attrib='title';" >
-	<input type='checkbox'  data-tlc="bind $id '.ID'; format --prepend='USER#SUB'; apply --attrib='name'; set $checked ''; store_crm#buyersubscribe --id=$id; if(is $checked --notblank;) {{ apply --attrib='checked';}};" />
-	<span data-tlc="bind $var '.NAME'; apply --append;"></span>
-</li>
-
-</ul>
 
 <h2 id='buyerListTemplate' data-tlc="bind $id '.id'; apply --append; bind $items '.items'; if (is $items --notblank;) {{format --prepend=' (' --append=')'; apply --append;}};"></h2>
 

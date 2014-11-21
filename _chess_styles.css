@@ -2207,8 +2207,12 @@ button.prodListATCButton{
 	height:35px;
 }
 .lineItemProdlist tbody tr td button.writeReview{
-	height: 40px;
+	height: 45px;
     padding-top: 0;
+}
+.lineItemProdlist tbody tr td button.writeReview span{
+	padding:0;
+	font-size:14px;
 }
 
 .shipAddressContainer div.marginBottom{
