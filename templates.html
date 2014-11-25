@@ -1657,13 +1657,13 @@ if you change these, you should move them above this comment so that when you (o
 
 
 <div id="customerSidelineTemplate" class="clearfix smallButton">
-    <nav id="customerNav">
+    <nav>
         <ul class="listStyleNone noPadOrMargin">
             <!--<li><a rel="nofollow" href='/subscribe/'>Newsletter Subscription</a></li>-->
             <li><a rel="nofollow" href="/my_account/">My Account</a></li>
             <li><a rel="nofollow" href="/change_password/">Change Password</a></li>
-            <li><a rel="nofollow" href="/orders/">Order History</a></li>
-            <li><a rel="nofollow" href="/wishlist/">Manage Lists</a></li>
+            <li><a rel="nofollow" href="/my_order_history/">Order History</a></li>
+            <li><a rel="nofollow" href="/my_wishlist/">Manage Lists</a></li>
             <!--<li class="hideIfLoggedOut"><a href="/customer/logout">Log Out</a></li>-->
         </ul>
     </nav>
@@ -1675,38 +1675,32 @@ if you change these, you should move them above this comment so that when you (o
 newsletterArticle is intended for buyers who are not logged in or do not have an account.
 -->
 <div id="newsletterTemplate" class=" textContentArea">
-    <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
-        <h1>Subscribe to our Newsletter and Save!</h1>
-        <form action="#" name="subscribeFrm" data-app-submit="quickstart|subscribeSubmit" class='alignedForm'>
-            <fieldset class="userInfo borderNone">
-                <label>
-                <input placeholder="email address" maxlength="50" size="30" required name="email" value="" type="email" data-tlc="bind $var '.customer.login'; if(is $var --notblank;) {{apply --select=$var;}};">
-                </label>
-            </fieldset>
-            <fieldset data-tlc="apply --empty; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
-            <input class="applyButton" value="Subscribe" type="submit">
-        </form>
-    </div>
+    <div class="sideline" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
+	<div class="mainColumn customerPageContentCont">
+		<div class="textContentArea">
+			<h1>Subscribe to our Newsletter and Save!</h1>
+			<div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='subscribeFormTemplate'; apply --append;"></div>
+		</div>
+	</div>
 </div>
 <!--
 subscribeListsArticle is used for authenticated buyers.
 -->
 <div id="subscribeTemplate" class=" textContentArea">
-    <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
-        <h1>Manage your Subscriptions</h1>
-        <form action="#" name="subscribeFrm" data-app-submit="store_crm|buyerUpdate" class='alignedForm' onSubmit="return false">
-            <!-- buyer is logged in. Don't need email/name inputs -->
-            <fieldset data-update-verb='tags' data-tlc="apply --empty; bind $tags '.%info.@tags'; bind $var '.@lists'; controller#loop --templateid='subscriberListItemTemplate'; apply --append;" class="borderNone subscriberLists"></fieldset>
-            <input class="applyButton" value="Subscribe" type="submit">
-        </form>
-    </div>
+    <div class="sideline" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
+	<div class="mainColumn customerPageContentCont">
+		<div class="textContentArea">
+			<h1>Manage your Subscriptions</h1>
+			<form action="#" name="subscribeFrm">
+				<fieldset data-tlc="bind $var '.@lists'; store_crm#subscribecheckboxes  --legacy; apply --append;" class="borderNone subscriberLists"></fieldset>
+			</form>
+		</div>
+	</div>
 </div>
             
 <div id='createaccountTemplate' class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <p id='loginMessagingInline' class='marginBottom appMessaging'></p>
         <div class="creatAccount">
             <div id="gotAccount1"> 
@@ -1822,7 +1816,7 @@ subscribeListsArticle is used for authenticated buyers.
 
 <div id="myAccountTemplate" class="textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <h1>My Account</h1>
         <section>
             <div class="billAddressContainer" data-app-role="addressContainer" data-app-addresstype="bill">
@@ -1843,9 +1837,9 @@ subscribeListsArticle is used for authenticated buyers.
     </div>
 </div>
 
-<div id="ordersTemplate" class=" textContentArea">
+<div id="orderHistoryTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <h1>Order History</h1>
         <div data-tlc="bind $var '.@orders'; controller#loop --templateid='orderLineItemTemplate'; if (is $var --notblank;) {{apply --append;}};" data-app-role="orderList" class="ui-accordion ui-widget ui-helper-reset ui-accordion-icons "></div>
 	</div>
@@ -1853,14 +1847,14 @@ subscribeListsArticle is used for authenticated buyers.
 
 <div id="invoiceTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <div data-tlc="bind $var '.'; transmogrify --dataset=$var --templateid='invoiceTemplate'; apply --append;" data-bind="format:loadsTemplate; loadsTemplate: invoiceTemplate; useParentData:true;"></div>
 	</div>
 </div>
 
 <div id="changePasswordTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <h1>Change Password</h1>
         <form action="#" name="changePasswordForm" data-app-submit="quickstart|passwordChangeSubmit" class='alignedForm'>
             <fieldset class="borderNone">
@@ -1874,9 +1868,9 @@ subscribeListsArticle is used for authenticated buyers.
     </div>
 </div>
 
-<div id="wishlistTemplate" class=" textContentArea">
+<div id="customerListsTemplate" class=" textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <h1>List Manager</h1>
         <div class='applyAccordion' data-tlc="apply --empty; bind $var '.@lists'; controller#loop --templateid='buyerListTemplate'; apply --append; bind $content '.@lists'; controller#loop --templateid='buyerListProdlistContainerTemplate'; apply --append;"></div>
     </div>
@@ -1884,22 +1878,14 @@ subscribeListsArticle is used for authenticated buyers.
 
 <div id="forgetmeTemplate" class="displayNone textContentArea">
     <div class="sideline center arial hidePhone showTabletBlock" data-tlc="transmogrify --templateid='customerSidelineTemplate'; apply --append;"></div>
-    <div class="customerPageContentCont">
+    <div class="customerPageContentCont mainColumn">
         <h1>Your 'Forget Me' list</h1>
         <p>Items on this list will not show up anywhere on the site. Use it for items you never want to see again. If you add an item to the list by mistake, use this page to remove it from the list and it will start re-appearing during your shopping experience.</p>
         <ul id="forgetmeContainer" class="prodlist "></ul>
 	</div>
 </div>
 
-<ul>
 
-<li id='subscriberListItemTemplate'>
-	<label data-tlc="bind $var '.EXEC_SUMMARY'; apply --attrib='title';" >
-	<input type='checkbox'  data-tlc="bind $id '.ID'; format --prepend='USER#SUB'; apply --attrib='name'; set $checked ''; store_crm#buyersubscribe --id=$id; if(is $checked --notblank;) {{ apply --attrib='checked';}};" />
-	<span data-tlc="bind $var '.NAME'; apply --append;"></span>
-</li>
-
-</ul>
 
 <h2 id='buyerListTemplate' data-tlc="bind $id '.id'; apply --append; bind $items '.items'; if (is $items --notblank;) {{format --prepend=' (' --append=')'; apply --append;}};"></h2>
 
@@ -2077,7 +2063,7 @@ This is the template used both within a dialog and inline, unless implicitly ove
 
 <!-- cart line-item template -->
 <ul>
-	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
+	<li id='productListTemplateCart' class='padMargBorderBottom clearfix cartProductListItem'>
     
     <div data-tlc="bind $var '.'; extension_thechessstore#addassemblyclass  --legacy;" data-legacy-useparentdata="true">
 
@@ -2269,7 +2255,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 <address id="billAddressTemplate" class="ui-widget ui-widget-content ui-corner-all marginBottom ">
 	<button data-app-click="quickstart|showBuyerAddressUpdate" class="floatRight applyButton">edit</button>
-	<!--<button data-app-click="quickstart|showBuyerAddressRemove" class="floatRight applyButton">remove</button>-->
+	<button data-app-click="quickstart|showBuyerAddressRemove" class="floatRight applyButton">remove</button>
 	<div class="addressFullname">
 		<span data-tlc="bind $var '.bill/firstname'; if (is $var --notblank;) {{apply --append;}};" title="first name"></span>
 		<span data-tlc="bind $var '.bill/lastname'; if (is $var --notblank;) {{apply --append;}};" title="last name"></span>

@@ -131,7 +131,7 @@ $(document).ready(function(){
 	var paramStr = window.location.href.replace(window.location.hash, '').split('?')[1];
 	if(!paramStr || paramStr.indexOf('_escaped_fragment_') < 0){
 	window.myApp = new initApp({
-		"release":"201410.20141004140000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+		"release":"201410.20141121111000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 		"_clientid":"zmvc", //zmvc for store app, 1pc for one page checkout.
 		"baseURL":baseURL, //used in non-local mode.
 		"checkoutAuthMode" : "active",//can be passive, active or required
@@ -224,7 +224,7 @@ var _robots = {
 							<li><a href='/about_us/' title='About Us'>About Us</a></li>
 							<li><a href='/contact_us/' title='Contact Us'>Contact Us</a></li>
 							<li><a href='/my_account/' title='My Account'>My Account</a></li>
-							<li><a href='/orders/' >Track My Order</a></li>
+							<li><a href='/my_order_history/' >Track My Order</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -248,7 +248,7 @@ var _robots = {
 					<div class="headerBoxRight">
 						<p><a href="/cart/" title='Cart'><img src="images/logo_cart.png" alt="Cart">Items in Cart | <span class="cartItemCount">Your Cart is Empty</span></a></p>
 						<p><a href="/cart/" title='Checkout'>Checkout</a></p>
-						<p><a href="/wishlist/" class='headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
+						<p><a href="/my_wishlist/" class='headerHideShow' id='navLink_orders' title='Wishlist'>Wishlist</a></p>
 
                         <p><a class="pointer headerHideShow" href="/category/00060-special_departments.chess-set-collectors-club">Join Collectors Club</a></p>
 					</div>
@@ -375,8 +375,8 @@ var _robots = {
                 would be to replace the any text between the <h2> and </h2> tags with whatever you want your sales to say. Then,
                 you would need to update the link by replacing 
                 -->
-                <div class="announceBar pointer"><a href="/category/sales.the_chess_store_veterans_day_sale" class="pointer" >
-                	<img src="images/homepage_top_ad_bar_images/veterans-day-sale-1000x60.jpg" alt="">
+                <div class="announceBar pointer"><a href="/category/sales.the_chess_store_thanksgiving_day_sale" class="pointer" >
+                	<img src="images/homepage_top_ad_bar_images/thanksgiving-1000x60.jpg" alt="">
                 </a></div>
                 <!--</header>-->
             <!--End Header Section-->
@@ -417,14 +417,14 @@ var _robots = {
                         	<h5>CUSTOMER SERVICE</h5>
                             <p class="footerLinkStyle">1-888-810-2437 or <a class="pointer footerLinkStyle" href="/contact_us/" style="text-decoration:underline">online help</a></p>
                             <a href="/my_account/" class="footerLinkStyle pointer">My Account</a>
-                            <a href="/orders/" class="footerLinkStyle pointer">Check Order Status</a>
+                            <a href="/my_order_history/" class="footerLinkStyle pointer">Check Order Status</a>
                             <a href="/frequently_asked_questions/" class="footerLinkStyle pointer">FAQ</a>
                             <a href="/category/1003/-The-Chess-Store-Reseller-Program" class="footerLinkStyle pointer">Reseller Program</a>
                             <a href="/category/1004-affiliate-program/-1004-Affiliate-Program" class="footerLinkStyle pointer">Affiliate Program</a>
                         </div>
                         <div class="footerLinkSec" style="padding-left:35px;">
                         	<h5>SHOPPING</h5>
-                            <a href="/wishlist/" class="footerLinkStyle pointer">Wishlist</a>
+                            <a href="/my_wishlist/" class="footerLinkStyle pointer">Wishlist</a>
                             <a href="/category/00058-gift-cards/Gift-Cards" class="footerLinkStyle pointer">Gift Certificates</a>
                             <a href="/category/shipping/-Shipping" class="footerLinkStyle pointer">Shipping</a>
                             <a href="/return_policy/" class="footerLinkStyle pointer">Returns</a>

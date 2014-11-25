@@ -278,7 +278,7 @@ _app.router.appendHash({'type':'exact','route':'/my_account/','callback':functio
 		'pageType':'static',
 		'login' : true,
 		'templateID':'myAccountTemplate',
-		'require':['cco','templates.html']
+		'require':['cco','templates.html','store_crm']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});	
@@ -287,11 +287,11 @@ _app.u.bindTemplateEvent('myAccountTemplate','complete.customer',function(event,
 	_app.model.addDispatchToQ({"_cmd":"buyerAddressList","_tag":{'callback':'tlc','jqObj':$('.mainColumn',$context),'verb':'translate','datapointer':'buyerAddressList'}},'mutable');
 	_app.model.dispatchThis();							
 	});
-_app.router.appendHash({'type':'exact','route':'/change_password/','callback':function(routeObj){
+_app.router.appendHash({'type':'exact','route':'/my_order_history/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
 		'login' : true,
-		'templateID':'changePasswordTemplate',
+		'templateID':'orderHistoryTemplate',
 		'require':['templates.html']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
@@ -305,11 +305,15 @@ _app.router.appendHash({'type':'exact','route':'/create_account/','callback':fun
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
 	}});
-_app.router.appendHash({'type':'exact','route':'/orders/','callback':function(routeObj){
+_app.u.bindTemplateEvent('orderHistoryTemplate','complete.customer',function(event, $context, infoObj){
+	_app.model.addDispatchToQ({"_cmd":"buyerPurchaseHistory","_tag":{'callback':'tlc','jqObj':$('.mainColumn',$context),'verb':'translate','datapointer':'buyerPurchaseHistory'}},'mutable');
+	_app.model.dispatchThis();							
+	});
+_app.router.appendHash({'type':'exact','route':'/change_password/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
 		'login' : true,
-		'templateID':'ordersTemplate',
+		'templateID':'changePasswordTemplate',
 		'require':['templates.html']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
@@ -323,11 +327,11 @@ _app.u.bindTemplateEvent('changePasswordTemplate','complete.customer',function(e
 		}},"mutable");
 	_app.model.dispatchThis();							
 	});
-_app.router.appendHash({'type':'exact','route':'/wishlist/','callback':function(routeObj){
+_app.router.appendHash({'type':'exact','route':'/my_wishlist/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
 		'login' : true,
-		'templateID':'wishlistTemplate',
+		'templateID':'customerListsTemplate',
 		'require':['templates.html']
 		});
 	_app.ext.quickstart.a.newShowContent(routeObj.value,routeObj.params);
