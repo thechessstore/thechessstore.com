@@ -85,8 +85,6 @@ obj['softauth'] = "order"; // [OPTIONAL]. if user is logged in, this gets ignore
 				_app.model.addDispatchToQ(cmdObj,'immutable');	
 				}
 			},//buyerOrderMacro
-
-
 //obj should contain cartid and orderid
 		buyerOrderGet : {
 			init : function(obj,tagObj,Q)	{
@@ -150,7 +148,8 @@ obj['softauth'] = "order"; // [OPTIONAL]. if user is logged in, this gets ignore
 		showFAQTopics : {
 
 			onSuccess : function(tagObj)	{
-				var $parent = $('#'+tagObj.parentID);
+				//var $parent = $('#'+tagObj.parentID);
+				var $parent = tagObj.jqObj;
 // ** 201336 This prevents FAQ's from being re-appended in the event the user revisits the FAQ page
 				if(!$parent.data('faqs-rendered')){
 					$parent.removeClass('loadingBG');
@@ -171,6 +170,7 @@ obj['softauth'] = "order"; // [OPTIONAL]. if user is logged in, this gets ignore
 						}
 					$parent.data('faqs-rendered', true);
 					}
+				if(tagObj.deferred){tagObj.deferred.resolve();}
 				
 				}
 			}, //showFAQTopics
@@ -430,6 +430,7 @@ This is used to get add an array of skus, most likely for a product list.
 				var r = false; //what is returned. true if editor is displayed, false if an error occured.
 
 				if(typeof vars === 'object' && vars.addressID && vars.addressType)	{
+					//require is made before showAddressEditModal gets called
 					var addressData = _app.ext.cco.u.getAddrObjByID(vars.addressType,vars.addressID);
 					
 					if(addressData)	{
@@ -526,6 +527,7 @@ This is used to get add an array of skus, most likely for a product list.
 
 //if the placeholder attribute on an input is not supported (thx IE8), then add labels.
 					if(_app.ext.order_create)	{
+						//require is made before showAddressAddModal gets called
 						_app.ext.order_create.u.handlePlaceholder($editor);
 						}
 //adds a tooltip which is displayed on focus. lets the user know what field they're working on once they start typing and placeholder goes away.
@@ -555,6 +557,7 @@ This is used to get add an array of skus, most likely for a product list.
 							'cancel' : function(event){
 								event.preventDefault();
 								$(this).dialog('close');
+								_app.router.handleURIChange('/my_account/');
 								},
 							'save' : function(event,ui) {
 								event.preventDefault();
@@ -590,11 +593,12 @@ This is used to get add an array of skus, most likely for a product list.
 									_app.model.dispatchThis('immutable');
 									}
 								else	{} //errors handled in validateForm
-								
 								}
 							},
-						close : function(event, ui) {$(this).dialog('destroy').remove()}
+						close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
 						});
+						_app.router.handleURIChange('/my_account/');
+
 
 					}
 				else	{
@@ -649,8 +653,7 @@ This is used to get add an array of skus, most likely for a product list.
 														$editor.dialog('close');
 														}
 													}
-												}
-										
+												}										
 //save and then refresh the page to show updated info.
 										_app.model.addDispatchToQ(sfo,'immutable');
 //dump data in memory and local storage. get new copy up updated address list for display.
@@ -659,16 +662,15 @@ This is used to get add an array of skus, most likely for a product list.
 										_app.model.dispatchThis('immutable');
 										}
 									else	{} //errors handled in validateForm
-									
 									}
 								},
-							close : function(event, ui) {$(this).dialog('destroy').remove()}
+							close : function(event, ui) {$(this).dialog('destroy').remove();_app.router.handleURIChange('/my_account/');}
+
 							});
 //* 201342 -> used in checkout (or potentailly any editor) to immediately highlight any invalid fields (useful in 'edit' as opposed to 'create' address)
 							if(vars.validateForm)	{
 								_app.u.validateForm($editor);
 								}
-
 						
 						}
 					else	{
@@ -786,7 +788,7 @@ This is used to get add an array of skus, most likely for a product list.
 			
 			productReviewShow : function($ele,p)	{
 				p.preventDefault();
-
+				console.log('here');
 				var pid = $ele.data('pid') || $ele.closest("[data-pid]").data('pid'); //used on product page
 				if(pid)	{
 					_app.ext.store_crm.u.showReviewFrmInModal({"pid":pid,"templateID":"reviewFrmTemplate"});

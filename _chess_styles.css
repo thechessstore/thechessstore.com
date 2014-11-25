@@ -1,4 +1,4 @@
-/* universal */
+f/* universal */
 aside,
 details,
 footer,
@@ -575,7 +575,7 @@ announceBar h2{
 	overflow:hidden;
 	float: left;
 }
-#featureImg{
+.featureImg{
 	height:250px;
 	float:left;
 	clear:both;
@@ -716,13 +716,13 @@ announceBar h2{
 	height:250px;
 	margin-right:10px;
 }
-#caroPrev1{
+.caroPrev1{
 	position:absolute;
 	top: 725px;
 	left:0;
 	z-index:1;
 }
-#caroNext1{
+.caroNext1{
 	position: absolute;
     right: 0;
     top: 725px;
@@ -794,13 +794,13 @@ announceBar h2{
 	height:250px;
 	margin-right:10px;
 }
-#caroPrev2{
+.caroPrev2{
 	position:absolute;
 	top: 1055px;
 	left:0;
 	z-index:1;
 }
-#caroNext2{
+.caroNext2{
 	position: absolute;
     right: 0;
     top: 1055px;
@@ -868,13 +868,13 @@ announceBar h2{
 	height:250px;
 	margin-right:10px;
 }
-#caroPrev3{
+.caroPrev3{
 	position:absolute;
 	top:1395px;
 	left:0;
 	z-index:1;
 }
-#caroNext3{
+.caroNext3{
 	position: absolute;
     right: 0;
     top: 1395px;
@@ -942,13 +942,13 @@ announceBar h2{
 	height:250px;
 	margin-right:10px;
 }
-#caroPrev4{
+.caroPrev4{
 	position:absolute;
 	top:1730px;
 	left:0;
 	z-index:1;
 }
-#caroNext4{
+.caroNext4{
 	position:absolute;
 	top:1730px;
 	right:0;
@@ -1274,6 +1274,10 @@ background: linear-gradient(to bottom,  rgba(239,235,226,1) 56%,rgba(196,189,169
 }
 .productQuantDiscountText ul{
 	margin-left: 13px;
+}
+
+.reviewsContainer {
+    padding: 10px;
 }
 /********************************************************************************************************************************/
 /**Category Template1**/
@@ -1867,6 +1871,10 @@ button.prodListATCButton{
 .ui-widget-anycb{
 }
 
+.productList li.cartProductListItem{
+	width:100%;
+}
+
 
 
 
@@ -1973,6 +1981,11 @@ button.prodListATCButton{
 #beforeThirdParty{
 	float:left;
 	clear:both;
+}
+
+.productList li, .categoryList li{
+	height: 390px;
+    width: 225px;
 }
 
 /*.checkoutFormContainer legend{
@@ -2086,6 +2099,24 @@ button.prodListATCButton{
 #returnArticle{padding-left:25px;}
 #shippingArticle{padding-left:25px;}
 
+.sideline{
+}
+.companyPageContentCont{
+	margin-left: 10px;
+    width: 77%;
+}
+.article h1{
+	margin-left:10px;
+}
+
+
+
+/*******************************************************************************************************************************/
+/**Customer Template**/
+.customerPageContentCont{
+	margin-left: 10px;
+    width: 77%;
+}
 
 
 /*******************************************************************************************************************************/
@@ -2176,8 +2207,12 @@ button.prodListATCButton{
 	height:35px;
 }
 .lineItemProdlist tbody tr td button.writeReview{
-	height: 40px;
+	height: 45px;
     padding-top: 0;
+}
+.lineItemProdlist tbody tr td button.writeReview span{
+	padding:0;
+	font-size:14px;
 }
 
 .shipAddressContainer div.marginBottom{
