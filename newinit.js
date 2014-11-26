@@ -505,9 +505,13 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 		}
 		
 		//Homepage Slideshow image code and carousel code
-		var homepageLoad = false;
 		
-			if (homepageLoad == false){
+		
+			if($('.homepageBannerImg').data('carouselLoaded')){}
+			else{
+				$('.homepageBannerImg').data('carouselLoaded',false);
+			}
+			if($('.homepageBannerImg').data('carouselLoaded') === false){
 				//Home page slideshow
 				$("#nav").html("");
 				$('.featureImg') 
@@ -516,9 +520,9 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 					fx:     'fade',  
 					timeout: 5000, 
 					pager:  '#nav' 
-				});
-		
-		
+				});							
+				$('.homepageBannerImg').data('carouselLoaded',true).append();
+				
 				//Carousel horizontal sliders
 				var carousel1;
 				function foo1(){ $(".homepageCat1").carouFredSel({
