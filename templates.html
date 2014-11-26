@@ -16,7 +16,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     		<img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer"  href="/category/00012-wood-chess-sets-with-chess-boards" alt="" />
             -->
             
-            <a href="/category/00012-wood-chess-sets-with-chess-boards/Wood-Chess-Sets-with-Boards" ><img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" alt="" /></a>
+            <a href="/product/PSBB375DP/Parker-Staunton-Chess-Set-in-Burnt-Boxwood-with-Black-Ash-Burl-Chess-Board-3-75-King" ><img src="images/homepage_banner_images/top-slider-wood-chess-sets-with-boards-banner-1000.jpg" class="pointer" alt="" /></a>
     		<a href="/category/00027-metal-chess-pieces/-Metal-Chess-Pieces" ><img src="images/homepage_banner_images/top-slider-metal-chessmen-banner-1000.jpg" class="pointer" alt="" /></a>
     		<a href="/category/00020-plastic-chess-sets/Plastic-Chess-Pieces" ><img src="images/homepage_banner_images/top-slider-plastic-chessmen-banner-1000.jpg" class="pointer" alt="" /></a>
             <a href="/category/00010-wood-chess-sets/Wood-Chess-Pieces" ><img src="images/homepage_banner_images/top-slider-staunton-wood-chessmen-banner-1000.jpg" class="pointer" alt="" /></a>
@@ -695,12 +695,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
-          <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+          <!--<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">-->
             <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; if(is $var --notblank;){{ quickstart#tags --legacy; }};" class="tagsContainer prodListTagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=210 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="210" width="355">
-          </div>
+         <!--</div>-->
         
-            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
+            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='100'; apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
@@ -731,12 +731,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
 	<button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
-          <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+         <!--<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">-->
             <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; if(is $var --notblank;){{ quickstart#tags --legacy; }};" class="tagsContainer prodListTagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=355 --height=178 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="178" width="355">
-         </div>
+         <!--</div>-->
         
-            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
+            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='100'; apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
@@ -769,12 +769,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
     <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
-    	<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+    	<!--<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">-->
             <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; if(is $var --notblank;){{ quickstart#tags --legacy; }};" class="tagsContainer prodListTagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=220 --height=180 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="180" width="220">
-      	</div>
+      	<!--</div>-->
         
-            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
+            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='60'; apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
@@ -805,12 +805,12 @@ remember to NOT put the button inside the href or two events will occur onclick.
      <button class="floatRight pointer quickView displayNone" data-app-click="quickstart|quickviewShow" data-loadstemplate="productTemplateQuickView">Quickview</button>
     
     <a data-tlc="bind $pid '.pid'; bind $seo '.%attribs.zoovy:prod_name'; bind $href ''; store_routing#productlink --pid=$pid --seo=$seo; apply --attrib='href';" class="blockLink">
-          <div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">
+          <!--<div data-tlc="bind $var '.pid'; quickstart#addpicslider  --legacy; apply --append;" class="prodThumbContainer">-->
             <div data-tlc="bind $var '.%attribs.zoovy:prod_is_tags'; quickstart#addtagspans; if (is $var --notblank;) {{apply --append;}};" class="promoTag tagsContainer"></div>
             <img data-tlc="bind $var '.%attribs.zoovy:prod_image1'; if (is $var --notblank;) {{ apply --img --media=$var --width=160 --height=100 --bgcolor='#ffffff' --replace;}};" src="blank.gif" class="prodThumb" alt="" height="100" width="160">
-          </div>
+          <!--</div>-->
         
-            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{apply --append;}};"></h5>
+            <h5 class="spaceAndAlignCenter" data-tlc="bind $var '.%attribs.zoovy:prod_name'; if (is $var --notblank;) {{format --truncate='40'; apply --append;}};"></h5>
             <div class="spaceAndAlignCenter">
                 <span data-tlc="bind $var '.reviews.average'; if(is $var --notblank) {{format --prepend='review_'; apply --add --class=$var; }};" class="reviewSprite"></span>
             </div>
