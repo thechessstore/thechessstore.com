@@ -158,7 +158,12 @@ _app.u.bindTemplateEvent('cartTemplate','depart.destroy',function(event, $contex
 		$page.empty().remove();
 		}
 	});
-
+_app.u.bindTemplateEvent('checkoutTemplate','depart.destroy',function(event, $context, infoObj){
+	var $page = $context.closest('[data-app-uri]');
+	if($page){
+		$page.empty().remove();
+		}
+	});
 _app.extend({
 	"namespace" : "store_routing",
 	"filename" : "extensions/store_routing.js"
