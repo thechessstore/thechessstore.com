@@ -2035,7 +2035,9 @@ This is the template used both within a dialog and inline, unless implicitly ove
 		</div>
 		<div class="ui-state-default cartButtons stdPadding clearfix">
 			<!-- spans are set around the buttons so each element has one consitent tag type around it -->
-			<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
+			<!--<span class="continueShoppingSpan thisButton"><button class="applyButton continueShoppingButton" data-app-click="quickstart|dialogCloseExec">Continue Shopping</button></span>
+            ****Replaced this with a standard return to homepage effect at clients request****-->
+            <span class="continueShoppingSpan thisButton"><a href='/'><button class="applyButton continueShoppingButton">Continue Shopping</button></a></span>
 	
 			<span id="inStoreCheckoutButton" class='thisButton' title="proceed to secure checkout">
 				<a class="applyButton ui-state-highlight checkoutButton" href='/checkout'>Proceed to Checkout</a>
