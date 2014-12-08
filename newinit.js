@@ -398,6 +398,29 @@ _app.couple('order_create','addOrderCompleteHandler',{
 		_app.require('store_tracking',function(){
 			if(P && P.datapointer && _app.data[P.datapointer] && _app.data[P.datapointer].order){
 				var order = _app.data[P.datapointer].order;
+				//conversion patch    
+					var frame = document.createElement("iframe");
+					$(frame).addClass("displayNone");
+					$("body").append(frame);
+				
+					setTimeout(function() {
+					 var paramScript = '<script type="text/javascript">'
+						+  'var google_conversion_id = 1072567529;'
+						+ 'var google_conversion_language = "en";'
+						+ 'var google_conversion_format = "1";'
+						+ 'var google_conversion_color = "666666";'
+						+ 'var google_conversion_label = "P_HZCNvwuQQQ6am4_wM";'
+						+ 'var google_conversion_value = '+order.sum.items_total+';'
+					  //  + 'var google_conversion_value = 1.000000;'
+						+ 'var google_remarketing_only = false;'
+						+ '</script>';
+					 var script = '<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>';
+					 frame.contentWindow.document.open();
+					 frame.contentWindow.document.write('<html><head>'+paramScript+''+script+'</head><body></body></html>');
+					 frame.contentWindow.document.close();
+					 
+					},250);
+				//conversion patch
 				var plugins = zGlobals.plugins;
 				// note: order is an object that references the raw (public) cart
 				// order.our.xxxx  order[@ITEMS], etc.
