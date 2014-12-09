@@ -60,7 +60,7 @@ var google_remarketing = function(_app) {
 							_app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) {
 								var js = document.createElement("script");
 								js.type = "text/javascript";
-								js.src = "//www.googleadservices.com/pagead/conversion.js";
+								js.src = "https://www.googleadservices.com/pagead/conversion.js";
 								
 								var noScriptContent = "<noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
 								
@@ -73,7 +73,7 @@ var google_remarketing = function(_app) {
 								
 								var js = document.createElement("script");
 								js.type = "text/javascript";
-								js.src = "//www.googleadservices.com/pagead/conversion.js";
+								js.src = "https://www.googleadservices.com/pagead/conversion.js";
 								
 								var noScriptContent = "<noscript><div style='display:inline;'><img height='1' width='1' style='border-style:none;' alt='' src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/1072567529/?value=0&amp;guid=ON&amp;script=0'/></div></noscript>";
 								
