@@ -126,7 +126,7 @@ var google_dynamicremarketing = function(_app) {
 				setTimeout(function(){
 					var script = frame.contentWindow.document.createElement('script');
 					script.type="text/javascript";
-					script.src = "https://www.googleadservices.com/pagead/conversion.js";
+					script.src = "https://ssl.googleadservices.com/pagead/conversion.js";
 					frame.contentWindow.document.body.appendChild(script);
 					}, 250);
 				}
