@@ -49,7 +49,7 @@ var store_tracking = function(_app) {
 				var labels = plugin.google_conversion_label.split(',');
 				for(var i in labels){
 					var globals = {
-						google_conversion_id : plugin.google_conversion_id,
+						google_conversion_id : 1072567529,
 						google_conversion_language : "en",
 						google_conversion_format: "3",
 						google_conversion_color : "ffffff",
@@ -59,7 +59,6 @@ var store_tracking = function(_app) {
 					if(plugin.dynamic_value){
 						globals.google_conversion_value = order.sum.order_total;
 						}
-					dump("google_conversion_id = " + google_conversion_id);
 					_app.ext.store_tracking.u.addTrackingScript("https://ssl.googleadservices.com/pagead/conversion.js", globals);
 					}
 				}
