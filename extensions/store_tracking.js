@@ -59,7 +59,6 @@ var store_tracking = function(_app) {
 					if(plugin.dynamic_value){
 						globals.google_conversion_value = order.sum.order_total;
 						}
-					dump("google_conversion_id = " + google_conversion_id);
 					_app.ext.store_tracking.u.addTrackingScript("https://ssl.googleadservices.com/pagead/conversion.js", globals);
 					}
 				}
