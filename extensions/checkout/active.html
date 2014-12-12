@@ -9,9 +9,9 @@ item list and summary are separate just to give more control over location.
 -->
 <div id="checkoutTemplate" class="checkoutFormContainer" data-app-role="checkout">
 
-	<h4 class="checkoutPaypalNoticeBold">PayPal Notice:</h4>
+    <h4 class="checkoutPaypalNoticeBold">PayPal Notice:</h4>
     <h5 class="checkoutPaypalNotice">If you are planning to pay via PayPal, please immediately proceed to the payment section and select PayPal - Express Checkout.</h5>
-	
+
 	<form action="#">
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
 	<input data-tlc="bind $var '.ship.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/shortcut" type="hidden">
@@ -250,7 +250,6 @@ do NOT change any div id's or messaging will not work properly.
 	<button class="applyButton" data-app-click="order_create|execGiftcardAdd" data-button-id="execGiftcardAdd">add</button> 
 	<p data-app-role="giftcardHint" class="zhint hint displayNone">if you wish to combine gift cards with another payment method, enter them here</p>
 	</div>
-	
 
 	<div data-app-role="paymentQContainer" class="marginBottom">
 		<ul data-tlc="bind $var '.@PAYMENTQ'; controller#loop --templateid='cartPaymentQTemplate'; if (is $var --notblank;) {{apply --append;}};" class="noPadOrMargin listStyleNone"></ul>
@@ -323,7 +322,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 
 
-<section class="chkoutCartSummaryTemplate" id="chkoutCartSummaryTemplate">
+<section id="chkoutCartSummaryTemplate" class="chkoutCartSummaryTemplate">
 	
 	<div data-tlc="bind $var '.sum.items_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Subtotal: '; apply --add --class='orderSubtotal'; apply --append;}};"></div>
 	<div data-tlc="bind $var '.sum.tax_total'; if (is $var --notblank;) {{format --currency='USD'; format --prepend='Tax: '; apply --add --class='orderTax'; apply --append;}};"></div>
@@ -337,13 +336,7 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 
 	<div data-tlc="bind $var '.sum.balance_due_total'; cco#orderbalance  --classname='orderBalanceDue' --hidezero='false' --currencysign='$' --legacy;"></div>
 
-	<div class="giftCardContainer" data-app-role="giftcardContainer">
-        <label for="giftcardCode">Gift Certificate Code:</label>
-        <input name="giftcard" size="16" data-input-keyup="trigger-button-id" data-input-format="alphanumeric" data-trigger-button-id="execGiftcardAdd" type="text">
-        <button class="applyButton" data-app-click="order_create|execGiftcardAdd" data-button-id="execGiftcardAdd">add</button> 
-        <p data-app-role="giftcardHint" class="zhint hint displayNone">if you wish to combine gift cards with another payment method, enter them here</p>
-	</div>
-    <div class="couponEntryContainer clearfix marginBottom" data-app-role="couponContainer">
+	<div class="couponEntryContainer clearfix marginBottom" data-app-role="couponContainer">
 		<label for="coupon">Coupon/Promo Code:</label>
 		<input name="coupon" size="8" data-input-keyup="trigger-button-id" data-trigger-button-id="execCouponAdd" data-input-format="alphanumeric" type="text">
 		<button class="applyButton" data-app-click="order_create|execCouponAdd" data-button-id="execCouponAdd">add</button>
@@ -354,13 +347,9 @@ the defaultVar on prodName & image is for promotions, which have a 'description'
 		<input type'text'="" name="want/reference_number" size="12">
 	</div>
 
-	<div class="checkoutClickBlocker displayNone" onClick="myApp.ext.extension_thechessstore.u.checkouterrorclickblock();"></div>
-    <p class="checkoutClickBlockerText displayNone">Click here to re-calculate with new entries</p>
-    <div>
-        <button class="applyButton ui-state-highlight checkoutPlaceOrderButton" data-app-click="order_create|execCartOrderCreate">
-            Place Order
-        </button>
-    </div>
+	<button class="applyButton ui-state-highlight" data-app-click="order_create|execCartOrderCreate">
+		Place Order
+	</button>
 
 
 
