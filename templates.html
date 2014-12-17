@@ -3,6 +3,10 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id="homepageTemplate" class="homeTemplate">
 
+	<span class="displayNone" data-seo-title="The Chess Store"></span>
+	<span class="displayNone" data-seo-desc="Shop here for the Best Chess Sets, boards, clocks, supplies,and more!"></span>
+
+
 	<!-- Jeff, To update your homepage banner images, you must first make sure the images you want in your banner are properly 
     loaded into the images folder. You then simply need to replace all text after the <img src="images/ part up until you see the
     " class="pointer" onClick=""> with the name of the image file. An example of this would be homepage_SliderImg_Create.gif. 
@@ -358,10 +362,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id="categoryTemplate" class=" categoryTemplate" data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
-	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
-
-	<div class="catBrowseSidebar">
+	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>	
+    <span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
+	
+    <div class="catBrowseSidebar">
 	
 	
 		<div class='filterContainer clearfix'>
@@ -433,7 +437,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryHolidayTemplate' class='categoryHolidayTemplate categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
 
 	
     <div class="catTempCont">
@@ -453,7 +457,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='category2ProdWideTemplate' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
 
 	<div class="catBrowseSidebar">
 	
@@ -498,7 +502,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
     <div id="categoryUnfinishedWoodTemplate" class="categoryTemplate" data-app-role='categoryPage'>
         <span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
 
 	<div class="catBrowseSidebar">
 	
@@ -545,7 +549,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate3PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
 
 	<div class="catBrowseSidebar">
 	
@@ -588,7 +592,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <div id='categoryTemplate4PanelCat' class='categoryTemplate' data-app-role='categoryPage'>
 	<span class="displayNone" data-tlc="bind $var '.%page.seo_title'; if(is $var --null) {{bind $var '.%page.head_title';}}; if(is $var --null;){{bind $var '.page_title';}}; if(is $var --blank;){{bind $var '.pretty';}}; apply --attrib='data-seo-title';"></span>
 	<span class="displayNone" data-tlc="bind $var '.%page.meta_description'; if(is $var --null;){{bind $var '.%page.description';}}; if(is $var --null;){{set $var '';}}; apply --attrib='data-seo-desc';"></span>
-	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-routing-hash';"></span>
+	<span class="displayNone" data-tlc="store_routing#seoanchor; apply --attrib='data-canonical';"></span>
 
 	<div class="catBrowseSidebar">
 	
