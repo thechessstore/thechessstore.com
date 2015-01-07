@@ -425,6 +425,8 @@ _app.couple('order_create','addOrderCompleteHandler',{
 					 frame.contentWindow.document.write('<html><head>'+paramScript+''+script+'</head><body></body></html>');
 					 frame.contentWindow.document.close();
 					 
+					 dump("iframe for conversion tracking has been built.");
+					 
 					},250);
 				//conversion patch
 				var plugins = zGlobals.plugins;
