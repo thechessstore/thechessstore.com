@@ -415,7 +415,7 @@ _app.couple('order_create','addOrderCompleteHandler',{
 						var google_conversion_format = "1";
 						var google_conversion_color = "666666";
 						var google_conversion_label = "c45fCIf2PhDpqbj_Aw";
-						var google_conversion_value = '+order.sum.items_total+';
+						var google_conversion_value = order.sum.items_total;
 					    var google_conversion_currency = "USD";
 						var google_remarketing_only = false;
 						
