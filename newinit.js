@@ -409,24 +409,28 @@ _app.couple('order_create','addOrderCompleteHandler',{
 					$("body").append(frame);
 				
 					setTimeout(function() {
-					 var paramScript = '<script type="text/javascript">'
-						+  'var google_conversion_id = 1072567529;'
-						+ 'var google_conversion_language = "en";'
-						+ 'var google_conversion_format = "1";'
-						+ 'var google_conversion_color = "666666";'
-						+ 'var google_conversion_label = "P_HZCNvwuQQQ6am4_wM";'
-						+ 'var google_conversion_value = '+order.sum.items_total+';'
-					  //  + 'var google_conversion_value = 1.000000;'
-						+ 'var google_remarketing_only = false;'
-						+ '</script>';
+					 
+						var google_conversion_id = 1072567529;
+						var google_conversion_language = "en";
+						var google_conversion_format = "1";
+						var google_conversion_color = "666666";
+						var google_conversion_label = "c45fCIf2PhDpqbj_Aw";
+						var google_conversion_value = '+order.sum.items_total+';
+					    var google_conversion_currency = "USD";
+						var google_remarketing_only = false;
 						
+						var url = "https://www.googleadservices.com/pagead/conversion/"+google_conversion_id+"/"+"?value="+google_conversion_value+"&amp;currency_code="+google_conversion_currency+"&amp;label="+google_conversion_label+"&amp;guid=ON&amp;script=0";
+					 	
+					 	$('body').append('<img src="'+url+'" class="displayNone"/>');
+					 	
+					 /*
 					 var script = '<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js"></script>';
 					 frame.contentWindow.document.open();
 					 frame.contentWindow.document.write('<html><head>'+paramScript+''+script+'</head><body></body></html>');
 					 frame.contentWindow.document.close();
-					 
-					 dump("iframe for conversion tracking has been built.");
-					 
+					 */
+					 dump("Adwords conversion tracking image added on order placement.");
+					 					 
 					},250);
 				//conversion patch
 				var plugins = zGlobals.plugins;
