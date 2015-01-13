@@ -468,6 +468,12 @@ _app.couple('order_create','addOrderCompleteHandler',{
 						_app.ext.store_tracking.trackers[i](order, plugins[i]);
 						}
 					}
+					
+/*CHESS STORE*/	//SAS TRACKING CODE
+/*CHESS STORE*/   var order = _app.data[P.datapointer].order;
+/*CHESS STORE*/   var url = "https://shareasale.com/sale.cfm?amount="+order.sum.items_total+"&tracking="+order.our.orderid+"&transtype=SALE&storeID=1&merchantID=33638";
+/*CHESS STORE*/	  $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
+				
 				}
 			});
 		}
