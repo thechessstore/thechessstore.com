@@ -56,10 +56,15 @@ var store_tracking = function(_app) {
 						google_conversion_label : labels[i].replace(/^\s+|\s+$/g, ''), //trims label of whitespace
 						google_remarketing_only : "false"
 						}
+/*CHESS STORE*/			var bingGlobals = {
+/*CHESS STORE*/				microsoft_adcenterconversion_domainid : "13680",
+/*CHESS STORE*/				microsoft_adcenterconversion_cp : "5050"
+						}
 					if(plugin.dynamic_value){
 						globals.google_conversion_value = order.sum.order_total;
 						}
 					_app.ext.store_tracking.u.addTrackingScript("https://www.googleadservices.com/pagead/conversion.js", globals);
+/*CHESS STORE*/		_app.ext.store_tracking.u.addTrackingScript("https://0.r.msn.com/scripts/microsoft_adcenterconversion.js", bingGlobals);
 					}
 				}
 			},

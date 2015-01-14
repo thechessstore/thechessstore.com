@@ -432,6 +432,22 @@ _app.couple('order_create','addOrderCompleteHandler',{
 					 dump("Adwords conversion tracking image added on order placement.");
 					 					 
 					},250);
+					
+/*CHESS STORE*/	//BING TRACKING CODE
+/*CHESS STORE*/ 	setTimeout(function() {
+/*CHESS STORE*/			var microsoft_adcenterconversion_domainid = 13680;
+/*CHESS STORE*/			var microsoft_adcenterconversion_cp = 5050;
+/*CHESS STORE*/			var url = "https://13680.r.msn.com/?type=1&cp=1";
+/*CHESS STORE*/ 	   $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
+/*CHESS STORE*/ 	},200);
+
+/*CHESS STORE*/	//SAS TRACKING CODE
+/*CHESS STORE*/		setTimeout(function() {
+/*CHESS STORE*/		   var order = _app.data[P.datapointer].order;
+/*CHESS STORE*/		   var url = "https://shareasale.com/sale.cfm?amount="+order.sum.items_total+"&tracking="+order.our.orderid+"&transtype=SALE&storeID=1&merchantID=33638";
+/*CHESS STORE*/		  $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
+/*CHESS STORE*/		},300);
+
 				//conversion patch
 				var plugins = zGlobals.plugins;
 				// note: order is an object that references the raw (public) cart
@@ -467,13 +483,7 @@ _app.couple('order_create','addOrderCompleteHandler',{
 					if(_app.ext.store_tracking.trackers[i] && _app.ext.store_tracking.trackers[i].enable){
 						_app.ext.store_tracking.trackers[i](order, plugins[i]);
 						}
-					}
-					
-/*CHESS STORE*/	//SAS TRACKING CODE
-/*CHESS STORE*/   var order = _app.data[P.datapointer].order;
-/*CHESS STORE*/   var url = "https://shareasale.com/sale.cfm?amount="+order.sum.items_total+"&tracking="+order.our.orderid+"&transtype=SALE&storeID=1&merchantID=33638";
-/*CHESS STORE*/	  $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
-				
+					}				
 				}
 			});
 		}
