@@ -1949,6 +1949,10 @@ button.prodListATCButton{
 .applyButton span.ui-button-text{
 }
 
+.paypalModalCheckoutTransferMessage{
+	color:red;
+}
+
 /************************************************************************************************************************/
 /**Search Page**/
 #mainContentArea_search{

@@ -975,6 +975,48 @@ var extension_thechessstore = function(_app) {
 				return r;
 				},
 				
+				paypalCheckoutPopup : function() {
+					dump("paypalCheckoutPopup in custom extension ran because paypal payment option was selected.");
+					
+				},
+				
+				paypalCheckoutPopup : function() {
+					var $parent = $(".modalPrerender");
+					$parent.empty().tlc({verb:"transmogrify", templateid:"paypalCheckoutNoticeTemplate"});
+					window.scrollTo(0,0); 
+					$parent.dialog({'modal':'true', 'title':'','width':470, height:400, 'dialogClass' : 'paypalNoticeModal',buttons: {Close: function() {$( this ).dialog( "close" );}}});
+				}
+				
+		},
+		
+		
+		
+		e : {
+			closeModal : function($ele,p)	{
+				$(".paypalNoticeModal").dialog('close');
+			},
+			
+			paypalModalCheckout : function($ele,p)	{
+				$(".paypalModalCheckoutTransferMessage").show();
+				$(document.body).showLoading({'message':'Obtaining secure PayPal URL for transfer...'});
+				_app.ext.cco.calls.cartPaypalSetExpressCheckout.init({'getBuyerAddress':1, '_cartid':_app.model.fetchCartID(),'useMobile':($(document.body).width() < 500 ? 1 : 0)},{'callback':function(rd){
+					$(document.body).hideLoading();
+					if(_app.model.responseHasErrors(rd)){
+						$('#globalMessaging').anymessage({'message':rd});
+						}
+					else	{
+						if(_app.data[rd.datapointer] && _app.data[rd.datapointer].URL)	{
+							document.location = _app.data[rd.datapointer].URL+'&useraction=commit'; //commit returns user to website for order confirmation. otherwise they stay on paypal.
+							}
+						else	{
+							$('#globalMessaging').anymessage({"message":"In paypalecbutton render format, dispatch to obtain paypal URL was successful, but no URL in the response.","gMessage":true});
+							}
+						}
+					}});
+				$(this).addClass('disabled').attr('disabled','disabled');
+				_app.model.dispatchThis('immutable');
+
+			}
 		},
 		
 		

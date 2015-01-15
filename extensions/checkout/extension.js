@@ -1556,6 +1556,9 @@ _app.u.handleButtons($chkContainer); //will handle buttons outside any of the fi
 					_app.ext.order_create.u.handleCommonPanels($ele.closest('form'));
 					_app.model.dispatchThis("immutable");
 					});
+/*CHESS STORE*/		if($($ele).val() === "PAYPALEC"){
+/*CHESS STORE*/			_app.ext.extension_thechessstore.u.paypalCheckoutPopup();
+/*CHESS STORE*/		}
 				return false;
 				},
 			
@@ -2464,6 +2467,9 @@ _app.model.dispatchThis('passive');
 					$("button[data-giftcard-id]",o).attr('data-app-click','order_create|addGiftcardPaymethodAsPayment');
 					$(":radio",o).each(function(){
 						$(this).attr('data-app-change','order_create|shipOrPayMethodSelectExec');
+/*CHESS STORE*/			if($(this).val() === "PAYPALEC"){
+/*CHESS STORE*/				$(this).addClass("paypalPayOption");
+/*CHESS STORE*/			}
 						});
 					}
 				else	{
