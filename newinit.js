@@ -1250,10 +1250,14 @@ _app.extend({
 	"namespace" : "magictoolbox_mzp",
 	"filename" : "extensions/partner_magictoolbox_mzp.js"
 	});	
+_app.extend({
+	"namespace" : "store_crm",
+	"filename" : "extensions/store_crm.js"
+	});
 	
 _app.couple('quickstart','addPageHandler',{
 	"pageType" : "product",
-	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist','magictoolbox_mzp'],
+	"require" : ['store_product','store_navcats', 'store_routing', 'store_search', 'templates.html', 'store_prodlist','magictoolbox_mzp','store_crm'],
 	"handler" : function($container, infoObj, require){
 		infoObj.deferred = $.Deferred();
 		infoObj.defPipeline.addDeferred(infoObj.deferred);
@@ -1269,11 +1273,6 @@ _app.couple('quickstart','addPageHandler',{
 			_app.ext.store_product.u.showProd($container, infoObj);
 			});
 		}
-	});
-	
-_app.extend({
-	"namespace" : "store_crm",
-	"filename" : "extensions/store_crm.js"
 	});
 	
 // _app.extend({
