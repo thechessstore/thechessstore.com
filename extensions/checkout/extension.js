@@ -916,9 +916,8 @@ an existing user gets a list of previous addresses they've used and an option to
 						payby = cartData.want.payby;
 						}
 					if(payby)	{
-						var
-							$radio = $("input[value='"+payby+"']",$fieldset),
-							$supplemental = _app.ext.order_create.u.showSupplementalInputs($radio,_app.ext.order_create.vars);
+						var $radio = $("input[value='"+payby+"']",$fieldset);
+						var $supplemental = _app.ext.order_create.u.showSupplementalInputs($radio,_app.ext.order_create.vars);
 						if($supplemental)	{
 							_app.u.dump(" -> payment method ["+payby+"] HAS supplemental inputs");
 							$radio.closest("[data-app-role='paymentMethodContainer']").append($supplemental);
