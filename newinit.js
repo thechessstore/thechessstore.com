@@ -448,6 +448,14 @@ _app.couple('order_create','addOrderCompleteHandler',{
 /*CHESS STORE*/		  $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
 /*CHESS STORE*/		},300);
 
+/*CHESS STORE*/	//LINKCONNECTOR TRACKING CODE
+/*CHESS STORE*/ 	setTimeout(function() {
+/*CHESS STORE*/			var order = _app.data[P.datapointer].order;
+/*CHESS STORE*/			var itemTotals = order.sum.items_total;
+/*CHESS STORE*/			var url = "https://www.linkconnector.com/tmjs.php?lc=000000003300&oid="+order+"&amt="+itemTotals;
+/*CHESS STORE*/ 	   $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
+/*CHESS STORE*/ 	},350);
+
 				//conversion patch
 				var plugins = zGlobals.plugins;
 				// note: order is an object that references the raw (public) cart
