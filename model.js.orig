@@ -83,7 +83,11 @@ function model(_app) {
 	var r = {
 	
 		
+<<<<<<< HEAD
+		version : "201410",
+=======
 		version : "201411",
+>>>>>>> d39ca6fba9090c373b1d09ea0ca063c863001bcf
 		
 		
 	// --------------------------- GENERAL USE FUNCTIONS --------------------------- \\

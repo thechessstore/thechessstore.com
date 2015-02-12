@@ -443,7 +443,7 @@ document.write = function(v){
 				else	{
 //					dump(prods);
 //					tagObj.jqObj.tlc({'verb':'translate','datapointer':tagObj.datapointer});
-					_app.ext.store_prodlist.u.buildProductList({"loadsTemplate":"productListTemplateBuyerList","withInventory":1,"withVariations":1,"parentID":tagObj.parentID,"csv":prods,"hide_summary":1,"hide_pagination":1},tagObj.jqObj);
+					_app.ext.store_prodlist.u.buildProductList({"loadsTemplate":"productListTemplateBuyerList","withInventory":1,"withVariations":1,"csv":prods,"hide_summary":1,"hide_pagination":1},tagObj.jqObj);
 					_app.model.dispatchThis();
 					}
 				}
@@ -459,7 +459,7 @@ document.write = function(v){
 					$('#'+tagObj.targetID).anymessage({'message':'This list ('+listID+') appears to be empty.'});
 					}
 				else	{
-					_app.ext.store_prodlist.u.buildProductList({"templateID":tagObj.templateID,"parentID":tagObj.targetID,"csv":_app.data[tagObj.datapointer]['@products']})
+					_app.ext.store_prodlist.u.buildProductList({"templateID":tagObj.templateID,"csv":_app.data[tagObj.datapointer]['@products']}, tagObj.jqObj)
 					_app.model.dispatchThis();
 					}
 				}
@@ -552,7 +552,9 @@ need to be customized on a per-ria basis.
 
 
 		tlcFormats : {
-			
+			dump : function(data, thisTLC){
+				dump(data);
+				},
 			searchbytag : function(data,thisTLC)	{
 				var argObj = thisTLC.args2obj(data.command.args,data.globals); //this creates an object of the args
 				var query = {"size":(argObj.size || 4),"mode":"elastic-search","filter":{"term":{"tags":argObj.tag}}};

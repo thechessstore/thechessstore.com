@@ -1031,7 +1031,10 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 						event.currentTarget.target = "_blank";
 						}
 					});
-				var defaultPopState = window.onpopstate;
+<<<<<<< HEAD
+				
+=======
+>>>>>>> d39ca6fba9090c373b1d09ea0ca063c863001bcf
 				var defaultPopState = window.onpopstate;
 				window.onpopstate = function(event){
 					if(_app.router.handleURIChange(event.state)){

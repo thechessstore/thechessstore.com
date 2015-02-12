@@ -8,6 +8,12 @@ myApp.rq.push(['script',0,(document.location.protocol == 'file:') ? myApp.vars.t
 	myApp.vars.domain = zGlobals.appSettings.sdomain; //passed in ajax requests.
 	myApp.vars.jqurl = (document.location.protocol === 'file:') ? myApp.vars.testURL+'jsonapi/' : '/jsonapi/';
 	}]); //The config.js is dynamically generated.
+_app.u.bindTemplateEvent('checkoutTemplate','depart.destroy',function(event, $context, infoObj){
+	var $page = $context.closest('[data-app-uri]');
+	if($page){
+		$page.empty().remove();
+		}
+	});
 	
 myApp.rq.push(['extension',0,'order_create','extensions/checkout/extension.js']);
 myApp.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
@@ -22,6 +28,14 @@ myApp.rq.push(['extension',0,'cart_message','extensions/cart_message/extension.j
 myApp.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 myApp.rq.push(['extension',0,'store_tracking','extensions/store_tracking.js']);
 myApp.rq.push(['extension',0,'quickstart','app-quickstart.js','startMyProgram']);
+_app.router.appendHash({'type':'exact','route':'/my_order_history/','callback':function(routeObj){
+		'templateID':'orderHistoryTemplate',
+_app.u.bindTemplateEvent('orderHistoryTemplate','complete.customer',function(event, $context, infoObj){
+	_app.model.addDispatchToQ({"_cmd":"buyerPurchaseHistory","_tag":{'callback':'tlc','jqObj':$('.mainColumn',$context),'verb':'translate','datapointer':'buyerPurchaseHistory'}},'mutable');
+	_app.model.dispatchThis();							
+	});
+_app.router.appendHash({'type':'exact','route':'/change_password/','callback':function(routeObj){
+		'templateID':'changePasswordTemplate',
 
 //myApp.rq.push(['extension',0,'entomologist','extensions/entomologist/extension.js']);
 //myApp.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
@@ -156,20 +170,24 @@ myApp.router.appendInit({
 		g = g || {};
 		if(g.uriParams.seoRequest){
 			showContent(g.uriParams.pageType, g.uriParams);
+			//that's why we pass false for the windowHistoryAction- no pushstate
+			_app.router.handleURIString($existingPage.attr('data-app-uri'), false, {"retrigger" : true});
+			_app.router.handleURIChange("/"+pathStr, search, false, 'replace');
+			_app.router.handleURIChange("/", document.location.search, document.location.hash, 'replace');
 			}
 		else if (g.uriParams.marketplace){
-			var infoObj = {"pid":g.uriParams.product};
+			_app.router.handleURIString('/product/'+g.uriParams.product+'/', 'replace');
 			if(g.uriParams.sku){
 				infoObj.sku = g.uriParams.sku;
 				}
 			showContent("product",infoObj);
 			}
-		else if(document.location.hash)	{	
+			_app.router.handleURIChange(document.location.pathname, document.location.search, document.location.hash, 'replace');
 			myApp.u.dump('triggering handleHash');
 			myApp.router.handleHashChange();
 			}
 		else	{
-			//IE8 didn't like the shortcut to showContent here.
+			_app.router.handleURIChange("/", document.location.search, document.location.hash, 'replace');
 			myApp.ext.quickstart.a.showContent('homepage');
 			}
 		if(g.uriParams && g.uriParams.meta)	{
@@ -181,7 +199,14 @@ myApp.router.appendInit({
 		}
 	});
 
-
+_app.u.bindTemplateEvent(function(){return true;},'complete.analyticssetup',function(event, $context, infoObj){
+	if(!_app.vars.analyticsFirstPageSent){
+		_app.vars.analyticsFirstPageSent = true;
+		}
+	else{
+		window[_app.vars.analyticsPointer]('send','pageview');
+		}
+	});
 
 
 
