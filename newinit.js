@@ -1447,7 +1447,6 @@ _app.router.appendInit({
 		}
 	});
 	
-	/*
 	_app.u.bindTemplateEvent(function(){return true;},'complete.analyticssetup',function(event, $context, infoObj){
 	if(!_app.vars.analyticsFirstPageSent){
 		_app.vars.analyticsFirstPageSent = true;
@@ -1456,7 +1455,6 @@ _app.router.appendInit({
 		window[_app.vars.analyticsPointer]('send','pageview');
 		}
 	});
-	*/
 
 
 
