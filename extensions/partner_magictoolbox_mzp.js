@@ -55,9 +55,28 @@ var magictoolbox_mzp = function(_app) {
 	//				_app.u.dump("BEGIN magictoolbox.callbacks.startExtension");
 					//this loaded in index w/ apptimize now: examples/magictoolbox/magiczoomplus.css
 					//_app.u.loadResourceFile(['css',0,'examples/magictoolbox/magiczoomplus.css','mzpStylesheet']);
-					_app.u.loadResourceFile(['script',0,'examples/magictoolbox/magiczoomplus.js',function(){
-						MagicZoomPlus.start();
-					}]);
+					/*
+					if($('body').data('mzpLoaded')){
+						dump("MZP load detected.");
+						if($('body').data('mzpLoaded',true)){
+							dump("Doing nothing. MZP is already loaded");
+						}
+						else{
+							_app.u.loadResourceFile(['script',0,'examples/magictoolbox/magiczoomplus.js',function(){
+								MagicZoomPlus.start();
+							}]);
+							$('body').data('mzpLoaded',true);
+							dump("MZP data token detected but not loaded. Loading MZP and updating token.");
+						}
+					}
+					else{
+						_app.u.loadResourceFile(['script',0,'examples/magictoolbox/magiczoomplus.js',function(){
+							MagicZoomPlus.start();
+						}]);
+						$('body').data('mzpLoaded',true);
+						dump("MZP data token not detected. Creating it and starting MZP.");
+					}
+					*/
 						
 MagicZoomPlus.options = {
 	'hint' : 'false'

@@ -863,6 +863,8 @@ _app.u.bindTemplateEvent('productTemplate', 'complete.productinit', function(eve
 		$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 		$('.headerIE8WarningCont').data('messageShown',true).append();
 	}
+	
+	MagicZoomPlus.start();
 });
 _app.u.bindTemplateEvent('productTemplate', 'depart.extension_thechessstore', function(event, $context, infoObj){
 	//BEGIN HEADER SHOWING WHEN LEAVING THIS PAGE
