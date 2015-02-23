@@ -451,8 +451,13 @@ _app.couple('order_create','addOrderCompleteHandler',{
 /*CHESS STORE*/	//LINKCONNECTOR TRACKING CODE
 /*CHESS STORE*/ 	setTimeout(function() {
 /*CHESS STORE*/			var order = _app.data[P.datapointer].order;
+/*CHESS STORE*/			var orderid = _app.data[P.datapointer].order.our.orderid;
+/*CHESS STORE*/			//dump("Order ID = ");
+/*CHESS STORE*/			//dump(orderid);
 /*CHESS STORE*/			var itemTotals = order.sum.items_total;
-/*CHESS STORE*/			var url = "https://www.linkconnector.com/tmjs.php?lc=000000003300&oid="+order+"&amt="+itemTotals;
+/*CHESS STORE*/			//dump("itemTotals = ");
+/*CHESS STORE*/			//dump(itemTotals);
+/*CHESS STORE*/			var url = "https://www.linkconnector.com/tmjs.php?lc=000000003300&oid="+orderid+"&amt="+itemTotals;
 /*CHESS STORE*/ 	   $('body').append('<img src="'+url+'" class="displayNone" width="1" height="1"/>');
 /*CHESS STORE*/ 	},350);
 
