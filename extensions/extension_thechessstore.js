@@ -992,6 +992,21 @@ var extension_thechessstore = function(_app) {
 		
 		
 		e : {
+			showDropdown : function($ele,p){
+				var $dropdown = $(".dropdown", $ele);
+				var height = 0;
+				$dropdown.children().each(function(){
+					height += $(this).outerHeight(true);
+				});
+				// $dropdown.stop().animate({"height":height+"px"}, 1000);
+				$dropdown.stop().animate({"height":height+"px"}, 10);
+				// $dropdown.css({"height":height});
+				},
+			hideDropdown : function($ele,p){
+				// $(".dropdown", $ele).stop().animate({"height":"0px"}, 1000);
+				$(".dropdown", $ele).stop().animate({"height":"0px"}, 10);
+				// $(".dropdown", $ele).css({"height":0});
+				},
 			closeModal : function($ele,p)	{
 				$(".paypalNoticeModal").dialog('close');
 			},

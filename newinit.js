@@ -557,21 +557,6 @@ _app.u.bindTemplateEvent('homepageTemplate', 'complete.homepageinit',function(ev
 			$('.headerIE8WarningCont').anymessage({'message':'The browser you are using is out of date and cannot be used to view this web site properly. We recommend that you use IE9 or better, Firefox or Chrome.'});	
 			$('.headerIE8WarningCont').data('messageShown',true).append();
 		}
-	
-	
-		//Header dropdown menus
-		var showDropdown = function ($tag) {
-			var $dropdown = $(".dropdown", $tag);
-			var height = 0;
-			$dropdown.children().each(function(){
-				height += $(this).outerHeight(true);
-			});
-			$dropdown.stop().animate({"height":height+"px"}, 1000);
-		}
-			
-		var hideDropdown = function ($tag) {
-			$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
-		}
 		
 		//Homepage Slideshow image code and carousel code
 		
