@@ -1034,6 +1034,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				var defaultPopState = window.onpopstate;
 				var defaultPopState = window.onpopstate;
 				window.onpopstate = function(event){
+					console.log(event);
 					if(_app.router.handleURIChange(event.state)){
 						//handled, we're all good
 						}
