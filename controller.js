@@ -1074,12 +1074,15 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				routeObj.value = value;
 				try{
 					if(windowHistoryAction == 'push'){
+						console.log('Pushing '+value);
 						window.history.pushState(value,"",value);
 						}
 					else if (windowHistoryAction == 'replace'){
+						console.log('Replacing with '+value);
 						window.history.replaceState(value,"",value);
 						}
 					else if (windowHistoryAction == 'hash'){
+						console.log('Hashing with '+value);
 						window.history.pushState(value, "", window.location.pathname+"#!"+value);
 						}
 					else {
