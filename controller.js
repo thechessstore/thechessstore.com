@@ -1070,16 +1070,17 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				routeObj.path = uri;
 				routeObj.search = search;
 				routeObj.hash = hash;
-				routeObj.value = uri +""+ (search || "") +""+ (hash || "");
+				var value = uri +""+ (search || "") +""+ (hash || "");
+				routeObj.value = value;
 				try{
 					if(windowHistoryAction == 'push'){
-						window.history.pushState(routeObj.value,"",routeObj.value);
+						window.history.pushState(value,"",value);
 						}
 					else if (windowHistoryAction == 'replace'){
-						window.history.replaceState(routeObj.value,"",routeObj.value);
+						window.history.replaceState(value,"",value);
 						}
 					else if (windowHistoryAction == 'hash'){
-						window.history.pushState(routeObj.value, "", window.location.pathname+"#!"+routeObj.value);
+						window.history.pushState(value, "", window.location.pathname+"#!"+value);
 						}
 					else {
 						//skip
