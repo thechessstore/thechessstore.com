@@ -309,7 +309,7 @@ _app.router.appendHash({'type':'exact','route':'/my_order_history/','callback':f
 _app.router.appendHash({'type':'exact','route':'/create_account/','callback':function(routeObj){
 	$.extend(routeObj.params,{
 		'pageType':'static',
-		'login' : true,
+		'login' : false,
 		'templateID':'createaccountTemplate',
 		'require':['cco','templates.html']
 		});
