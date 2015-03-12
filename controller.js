@@ -1031,16 +1031,13 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 						event.currentTarget.target = "_blank";
 						}
 					});
-				var defaultPopState = window.onpopstate;
-				window.onpopstate = function(event){
-					console.log(event);
+				window.addEventListener('popstate', function(event) {
+					console.log('popstate fired!');
+
 					if(event.state.app_uri && _app.router.handleURIChange(event.state.app_uri)){
 						console.log(event.state.app_uri);
 						}
-					else {
-						defaultPopState(event);
-						}
-					}
+					}); 
 				
 				}
 			},
