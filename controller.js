@@ -1034,7 +1034,7 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				window.addEventListener('popstate', function(event) {
 					console.log('popstate fired!');
 
-					if(event.state.app_uri && _app.router.handleURIChange(event.state.app_uri)){
+					if(event.state.app_uri && _app.router.handleURIString(event.state.app_uri,"none")){
 						console.log(event.state.app_uri);
 						}
 					}); 
