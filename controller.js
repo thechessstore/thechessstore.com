@@ -1035,8 +1035,8 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 				var defaultPopState = window.onpopstate;
 				window.onpopstate = function(event){
 					console.log(event);
-					if(_app.router.handleURIChange(event.state)){
-						//handled, we're all good
+					if(event.state.app_uri && _app.router.handleURIChange(event.state.app_uri)){
+						console.log(event.state.app_uri);
 						}
 					else {
 						defaultPopState(event);
@@ -1079,11 +1079,11 @@ ex: whoAmI call executed during app init. Don't want "we have no idea who you ar
 						}
 					else if (windowHistoryAction == 'replace'){
 						console.log('Replacing with '+value);
-						window.history.replaceState(value,"",value);
+						window.history.replaceState({app_uri:value},"",value);
 						}
 					else if (windowHistoryAction == 'hash'){
 						console.log('Hashing with '+value);
-						window.history.pushState(value, "", window.location.pathname+"#!"+value);
+						window.history.pushState({app_uri:value}, "", window.location.pathname+"#!"+value);
 						}
 					else {
 						//skip
