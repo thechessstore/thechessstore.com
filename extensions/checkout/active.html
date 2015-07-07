@@ -12,7 +12,7 @@ item list and summary are separate just to give more control over location.
     <h4 class="checkoutPaypalNoticeBold">PayPal Notice:</h4>
     <h5 class="checkoutPaypalNotice">If you are planning to pay via PayPal, please immediately proceed to the payment section and select PayPal - Express Checkout.</h5>
 
-	<form action="#">
+	<form autocomplete="off" action="#">
 	<input data-tlc="bind $var '.bill.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="bill/shortcut" type="hidden">
 	<input data-tlc="bind $var '.ship.shortcut'; if(is $var --notblank;) {{apply --select=$var;}}; " name="ship/shortcut" type="hidden">
 	<input data-tlc="bind $var '.cart.cartid'; if(is $var --notblank;) {{apply --select=$var;}}; " name="_cartid" type="hidden">
